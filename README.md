@@ -15,6 +15,17 @@ books and members.
 - 🔍 **Search Functionality**: Search for books and members by name or title, and view books checked out by specific
   members.
 
+## Project Structure
+
+The project follows Agile methodology, with the following structure:
+
+- **Sprint 1:** Project setup and initial implementation.
+- **Sprint 2:** Member management and book issuing.
+- **Sprint 3:** Fine management and reporting.
+- **Sprint 4:** Search functionality and final integrations.
+- **Sprint 5:** Testing and deployment.
+
+
 ## Technologies Used
 
 - **Java**: Programming language ☕
