@@ -6,7 +6,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.2.8</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/>
     </parent>
     <groupId>code.with.vanilson</groupId>
     <artifactId>library-management-system</artifactId>
@@ -109,7 +109,6 @@
         </dependency>
 
         <!-- Use commom for dependencies that are not available in the current version-->
-
         <dependency>
             <groupId>com.github.edsonwade</groupId>
             <artifactId>common</artifactId>
