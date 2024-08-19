@@ -7,12 +7,12 @@ WORKDIR /app
 
 # First, copy only the pom.xml to leverage Docker cache for dependencies
 COPY pom.xml .
+
 RUN mvn dependency:go-offline -B
 
 # Copy the rest of the source code and build the application
 COPY src src
 RUN mvn package -DskipTests
-
 
 #########################################
 # Package Stage: Create the final container image
@@ -30,4 +30,3 @@ EXPOSE ${SERVER_PORT}
 
 # Specify the command to run your application
 ENTRYPOINT ["java", "-jar", "/library-management-system-0.0.1-SNAPSHOT.jar"]
-
