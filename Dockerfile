@@ -23,11 +23,11 @@ FROM openjdk:17
 ENV SERVER_PORT=8081
 
 # Copy the built JAR file from the build stage to the new image
-COPY --from=builder /app/target/*.jar /student-management.jar
+COPY --from=builder /app/target/*.jar /library-management-system-0.0.1-SNAPSHOT.jar
 
 # Expose the port that the application will run on
 EXPOSE ${SERVER_PORT}
 
 # Specify the command to run your application
-ENTRYPOINT ["java", "-jar", "/student-management.jar"]
+ENTRYPOINT ["java", "-jar", "/library-management-system-0.0.1-SNAPSHOT.jar"]
 
