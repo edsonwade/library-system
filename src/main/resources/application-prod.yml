@@ -1,20 +1,31 @@
+#Library Management System Configuration
 spring:
   application:
-    name: library-management-system
+    name: student-management
   datasource:
-    url: jdbc:postgresql://localhost:5432/library_db
-    username: library_user
-    password: library_password
+    url: jdbc:mysql://localhost:5432/prod_library_management_db
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
       ddl-auto: update
-    show-sql: false
-
-logging:
-  file:
-    name: logs/prod.log
-  level:
-    root: WARN
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
-  file-size: 100MB
+      format_sql: true
+      show-sql: true
+    database: mysql
+server:
+  port: 8082
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+springdoc:
+  swagger-ui:
+    path: /library-api.html

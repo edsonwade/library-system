@@ -1,55 +1,80 @@
 version: '3.8'
 
 services:
-  postgres:
-    image: postgres:15
-    container_name: library_postgres
+  library-management-system:
+    image: library-management-system
+    container_name: library-management
+    ports:
+      - "8082:8081"
+    depends_on:
+      - postgres
     environment:
-      POSTGRES_USER: library_user
-      POSTGRES_PASSWORD: library_password
-      POSTGRES_DB: library_db
+      DATABASE_URL: jdbc:postgresql://postgres:5432/library_management_db
+      POSTGRES_USERNAME: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      SERVER_PORT: '8081'
+      HIBERNATE_DDL_AUTO: 'update'
+      SPRING_PROFILES_ACTIVE: 'docker'
+    env_file:
+      - .env
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB} -h postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: on-failure
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-
-  app-instance1:
-    build: ../../../../Downloads
-    container_name: library_app_1
-    ports:
-      - "8081:8080"
-    environment:
-      SPRING_PROFILES_ACTIVE: dev
-    depends_on:
-      - postgres
-
-  app-instance2:
-    build: ../../../../Downloads
-    container_name: library_app_2
-    ports:
-      - "8082:8080"
-    environment:
-      SPRING_PROFILES_ACTIVE: prod
-    depends_on:
-      - postgres
+    env_file:
+      - .env
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
 
   prometheus:
-    image: prom/prometheus
+    image: prom/prometheus:latest
     container_name: prometheus
-    volumes:
-      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
+    volumes:
+      - "./src/main/resources/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+      - prometheus_data:/prometheus
+    restart: unless-stopped
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    networks:
+      - library-management-net
 
   grafana:
     image: grafana/grafana
     container_name: grafana
-    environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin
     ports:
-      - "3000:3000"
+      - "3001:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
     depends_on:
       - prometheus
+    restart: always
+    networks:
+      - library-management-net
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: admin
 
 volumes:
   postgres_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  library-management-net:
+    driver: bridge

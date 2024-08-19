@@ -1,14 +1,32 @@
-# Use an official OpenJDK runtime as a parent image
-FROM openjdk:17-jdk-slim
+#########################################
+# Build Stage: Build the application using Maven
+#########################################
+FROM maven:3.8.1-openjdk-17 as builder
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the application jar file into the container
-COPY target/library-management-system.jar /app/library-management-system.jar
+# First, copy only the pom.xml to leverage Docker cache for dependencies
+COPY pom.xml .
+RUN mvn dependency:go-offline -B
 
-# Expose the application's port
-EXPOSE 8080
+# Copy the rest of the source code and build the application
+COPY src src
+RUN mvn package -DskipTests
 
-# Command to run the application
-CMD ["java", "-jar", "/app/library-management-system.jar"]
+
+#########################################
+# Package Stage: Create the final container image
+#########################################
+FROM openjdk:17
+
+# Set environment variables
+ENV SERVER_PORT=8081
+
+# Copy the built JAR file from the build stage to the new image
+COPY --from=builder /app/target/*.jar /library-management-system.jar
+
+# Expose the port that the application will run on
+EXPOSE ${SERVER_PORT}
+
+# Specify the command to run your application
+ENTRYPOINT ["java", "-jar", "/app/library-management-system.jar"]
