@@ -31,6 +31,6 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build and test
+        env:
+          MAVEN_OPTS: "-s .github/maven-settings.xml"
         run: mvn clean install
-        with:
-          maven-settings: .github/maven-settings.xml
