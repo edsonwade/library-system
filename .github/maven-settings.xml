@@ -1,9 +1,9 @@
 <settings>
     <servers>
         <server>
-            <id>github</id>
-            <username>edsonwade</username>
-            <password>${{ secrets.COMMON_PAT }}</password>
+            <id>github</id>  <!-- This ID should match the ID used in the <repositories> section of your pom.xml -->
+            <username>${env.GITHUB_ACTOR}</username>  <!-- GitHub username or actor -->
+            <password>${env.GITHUB_TOKEN}</password>  <!-- Personal Access Token (PAT) for GitHub -->
         </server>
     </servers>
 </settings>

@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,16 +20,19 @@ jobs:
         with:
           java-version: '17'
           distribution: 'adopt'
-          cache: maven
 
-      - name: Cache Maven packages
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+      - name: Create Maven settings.xml
+        run: |
+          mkdir -p ~/.m2
+          echo "<settings>
+                  <servers>
+                    <server>
+                      <id>github</id>
+                      <username>${{ github.actor }}</username>
+                      <password>${{ secrets.MY_COMMON }}</password>
+                    </server>
+                  </servers>
+                </settings>" > ~/.m2/settings.xml
 
       - name: Build and test
         run: mvn clean install --settings .github/maven-settings.xml
-        env:
-          GITHUB_PAT: ${{ secrets.COMMON_PAT }}  # Ensure the secret is correctly set
