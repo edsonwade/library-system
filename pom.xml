@@ -22,14 +22,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-data-jdbc</artifactId>-->
-        <!--        </dependency>-->
-        <!--		<dependency>-->
-        <!--			<groupId>org.springframework.boot</groupId>-->
-        <!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
-        <!--		</dependency>-->
+                <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-data-jdbc</artifactId>
+                </dependency>
+        		<dependency>
+        			<groupId>org.springframework.boot</groupId>
+        			<artifactId>spring-boot-starter-data-jpa</artifactId>
+        		</dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
@@ -109,12 +109,12 @@
             <version>1.7</version>
         </dependency>
 
-        <!--        &lt;!&ndash; Use commom for dependencies that are not available in the current version&ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.github.edsonwade</groupId>-->
-        <!--            <artifactId>common</artifactId>-->
-        <!--            <version>1.0.0</version>-->
-        <!--        </dependency>-->
+        <!-- Dependency on Common project -->
+        <dependency>
+            <groupId>code.with.vanilson</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 
