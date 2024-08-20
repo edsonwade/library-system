@@ -1,0 +1,9 @@
+<settings>
+    <servers>
+        <server>
+            <id>github</id>
+            <username>${{ github.actor }}</username>
+            <password>${{ secrets.LIBRARY_MANAGEMENT_PAT }}</password>
+        </server>
+    </servers>
+</settings>

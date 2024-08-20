@@ -109,6 +109,8 @@
             <version>1.7</version>
         </dependency>
 
+
+
         <!-- Dependency on Common project -->
         <dependency>
             <groupId>code.with.vanilson</groupId>
@@ -178,5 +180,13 @@
             </properties>
         </profile>
     </profiles>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/edsonwade/common</url>
+        </repository>
+    </repositories>
+
 
 </project>
