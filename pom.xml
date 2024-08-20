@@ -22,10 +22,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jdbc</artifactId>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-data-jdbc</artifactId>-->
+        <!--        </dependency>-->
         <!--		<dependency>-->
         <!--			<groupId>org.springframework.boot</groupId>-->
         <!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
@@ -70,6 +70,7 @@
             <artifactId>micrometer-registry-prometheus</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -108,24 +109,18 @@
             <version>1.7</version>
         </dependency>
 
-        <!-- Use commom for dependencies that are not available in the current version-->
-        <dependency>
-            <groupId>com.github.edsonwade</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+        <!--        &lt;!&ndash; Use commom for dependencies that are not available in the current version&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.github.edsonwade</groupId>-->
+        <!--            <artifactId>common</artifactId>-->
+        <!--            <version>1.0.0</version>-->
+        <!--        </dependency>-->
 
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-
     <build>
         <plugins>
+            <!-- Spring Boot Maven Plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -138,8 +133,19 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <!-- Ensure Maven Compiler Plugin is compatible -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version> <!-- Ensure this is compatible with Maven 3.8.6 -->
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
     <profiles>
         <profile>
             <id>dev</id>

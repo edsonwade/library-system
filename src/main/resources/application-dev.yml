@@ -1,4 +1,6 @@
-#Library Management System Configuration
+server:
+  port: 8081
+
 spring:
   application:
     name: library-management-system
@@ -18,21 +20,6 @@ spring:
     database: postgresql
     open-in-view: true
 
-logging:
-  file:
-    name: logs/dev.log
-  level:
-    root: INFO
-  pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
-  file-size: 100MB
-
-
-#Server Configuration:
-server:
-  port: 8081
-
-#Management Endpoints Configuration
 management:
   endpoints:
     web:
@@ -42,7 +29,6 @@ management:
     health:
       show-details: always
 
-#Springdoc Configuration:
 springdoc:
   api-docs:
     path: /v3/api-docs
