@@ -17,12 +17,12 @@
         <java.version>17</java.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>github</id> <!-- This ID should match the ID in `maven-settings.xml` -->
-            <url>https://maven.pkg.github.com/edsonwade/common</url>
-        </repository>
-    </repositories>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>github</id> &lt;!&ndash; This ID should match the ID in `maven-settings.xml` &ndash;&gt;-->
+<!--            <url>https://maven.pkg.github.com/edsonwade/common</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
     <dependencies>
         <!-- Your dependencies here -->
