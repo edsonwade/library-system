@@ -2,9 +2,8 @@
     <servers>
         <server>
             <id>github</id>
-            <username>${{ github.actor }}</username>
-            <password>${{ secrets.LIBRARY_MANAGEMENT_PAT }}</password>
+            <username>edsonwade</username>
+            <password>${{ secrets.COMMON_PAT }}</password>
         </server>
     </servers>
 </settings>
-<!--not working-->

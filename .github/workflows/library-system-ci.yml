@@ -31,4 +31,6 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
 
       - name: Build and test
-        run: mvn clean install -s .github/maven-settings.xml
+        run: mvn clean install --settings .github/maven-settings.xml
+        env:
+          GITHUB_PAT: ${{ secrets.COMMON_PAT }}  # Ensure the secret is correctly set
