@@ -388,3 +388,602 @@ Identify and stop the process that's listening on port 8080 or configure this ap
 2024-08-20 14:00:29,434 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
 2024-08-20 14:00:29,447 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 0.695 seconds (process running for 354.852)
 2024-08-20 14:00:29,450 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener: Condition evaluation unchanged
+2024-08-20 14:54:55,387 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-20 14:54:55,445 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 18504 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-20 14:54:55,445 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-20 14:54:55,448 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-20 14:54:55,511 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-20 14:54:55,512 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-20 14:54:57,167 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 14:54:57,169 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-20 14:54:57,190 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
+2024-08-20 14:54:57,199 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 14:54:57,201 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-20 14:54:57,207 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-08-20 14:54:58,122 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-20 14:54:58,136 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-20 14:54:58,138 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-20 14:54:58,139 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-20 14:54:58,239 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-20 14:54:58,239 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2726 ms
+2024-08-20 14:54:58,456 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-20 14:54:59,845 ERROR [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.getConnectionUrl(H2ConsoleAutoConfiguration.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.stream.SortedOps$RefSortingSink.end(SortedOps.java:395)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
+	at java.base/java.util.stream.Sink$ChainedReference.end(Sink.java:258)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:510)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:575)
+	at java.base/java.util.stream.AbstractPipeline.evaluateToArrayNode(AbstractPipeline.java:260)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:616)
+	at java.base/java.util.stream.ReferencePipeline.toArray(ReferencePipeline.java:622)
+	at java.base/java.util.stream.ReferencePipeline.toList(ReferencePipeline.java:627)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.logDataSources(H2ConsoleAutoConfiguration.java:86)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.lambda$h2Console$0(H2ConsoleAutoConfiguration.java:69)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.withThreadContextClassLoader(H2ConsoleAutoConfiguration.java:78)
+	at org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration.h2Console(H2ConsoleAutoConfiguration.java:69)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:210)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:201)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addServletContextInitializerBeans(ServletContextInitializerBeans.java:96)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:85)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4414)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:772)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:415)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:874)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:437)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:126)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:105)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:499)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:218)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:619)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at code.with.vanilson.libraryapplication.LibraryManagementSystemApplication.main(LibraryManagementSystemApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-08-20 14:54:59,982 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-20 14:55:01,166 ERROR [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.flywaydb.core.api.configuration.ClassicConfiguration.setDataSource(ClassicConfiguration.java:1094)
+	at org.flywaydb.core.api.configuration.FluentConfiguration.dataSource(FluentConfiguration.java:624)
+	at org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration$FlywayConfiguration.configureDataSource(FlywayAutoConfiguration.java:188)
+	at org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration$FlywayConfiguration.flyway(FlywayAutoConfiguration.java:175)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at code.with.vanilson.libraryapplication.LibraryManagementSystemApplication.main(LibraryManagementSystemApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-08-20 14:55:01,255 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-20 14:55:01,257 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-20 14:55:01,257 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-20 14:55:01,266 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-20 14:55:02,411 ERROR [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:74)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:142)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:140)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at code.with.vanilson.libraryapplication.LibraryManagementSystemApplication.main(LibraryManagementSystemApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+2024-08-20 14:55:02,413 WARN  [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+--------------------------------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+
+2024-08-20 14:55:02,416 INFO  [restartedMain] o.a.catalina.core.StandardService: Stopping service [Tomcat]
+2024-08-20 14:55:02,436 INFO  [restartedMain] o.s.b.a.l.ConditionEvaluationReportLogger: 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-20 14:55:02,465 ERROR [restartedMain] o.s.boot.SpringApplication: Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+--------------------------------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at code.with.vanilson.libraryapplication.LibraryManagementSystemApplication.main(LibraryManagementSystemApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Unable to obtain connection from database: FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+--------------------------------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 15 common frames omitted
+Caused by: org.flywaydb.core.internal.exception.FlywaySqlException: Unable to obtain connection from database: FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+--------------------------------------------------------------------------------------------------------------------------
+SQL State  : 28P01
+Error Code : 0
+Message    : FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:60)
+	at org.flywaydb.core.internal.jdbc.JdbcConnectionFactory.<init>(JdbcConnectionFactory.java:74)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:142)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:140)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 22 common frames omitted
+Caused by: org.postgresql.util.PSQLException: FATAL: autentica��o do tipo password falhou para usu�rio "${POSTGRES_USERNAME}"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:693)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+	at org.postgresql.Driver.makeConnection(Driver.java:443)
+	at org.postgresql.Driver.connect(Driver.java:297)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.flywaydb.core.internal.jdbc.JdbcUtils.openConnection(JdbcUtils.java:48)
+	... 28 common frames omitted
+2024-08-20 14:55:48,735 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-20 14:55:48,789 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 22368 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-20 14:55:48,790 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-20 14:55:48,791 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-20 14:55:48,839 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-20 14:55:48,840 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-20 14:55:49,991 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 14:55:49,993 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-20 14:55:50,010 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
+2024-08-20 14:55:50,020 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 14:55:50,021 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-20 14:55:50,026 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2024-08-20 14:55:50,853 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-20 14:55:50,862 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-20 14:55:50,864 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-20 14:55:50,865 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-20 14:55:50,931 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-20 14:55:50,932 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2092 ms
+2024-08-20 14:55:51,076 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-20 14:55:51,412 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@56b6ac91
+2024-08-20 14:55:51,416 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-20 14:55:51,432 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-20 14:55:51,747 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-20 14:55:51,748 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-20 14:55:51,748 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-20 14:55:51,767 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-20 14:55:51,780 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-20 14:55:51,826 INFO  [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory: Schema history table "public"."flyway_schema_history" does not exist yet
+2024-08-20 14:55:51,830 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 0 migrations (execution time 00:00.017s)
+2024-08-20 14:55:51,831 WARN  [restartedMain] o.f.core.internal.command.DbValidate: No migrations found. Are your locations set up correctly?
+2024-08-20 14:55:51,862 INFO  [restartedMain] o.f.c.i.s.JdbcTableSchemaHistory: Creating Schema History table "public"."flyway_schema_history" ...
+2024-08-20 14:55:51,933 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
+2024-08-20 14:55:51,939 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-20 14:55:52,119 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-20 14:55:52,193 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-20 14:55:52,254 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-20 14:55:52,634 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-20 14:55:52,718 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-20 14:55:53,200 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-20 14:55:53,206 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 14:55:55,162 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-20 14:55:55,174 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-20 14:55:55,310 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-20 14:55:55,359 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-20 14:55:55,392 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 7.141 seconds (process running for 8.271)
+2024-08-20 14:55:56,931 INFO  [RMI TCP Connection(2)-192.168.1.137] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-20 14:55:56,932 INFO  [RMI TCP Connection(2)-192.168.1.137] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2024-08-20 14:55:56,936 INFO  [RMI TCP Connection(2)-192.168.1.137] o.s.web.servlet.DispatcherServlet: Completed initialization in 3 ms
+2024-08-20 14:59:46,824 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener: Restarting due to 5 class path changes (0 additions, 1 deletion, 4 modifications)
+2024-08-20 14:59:46,834 INFO  [Thread-5] o.a.coyote.http11.Http11NioProtocol: Stopping ProtocolHandler ["http-nio-8081"]
+2024-08-20 14:59:47,819 INFO  [Thread-5] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 14:59:47,829 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-20 14:59:47,848 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-20 14:59:48,030 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 22368 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-20 14:59:48,031 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-20 14:59:48,032 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-20 14:59:48,678 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 14:59:48,678 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-20 14:59:48,679 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 0 ms. Found 0 JDBC repository interfaces.
+2024-08-20 14:59:48,684 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 14:59:48,685 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-20 14:59:48,686 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2024-08-20 14:59:48,903 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-20 14:59:48,904 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-20 14:59:48,905 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-20 14:59:48,905 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-20 14:59:48,962 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-20 14:59:48,962 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 927 ms
+2024-08-20 14:59:49,072 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Starting...
+2024-08-20 14:59:49,319 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@239eea83
+2024-08-20 14:59:49,319 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Start completed.
+2024-08-20 14:59:49,320 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-20 14:59:49,470 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-20 14:59:49,473 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-20 14:59:49,490 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 0 migrations (execution time 00:00.010s)
+2024-08-20 14:59:49,491 WARN  [restartedMain] o.f.core.internal.command.DbValidate: No migrations found. Are your locations set up correctly?
+2024-08-20 14:59:49,706 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
+2024-08-20 14:59:49,707 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-20 14:59:49,778 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-20 14:59:49,787 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-20 14:59:49,801 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-20 14:59:49,825 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-20 14:59:49,869 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-20 14:59:49,869 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 14:59:51,730 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-20 14:59:51,752 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-20 14:59:51,834 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-20 14:59:51,848 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-20 14:59:51,874 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 3.921 seconds (process running for 244.751)
+2024-08-20 14:59:51,882 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener: Condition evaluation unchanged
+2024-08-20 14:59:53,149 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener: Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-08-20 14:59:53,152 INFO  [Thread-7] o.a.coyote.http11.Http11NioProtocol: Stopping ProtocolHandler ["http-nio-8081"]
+2024-08-20 14:59:54,029 INFO  [Thread-7] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 14:59:54,031 INFO  [Thread-7] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown initiated...
+2024-08-20 14:59:54,045 INFO  [Thread-7] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown completed.
+2024-08-20 14:59:54,195 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 22368 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-20 14:59:54,196 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-20 14:59:54,196 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-20 14:59:54,970 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 14:59:54,971 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-20 14:59:54,973 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 2 ms. Found 0 JDBC repository interfaces.
+2024-08-20 14:59:54,982 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 14:59:54,983 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-20 14:59:54,986 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-08-20 14:59:55,288 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-20 14:59:55,289 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-20 14:59:55,291 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-20 14:59:55,291 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-20 14:59:55,363 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-20 14:59:55,363 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1164 ms
+2024-08-20 14:59:55,549 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Starting...
+2024-08-20 14:59:55,860 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@51ef01ed
+2024-08-20 14:59:55,861 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Start completed.
+2024-08-20 14:59:55,861 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-20 14:59:56,037 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-20 14:59:56,041 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-20 14:59:56,058 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 0 migrations (execution time 00:00.010s)
+2024-08-20 14:59:56,059 WARN  [restartedMain] o.f.core.internal.command.DbValidate: No migrations found. Are your locations set up correctly?
+2024-08-20 14:59:56,275 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
+2024-08-20 14:59:56,276 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-20 14:59:56,363 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-20 14:59:56,373 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-20 14:59:56,386 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-20 14:59:56,413 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-20 14:59:56,449 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-20 14:59:56,453 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 14:59:58,545 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-20 14:59:58,569 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-20 14:59:58,699 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-20 14:59:58,711 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-20 14:59:58,758 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 4.624 seconds (process running for 251.634)
+2024-08-20 14:59:58,774 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener: Condition evaluation unchanged
+2024-08-20 15:06:05,144 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener: Restarting due to 7 class path changes (0 additions, 7 deletions, 0 modifications)
+2024-08-20 15:06:05,148 INFO  [Thread-11] o.a.coyote.http11.Http11NioProtocol: Stopping ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:06:06,262 INFO  [Thread-11] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 15:06:06,265 INFO  [Thread-11] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Shutdown initiated...
+2024-08-20 15:06:06,282 INFO  [Thread-11] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Shutdown completed.
+2024-08-20 15:06:06,452 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 22368 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-20 15:06:06,453 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-20 15:06:06,454 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-20 15:06:07,342 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 15:06:07,343 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-20 15:06:07,344 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 1 ms. Found 0 JDBC repository interfaces.
+2024-08-20 15:06:07,354 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 15:06:07,354 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-20 15:06:07,357 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
+2024-08-20 15:06:07,710 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-20 15:06:07,711 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:06:07,712 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-20 15:06:07,712 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-20 15:06:07,779 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-20 15:06:07,779 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1320 ms
+2024-08-20 15:06:07,910 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Starting...
+2024-08-20 15:06:08,159 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-4 - Added connection org.postgresql.jdbc.PgConnection@3e4e8be6
+2024-08-20 15:06:08,159 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Start completed.
+2024-08-20 15:06:08,160 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-20 15:06:08,282 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-20 15:06:08,286 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-20 15:06:08,302 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 0 migrations (execution time 00:00.009s)
+2024-08-20 15:06:08,302 WARN  [restartedMain] o.f.core.internal.command.DbValidate: No migrations found. Are your locations set up correctly?
+2024-08-20 15:06:08,505 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
+2024-08-20 15:06:08,505 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-20 15:06:08,566 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-20 15:06:08,573 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-20 15:06:08,585 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-20 15:06:08,612 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-20 15:06:08,639 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-20 15:06:08,639 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 15:06:10,274 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-20 15:06:10,290 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-20 15:06:10,369 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:06:10,381 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-20 15:06:10,403 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 4.033 seconds (process running for 623.276)
+2024-08-20 15:06:10,408 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener: Condition evaluation unchanged
+2024-08-20 15:06:11,687 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener: Restarting due to 7 class path changes (7 additions, 0 deletions, 0 modifications)
+2024-08-20 15:06:11,693 INFO  [Thread-15] o.a.coyote.http11.Http11NioProtocol: Stopping ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:06:12,645 INFO  [Thread-15] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 15:06:12,647 INFO  [Thread-15] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Shutdown initiated...
+2024-08-20 15:06:12,652 INFO  [Thread-15] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Shutdown completed.
+2024-08-20 15:06:12,801 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 22368 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-20 15:06:12,801 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-20 15:06:12,802 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-20 15:06:13,652 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 15:06:13,652 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-20 15:06:13,655 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 2 ms. Found 0 JDBC repository interfaces.
+2024-08-20 15:06:13,662 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 15:06:13,663 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-20 15:06:13,666 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-08-20 15:06:13,957 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-20 15:06:13,958 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:06:13,958 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-20 15:06:13,958 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-20 15:06:14,014 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-20 15:06:14,015 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1210 ms
+2024-08-20 15:06:14,145 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Starting...
+2024-08-20 15:06:14,382 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-5 - Added connection org.postgresql.jdbc.PgConnection@780f5ed1
+2024-08-20 15:06:14,382 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Start completed.
+2024-08-20 15:06:14,382 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-20 15:06:14,479 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-20 15:06:14,483 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-20 15:06:14,495 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 0 migrations (execution time 00:00.007s)
+2024-08-20 15:06:14,496 WARN  [restartedMain] o.f.core.internal.command.DbValidate: No migrations found. Are your locations set up correctly?
+2024-08-20 15:06:14,695 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
+2024-08-20 15:06:14,696 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-20 15:06:14,754 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-20 15:06:14,759 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-20 15:06:14,767 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-20 15:06:14,787 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-20 15:06:14,812 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-20 15:06:14,812 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 15:06:16,508 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-20 15:06:16,533 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-20 15:06:16,627 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:06:16,639 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-20 15:06:16,666 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 3.927 seconds (process running for 629.539)
+2024-08-20 15:06:16,671 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener: Condition evaluation unchanged
+2024-08-20 15:06:54,195 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener: Restarting due to 5 class path changes (0 additions, 1 deletion, 4 modifications)
+2024-08-20 15:06:54,197 INFO  [Thread-19] o.a.coyote.http11.Http11NioProtocol: Stopping ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:06:55,002 INFO  [Thread-19] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 15:06:55,003 INFO  [Thread-19] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown initiated...
+2024-08-20 15:06:55,022 INFO  [Thread-19] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown completed.
+2024-08-20 15:06:55,160 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 22368 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-20 15:06:55,161 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-20 15:06:55,161 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-20 15:06:55,842 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 15:06:55,842 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-20 15:06:55,843 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 0 ms. Found 0 JDBC repository interfaces.
+2024-08-20 15:06:55,847 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 15:06:55,848 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-20 15:06:55,848 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 0 ms. Found 0 JPA repository interfaces.
+2024-08-20 15:06:56,067 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-20 15:06:56,068 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:06:56,068 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-20 15:06:56,068 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-20 15:06:56,110 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-20 15:06:56,111 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 947 ms
+2024-08-20 15:06:56,205 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-6 - Starting...
+2024-08-20 15:06:56,422 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-6 - Added connection org.postgresql.jdbc.PgConnection@19461fb3
+2024-08-20 15:06:56,422 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-6 - Start completed.
+2024-08-20 15:06:56,423 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-20 15:06:56,538 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-20 15:06:56,542 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-20 15:06:56,555 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 0 migrations (execution time 00:00.008s)
+2024-08-20 15:06:56,555 WARN  [restartedMain] o.f.core.internal.command.DbValidate: No migrations found. Are your locations set up correctly?
+2024-08-20 15:06:56,730 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
+2024-08-20 15:06:56,730 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-20 15:06:56,785 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-20 15:06:56,794 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-20 15:06:56,805 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-20 15:06:56,828 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-20 15:06:56,863 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-20 15:06:56,863 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 15:06:58,475 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-20 15:06:58,497 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-20 15:06:58,579 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:06:58,595 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-20 15:06:58,644 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 3.545 seconds (process running for 671.517)
+2024-08-20 15:06:58,651 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener: Condition evaluation unchanged
+2024-08-20 15:06:59,886 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener: Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-08-20 15:06:59,889 INFO  [Thread-23] o.a.coyote.http11.Http11NioProtocol: Stopping ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:07:00,646 INFO  [Thread-23] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 15:07:00,647 INFO  [Thread-23] com.zaxxer.hikari.HikariDataSource: HikariPool-6 - Shutdown initiated...
+2024-08-20 15:07:00,658 INFO  [Thread-23] com.zaxxer.hikari.HikariDataSource: HikariPool-6 - Shutdown completed.
+2024-08-20 15:07:00,795 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 22368 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-20 15:07:00,796 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-20 15:07:00,796 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-20 15:07:01,430 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 15:07:01,431 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-20 15:07:01,433 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 2 ms. Found 0 JDBC repository interfaces.
+2024-08-20 15:07:01,441 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-20 15:07:01,441 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-20 15:07:01,444 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-08-20 15:07:01,707 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-20 15:07:01,708 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:07:01,708 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-20 15:07:01,708 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-20 15:07:01,772 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-20 15:07:01,772 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 974 ms
+2024-08-20 15:07:01,925 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-7 - Starting...
+2024-08-20 15:07:02,192 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-7 - Added connection org.postgresql.jdbc.PgConnection@5fa50149
+2024-08-20 15:07:02,192 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-7 - Start completed.
+2024-08-20 15:07:02,193 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-20 15:07:02,308 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-20 15:07:02,312 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-20 15:07:02,327 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 0 migrations (execution time 00:00.009s)
+2024-08-20 15:07:02,327 WARN  [restartedMain] o.f.core.internal.command.DbValidate: No migrations found. Are your locations set up correctly?
+2024-08-20 15:07:02,604 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
+2024-08-20 15:07:02,610 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-20 15:07:02,718 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-20 15:07:02,731 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-20 15:07:02,758 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-20 15:07:02,785 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-20 15:07:02,824 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-20 15:07:02,825 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 15:07:05,014 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-20 15:07:05,032 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-20 15:07:05,101 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-20 15:07:05,110 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-20 15:07:05,129 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 4.383 seconds (process running for 678.001)
+2024-08-20 15:07:05,134 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener: Condition evaluation unchanged
+2024-08-20 15:13:19,898 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-20 15:13:19,899 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-7 - Shutdown initiated...
+2024-08-20 15:13:19,901 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-7 - Shutdown completed.
