@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,10 +30,10 @@ jobs:
                     <server>
                       <id>github</id>
                       <username>${{ github.actor }}</username>
-                      <password>${{ secrets.MY_COMMON }}</password>
+                      <password>${{ secrets.LIBRARY_MANAGEMENT_PAT }}</password>
                     </server>
                   </servers>
                 </settings>" > ~/.m2/settings.xml
 
       - name: Build and test
-        run: mvn clean install --settings .github/maven-settings.xml
+        run: mvn clean install --settings ~/.m2/settings.xml
