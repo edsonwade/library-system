@@ -15,5 +15,5 @@ public enum MembershipStatus {
     PENDING_APPROVAL,
     PENDING_RENEWAL,
     PENDING_REDEMPTION,
-    SUSPEND;
+    SUSPEND
 }
