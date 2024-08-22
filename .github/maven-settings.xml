@@ -1,9 +1,9 @@
 <settings>
     <servers>
         <server>
-            <id>github</id>
-            <username>${{ github.actor }}</username>
-            <password>${{ secrets.LIBRARY_MANAGEMENT_PAT }}</password>
+            <id>github</id>  <!-- This ID should match the ID used in the <repositories> section of your pom.xml -->
+            <username>${{ github.actor }}</username>  <!-- GitHub username or actor -->
+            <password>${{ secrets.LIBRARY_MANAGEMENT_PAT }}</password>  <!-- Personal Access Token (PAT) for GitHub -->
         </server>
     </servers>
 </settings>
