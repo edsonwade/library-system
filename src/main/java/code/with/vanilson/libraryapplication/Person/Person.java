@@ -1,4 +1,4 @@
-package code.with.vanilson.libraryapplication.Member;
+package code.with.vanilson.libraryapplication.Person;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
  * @version 1.0
  * @since 2024-08-22
  */
-@MappedSuperclass
+@MappedSuperclass // inherited from Member constructor methods
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
