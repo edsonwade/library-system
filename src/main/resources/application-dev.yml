@@ -37,3 +37,13 @@ springdoc:
     operationsSorter: method
     tagsSorter: alpha
     default-sort: method,asc
+
+
+  flyway:
+    locations: classpath:db/migration/
+    baseline-on-migrate: true
+    enabled: true
+    baseline-description: "init"
+    baseline-version: 0
+    out-of-order: true
+    ignore-migration-patterns: "*:ignored"
