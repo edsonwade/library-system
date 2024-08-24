@@ -2,6 +2,7 @@ package code.with.vanilson.libraryapplication.Member;
 
 import code.with.vanilson.libraryapplication.Person.Person;
 import code.with.vanilson.libraryapplication.book.Book;
+import code.with.vanilson.libraryapplication.librarian.Librarian;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -33,4 +34,8 @@ public class Member extends Person {
             inverseJoinColumns = @JoinColumn(name = "book_id")
     )
     private Set<Book> borrowedBooks;
+
+    @ManyToOne
+    @JoinColumn(name = "librarian_id")
+    private Librarian librarian; // Librarian managing this member
 }
