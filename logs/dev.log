@@ -1,95 +1,588 @@
-2024-08-22 18:29:01,281 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
-2024-08-22 18:29:01,349 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 2820 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
-2024-08-22 18:29:01,351 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
-2024-08-22 18:29:01,352 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
-2024-08-22 18:29:01,418 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-08-22 18:29:01,418 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-08-22 18:29:02,704 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
-2024-08-22 18:29:02,706 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-08-22 18:29:02,722 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
-2024-08-22 18:29:02,729 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
-2024-08-22 18:29:02,730 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-22 18:29:02,735 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 1 ms. Found 0 JPA repository interfaces.
-2024-08-22 18:29:03,870 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
-2024-08-22 18:29:03,888 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
-2024-08-22 18:29:03,892 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
-2024-08-22 18:29:03,892 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
-2024-08-22 18:29:04,024 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
-2024-08-22 18:29:04,025 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2605 ms
-2024-08-22 18:29:04,252 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
-2024-08-22 18:29:04,962 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@10ebc70f
-2024-08-22 18:29:04,964 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
-2024-08-22 18:29:04,978 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
-2024-08-22 18:29:05,338 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
-2024-08-22 18:29:05,339 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
-2024-08-22 18:29:05,340 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
-2024-08-22 18:29:05,367 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
-2024-08-22 18:29:05,381 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
-2024-08-22 18:29:05,447 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 0 migrations (execution time 00:00.027s)
-2024-08-22 18:29:05,447 WARN  [restartedMain] o.f.core.internal.command.DbValidate: No migrations found. Are your locations set up correctly?
-2024-08-22 18:29:05,469 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
-2024-08-22 18:29:05,479 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
-2024-08-22 18:29:05,724 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-22 18:29:05,854 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
-2024-08-22 18:29:05,942 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
-2024-08-22 18:29:06,475 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-22 18:29:06,604 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-22 18:29:07,324 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-22 18:29:07,332 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-22 18:29:09,364 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
-2024-08-22 18:29:09,376 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
-2024-08-22 18:29:09,500 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
-2024-08-22 18:29:09,541 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
-2024-08-22 18:29:09,567 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 8.842 seconds (process running for 10.235)
-2024-08-22 18:29:10,315 INFO  [RMI TCP Connection(3)-192.168.1.137] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-22 18:29:10,315 INFO  [RMI TCP Connection(3)-192.168.1.137] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
-2024-08-22 18:29:10,319 INFO  [RMI TCP Connection(3)-192.168.1.137] o.s.web.servlet.DispatcherServlet: Completed initialization in 4 ms
-2024-08-22 19:27:21,404 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
-2024-08-22 19:27:21,467 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 25336 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
-2024-08-22 19:27:21,468 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
-2024-08-22 19:27:21,469 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
-2024-08-22 19:27:21,523 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-08-22 19:27:21,523 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-08-22 19:27:22,905 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
-2024-08-22 19:27:22,908 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-08-22 19:27:22,927 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
-2024-08-22 19:27:22,938 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
-2024-08-22 19:27:22,939 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-08-22 19:27:22,946 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
-2024-08-22 19:27:23,825 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
-2024-08-22 19:27:23,840 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
-2024-08-22 19:27:23,843 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
-2024-08-22 19:27:23,844 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
-2024-08-22 19:27:23,919 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
-2024-08-22 19:27:23,920 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2396 ms
-2024-08-22 19:27:24,085 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
-2024-08-22 19:27:24,389 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@46b03271
-2024-08-22 19:27:24,391 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
-2024-08-22 19:27:24,403 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
-2024-08-22 19:27:24,646 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
-2024-08-22 19:27:24,646 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
-2024-08-22 19:27:24,646 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
-2024-08-22 19:27:24,662 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
-2024-08-22 19:27:24,670 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
-2024-08-22 19:27:24,713 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 1 migration (execution time 00:00.029s)
-2024-08-22 19:27:24,731 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
-2024-08-22 19:27:24,748 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Migrating schema "public" to version "1 - CREATE BOOKS TABLE"
-2024-08-22 19:27:24,837 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.067s)
-2024-08-22 19:27:25,006 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-08-22 19:27:25,086 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
-2024-08-22 19:27:25,138 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
-2024-08-22 19:27:25,490 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-08-22 19:27:25,598 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-08-22 19:27:26,791 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-08-22 19:27:26,873 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-08-22 19:27:28,418 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
-2024-08-22 19:27:28,426 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
-2024-08-22 19:27:28,523 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
-2024-08-22 19:27:28,548 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
-2024-08-22 19:27:28,569 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 7.815 seconds (process running for 9.266)
-2024-08-22 19:27:29,261 INFO  [RMI TCP Connection(3)-192.168.1.137] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-08-22 19:27:29,261 INFO  [RMI TCP Connection(3)-192.168.1.137] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
-2024-08-22 19:27:29,265 INFO  [RMI TCP Connection(3)-192.168.1.137] o.s.web.servlet.DispatcherServlet: Completed initialization in 3 ms
-2024-08-22 19:28:05,967 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-08-22 19:28:05,972 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
-2024-08-22 19:28:05,985 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-24 13:52:30,871 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-24 13:52:30,982 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 15944 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-24 13:52:30,984 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-24 13:52:30,986 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-24 13:52:31,087 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-24 13:52:31,087 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-24 13:52:34,316 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 13:52:34,319 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-24 13:52:34,359 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 30 ms. Found 0 JDBC repository interfaces.
+2024-08-24 13:52:34,377 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 13:52:34,379 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-24 13:52:34,393 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 6 ms. Found 0 JPA repository interfaces.
+2024-08-24 13:52:36,748 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-24 13:52:36,764 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-24 13:52:36,767 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-24 13:52:36,768 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-24 13:52:36,906 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-24 13:52:36,907 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 5818 ms
+2024-08-24 13:52:37,226 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-24 13:52:37,994 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@56a99e7e
+2024-08-24 13:52:38,000 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-24 13:52:38,036 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-24 13:52:38,612 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-24 13:52:38,613 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-24 13:52:38,613 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-24 13:52:38,641 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-24 13:52:38,652 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-24 13:52:38,727 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.048s)
+2024-08-24 13:52:38,746 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 1
+2024-08-24 13:52:38,763 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Migrating schema "public" to version "2 - replace status columns"
+2024-08-24 13:52:38,801 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Successfully applied 1 migration to schema "public", now at version v2 (execution time 00:00.022s)
+2024-08-24 13:52:39,037 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-24 13:52:39,170 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-24 13:52:39,244 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-24 13:52:39,732 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-24 13:52:39,863 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-24 13:52:40,225 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-24 13:52:42,102 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-24 13:52:42,273 WARN  [restartedMain] o.h.e.jdbc.spi.SqlExceptionHelper: SQL Warning Code: 0, SQLState: 00000
+2024-08-24 13:52:42,274 WARN  [restartedMain] o.h.e.jdbc.spi.SqlExceptionHelper: restrição "uk_dq4ee5x894yxhjotok0oh7obo" da relação "members" não existe, ignorando
+2024-08-24 13:52:42,286 WARN  [restartedMain] o.h.e.jdbc.spi.SqlExceptionHelper: SQL Warning Code: 0, SQLState: 00000
+2024-08-24 13:52:42,287 WARN  [restartedMain] o.h.e.jdbc.spi.SqlExceptionHelper: restrição "uk_9d30a9u1qpg8eou0otgkwrp5d" da relação "members" não existe, ignorando
+2024-08-24 13:52:42,338 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 13:52:46,382 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-24 13:52:46,397 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-24 13:52:46,603 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-24 13:52:46,664 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-24 13:52:46,711 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 17.01 seconds (process running for 19.069)
+2024-08-24 13:52:47,477 INFO  [RMI TCP Connection(2)-172.21.16.1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-24 13:52:47,478 INFO  [RMI TCP Connection(2)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2024-08-24 13:52:47,482 INFO  [RMI TCP Connection(2)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Completed initialization in 4 ms
+2024-08-24 13:56:42,670 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 13:56:42,685 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-24 13:56:42,713 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-24 13:57:50,932 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-24 13:57:50,982 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 25704 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-24 13:57:50,983 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-24 13:57:50,984 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-24 13:57:51,041 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-24 13:57:51,041 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-24 13:57:52,214 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 13:57:52,216 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-24 13:57:52,238 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 16 ms. Found 0 JDBC repository interfaces.
+2024-08-24 13:57:52,247 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 13:57:52,249 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-24 13:57:52,254 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 2 ms. Found 0 JPA repository interfaces.
+2024-08-24 13:57:53,019 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-24 13:57:53,028 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-24 13:57:53,030 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-24 13:57:53,030 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-24 13:57:53,097 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-24 13:57:53,097 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2055 ms
+2024-08-24 13:57:53,249 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-24 13:57:53,537 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@ad0d7a7
+2024-08-24 13:57:53,546 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-24 13:57:53,557 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-24 13:57:53,804 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-24 13:57:53,804 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-24 13:57:53,804 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-24 13:57:53,820 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-24 13:57:53,826 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-24 13:57:53,860 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.023s)
+2024-08-24 13:57:53,873 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 2
+2024-08-24 13:57:53,876 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-24 13:57:53,991 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-24 13:57:54,055 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-24 13:57:54,112 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-24 13:57:54,407 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-24 13:57:54,490 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-24 13:57:55,638 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-24 13:57:55,684 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 13:57:57,122 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-24 13:57:57,129 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-24 13:57:57,213 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-24 13:57:57,240 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-24 13:57:57,258 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 6.874 seconds (process running for 7.986)
+2024-08-24 13:57:57,642 INFO  [RMI TCP Connection(1)-172.21.16.1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-24 13:57:57,643 INFO  [RMI TCP Connection(1)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2024-08-24 13:57:57,646 INFO  [RMI TCP Connection(1)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Completed initialization in 2 ms
+2024-08-24 13:58:44,938 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 13:58:44,943 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-24 13:58:44,950 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-24 13:58:48,473 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-24 13:58:48,532 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 22384 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-24 13:58:48,533 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-24 13:58:48,534 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-24 13:58:48,589 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-24 13:58:48,589 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-24 13:58:49,736 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 13:58:49,737 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-24 13:58:49,755 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
+2024-08-24 13:58:49,765 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 13:58:49,766 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-24 13:58:49,773 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2024-08-24 13:58:50,517 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-24 13:58:50,526 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-24 13:58:50,528 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-24 13:58:50,528 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-24 13:58:50,596 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-24 13:58:50,596 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2006 ms
+2024-08-24 13:58:50,727 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-24 13:58:50,987 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@50671946
+2024-08-24 13:58:50,989 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-24 13:58:50,998 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-24 13:58:51,221 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-24 13:58:51,222 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-24 13:58:51,222 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-24 13:58:51,241 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-24 13:58:51,248 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-24 13:58:51,282 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.023s)
+2024-08-24 13:58:51,296 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 2
+2024-08-24 13:58:51,299 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-24 13:58:51,396 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-24 13:58:51,472 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-24 13:58:51,534 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-24 13:58:51,817 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-24 13:58:51,879 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-24 13:58:52,810 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-24 13:58:52,852 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 13:58:54,251 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-24 13:58:54,259 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-24 13:58:54,335 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-24 13:58:54,358 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-24 13:58:54,377 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 6.411 seconds (process running for 7.463)
+2024-08-24 13:58:54,792 INFO  [RMI TCP Connection(2)-172.21.16.1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-24 13:58:54,792 INFO  [RMI TCP Connection(2)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2024-08-24 13:58:54,794 INFO  [RMI TCP Connection(2)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Completed initialization in 2 ms
+2024-08-24 13:59:06,866 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 13:59:06,870 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-24 13:59:06,874 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-24 14:03:31,002 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-24 14:03:31,055 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 7952 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-24 14:03:31,056 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-24 14:03:31,059 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-24 14:03:31,113 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-24 14:03:31,114 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-24 14:03:32,312 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:03:32,314 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-24 14:03:32,342 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 17 ms. Found 0 JDBC repository interfaces.
+2024-08-24 14:03:32,352 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:03:32,353 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-24 14:03:32,360 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2024-08-24 14:03:33,161 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-24 14:03:33,170 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:03:33,172 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-24 14:03:33,172 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-24 14:03:33,248 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-24 14:03:33,250 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2135 ms
+2024-08-24 14:03:33,384 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-24 14:03:33,642 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@20ec4478
+2024-08-24 14:03:33,651 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-24 14:03:33,662 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-24 14:03:33,902 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-24 14:03:33,902 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-24 14:03:33,902 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-24 14:03:33,921 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-24 14:03:33,928 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-24 14:03:33,972 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.035s)
+2024-08-24 14:03:33,990 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 2
+2024-08-24 14:03:33,994 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-24 14:03:34,098 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-24 14:03:34,187 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-24 14:03:34,233 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-24 14:03:34,508 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-24 14:03:34,581 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-24 14:03:35,770 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-24 14:03:35,837 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 14:03:38,051 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-24 14:03:38,064 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-24 14:03:38,207 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:03:38,252 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-24 14:03:38,296 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 7.82 seconds (process running for 8.992)
+2024-08-24 14:03:38,571 INFO  [RMI TCP Connection(1)-172.21.16.1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-24 14:03:38,572 INFO  [RMI TCP Connection(1)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2024-08-24 14:03:38,577 INFO  [RMI TCP Connection(1)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Completed initialization in 4 ms
+2024-08-24 14:05:11,093 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener: Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-08-24 14:05:11,099 INFO  [Thread-5] o.a.coyote.http11.Http11NioProtocol: Stopping ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:05:12,195 INFO  [Thread-5] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 14:05:12,203 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-24 14:05:12,208 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-24 14:05:12,346 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 7952 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-24 14:05:12,347 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-24 14:05:12,348 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-24 14:05:12,964 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:05:12,965 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-24 14:05:12,969 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces.
+2024-08-24 14:05:12,975 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:05:12,976 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-24 14:05:12,980 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2024-08-24 14:05:13,243 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-24 14:05:13,244 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:05:13,244 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-24 14:05:13,245 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-24 14:05:13,301 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-24 14:05:13,302 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 951 ms
+2024-08-24 14:05:13,396 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Starting...
+2024-08-24 14:05:13,593 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@3eec59a7
+2024-08-24 14:05:13,593 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Start completed.
+2024-08-24 14:05:13,594 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-24 14:05:13,675 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-24 14:05:13,678 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-24 14:05:13,691 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 3 migrations (execution time 00:00.009s)
+2024-08-24 14:05:13,880 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 2
+2024-08-24 14:05:13,893 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Migrating schema "public" to version "3 - add book status column"
+2024-08-24 14:05:13,908 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Successfully applied 1 migration to schema "public", now at version v3 (execution time 00:00.005s)
+2024-08-24 14:05:13,975 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-24 14:05:13,983 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-24 14:05:13,993 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-24 14:05:14,012 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-24 14:05:14,081 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-24 14:05:14,106 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 14:05:15,340 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-24 14:05:15,349 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-24 14:05:15,431 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:05:15,448 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-24 14:05:15,474 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 3.181 seconds (process running for 106.17)
+2024-08-24 14:05:15,480 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener: Condition evaluation unchanged
+2024-08-24 14:05:20,853 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 14:05:20,855 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown initiated...
+2024-08-24 14:05:20,870 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown completed.
+2024-08-24 14:05:52,195 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-24 14:05:52,275 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 26216 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-24 14:05:52,276 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-24 14:05:52,278 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-24 14:05:52,349 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-24 14:05:52,350 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-24 14:05:53,910 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:05:53,912 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-24 14:05:53,932 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 16 ms. Found 0 JDBC repository interfaces.
+2024-08-24 14:05:53,943 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:05:53,944 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-24 14:05:53,951 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2024-08-24 14:05:54,871 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-24 14:05:54,881 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:05:54,883 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-24 14:05:54,883 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-24 14:05:54,957 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-24 14:05:54,958 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2607 ms
+2024-08-24 14:05:55,141 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-24 14:05:55,459 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@32ab234b
+2024-08-24 14:05:55,462 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-24 14:05:55,474 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-24 14:05:55,731 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-24 14:05:55,731 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-24 14:05:55,731 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-24 14:05:55,748 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-24 14:05:55,755 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-24 14:05:55,809 WARN  [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 3
+-> Applied to database : 0
+-> Resolved locally    : 171590295
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+2024-08-24 14:05:55,810 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-24 14:05:55,944 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-24 14:05:55,948 INFO  [restartedMain] o.a.catalina.core.StandardService: Stopping service [Tomcat]
+2024-08-24 14:05:55,973 INFO  [restartedMain] o.s.b.a.l.ConditionEvaluationReportLogger: 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-24 14:05:56,010 ERROR [restartedMain] o.s.boot.SpringApplication: Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 3
+-> Applied to database : 0
+-> Resolved locally    : 171590295
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at code.with.vanilson.libraryapplication.LibraryManagementSystemApplication.main(LibraryManagementSystemApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 3
+-> Applied to database : 0
+-> Resolved locally    : 171590295
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 15 common frames omitted
+Caused by: org.flywaydb.core.api.exception.FlywayValidateException: Validate failed: Migrations have failed validation
+Migration checksum mismatch for migration version 3
+-> Applied to database : 0
+-> Resolved locally    : 171590295
+Either revert the changes to the migration, or run repair to update the schema history.
+Need more flexibility with validation rules? Learn more: https://rd.gt/3AbJUZE
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:146)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:213)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:140)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 22 common frames omitted
+2024-08-24 14:08:07,280 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-24 14:08:07,361 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 9476 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-24 14:08:07,362 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-24 14:08:07,364 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-24 14:08:07,442 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-24 14:08:07,442 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-24 14:08:09,109 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:08:09,110 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-24 14:08:09,129 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
+2024-08-24 14:08:09,137 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:08:09,138 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-24 14:08:09,145 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2024-08-24 14:08:09,914 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-24 14:08:09,922 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:08:09,924 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-24 14:08:09,925 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-24 14:08:09,994 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-24 14:08:09,996 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2551 ms
+2024-08-24 14:08:10,142 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-24 14:08:10,434 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9903ba9
+2024-08-24 14:08:10,436 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-24 14:08:10,446 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-24 14:08:10,707 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-24 14:08:10,708 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-24 14:08:10,708 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-24 14:08:10,724 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-24 14:08:10,730 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-24 14:08:10,767 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 3 migrations (execution time 00:00.026s)
+2024-08-24 14:08:10,781 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 2
+2024-08-24 14:08:10,794 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Migrating schema "public" to version "3 - add book status column"
+2024-08-24 14:08:10,816 ERROR [restartedMain] o.f.core.internal.command.DbMigrate: Migration of schema "public" to version "3 - add book status column" failed! Changes successfully rolled back.
+2024-08-24 14:08:10,821 WARN  [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V3__add_book_status_column.sql failed
+-----------------------------------------------
+SQL State  : 42701
+Error Code : 0
+Message    : ERRO: coluna "book_status" da relação "books" já existe
+Location   : db/migration/V3__add_book_status_column.sql (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes\db\migration\V3__add_book_status_column.sql)
+Line       : 1
+Statement  : ALTER TABLE books
+    ADD COLUMN book_status VARCHAR(255) NOT NULL DEFAULT 'AVAILABLE'
+
+2024-08-24 14:08:10,822 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-24 14:08:10,902 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-24 14:08:10,906 INFO  [restartedMain] o.a.catalina.core.StandardService: Stopping service [Tomcat]
+2024-08-24 14:08:10,926 INFO  [restartedMain] o.s.b.a.l.ConditionEvaluationReportLogger: 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-24 14:08:10,953 ERROR [restartedMain] o.s.boot.SpringApplication: Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Failed to initialize dependency 'flywayInitializer' of LoadTimeWeaverAware bean 'entityManagerFactory': Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V3__add_book_status_column.sql failed
+-----------------------------------------------
+SQL State  : 42701
+Error Code : 0
+Message    : ERRO: coluna "book_status" da relação "books" já existe
+Location   : db/migration/V3__add_book_status_column.sql (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes\db\migration\V3__add_book_status_column.sql)
+Line       : 1
+Statement  : ALTER TABLE books
+    ADD COLUMN book_status VARCHAR(255) NOT NULL DEFAULT 'AVAILABLE'
+
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:954)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at code.with.vanilson.libraryapplication.LibraryManagementSystemApplication.main(LibraryManagementSystemApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'flywayInitializer' defined in class path resource [org/springframework/boot/autoconfigure/flyway/FlywayAutoConfiguration$FlywayConfiguration.class]: Migration V3__add_book_status_column.sql failed
+-----------------------------------------------
+SQL State  : 42701
+Error Code : 0
+Message    : ERRO: coluna "book_status" da relação "books" já existe
+Location   : db/migration/V3__add_book_status_column.sql (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes\db\migration\V3__add_book_status_column.sql)
+Line       : 1
+Statement  : ALTER TABLE books
+    ADD COLUMN book_status VARCHAR(255) NOT NULL DEFAULT 'AVAILABLE'
+
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313)
+	... 15 common frames omitted
+Caused by: org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: Migration V3__add_book_status_column.sql failed
+-----------------------------------------------
+SQL State  : 42701
+Error Code : 0
+Message    : ERRO: coluna "book_status" da relação "books" já existe
+Location   : db/migration/V3__add_book_status_column.sql (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes\db\migration\V3__add_book_status_column.sql)
+Line       : 1
+Statement  : ALTER TABLE books
+    ADD COLUMN book_status VARCHAR(255) NOT NULL DEFAULT 'AVAILABLE'
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:382)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$applyMigrations$1(DbMigrate.java:272)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:271)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:244)
+	at org.flywaydb.core.internal.command.DbMigrate.lambda$migrateAll$0(DbMigrate.java:139)
+	at org.flywaydb.core.internal.database.postgresql.PostgreSQLAdvisoryLockTemplate.execute(PostgreSQLAdvisoryLockTemplate.java:73)
+	at org.flywaydb.core.internal.database.postgresql.PostgreSQLAdvisoryLockTemplate.lambda$execute$0(PostgreSQLAdvisoryLockTemplate.java:56)
+	at org.flywaydb.core.internal.jdbc.TransactionalExecutionTemplate.execute(TransactionalExecutionTemplate.java:55)
+	at org.flywaydb.core.internal.database.postgresql.PostgreSQLAdvisoryLockTemplate.execute(PostgreSQLAdvisoryLockTemplate.java:56)
+	at org.flywaydb.core.internal.database.postgresql.PostgreSQLConnection.lock(PostgreSQLConnection.java:96)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:144)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:139)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:97)
+	at org.flywaydb.core.Flyway.lambda$migrate$0(Flyway.java:188)
+	at org.flywaydb.core.FlywayExecutor.execute(FlywayExecutor.java:213)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:140)
+	at org.springframework.boot.autoconfigure.flyway.FlywayMigrationInitializer.afterPropertiesSet(FlywayMigrationInitializer.java:66)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802)
+	... 22 common frames omitted
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: Migration V3__add_book_status_column.sql failed
+-----------------------------------------------
+SQL State  : 42701
+Error Code : 0
+Message    : ERRO: coluna "book_status" da relação "books" já existe
+Location   : db/migration/V3__add_book_status_column.sql (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes\db\migration\V3__add_book_status_column.sql)
+Line       : 1
+Statement  : ALTER TABLE books
+    ADD COLUMN book_status VARCHAR(255) NOT NULL DEFAULT 'AVAILABLE'
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:267)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:222)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:126)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.executeOnce(SqlMigrationExecutor.java:68)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.lambda$execute$0(SqlMigrationExecutor.java:57)
+	at org.flywaydb.core.internal.database.DefaultExecutionStrategy.execute(DefaultExecutionStrategy.java:27)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:56)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:374)
+	... 41 common frames omitted
+Caused by: org.postgresql.util.PSQLException: ERRO: coluna "book_status" da relação "books" já existe
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:498)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:415)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:335)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:321)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:297)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:292)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:201)
+	at org.flywaydb.core.internal.sqlscript.ParsedSqlStatement.execute(ParsedSqlStatement.java:95)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:210)
+	... 47 common frames omitted
+2024-08-24 14:09:29,701 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-24 14:09:29,755 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 29952 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-24 14:09:29,756 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-24 14:09:29,757 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-24 14:09:29,818 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-24 14:09:29,819 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-24 14:09:31,321 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:09:31,323 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-24 14:09:31,343 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 15 ms. Found 0 JDBC repository interfaces.
+2024-08-24 14:09:31,354 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:09:31,355 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-24 14:09:31,362 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 3 ms. Found 0 JPA repository interfaces.
+2024-08-24 14:09:32,343 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-24 14:09:32,355 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:09:32,358 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-24 14:09:32,358 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-24 14:09:32,462 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-24 14:09:32,463 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2644 ms
+2024-08-24 14:09:32,739 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-24 14:09:33,164 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@e6b1bbc
+2024-08-24 14:09:33,167 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-24 14:09:33,183 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-24 14:09:33,507 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-24 14:09:33,508 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-24 14:09:33,508 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-24 14:09:33,528 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-24 14:09:33,537 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-24 14:09:33,584 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 1 migration (execution time 00:00.030s)
+2024-08-24 14:09:33,599 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": << Empty Schema >>
+2024-08-24 14:09:33,614 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Migrating schema "public" to version "1 - CREATE BOOKS TABLE"
+2024-08-24 14:09:33,623 WARN  [restartedMain] o.f.c.i.s.DefaultSqlScriptExecutor: DB: relação "book_id_seq" já existe, ignorando (SQL State: 42P07 - Error Code: 0)
+2024-08-24 14:09:33,624 WARN  [restartedMain] o.f.c.i.s.DefaultSqlScriptExecutor: DB: relação "books" já existe, ignorando (SQL State: 42P07 - Error Code: 0)
+2024-08-24 14:09:33,640 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Successfully applied 1 migration to schema "public", now at version v1 (execution time 00:00.013s)
+2024-08-24 14:09:33,793 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-24 14:09:33,895 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-24 14:09:33,948 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-24 14:09:34,356 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-24 14:09:34,447 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-24 14:09:35,652 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-24 14:09:35,704 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 14:09:37,492 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-24 14:09:37,501 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-24 14:09:37,586 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:09:37,612 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-24 14:09:37,638 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 8.569 seconds (process running for 9.887)
+2024-08-24 14:09:38,157 INFO  [RMI TCP Connection(4)-172.21.16.1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-24 14:09:38,158 INFO  [RMI TCP Connection(4)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2024-08-24 14:09:38,160 INFO  [RMI TCP Connection(4)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Completed initialization in 2 ms
+2024-08-24 14:10:23,136 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 14:10:23,140 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-24 14:10:23,151 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-24 14:10:27,447 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-24 14:10:27,527 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 18956 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-24 14:10:27,528 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-24 14:10:27,530 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-24 14:10:27,609 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-24 14:10:27,609 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-24 14:10:29,202 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:10:29,204 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-24 14:10:29,232 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 22 ms. Found 0 JDBC repository interfaces.
+2024-08-24 14:10:29,245 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-24 14:10:29,246 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-24 14:10:29,256 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2024-08-24 14:10:30,440 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-24 14:10:30,453 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:10:30,456 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-24 14:10:30,456 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-24 14:10:30,553 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-24 14:10:30,554 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2944 ms
+2024-08-24 14:10:30,752 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-24 14:10:31,084 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@9903ba9
+2024-08-24 14:10:31,086 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-24 14:10:31,099 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-24 14:10:31,389 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-24 14:10:31,390 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-24 14:10:31,391 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-24 14:10:31,411 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-24 14:10:31,420 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-24 14:10:31,476 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 1 migration (execution time 00:00.040s)
+2024-08-24 14:10:31,494 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 1
+2024-08-24 14:10:31,497 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-24 14:10:31,634 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-24 14:10:31,744 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-24 14:10:31,805 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-24 14:10:32,198 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-24 14:10:32,284 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-24 14:10:33,609 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-24 14:10:33,669 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 14:10:35,477 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-24 14:10:35,488 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-24 14:10:35,603 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-24 14:10:35,636 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-24 14:10:35,665 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 9.148 seconds (process running for 10.423)
+2024-08-24 14:10:36,055 INFO  [RMI TCP Connection(2)-172.21.16.1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-24 14:10:36,056 INFO  [RMI TCP Connection(2)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2024-08-24 14:10:36,059 INFO  [RMI TCP Connection(2)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Completed initialization in 3 ms
+2024-08-24 14:10:40,513 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-24 14:10:40,519 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-24 14:10:40,524 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
