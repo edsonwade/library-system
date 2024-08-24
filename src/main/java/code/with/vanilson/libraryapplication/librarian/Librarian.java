@@ -2,6 +2,7 @@ package code.with.vanilson.libraryapplication.librarian;
 
 import code.with.vanilson.libraryapplication.Member.Member;
 import code.with.vanilson.libraryapplication.Person.Person;
+import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.book.Book;
 import code.with.vanilson.libraryapplication.fine.Fine;
 import jakarta.persistence.*;
@@ -18,7 +19,7 @@ import java.util.Set;
  * @version 1.0
  * @since 2024-08-24
  */
-@Entity
+@Entity(name = "Librarian")
 @Table(name = "librarians")
 @Data
 @NoArgsConstructor
@@ -37,5 +38,9 @@ public class Librarian extends Person {
 
     @OneToMany(mappedBy = "librarian")
     private Set<Fine> fines;
+
+    @ManyToOne
+    @JoinColumn(name = "admin_id") // Foreign key to Admin
+    private Admin admin; // Admin managing this fine
 
 }

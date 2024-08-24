@@ -1,6 +1,7 @@
 package code.with.vanilson.libraryapplication.Member;
 
 import code.with.vanilson.libraryapplication.Person.Person;
+import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.book.Book;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import jakarta.persistence.*;
@@ -38,4 +39,9 @@ public class Member extends Person {
     @ManyToOne
     @JoinColumn(name = "librarian_id")
     private Librarian librarian; // Librarian managing this member
+
+    @ManyToOne
+    @JoinColumn(name = "admin_id") // Foreign key to Admin
+    private Admin admin; // Admin managing this fine
+
 }

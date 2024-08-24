@@ -1,6 +1,7 @@
 package code.with.vanilson.libraryapplication.fine;
 
 import code.with.vanilson.libraryapplication.Member.Member;
+import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
@@ -18,7 +19,7 @@ import java.util.Date;
  * @version 1.0
  * @since 2024-08-24
  */
-@Entity
+@Entity(name = "Fine")
 @Table(name = "fines")
 @AllArgsConstructor
 @NoArgsConstructor
@@ -51,5 +52,9 @@ public class Fine {
     @ManyToOne
     @JoinColumn(name = "librarian_id")
     private Librarian librarian; // Librarian processing this fine
+
+    @ManyToOne
+    @JoinColumn(name = "admin_id") // Foreign key to Admin
+    private Admin admin; // Admin managing this fine
 
 }
