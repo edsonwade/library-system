@@ -11,6 +11,5 @@ CREATE TABLE IF NOT EXISTS books
     genre               VARCHAR(255)        NOT NULL,
     publisher_name      VARCHAR(255)        NOT NULL,
     publisher_year      INT                 NOT NULL,
-    borrowed_status     BOOLEAN             NOT NULL,
-    availability_status BOOLEAN             NOT NULL
+    book_status VARCHAR(255) NOT NULL
 );

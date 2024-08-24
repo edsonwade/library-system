@@ -21,7 +21,7 @@ target/
 .env
 *.env
 /.env
-/logs/archived
+/logs/archived/
 
 ### NetBeans ###
 /nbproject/private/

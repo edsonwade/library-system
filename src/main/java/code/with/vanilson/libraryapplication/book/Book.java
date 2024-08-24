@@ -20,8 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonPropertyOrder(value = {"id", "title", "author", "isbn", "publisherName", "publisherYear", "borrowState",
-        "availabilityStatus"})
+@JsonPropertyOrder(value = {"id", "title", "author", "isbn", "publisherName", "publisherYear", "status"})
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_id_seq")
@@ -36,9 +35,8 @@ public class Book {
     private String publisherName;
     @Column(name = "publisher_year")
     private Integer publisherYear;
-    @Column(name = "borrowed_status")
-    private boolean borrowedStatus;
-    @Column(name = "availability_status")
-    private boolean availabilityStatus;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, name = "book_status")
+    private BookStatus status;
 
 }
