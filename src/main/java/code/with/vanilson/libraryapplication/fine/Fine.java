@@ -1,6 +1,8 @@
 package code.with.vanilson.libraryapplication.fine;
 
 import code.with.vanilson.libraryapplication.Member.Member;
+import code.with.vanilson.libraryapplication.librarian.Librarian;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +24,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 @Builder
+@JsonPropertyOrder(value = {"id","amount","issueDate","member","librarian"})
 public class Fine {
 
     @Id
@@ -45,5 +48,8 @@ public class Fine {
     @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 
+    @ManyToOne
+    @JoinColumn(name = "librarian_id")
+    private Librarian librarian; // Librarian processing this fine
 
 }

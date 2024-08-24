@@ -1,6 +1,7 @@
 package code.with.vanilson.libraryapplication.book;
 
 import code.with.vanilson.libraryapplication.Member.Member;
+import code.with.vanilson.libraryapplication.librarian.Librarian;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -43,5 +44,8 @@ public class Book {
     private BookStatus status;
     @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.LAZY)
     private Set<Member> members;
+    @ManyToOne
+    @JoinColumn(name = "librarian_id")
+    private Librarian librarian; // Librarian managing this book
 
 }
