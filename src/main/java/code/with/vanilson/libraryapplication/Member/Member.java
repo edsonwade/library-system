@@ -14,8 +14,8 @@ import java.util.Set;
  * @version 1.0
  * @since 2024-08-22
  */
-//@Table(name = "members")
-//@Entity(name = "Member")
+@Table(name = "members")
+@Entity(name = "Member")
 @Builder
 @Getter
 @Setter

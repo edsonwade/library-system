@@ -17,7 +17,8 @@ spring:
       ddl-auto: update
       format_sql: true
       show-sql: true
-    database: postgresql
+    database:
+      platform: postgresql
     open-in-view: true
 
 management:

@@ -1,11 +1,14 @@
 package code.with.vanilson.libraryapplication.book;
 
+import code.with.vanilson.libraryapplication.Member.Member;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Set;
 
 /**
  * Book
@@ -38,5 +41,7 @@ public class Book {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, name = "book_status")
     private BookStatus status;
+    @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.LAZY)
+    private Set<Member> members;
 
 }
