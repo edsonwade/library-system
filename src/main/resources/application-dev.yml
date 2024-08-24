@@ -44,6 +44,7 @@ springdoc:
     locations: classpath:db/migration/
     baseline-on-migrate: true
     enabled: true
+    cleanDisabled: false
     baseline-description: "init"
     baseline-version: 0
     out-of-order: true

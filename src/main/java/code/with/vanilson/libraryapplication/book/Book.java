@@ -19,7 +19,7 @@ import java.util.Set;
  * @since 2024-08-22
  */
 @Table(name = "books")
-@Entity
+@Entity(name = "Book")
 @Data
 @Builder
 @NoArgsConstructor
@@ -40,7 +40,7 @@ public class Book {
     @Column(name = "publisher_year")
     private Integer publisherYear;
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, name = "book_status")
+    @Column(name = "book_status")
     private BookStatus status;
     @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.LAZY)
     private Set<Member> members;

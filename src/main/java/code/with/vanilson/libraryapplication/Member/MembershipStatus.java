@@ -1,5 +1,7 @@
 package code.with.vanilson.libraryapplication.Member;
 
+import lombok.Getter;
+
 /**
  * MembershipStatus
  *
@@ -7,13 +9,16 @@ package code.with.vanilson.libraryapplication.Member;
  * @version 1.0
  * @since 2024-08-22
  */
+@Getter
 public enum MembershipStatus {
-    ACTIVE,
-    INACTIVE,
-    EXPIRED,
-    CANCELLED,
-    PENDING_APPROVAL,
-    PENDING_RENEWAL,
-    PENDING_REDEMPTION,
-    SUSPEND
+    ACTIVE("active"),
+    INACTIVE("inactive"),
+    CANCELLED("cancelled"),
+    SUSPEND("suspended");
+
+    private final String status;
+
+    MembershipStatus(String status) {
+        this.status = status;
+    }
 }

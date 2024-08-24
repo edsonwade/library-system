@@ -12,8 +12,8 @@ import lombok.Getter;
 @Getter
 public enum BookStatus {
     AVAILABLE("Available"),
-    LOANED("Loaned"),
     BORROWED("borrowed"),
+    LOANED("loaned"),
     LOST("lost"),
     RESERVED("Reserved");
 
