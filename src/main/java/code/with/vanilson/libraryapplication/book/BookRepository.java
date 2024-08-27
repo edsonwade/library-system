@@ -3,6 +3,8 @@ package code.with.vanilson.libraryapplication.book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * BookRepository
  *
@@ -12,4 +14,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface BookRepository extends JpaRepository<Book, Integer> {
+
+    Optional<Book> findBookByAuthorAndTitle(String author, String title);
+
+    public boolean existsBooksByTitle(String title);
+
+    public boolean existsBooksByAuthorAndTitle(String author, String title);
 }
