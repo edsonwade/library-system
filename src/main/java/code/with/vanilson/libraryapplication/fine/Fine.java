@@ -25,7 +25,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Data
 @Builder
-@JsonPropertyOrder(value = {"id","amount","issueDate","member","librarian"})
+@JsonPropertyOrder(value = {"id", "amount", "issueDate", "member", "librarian"})
 public class Fine {
 
     @Id
@@ -56,5 +56,29 @@ public class Fine {
     @ManyToOne
     @JoinColumn(name = "admin_id") // Foreign key to Admin
     private Admin admin; // Admin managing this fine
+
+    /**
+     * Calculates the fine amount based on the due date and current date.
+     * The fine grows per day the book is overdue.
+     *
+     * @param dueDate     The due date of the book.
+     * @param currentDate The current date for calculating the overdue days.
+     * @return The calculated fine amount.
+     */
+    public static double calculateFineAmount(Date dueDate, Date currentDate) {
+        if (null == dueDate || currentDate.before(dueDate) || currentDate.equals(dueDate)) {
+            return 0.0;
+        }
+
+        long daysOverdue = (currentDate.getTime() - dueDate.getTime()) / (1000 * 60 * 60 * 24);
+
+        double baseFine = 2.0; // Base fine amount in euros
+        double incrementPerDay = 1.0; // Additional fine per day in euros
+
+        // Calculate the total fine based on the number of overdue days
+        double totalFine = baseFine + (daysOverdue - 1) * incrementPerDay; // Initial base fine plus incremental fine
+
+        return totalFine > 0 ? totalFine : 0; // Ensure that fine is not negative
+    }
 
 }

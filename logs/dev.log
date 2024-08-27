@@ -2410,3 +2410,291 @@ Caused by: org.postgresql.util.PSQLException: ERRO: inserção ou atualização 
 2024-08-26 11:47:48,179 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-08-26 11:47:48,183 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
 2024-08-26 11:47:48,193 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-26 12:13:41,085 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-26 12:13:41,146 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 21556 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-26 12:13:41,146 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-26 12:13:41,147 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-26 12:13:41,207 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-26 12:13:41,209 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-26 12:13:42,692 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26 12:13:42,694 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-26 12:13:42,728 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:13:42,732 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:13:42,734 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:13:42,736 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:13:42,738 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.Member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:13:42,739 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 39 ms. Found 0 JDBC repository interfaces.
+2024-08-26 12:13:42,747 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26 12:13:42,747 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-26 12:13:42,796 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 44 ms. Found 5 JPA repository interfaces.
+2024-08-26 12:13:43,689 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-26 12:13:43,701 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-26 12:13:43,703 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-26 12:13:43,704 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-26 12:13:43,782 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-26 12:13:43,783 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2573 ms
+2024-08-26 12:13:43,953 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-26 12:13:44,261 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@73a000e5
+2024-08-26 12:13:44,263 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-26 12:13:44,273 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-26 12:13:44,551 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-26 12:13:44,552 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-26 12:13:44,552 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-26 12:13:44,570 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-26 12:13:44,577 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-26 12:13:44,642 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 5 migrations (execution time 00:00.052s)
+2024-08-26 12:13:44,656 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 5
+2024-08-26 12:13:44,659 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-26 12:13:44,783 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-26 12:13:44,898 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-26 12:13:44,956 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-26 12:13:45,382 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-26 12:13:45,496 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-26 12:13:45,792 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:13:45,918 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:13:45,922 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:13:45,931 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:13:45,938 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:13:47,805 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-26 12:13:47,812 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-26 12:13:49,775 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-26 12:13:49,788 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-26 12:13:49,889 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-26 12:13:49,921 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-26 12:13:49,945 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 9.557 seconds (process running for 11.058)
+2024-08-26 12:14:32,239 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-26 12:14:32,243 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-26 12:14:32,247 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-26 12:14:37,142 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-26 12:14:37,208 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 19700 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-26 12:14:37,209 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-26 12:14:37,210 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-26 12:14:37,270 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-26 12:14:37,270 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-26 12:14:38,828 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26 12:14:38,829 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-26 12:14:38,866 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:14:38,869 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:14:38,871 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:14:38,873 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:14:38,875 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.Member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:14:38,876 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 42 ms. Found 0 JDBC repository interfaces.
+2024-08-26 12:14:38,886 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26 12:14:38,887 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-26 12:14:38,927 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 35 ms. Found 5 JPA repository interfaces.
+2024-08-26 12:14:39,816 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-26 12:14:39,826 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-26 12:14:39,828 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-26 12:14:39,829 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-26 12:14:39,922 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-26 12:14:39,923 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2652 ms
+2024-08-26 12:14:40,084 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-26 12:14:40,380 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@25e0a2f3
+2024-08-26 12:14:40,382 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-26 12:14:40,394 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-26 12:14:40,666 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-26 12:14:40,666 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-26 12:14:40,667 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-26 12:14:40,692 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-26 12:14:40,703 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-26 12:14:40,766 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 5 migrations (execution time 00:00.048s)
+2024-08-26 12:14:40,783 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 5
+2024-08-26 12:14:40,787 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-26 12:14:40,947 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-26 12:14:41,058 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-26 12:14:41,109 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-26 12:14:41,488 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-26 12:14:41,574 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-26 12:14:41,811 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:14:41,911 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:14:41,915 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:14:41,924 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:14:41,931 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:14:43,147 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-26 12:14:43,149 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-26 12:14:45,153 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-26 12:14:45,162 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-26 12:14:45,248 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-26 12:14:45,273 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-26 12:14:45,293 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 8.985 seconds (process running for 10.476)
+2024-08-26 12:14:45,695 INFO  [RMI TCP Connection(2)-172.21.16.1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26 12:14:45,696 INFO  [RMI TCP Connection(2)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2024-08-26 12:14:45,699 INFO  [RMI TCP Connection(2)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Completed initialization in 2 ms
+2024-08-26 12:19:50,942 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-26 12:19:50,948 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-26 12:19:50,961 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-26 12:19:54,949 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-08-26 12:19:55,012 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 19248 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-26 12:19:55,012 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-26 12:19:55,013 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-26 12:19:55,064 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-08-26 12:19:55,065 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor: For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-08-26 12:19:56,348 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26 12:19:56,350 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-26 12:19:56,390 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:19:56,394 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:19:56,396 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:19:56,399 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:19:56,400 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.Member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:19:56,401 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 45 ms. Found 0 JDBC repository interfaces.
+2024-08-26 12:19:56,411 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26 12:19:56,413 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-26 12:19:56,463 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 43 ms. Found 5 JPA repository interfaces.
+2024-08-26 12:19:57,592 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-26 12:19:57,605 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-26 12:19:57,609 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-26 12:19:57,609 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-26 12:19:57,724 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-26 12:19:57,725 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2660 ms
+2024-08-26 12:19:57,939 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2024-08-26 12:19:58,228 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@838d397
+2024-08-26 12:19:58,229 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2024-08-26 12:19:58,239 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-26 12:19:58,497 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2024-08-26 12:19:58,498 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2024-08-26 12:19:58,498 INFO  [restartedMain] o.f.c.i.license.VersionPrinter: 
+2024-08-26 12:19:58,516 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-26 12:19:58,523 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-26 12:19:58,571 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 5 migrations (execution time 00:00.037s)
+2024-08-26 12:19:58,587 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 5
+2024-08-26 12:19:58,590 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-26 12:19:58,709 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-26 12:19:58,811 INFO  [restartedMain] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2024-08-26 12:19:58,857 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-26 12:19:59,175 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-26 12:19:59,253 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-26 12:19:59,478 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:19:59,541 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:19:59,543 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:19:59,551 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:19:59,558 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:20:01,142 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-26 12:20:01,149 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-26 12:20:03,392 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-26 12:20:03,403 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-26 12:20:03,489 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-26 12:20:03,515 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-26 12:20:03,535 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 9.13 seconds (process running for 10.32)
+2024-08-26 12:20:04,048 INFO  [RMI TCP Connection(3)-172.21.16.1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-26 12:20:04,048 INFO  [RMI TCP Connection(3)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2024-08-26 12:20:04,052 INFO  [RMI TCP Connection(3)-172.21.16.1] o.s.web.servlet.DispatcherServlet: Completed initialization in 3 ms
+2024-08-26 12:27:44,863 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener: Restarting due to 2 class path changes (0 additions, 2 deletions, 0 modifications)
+2024-08-26 12:27:44,872 INFO  [Thread-5] o.a.coyote.http11.Http11NioProtocol: Stopping ProtocolHandler ["http-nio-8081"]
+2024-08-26 12:27:45,957 INFO  [Thread-5] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-26 12:27:45,968 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2024-08-26 12:27:45,992 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2024-08-26 12:27:46,143 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 19248 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-26 12:27:46,143 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-26 12:27:46,143 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-26 12:27:46,887 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26 12:27:46,888 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-26 12:27:46,904 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:27:46,907 WARN  [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext: Exception encountered during context initialization - cancelling refresh attempt: java.lang.TypeNotPresentException: Type code.with.vanilson.libraryapplication.book.Book not present
+2024-08-26 12:27:46,935 INFO  [restartedMain] o.s.b.a.l.ConditionEvaluationReportLogger: 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-26 12:27:46,981 ERROR [restartedMain] o.s.boot.SpringApplication: Application run failed
+java.lang.TypeNotPresentException: Type code.with.vanilson.libraryapplication.book.Book not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117)
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125)
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49)
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68)
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138)
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49)
+	at java.base/sun.reflect.generics.repository.ClassRepository.computeSuperInterfaces(ClassRepository.java:117)
+	at java.base/sun.reflect.generics.repository.ClassRepository.getSuperInterfaces(ClassRepository.java:95)
+	at java.base/java.lang.Class.getGenericInterfaces(Class.java:1211)
+	at org.springframework.core.ResolvableType.getInterfaces(ResolvableType.java:517)
+	at org.springframework.core.ResolvableType.as(ResolvableType.java:465)
+	at org.springframework.data.util.TypeDiscoverer.getSuperTypeInformation(TypeDiscoverer.java:256)
+	at org.springframework.data.util.ClassTypeInformation.getSuperTypeInformation(ClassTypeInformation.java:36)
+	at org.springframework.data.util.TypeInformation.getRequiredSuperTypeInformation(TypeInformation.java:327)
+	at org.springframework.data.repository.core.support.DefaultRepositoryMetadata.<init>(DefaultRepositoryMetadata.java:55)
+	at org.springframework.data.repository.core.support.AbstractRepositoryMetadata.getMetadata(AbstractRepositoryMetadata.java:79)
+	at org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport.getRepositoryConfigurations(RepositoryConfigurationExtensionSupport.java:91)
+	at org.springframework.data.repository.config.RepositoryConfigurationDelegate.registerRepositoriesIn(RepositoryConfigurationDelegate.java:168)
+	at org.springframework.boot.autoconfigure.data.AbstractRepositoryConfigurationSourceSupport.registerBeanDefinitions(AbstractRepositoryConfigurationSourceSupport.java:62)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.lambda$loadBeanDefinitionsFromRegistrars$1(ConfigurationClassBeanDefinitionReader.java:376)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsFromRegistrars(ConfigurationClassBeanDefinitionReader.java:375)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148)
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:120)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:429)
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349)
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118)
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:789)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:607)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352)
+	at code.with.vanilson.libraryapplication.LibraryManagementSystemApplication.main(LibraryManagementSystemApplication.java:12)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50)
+Caused by: java.lang.ClassNotFoundException: code.with.vanilson.libraryapplication.book.Book
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:467)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:467)
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114)
+	... 41 common frames omitted
+2024-08-26 12:27:48,550 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Starting LibraryManagementSystemApplication using Java 17.0.11 with PID 19248 (C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system\target\classes started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-08-26 12:27:48,551 DEBUG [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-08-26 12:27:48,552 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: The following 1 profile is active: "dev"
+2024-08-26 12:27:49,888 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26 12:27:49,888 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-08-26 12:27:49,905 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:27:49,909 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:27:49,912 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:27:49,915 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:27:49,921 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.Member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-08-26 12:27:49,922 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 33 ms. Found 0 JDBC repository interfaces.
+2024-08-26 12:27:49,930 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2024-08-26 12:27:49,931 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-08-26 12:27:49,988 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 56 ms. Found 5 JPA repository interfaces.
+2024-08-26 12:27:50,526 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 8081 (http)
+2024-08-26 12:27:50,527 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-8081"]
+2024-08-26 12:27:50,528 INFO  [restartedMain] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2024-08-26 12:27:50,529 INFO  [restartedMain] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2024-08-26 12:27:50,678 INFO  [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2024-08-26 12:27:50,680 INFO  [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2125 ms
+2024-08-26 12:27:50,860 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Starting...
+2024-08-26 12:27:51,146 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@31c9c5e8
+2024-08-26 12:27:51,147 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Start completed.
+2024-08-26 12:27:51,148 INFO  [restartedMain] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost:5432/library_management_db'
+2024-08-26 12:27:51,316 INFO  [restartedMain] org.flywaydb.core.FlywayExecutor: Database: jdbc:postgresql://localhost:5432/library_management_db (PostgreSQL 16.0)
+2024-08-26 12:27:51,321 WARN  [restartedMain] o.f.c.i.database.base.Database: Flyway upgrade recommended: PostgreSQL 16.0 is newer than this version of Flyway and support has not been tested. The latest supported version of PostgreSQL is 15.
+2024-08-26 12:27:51,345 INFO  [restartedMain] o.f.core.internal.command.DbValidate: Successfully validated 5 migrations (execution time 00:00.018s)
+2024-08-26 12:27:51,543 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Current version of schema "public": 5
+2024-08-26 12:27:51,544 INFO  [restartedMain] o.f.core.internal.command.DbMigrate: Schema "public" is up to date. No migration necessary.
+2024-08-26 12:27:51,621 INFO  [restartedMain] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-08-26 12:27:51,635 INFO  [restartedMain] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2024-08-26 12:27:51,646 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-08-26 12:27:51,670 WARN  [restartedMain] org.hibernate.orm.deprecation: HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-08-26 12:27:51,682 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:27:51,713 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:27:51,716 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:27:51,728 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:27:51,734 WARN  [restartedMain] o.h.b.i.InFlightMetadataCollectorImpl: HHH000069: Duplicate generator name person_seq
+2024-08-26 12:27:51,981 INFO  [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-08-26 12:27:51,981 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-08-26 12:27:54,640 INFO  [restartedMain] o.s.b.d.a.OptionalLiveReloadServer: LiveReload server is running on port 35729
+2024-08-26 12:27:54,678 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver: Exposing 15 endpoint(s) beneath base path '/actuator'
+2024-08-26 12:27:54,865 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-8081"]
+2024-08-26 12:27:54,885 INFO  [restartedMain] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 8081 (http) with context path ''
+2024-08-26 12:27:54,932 INFO  [restartedMain] c.w.v.l.LibraryManagementSystemApplication: Started LibraryManagementSystemApplication in 6.449 seconds (process running for 481.718)
+2024-08-26 12:27:54,980 INFO  [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener: Condition evaluation unchanged
+2024-08-26 12:28:07,563 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-08-26 12:28:07,565 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown initiated...
+2024-08-26 12:28:07,578 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown completed.
