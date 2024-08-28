@@ -11,10 +11,3 @@ VALUES (nextval('person_id_seq'), 'Charlie Davis', 'charlie.davis@example.com', 
         'Springfield', 'IL', 'USA', '62701', 'ACTIVE', 3, 1),
        (nextval('person_id_seq'), 'Diana Evans', 'diana.evans@example.com', '3344556677', '303 Cedar St', 'Shelbyville',
         'IL', 'USA', '62565', 'ACTIVE', 4, 2);
-
-INSERT INTO statuses (book_status)
-VALUES ('Available'),
-       ('borrowed'),
-       ('loaned'),
-       ('lost'),
-       ('Reserved');

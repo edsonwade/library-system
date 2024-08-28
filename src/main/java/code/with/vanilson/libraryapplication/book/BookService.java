@@ -6,9 +6,11 @@ import code.with.vanilson.libraryapplication.Member.Member;
 import code.with.vanilson.libraryapplication.Member.MemberRepository;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import code.with.vanilson.libraryapplication.librarian.LibrarianRepository;
+import jdk.jfr.TransitionTo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -47,6 +49,7 @@ public class BookService implements IBookService {
      * @return List of {@link BookResponse} representing all books in the system.
      */
     @Override
+    @Transactional(readOnly = true)
     public List<BookResponse> getAllBooks() {
         log.info("Retrieving all books");
         return bookRepository.findAll().stream()
@@ -61,14 +64,16 @@ public class BookService implements IBookService {
      * @return {@link Optional<BookResponse>} containing the book details if found.
      */
     @Override
-    public Optional<BookResponse> getBookById(Integer bookId) {
+    @Transactional(readOnly = true)
+    public Optional<BookResponse> getBookById(Long bookId) {
         log.info("Retrieving book with ID: {}", bookId);
         return bookRepository.findById(bookId)
                 .map(BookMapper::mapToBookResponse)
                 .or(() -> {
                     loggerError(bookId);
-                    throw new ResourceNotFoundException(
-                            MessageFormat.format(MessageProvider.getMessage("library.book.not_found"), bookId));
+                    String errorMessage = MessageFormat.format(
+                            MessageProvider.getMessage("library.book.not_found"), bookId);
+                    throw new ResourceNotFoundException(errorMessage);
                 });
     }
 
@@ -79,6 +84,7 @@ public class BookService implements IBookService {
      * @return The created {@link BookResponse} representing the saved book.
      */
     @Override
+    @Transactional
     public BookResponse createBook(BookRequest bookRequest) {
         validateBookRequest(bookRequest);
         var librarian = findLibrarianById(bookRequest.getLibrarianId());
@@ -98,7 +104,8 @@ public class BookService implements IBookService {
      * @return The updated {@link BookResponse}.
      */
     @Override
-    public BookResponse updateBook(BookRequest bookRequest, Integer bookId) {
+    @Transactional
+    public BookResponse updateBook(BookRequest bookRequest, Long bookId) {
         validateBookRequest(bookRequest);
 
         var existingBook = findBookById(bookId);
@@ -117,7 +124,8 @@ public class BookService implements IBookService {
      * @param bookId The ID of the book to be deleted.
      */
     @Override
-    public void deleteBook(Integer bookId) {
+    @Transactional
+    public void deleteBook(Long bookId) {
         var existingBook = findBookById(bookId);
         bookRepository.delete(existingBook);
         log.info("Book with ID {} has been deleted successfully", bookId);
@@ -143,7 +151,7 @@ public class BookService implements IBookService {
      * @param bookId The ID of the book.
      * @return The found {@link Book}.
      */
-    private Book findBookById(Integer bookId) {
+    private Book findBookById(Long bookId) {
         return bookRepository.findById(bookId)
                 .orElseThrow(() -> {
                     loggerError(bookId);
@@ -203,7 +211,7 @@ public class BookService implements IBookService {
         existingBook.getMembers().add(member);
     }
 
-    private static void loggerError(Integer bookId) {
+    private static void loggerError(Long bookId) {
         log.error("Book with ID {} not found", bookId);
     }
 }
