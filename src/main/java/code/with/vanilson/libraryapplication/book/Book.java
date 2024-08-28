@@ -2,6 +2,9 @@ package code.with.vanilson.libraryapplication.book;
 
 import code.with.vanilson.libraryapplication.Member.Member;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,6 +12,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,26 +31,36 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonPropertyOrder(value = {"id", "title", "author", "isbn", "publisherName", "publisherYear", "status"})
-public class Book {
+public class Book implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 2L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_id_seq")
     @SequenceGenerator(name = "book_id_seq", sequenceName = "book_id_seq", allocationSize = 1)
     @Column(name = "book_id", nullable = false, unique = true)
     private Long id;  // Use Long to match BIGINT
+
     private String title;
     private String author;
     private String isbn;
     private String genre;
+
     @Column(name = "publisher_name")
     private String publisherName;
+
     @Column(name = "publisher_year")
     private Integer publisherYear;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "book_status")
     private BookStatus status;
-    @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.LAZY)
+
+    @ManyToMany(mappedBy = "borrowedBooks", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Member> members;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "librarian_id")
     private Librarian librarian; // Librarian managing this book
 

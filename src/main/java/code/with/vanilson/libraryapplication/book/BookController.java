@@ -3,6 +3,7 @@ package code.with.vanilson.libraryapplication.book;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
 import code.with.vanilson.libraryapplication.common.exceptions.provider.LibraryExceptionHandlerProvider;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,13 +19,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/books")
 @CrossOrigin(
-        origins = "http://localhost:8081", // Replace with your frontend URL(s) if needed.
+        origins = "http://localhost:8081", // Replace it with your frontend URL(s) if needed.
         methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE},
         allowedHeaders = {"*"},
         exposedHeaders = {"*"},
         allowCredentials = "true",
         maxAge = 3600
 )
+@Slf4j
 public class BookController {
 
     // Implement the CRUD operations for books here...
@@ -45,6 +47,7 @@ public class BookController {
      */
     @GetMapping
     public ResponseEntity<List<BookResponse>> getAllBooks() {
+        log.info("Retrieving all books");
         return ResponseEntity.ok()
                 .body(bookService.getAllBooks());
     }
@@ -61,11 +64,14 @@ public class BookController {
     @GetMapping(value = "/{bookId}")
     public ResponseEntity<?> getBookById(@PathVariable long bookId) {
         try {
+            log.info("Retrieving book by id: {}", bookId);
             BookResponse bookResponse = bookService.getBookById(bookId);
             return ResponseEntity.ok(bookResponse);
         } catch (ResourceNotFoundException ex) {
+            log.error("Error book id not found {}", ex.getMessage());
             return handlerProvider.handleBookNotFound(ex);
         } catch (ResourceBadRequestException ex) {
+            log.error("Error bad request book id {}", ex.getMessage());
             return handlerProvider.handleBookBadRequest(ex);
         }
 
