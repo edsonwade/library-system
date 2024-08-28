@@ -25,7 +25,7 @@ public interface IBookService {
      *
      * @param id ID of the book to be retrieved
      */
-    Optional<BookResponse> getBookById(Long id);
+    BookResponse getBookById(Long id);
 
     /**
      * Create a new book
@@ -38,8 +38,8 @@ public interface IBookService {
     /**
      * Update an existing book
      *
-     * @param bookRequest   Book object to be updated with new information about the book being updated
-     * @param bookId Update method to be called to update the book object with new information about the book being updated
+     * @param bookRequest Book object to be updated with new information about the book being updated
+     * @param bookId      Update method to be called to update the book object with new information about the book being updated
      */
 
     BookResponse updateBook(BookRequest bookRequest, Long bookId);
