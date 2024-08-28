@@ -31,7 +31,7 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_id_seq")
     @SequenceGenerator(name = "book_id_seq", sequenceName = "book_id_seq", allocationSize = 1)
     @Column(name = "book_id", nullable = false, unique = true)
-    private Integer id;
+    private Long id;  // Use Long to match BIGINT
     private String title;
     private String author;
     private String isbn;
@@ -76,7 +76,7 @@ public class Book {
      * who have borrowed this book.
      */
     public boolean isReservedBy(Member member) {
-        return members != null && members.equals(member);
+        return members != null && members.contains(member);
     }
 
     /**

@@ -13,7 +13,7 @@ import java.util.Optional;
  * @since 2024-08-26
  */
 @Repository
-public interface BookRepository extends JpaRepository<Book, Integer> {
+public interface BookRepository extends JpaRepository<Book, Long> {
 
     Optional<Book> findBookByAuthorAndTitle(String author, String title);
 

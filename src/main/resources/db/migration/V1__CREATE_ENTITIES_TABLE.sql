@@ -6,12 +6,6 @@ CREATE SEQUENCE IF NOT EXISTS person_id_seq
     MAXVALUE 1000000
     CACHE 1;
 
-CREATE TABLE IF NOT EXISTS statuses
-(
-    status_id   BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    book_status VARCHAR(255) NOT NULL UNIQUE
-);
-
 -- Sequence for Book
 CREATE SEQUENCE IF NOT EXISTS book_id_seq START WITH 1 INCREMENT BY 1;
 
@@ -73,11 +67,6 @@ CREATE TABLE IF NOT EXISTS members
     FOREIGN KEY (admin_id) REFERENCES admins (person_id) ON DELETE SET NULL
 );
 
-CREATE TABLE IF NOT EXISTS statuses
-(
-    status_id   BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    book_status VARCHAR(255) NOT NULL UNIQUE
-);
 
 -- Books Table
 CREATE TABLE IF NOT EXISTS books
@@ -89,11 +78,11 @@ CREATE TABLE IF NOT EXISTS books
     genre          VARCHAR(255),
     publisher_name VARCHAR(255),
     publisher_year INT,
-    status_id      BIGINT       NOT NULL,
+    book_status    VARCHAR(255) NOT NULL,
+    member_id      BIGINT,
     librarian_id   BIGINT,
-    FOREIGN KEY (librarian_id) REFERENCES librarians (person_id) ON DELETE SET NULL,
-    FOREIGN KEY (status_id) REFERENCES statuses (status_id) ON DELETE RESTRICT
-
+    FOREIGN KEY (member_id) REFERENCES members (person_id) ON DELETE CASCADE,
+    FOREIGN KEY (librarian_id) REFERENCES librarians (person_id) ON DELETE SET NULL
 );
 
 -- Fine Table

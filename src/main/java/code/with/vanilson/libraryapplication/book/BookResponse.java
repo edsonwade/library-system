@@ -17,7 +17,7 @@ import java.util.Set;
 @Data
 @Builder
 public class BookResponse {
-    private Integer id;
+    private Long id;
     private String title;
     private String author;
     private String isbn;

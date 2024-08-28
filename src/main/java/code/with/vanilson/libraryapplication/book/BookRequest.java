@@ -25,7 +25,7 @@ import java.util.Set;
 public class BookRequest {
     @NotNull(message = "The book ID must not be null")
     @Positive(message = "The book ID must be a positive integer")
-    private Integer id;
+    private Long id;
 
     @NotNull(message = "The book title must not be null")
     @NotEmpty(message = "The book title should not be empty")

@@ -25,7 +25,7 @@ public interface IBookService {
      *
      * @param id ID of the book to be retrieved
      */
-    Optional<BookResponse> getBookById(Integer id);
+    Optional<BookResponse> getBookById(Long id);
 
     /**
      * Create a new book
@@ -42,13 +42,13 @@ public interface IBookService {
      * @param bookId Update method to be called to update the book object with new information about the book being updated
      */
 
-    BookResponse updateBook(BookRequest bookRequest, Integer bookId);
+    BookResponse updateBook(BookRequest bookRequest, Long bookId);
 
     /**
      * Delete a book
      *
      * @param bookId ID of the book to be deleted
      */
-    void deleteBook(Integer bookId);
+    void deleteBook(Long bookId);
 
 }

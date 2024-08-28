@@ -1,11 +1,8 @@
 package code.with.vanilson.libraryapplication.book;
 
 import code.with.vanilson.libraryapplication.Member.Member;
-import code.with.vanilson.libraryapplication.Member.MemberRepository;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
-import code.with.vanilson.libraryapplication.librarian.LibrarianRepository;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
