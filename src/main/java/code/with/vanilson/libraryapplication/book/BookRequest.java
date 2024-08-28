@@ -55,12 +55,12 @@ public class BookRequest {
     @NotNull(message = "The book status must not be null")
     private BookStatus status;
 
+    @NotEmpty(message = "The member IDs should not be empty")
+    @Positive
+    private Set<Long> memberIds;
+
     @NotNull(message = "The librarian ID must not be null")
     @Positive(message = "The librarian ID must be a positive integer")
     private Long librarianId;
 
-    @NotEmpty(message = "The member IDs should not be empty")
-    @NotNull(message = "Member ID must not be null")
-    @Positive(message = "Member ID must be a positive integer")
-    private Long memberIds;
 }

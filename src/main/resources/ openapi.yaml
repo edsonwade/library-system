@@ -1,0 +1,77 @@
+[
+  {
+    "id": 0,
+    "title": "string",
+    "author": "string",
+    "isbn": "string",
+    "genre": "string",
+    "publisherName": "string",
+    "publisherYear": 0,
+    "status": "AVAILABLE",
+    "members": [
+      {
+        "id": 0,
+        "name": "string",
+        "email": "string",
+        "address": {
+          "street": "string",
+          "city": "string",
+          "state": "string",
+          "country": "string",
+          "postalCode": "string"
+        },
+        "contact": "9594876148",
+        "membershipStatus": "ACTIVE",
+        "borrowedBooksIds": [
+          0
+        ],
+        "librarianId": 0,
+        "adminId": 0
+      }
+    ],
+    "librarian": {
+      "id": 0,
+      "name": "string",
+      "email": "string",
+      "address": {
+        "street": "string",
+        "city": "string",
+        "state": "string",
+        "country": "string",
+        "postalCode": "string"
+      },
+      "contact": "string",
+      "employeeCode": "string",
+      "managedBooksIds": [
+        0
+      ],
+      "membersIds": [
+        0
+      ],
+      "admin": {
+        "id": 0,
+        "name": "string",
+        "email": "string",
+        "address": {
+          "street": "string",
+          "city": "string",
+          "state": "string",
+          "country": "string",
+          "postalCode": "string"
+        },
+        "contact": "8175518540",
+        "adminCode": "string",
+        "role": "SUPER_ADMIN",
+        "managedLibrariansIds": [
+          0
+        ],
+        "managedMembersIds": [
+          0
+        ],
+        "managedFinesIds": [
+          0
+        ]
+      }
+    }
+  }
+]

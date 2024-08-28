@@ -15,8 +15,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.MessageFormat;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static code.with.vanilson.libraryapplication.book.BookMapper.mapToBookEntity;
@@ -95,7 +97,7 @@ public class BookService implements IBookService {
     public BookResponse createBook(BookRequest bookRequest) {
         validateBookRequest(bookRequest);
         var librarian = findLibrarianById(bookRequest.getLibrarianId());
-        var member = findMemberById(bookRequest.getMemberIds());
+        var member = findMembersByIds(bookRequest.getMemberIds());
 
         var bookEntity = mapToBookEntity(bookRequest, librarian, member);
         var savedBook = bookRepository.save(bookEntity);
@@ -117,7 +119,7 @@ public class BookService implements IBookService {
 
         var existingBook = findBookById(bookId);
         var librarian = findLibrarianById(bookRequest.getLibrarianId());
-        var member = findMemberById(bookRequest.getMemberIds());
+        var member = findMembersByIds(bookRequest.getMemberIds());
 
         updateBookEntity(existingBook, bookRequest, librarian, member);
         var updatedBook = bookRepository.save(existingBook);
@@ -199,14 +201,49 @@ public class BookService implements IBookService {
     }
 
     /**
+     * Finds members by their IDs or throws an exception if any member ID is not found.
+     *
+     * @param memberIds The IDs of the members to find.
+     * @return A set of found {@link Member}s.
+     * @throws ResourceNotFoundException if any member ID is not found.
+     */
+    private Set<Member> findMembersByIds(Set<Long> memberIds) {
+        // Fetch all members by their IDs
+        List<Member> memberList = memberRepository.findAllById(memberIds);
+
+        // Convert List<Member> to Set<Member>
+        Set<Member> members = new HashSet<>(memberList);
+
+        // Create a set of the IDs that were actually found
+        Set<Long> foundMemberIds = members.stream()
+                .map(Member::getId)
+                .collect(Collectors.toSet());
+
+        // Determine which requested member IDs were not found
+        Set<Long> notFoundMemberIds = memberIds.stream()
+                .filter(id -> !foundMemberIds.contains(id))
+                .collect(Collectors.toSet());
+
+        // Throw an exception if any IDs were not found
+        if (!notFoundMemberIds.isEmpty()) {
+            log.error("Members with IDs {} not found", notFoundMemberIds);
+            throw new ResourceNotFoundException(
+                    MessageFormat.format(MessageProvider.getMessage("library.members.not_found"), notFoundMemberIds));
+        }
+
+        return members;
+    }
+
+    /**
      * Updates the existing book entity with new values from the book request.
      *
      * @param existingBook The existing book entity to be updated.
      * @param bookRequest  The book request containing updated values.
      * @param librarian    The librarian to be assigned to the book.
-     * @param member       The member to be assigned to the book.
+     * @param members      The member to be assigned to the book.
      */
-    private void updateBookEntity(Book existingBook, BookRequest bookRequest, Librarian librarian, Member member) {
+    private void updateBookEntity(Book existingBook, BookRequest bookRequest, Librarian librarian,
+                                  Set<Member> members) {
         existingBook.setTitle(bookRequest.getTitle());
         existingBook.setAuthor(bookRequest.getAuthor());
         existingBook.setIsbn(bookRequest.getIsbn());
@@ -215,7 +252,7 @@ public class BookService implements IBookService {
         existingBook.setPublisherYear(bookRequest.getPublisherYear());
         existingBook.setStatus(bookRequest.getStatus());
         existingBook.setLibrarian(librarian);
-        existingBook.getMembers().add(member);
+        existingBook.setMembers(members); // Set the members
     }
 
     private static void loggerError(Long bookId) {

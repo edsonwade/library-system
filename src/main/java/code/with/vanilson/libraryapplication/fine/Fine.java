@@ -3,6 +3,8 @@ package code.with.vanilson.libraryapplication.fine;
 import code.with.vanilson.libraryapplication.Member.Member;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -51,10 +53,12 @@ public class Fine {
 
     @ManyToOne
     @JoinColumn(name = "librarian_id")
+    @JsonIgnore
     private Librarian librarian; // Librarian processing this fine
 
     @ManyToOne
     @JoinColumn(name = "admin_id") // Foreign key to Admin
+    @JsonIgnore
     private Admin admin; // Admin managing this fine
 
     /**

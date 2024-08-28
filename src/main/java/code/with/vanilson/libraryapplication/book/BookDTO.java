@@ -1,13 +1,12 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.Member.Member;
-import code.with.vanilson.libraryapplication.librarian.Librarian;
-import jakarta.persistence.*;
+import code.with.vanilson.libraryapplication.Member.MemberDTO;
+import code.with.vanilson.libraryapplication.librarian.LibrarianDTO;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.relational.core.mapping.Embedded;
 
 import java.util.Set;
 
@@ -21,6 +20,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class BookDTO {
     @NotNull(message = "The book ID must not be null")
     @Positive(message = "The book ID must be a positive integer")
@@ -54,13 +54,10 @@ public class BookDTO {
     @NotNull(message = "The book status must not be null")
     private BookStatus status;
 
-    @NotNull(message = "The librarian ID must not be null")
-    @Positive(message = "The librarian ID must be a positive integer")
+    // Only include the librarian ID, not the full object
+    @NotNull(message = "The librarian must not be null")
     private Long librarianId;
 
-    @NotEmpty(message = "The member IDs should not be empty")
-    @NotNull(message = "Member IDs must not be null")
-    @NotEmpty(message = "Member IDs should not be empty")
-    @Positive(message = "Member ID must be a positive integer")
+    // Consider if you need to include member IDs or simplify it
     private Set<Long> memberIds;
 }
