@@ -1,10 +1,12 @@
 package code.with.vanilson.libraryapplication.book;
 
+import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
+import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
+import code.with.vanilson.libraryapplication.common.exceptions.provider.LibraryExceptionHandlerProvider;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * BookController
@@ -27,9 +29,11 @@ public class BookController {
 
     // Implement the CRUD operations for books here...
     private final BookService bookService;
+    private final LibraryExceptionHandlerProvider handlerProvider;
 
-    public BookController(BookService bookService) {
+    public BookController(BookService bookService, LibraryExceptionHandlerProvider handlerProvider) {
         this.bookService = bookService;
+        this.handlerProvider = handlerProvider;
     }
 
     /**
@@ -55,7 +59,16 @@ public class BookController {
      * @throws IllegalArgumentException If the bookId is less than or equal to zero.
      */
     @GetMapping(value = "/{bookId}")
-    public ResponseEntity<Optional<BookResponse>> getBookById(@PathVariable long bookId) {
-        return ResponseEntity.ok().body(bookService.getBookById(bookId));
+    public ResponseEntity<?> getBookById(@PathVariable long bookId) {
+        try {
+            BookResponse bookResponse = bookService.getBookById(bookId);
+            return ResponseEntity.ok(bookResponse);
+        } catch (ResourceNotFoundException ex) {
+            return handlerProvider.handleBookNotFound(ex);
+        } catch (ResourceBadRequestException ex) {
+            return handlerProvider.handleBookBadRequest(ex);
+        }
+
     }
+
 }

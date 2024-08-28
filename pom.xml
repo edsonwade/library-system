@@ -17,13 +17,6 @@
         <java.version>17</java.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>github</id> <!-- This ID should match the ID in `maven-settings.txt` -->
-            <url>https://github.com/edsonwade/common</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <!-- Your dependencies here -->
         <dependency>
@@ -113,11 +106,11 @@
         </dependency>
 
         <!-- Dependency on Common project -->
-        <dependency>
-            <groupId>code.with.vanilson</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>code.with.vanilson</groupId>-->
+<!--            <artifactId>common</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <!-- Plugin configuration -->
@@ -144,6 +137,11 @@
             </plugin>
             <!-- Other plugins as needed -->
         </plugins>
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/main/resources</directory>-->
+<!--            </resource>-->
+<!--        </resources>-->
     </build>
 
     <!-- Distribution management for deploying -->

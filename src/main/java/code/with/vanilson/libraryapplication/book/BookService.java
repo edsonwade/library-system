@@ -1,12 +1,14 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.common.exceptions.ResourceNotFoundException;
-import code.with.vanilson.common.utils.MessageProvider;
 import code.with.vanilson.libraryapplication.Member.Member;
 import code.with.vanilson.libraryapplication.Member.MemberRepository;
+import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
+import code.with.vanilson.libraryapplication.common.exceptions.ResourceInvalidException;
+import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
+import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import code.with.vanilson.libraryapplication.librarian.LibrarianRepository;
-import jdk.jfr.TransitionTo;
+
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -61,19 +63,24 @@ public class BookService implements IBookService {
      * Retrieves a book by its ID.
      *
      * @param bookId The ID of the book to be retrieved.
-     * @return {@link Optional<BookResponse>} containing the book details if found.
+     * @return {@link BookResponse} containing the book details if found.
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<BookResponse> getBookById(Long bookId) {
+    public BookResponse getBookById(Long bookId) {
+        if (bookId <= 0) {
+            var errorMessage = MessageProvider.getMessage("library.book.bad_request", bookId);
+            throw new ResourceBadRequestException(errorMessage);
+        }
+        Optional<Book> book = bookRepository.findById(bookId);
         log.info("Retrieving book with ID: {}", bookId);
-        return bookRepository.findById(bookId)
+        return book
                 .map(BookMapper::mapToBookResponse)
-                .or(() -> {
+                .orElseThrow(() -> {
                     loggerError(bookId);
                     String errorMessage = MessageFormat.format(
                             MessageProvider.getMessage("library.book.not_found"), bookId);
-                    throw new ResourceNotFoundException(errorMessage);
+                    return new ResourceNotFoundException(errorMessage);
                 });
     }
 
@@ -139,9 +146,9 @@ public class BookService implements IBookService {
      * @param bookRequest The book request to be validated.
      */
     private void validateBookRequest(BookRequest bookRequest) {
-        if (bookRequest == null) {
+        if (null == bookRequest) {
             log.error("Book request is null");
-            throw new IllegalArgumentException(MessageProvider.getMessage("library.book.request_null"));
+            throw new ResourceInvalidException(MessageProvider.getMessage("library.book.cannot_be_null"));
         }
     }
 
@@ -212,6 +219,7 @@ public class BookService implements IBookService {
     }
 
     private static void loggerError(Long bookId) {
-        log.error("Book with ID {} not found", bookId);
+        var message = MessageFormat.format(MessageProvider.getMessage("library.book.not_found"), bookId);
+        log.error(message);
     }
 }
