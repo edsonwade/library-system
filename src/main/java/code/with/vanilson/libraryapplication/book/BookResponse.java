@@ -1,8 +1,6 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.Member.Member;
 import code.with.vanilson.libraryapplication.Member.MemberDTO;
-import code.with.vanilson.libraryapplication.librarian.Librarian;
 import code.with.vanilson.libraryapplication.librarian.LibrarianDTO;
 import lombok.Builder;
 import lombok.Data;
@@ -18,7 +16,7 @@ import java.util.Set;
  */
 @Data
 @Builder
-public class BookResponse {
+public class BookResponse  {
     private Long id;
     private String title;
     private String author;

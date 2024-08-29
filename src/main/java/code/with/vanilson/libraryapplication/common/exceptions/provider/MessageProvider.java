@@ -1,6 +1,4 @@
-package code.with.vanilson.libraryapplication.common.configs;
-
-import org.springframework.context.annotation.Configuration;
+package code.with.vanilson.libraryapplication.common.exceptions.provider;
 
 import java.io.IOException;
 import java.io.InputStream;

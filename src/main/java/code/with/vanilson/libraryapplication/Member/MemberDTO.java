@@ -1,16 +1,12 @@
 package code.with.vanilson.libraryapplication.Member;
 
 import code.with.vanilson.libraryapplication.Person.AddressDTO;
-import code.with.vanilson.libraryapplication.admin.AdminDTO;
-import code.with.vanilson.libraryapplication.book.BookDTO;
-import code.with.vanilson.libraryapplication.librarian.LibrarianDTO;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 import java.util.Set;
 
 /**

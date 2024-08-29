@@ -255,6 +255,15 @@ public class BookService implements IBookService {
         existingBook.setMembers(members); // Set the members
     }
 
+    /**
+     * Logs an error message for a book not found scenario.
+     * <p>
+     * This method constructs an error message using the provided book ID and logs it using the SLF4J logger.
+     * The error message is formatted using the {@link MessageFormat} class and retrieved from the
+     * {@link MessageProvider} using the key "library.book.not_found".
+     *
+     * @param bookId The ID of the book that was not found.
+     */
     private static void loggerError(Long bookId) {
         var message = MessageFormat.format(MessageProvider.getMessage("library.book.not_found"), bookId);
         log.error(message);

@@ -1,8 +1,5 @@
 package code.with.vanilson.libraryapplication.fine;
 
-import code.with.vanilson.libraryapplication.Member.MemberDTO;
-import code.with.vanilson.libraryapplication.admin.AdminDTO;
-import code.with.vanilson.libraryapplication.librarian.LibrarianDTO;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
