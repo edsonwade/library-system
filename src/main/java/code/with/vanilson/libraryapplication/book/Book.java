@@ -2,9 +2,7 @@ package code.with.vanilson.libraryapplication.book;
 
 import code.with.vanilson.libraryapplication.Member.Member;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -35,11 +33,9 @@ public class Book implements Serializable {
     @Serial
     private static final long serialVersionUID = 2L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "book_id_seq")
-    @SequenceGenerator(name = "book_id_seq", sequenceName = "book_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id", nullable = false, unique = true)
-    private Long id;  // Use Long to match BIGINT
-
+    private Long bookId;
     private String title;
     private String author;
     private String isbn;
@@ -55,7 +51,7 @@ public class Book implements Serializable {
     @Column(name = "book_status")
     private BookStatus status;
 
-    @ManyToMany(mappedBy = "borrowedBooks", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "borrowedBooks")
     @JsonIgnore
     private Set<Member> members;
 

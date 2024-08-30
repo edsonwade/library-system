@@ -1,7 +1,5 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.Member.MemberDTO;
-import code.with.vanilson.libraryapplication.librarian.LibrarianDTO;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -53,11 +51,13 @@ public class BookDTO {
 
     @NotNull(message = "The book status must not be null")
     private BookStatus status;
+    @NotNull
+    @NotEmpty
+    private Set<Long> memberIds;
 
-    // Only include the librarian ID, not the full object
     @NotNull(message = "The librarian must not be null")
+    @Positive(message = "The librarian ID must be a positive integer")
+    @Min(value = 1, message = "The librarian ID must be greater than or equal to 1")
     private Long librarianId;
 
-    // Consider if you need to include member IDs or simplify it
-    private Set<Long> memberIds;
 }

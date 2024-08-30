@@ -1,13 +1,11 @@
 package code.with.vanilson.libraryapplication.book;
 
 import code.with.vanilson.libraryapplication.Member.Member;
-import code.with.vanilson.libraryapplication.librarian.Librarian;
-import jdk.jfr.Unsigned;
-import lombok.*;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.relational.core.mapping.Embedded;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
@@ -55,9 +53,10 @@ public class BookRequest {
     @NotNull(message = "The book status must not be null")
     private BookStatus status;
 
-    @NotEmpty(message = "The member IDs should not be empty")
-    @Positive
-    private Set<Long> memberIds;
+
+
+    @NotNull(message = "The member ID must not be null")
+    private Set<Member> memberIds;
 
     @NotNull(message = "The librarian ID must not be null")
     @Positive(message = "The librarian ID must be a positive integer")

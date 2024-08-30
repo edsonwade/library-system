@@ -34,7 +34,7 @@ public class BookMapper {
         validateNotNull(members, "library.members.cannot_be_null");
 
         return Book.builder()
-                .id(request.getId())
+                .bookId(request.getId())
                 .title(request.getTitle())
                 .author(request.getAuthor())
                 .isbn(request.getIsbn())
@@ -76,7 +76,7 @@ public class BookMapper {
         validateNotNull(book, "library.book.cannot_be_null");
 
         return BookResponse.builder()
-                .id(book.getId())
+                .id(book.getBookId())
                 .title(book.getTitle())
                 .author(book.getAuthor())
                 .isbn(book.getIsbn())
@@ -110,7 +110,7 @@ public class BookMapper {
                 .contact(librarian.getContact())
                 .employeeCode(librarian.getEmployeeCode())
                 .managedBooksIds(librarian.getManagedBooks() != null ?
-                        librarian.getManagedBooks().stream().map(Book::getId).collect(Collectors.toSet()) :
+                        librarian.getManagedBooks().stream().map(Book::getBookId).collect(Collectors.toSet()) :
                         new HashSet<>())
                 .membersIds(librarian.getMembers() != null ?
                         librarian.getMembers().stream().map(Member::getId).collect(Collectors.toSet()) :
@@ -142,7 +142,7 @@ public class BookMapper {
     private static BookDTO mapToBookDTO(Book book) {
         validateNotNull(book, "library.book.cannot_be_null");
         return BookDTO.builder()
-                .id(book.getId())
+                .id(book.getBookId())
                 .title(book.getTitle())
                 .author(book.getAuthor())
                 .isbn(book.getIsbn())
@@ -225,7 +225,7 @@ public class BookMapper {
                 .contact(member.getContact())
                 .membershipStatus(member.getMembershipStatus())
                 .borrowedBooksIds(member.getBorrowedBooks() != null ?
-                        member.getBorrowedBooks().stream().map(Book::getId).collect(Collectors.toSet()) :
+                        member.getBorrowedBooks().stream().map(Book::getBookId).collect(Collectors.toSet()) :
                         new HashSet<>())
                 .librarianId(member.getLibrarian() != null ? member.getLibrarian().getId() : 0L)
                 .adminId(member.getAdmin() != null ? member.getAdmin().getId() : 0L)

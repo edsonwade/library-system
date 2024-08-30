@@ -4,7 +4,6 @@ import code.with.vanilson.libraryapplication.Person.Person;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.book.Book;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,7 +26,6 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@SequenceGenerator(name = "person_seq", sequenceName = "members_id_seq", allocationSize = 1)
 public class Member extends Person implements Serializable {
     @Serial
     private static final long serialVersionUID = 3L;
@@ -35,11 +33,10 @@ public class Member extends Person implements Serializable {
     @Column(nullable = false)
     private MembershipStatus membershipStatus;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "member_books",
-            joinColumns = @JoinColumn(name = "member_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id")
-    )
+            joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "person_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id"))
     @JsonIgnore
     private Set<Book> borrowedBooks;
 

@@ -5,7 +5,6 @@ import code.with.vanilson.libraryapplication.Person.Person;
 import code.with.vanilson.libraryapplication.fine.Fine;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +24,7 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SequenceGenerator(name = "person_seq", sequenceName = "admin_id_seq", allocationSize = 1)
+
 public class Admin extends Person {
     @Column(name = "admin_code", unique = true, nullable = false)
     private String adminCode;
