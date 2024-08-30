@@ -1,6 +1,9 @@
 package code.with.vanilson.libraryapplication.admin;
 
+import code.with.vanilson.libraryapplication.Member.Member;
+import code.with.vanilson.libraryapplication.Member.MembershipStatus;
 import code.with.vanilson.libraryapplication.Person.AddressDTO;
+import code.with.vanilson.libraryapplication.book.BookStatus;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,19 +13,15 @@ import lombok.NoArgsConstructor;
 import java.util.Set;
 
 /**
- * AdminDTO
+ * BookRequest
  *
  * @author vamuhong
  * @version 1.0
- * @since 2024-08-28
+ * @since 2024-08-26
  */
-@Builder
 @Data
-public class AdminDTO {
-    @NotNull(message = "ID must not be null")
-    @Positive(message = "ID must be a positive integer")
-    private Long id;
-
+@Builder
+public class AdminRequest {
     @NotNull(message = "Name must not be null")
     @NotEmpty(message = "Name should not be empty")
     @NotBlank(message = "Name should not be blank")
