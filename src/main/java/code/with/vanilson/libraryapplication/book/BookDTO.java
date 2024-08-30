@@ -51,8 +51,6 @@ public class BookDTO {
 
     @NotNull(message = "The book status must not be null")
     private BookStatus status;
-    // Only include the librarian ID, not the full object
-    // Consider if you need to include member IDs or simplify it
     @NotNull
     @NotEmpty
     private Set<Long> memberIds;

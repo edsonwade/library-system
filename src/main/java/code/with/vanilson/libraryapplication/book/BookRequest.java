@@ -1,5 +1,6 @@
 package code.with.vanilson.libraryapplication.book;
 
+import code.with.vanilson.libraryapplication.Member.Member;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -55,7 +56,7 @@ public class BookRequest {
 
 
     @NotNull(message = "The member ID must not be null")
-    private Set<Long> memberIds;
+    private Set<Member> memberIds;
 
     @NotNull(message = "The librarian ID must not be null")
     @Positive(message = "The librarian ID must be a positive integer")

@@ -5,9 +5,7 @@ import code.with.vanilson.libraryapplication.Person.Person;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.book.Book;
 import code.with.vanilson.libraryapplication.fine.Fine;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,7 +27,6 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@SequenceGenerator(name = "person_seq", sequenceName = "librarians_id_seq", allocationSize = 1)
 public class Librarian extends Person implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -37,20 +34,20 @@ public class Librarian extends Person implements Serializable {
     @Column(name = "employee_code", unique = true, nullable = false)
     private String employeeCode;
 
-    @OneToMany(mappedBy = "librarian", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "librarian")
     @JsonIgnore
     private Set<Book> managedBooks;
 
-    @OneToMany(mappedBy = "librarian", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "librarian")
     @JsonIgnore
     private Set<Member> members;
 
-    @OneToMany(mappedBy = "librarian", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "librarian")
     @JsonIgnore
     private Set<Fine> fines;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "admin_id") // Foreign key to Admin
+    @ManyToOne
+    @JoinColumn(name = "admin_id")
     @JsonIgnore
-    private Admin admin; // Admin managing this fine
+    private Admin admin;
 }

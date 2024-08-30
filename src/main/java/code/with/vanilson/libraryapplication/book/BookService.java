@@ -95,14 +95,41 @@ public class BookService implements IBookService {
     @Override
     @Transactional
     public BookResponse createBook(BookRequest bookRequest) {
-        validateBookRequest(bookRequest);
-        var librarian = findLibrarianById(bookRequest.getLibrarianId());
-        var member = findMembersByIds(bookRequest.getMemberIds());
+        if (null == bookRequest) {
+            throw new ResourceBadRequestException("Book request is null");
+        }
+        Set<Member> members = new HashSet<>();
 
-        var bookEntity = mapToBookEntity(bookRequest, librarian, member);
-        var savedBook = bookRepository.save(bookEntity);
+        for (Member member : bookRequest.getMemberIds()) {
+            var member1 = memberRepository.findById(member.getId())
+                    .orElseThrow(() -> {
+                        loggerError(member.getId());
+                        String errorMessage = MessageFormat.format(
+                                MessageProvider.getMessage("library.members.not_found"), member.getId());
+                        return new ResourceNotFoundException(errorMessage);
+                    });
+            members.add(member1);
+
+        }
+        var librarian = librarianRepository.findById(bookRequest.getLibrarianId())
+                .orElseThrow(() -> {
+                    loggerError(bookRequest.getLibrarianId());
+                    String errorMessage = MessageFormat.format(
+                            MessageProvider.getMessage("library.librarian.not_found"), bookRequest.getLibrarianId());
+                    return new ResourceNotFoundException(errorMessage);
+                });
+
+        var newBook = BookMapper.mapToBookEntity(bookRequest, librarian, members);
+
+        var savedBook = bookRepository.save(newBook);
 
         return mapToBookResponse(savedBook);
+
+    }
+
+    @Override
+    public BookResponse updateBook(BookRequest bookRequest, Long bookId) {
+        return null;
     }
 
     /**
@@ -112,20 +139,20 @@ public class BookService implements IBookService {
      * @param bookId      The ID of the book to be updated.
      * @return The updated {@link BookResponse}.
      */
-    @Override
-    @Transactional
-    public BookResponse updateBook(BookRequest bookRequest, Long bookId) {
-        validateBookRequest(bookRequest);
-
-        var existingBook = findBookById(bookId);
-        var librarian = findLibrarianById(bookRequest.getLibrarianId());
-        var member = findMembersByIds(bookRequest.getMemberIds());
-
-        updateBookEntity(existingBook, bookRequest, librarian, member);
-        var updatedBook = bookRepository.save(existingBook);
-
-        return mapToBookResponse(updatedBook);
-    }
+//    @Override
+//    @Transactional
+//    public BookResponse updateBook(BookRequest bookRequest, Long bookId) {
+//        validateBookRequest(bookRequest);
+//
+//        var existingBook = findBookById(bookId);
+//        var librarian = findLibrarianById(bookRequest.getLibrarianId());
+//        var member = findMembersByIds(bookRequest.getMemberIds());
+//
+//        updateBookEntity(existingBook, bookRequest, librarian, member);
+//        var updatedBook = bookRepository.save(existingBook);
+//
+//        return mapToBookResponse(updatedBook);
+//    }
 
     /**
      * Deletes a book by its ID.
@@ -186,20 +213,34 @@ public class BookService implements IBookService {
     }
 
     /**
-     * Finds a member by ID or throws an exception if not found.
+     * Finds members by their IDs from the book request and returns them as a set.
+     * If any member ID is not found, it throws a {@link ResourceNotFoundException}.
      *
-     * @param memberId The ID of the member.
-     * @return The found {@link Member}.
+     * @param bookRequest The request containing the member IDs to find.
+     * @return A set of found {@link Member}s.
+     * @throws ResourceNotFoundException if any member ID is not found.
      */
-    private Member findMemberById(Long memberId) {
-        return memberRepository.findById(memberId)
-                .orElseThrow(() -> {
-                    log.error("Member with ID {} not found", memberId);
-                    return new ResourceNotFoundException(
-                            MessageFormat.format(MessageProvider.getMessage("library.member.not_found"), memberId));
-                });
-    }
+//    private Set<Member> findMemberById(BookRequest bookRequest) {
+//        Set<Member> member = new HashSet<>();
+//        for (Long memberId : bookRequest.getMemberIds()) {
+//            var foundMember = memberRepository.findById(memberId).orElseThrow(() -> {
+//                loggerError(memberId);
+//                String errorMessage = MessageFormat.format(
+//                        MessageProvider.getMessage("library.members.not_found"), memberId);
+//                return new ResourceNotFoundException(errorMessage);
+//            });
+//            member.add(foundMember);
+//        }
+//        return member;
+//    }
 
+    /**
+     * Finds members by their IDs or throws an exception if any member ID is not found.
+     *
+     * @param memberIds The IDs of the members to find.
+     * @return A set of found {@link Member}s.
+     * @throws ResourceNotFoundException if any member ID is not found.
+     */
     /**
      * Finds members by their IDs or throws an exception if any member ID is not found.
      *
@@ -211,21 +252,20 @@ public class BookService implements IBookService {
         // Fetch all members by their IDs
         List<Member> memberList = memberRepository.findAllById(memberIds);
 
-        // Convert List<Member> to Set<Member>
+        // Create a set from the list to ensure unique members
         Set<Member> members = new HashSet<>(memberList);
 
-        // Create a set of the IDs that were actually found
-        Set<Long> foundMemberIds = members.stream()
-                .map(Member::getId)
-                .collect(Collectors.toSet());
+        // Check if the number of found members matches the number of requested IDs
+        if (members.size() != memberIds.size()) {
+            // Determine which member IDs were not found
+            Set<Long> foundMemberIds = members.stream()
+                    .map(Member::getId)
+                    .collect(Collectors.toSet());
 
-        // Determine which requested member IDs were not found
-        Set<Long> notFoundMemberIds = memberIds.stream()
-                .filter(id -> !foundMemberIds.contains(id))
-                .collect(Collectors.toSet());
+            Set<Long> notFoundMemberIds = memberIds.stream()
+                    .filter(id -> !foundMemberIds.contains(id))
+                    .collect(Collectors.toSet());
 
-        // Throw an exception if any IDs were not found
-        if (!notFoundMemberIds.isEmpty()) {
             log.error("Members with IDs {} not found", notFoundMemberIds);
             throw new ResourceNotFoundException(
                     MessageFormat.format(MessageProvider.getMessage("library.members.not_found"), notFoundMemberIds));

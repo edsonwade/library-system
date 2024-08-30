@@ -3,7 +3,6 @@ package code.with.vanilson.libraryapplication.fine;
 import code.with.vanilson.libraryapplication.Member.Member;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
@@ -29,10 +28,8 @@ import java.util.Date;
 @Builder
 @JsonPropertyOrder(value = {"id", "amount", "issueDate", "member", "librarian"})
 public class Fine {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "fine_id_seq")
-    @SequenceGenerator(name = "fine_id_seq", sequenceName = "fine_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fine_id", nullable = false, unique = true)
     private Long id;
 
