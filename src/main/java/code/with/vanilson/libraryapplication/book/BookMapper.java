@@ -17,6 +17,13 @@ import java.text.MessageFormat;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
+/**
+ * BookMapper
+ *
+ * @author vamuhong
+ * @version 1.0
+ * @since 2024-08-30
+ */
 
 /**
  * BookMapper
@@ -115,7 +122,6 @@ public class BookMapper {
                 .membersIds(librarian.getMembers() != null ?
                         librarian.getMembers().stream().map(Member::getId).collect(Collectors.toSet()) :
                         new HashSet<>())
-                .admin(mapToAdminDTO(librarian.getAdmin()))
                 .build();
     }
 
@@ -186,26 +192,26 @@ public class BookMapper {
      * @throws ResourceBadRequestException If the admin's address, managed librarians, managed members, or managed fines are null.
      */
 
-    private static AdminDTO mapToAdminDTO(Admin admin) {
-        validateNotNull(admin, "library.admin.cannot_be_null");
-        return AdminDTO.builder()
-                .id(admin.getId())
-                .name(admin.getName())
-                .email(admin.getEmail())
-                .address(mapToAddressDTO(admin.getAddress()))
-                .contact(admin.getContact())
-                .adminCode(admin.getAdminCode())
-                .role(admin.getRole())
-                .managedLibrariansIds(admin.getManagedLibrarians() != null ?
-                        admin.getManagedLibrarians().stream().map(Librarian::getId).collect(Collectors.toSet()) :
-                        new HashSet<>())
-                .managedMembersIds(admin.getManagedMembers() != null ?
-                        admin.getManagedMembers().stream().map(Member::getId).collect(Collectors.toSet()) :
-                        new HashSet<>())
-                .managedFinesIds(admin.getManagedFines() != null ?
-                        admin.getManagedFines().stream().map(Fine::getId).collect(Collectors.toSet()) : new HashSet<>())
-                .build();
-    }
+//    private static AdminDTO mapToAdminDTO(Admin admin) {
+//        validateNotNull(admin, "library.admin.cannot_be_null");
+//        return AdminDTO.builder()
+//                .id(admin.getId())
+//                .name(admin.getName())
+//                .email(admin.getEmail())
+//                .address(mapToAddressDTO(admin.getAddress()))
+//                .contact(admin.getContact())
+//                .adminCode(admin.getAdminCode())
+//                .role(admin.getRole())
+//                .managedLibrariansIds(admin.getManagedLibrarians() != null ?
+//                        admin.getManagedLibrarians().stream().map(Librarian::getId).collect(Collectors.toSet()) :
+//                        new HashSet<>())
+//                .managedMembersIds(admin.getManagedMembers() != null ?
+//                        admin.getManagedMembers().stream().map(Member::getId).collect(Collectors.toSet()) :
+//                        new HashSet<>())
+//                .managedFinesIds(admin.getManagedFines() != null ?
+//                        admin.getManagedFines().stream().map(Fine::getId).collect(Collectors.toSet()) : new HashSet<>())
+//                .build();
+//    }
 
     /**
      * Maps a Member entity to a MemberDTO object.

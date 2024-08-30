@@ -1,5 +1,6 @@
 package code.with.vanilson.libraryapplication.Person;
 
+import code.with.vanilson.libraryapplication.admin.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -20,8 +21,7 @@ import lombok.NoArgsConstructor;
 public abstract class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_seq")
-    @SequenceGenerator(name = "person_seq", sequenceName = "person_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "person_id", nullable = false, unique = true)
     private Long id;
 
@@ -39,5 +39,13 @@ public abstract class Person {
 
     @Column(nullable = false, unique = true)
     private String contact;
+
+    // Constructor with fields
+    public Person(String name, String email, Address address, String contact) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.contact = contact;
+    }
 
 }

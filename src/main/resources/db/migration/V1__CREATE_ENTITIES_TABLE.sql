@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS admins
     country     VARCHAR(255) NOT NULL,
     postal_code VARCHAR(255) NOT NULL,
     admin_code  VARCHAR(255) NOT NULL UNIQUE,
-    role        VARCHAR(255) NOT NULL UNIQUE
+    role        VARCHAR(255) NOT NULL
 );
 
 -- Librarians Table

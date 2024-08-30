@@ -1,13 +1,13 @@
 package code.with.vanilson.libraryapplication.common.https;
 
 /**
- * RequestHeaderConstant
+ * HeaderConstants
  *
  * @author vamuhong
  * @version 1.0
  * @since 2024-07-05
  */
-public class RequestHeaderConstant {
+public class HeaderConstants {
 
     // Accept headers
     public static final String ACCEPT = "Accept";
@@ -24,7 +24,7 @@ public class RequestHeaderConstant {
     public static final String ACCESS_CONTROL_MAX_AGE = "Access-Control-Max-Age";
 
     // Content headers
-    public static final String CONTENT_TYPE = "Content-Type";
+    public static final String CONTENT_TYPE = "content-type";
     public static final String CONTENT_ENCODING = "Content-Encoding";
     public static final String CONTENT_LENGTH = "Content-Length";
     public static final String CONTENT_LOCATION = "Content-Location";
@@ -62,7 +62,31 @@ public class RequestHeaderConstant {
     public static final String CONTENT_TYPE_HTML = "text/html";
 
 
-    private RequestHeaderConstant() {
+
+    // Security headers
+    public static final String STRICT_TRANSPORT_SECURITY = "Strict-Transport-Security";
+    public static final String X_CONTENT_TYPE_OPTIONS = "X-Content-Type-Options";
+    public static final String X_FRAME_OPTIONS = "X-Frame-Options";
+    public static final String X_XSS_PROTECTION = "X-XSS-Protection";
+
+    // CORS header
+
+    // Custom headers
+    public static final String X_ADMIN_ID = "X-Admin-ID";
+    public static final String X_ADMIN_NAME = "X-Admin-Name";
+    public static final String X_ADMIN_EMAIL = "X-Admin-Email";
+    public static final String X_ADMIN_CODE = "X-Admin-Code";
+
+
+    // Common values
+    public static final String STRICT_TRANSPORT_SECURITY_VALUE = "max-age=31536000; includeSubDomains";
+    public static final String X_CONTENT_TYPE_OPTIONS_VALUE = "nosniff";
+    public static final String X_FRAME_OPTIONS_VALUE = "DENY";
+    public static final String X_XSS_PROTECTION_VALUE = "1; mode=block";
+    public static final String ACCESS_CONTROL_ALLOW_ORIGIN_VALUE = "*";
+
+
+    private HeaderConstants() {
         // Private constructor to prevent instantiation
         throw new AssertionError("Utility class cannot be instantiated");
     }
