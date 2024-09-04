@@ -7,6 +7,9 @@ import code.with.vanilson.libraryapplication.admin.AdminResponse;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import lombok.Builder;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
+import java.text.MessageFormat;
 
 /**
  * LibrarianMapper
@@ -15,8 +18,10 @@ import lombok.Data;
  * @version 1.0
  * @since 2024-08-28
  */
+@SuppressWarnings("unused")
 @Data
 @Builder
+@Slf4j
 public class LibrarianMapper {
 
     public static final String LIBRARY_LIBRARIAN_CANNOT_BE_NULL = "library.librarian.cannot_be_null";
@@ -27,12 +32,14 @@ public class LibrarianMapper {
 
     // Maps Librarian entity to LibrarianResponse DTO
     public static LibrarianResponse mapToLibrarianResponse(Librarian librarian) {
-        if (librarian == null) {
+        if (null == librarian) {
+            log.error("Librarian is null" + null);
             throw new ResourceBadRequestException(LIBRARY_LIBRARIAN_CANNOT_BE_NULL);
         }
 
-        if (librarian.getAdmin() == null) {
-            throw new IllegalStateException("Librarian must have an associated admin.");
+        if (null == librarian.getAdmin()) {
+            log.error(MessageFormat.format("admin is null {0}", (Object) null));
+            throw new ResourceBadRequestException("library.admin.association_must_exists");
         }
 
         // Map the Librarian entity to the response DTO
@@ -49,12 +56,12 @@ public class LibrarianMapper {
 
     // Maps LibrarianRequest DTO to Librarian entity
     public static Librarian mapToLibrarianEntity(LibrarianRequest request, Admin admin) {
-        if (request == null) {
+        if (null == request) {
             throw new ResourceBadRequestException(LIBRARY_LIBRARIAN_CANNOT_BE_NULL);
         }
 
-        if (admin == null) {
-            throw new ResourceBadRequestException("Admin cannot be null when creating a librarian.");
+        if (null == admin) {
+            throw new ResourceBadRequestException("library.admin.cannot_be_null");
         }
 
         // Map the request DTO to the Librarian entity
@@ -70,7 +77,7 @@ public class LibrarianMapper {
 
     // Example mapping method for AddressDTO to Address
     protected static AddressDTO mapToAddressDTO(Address address) {
-        if (address == null) {
+        if (null == address) {
             return null;
         }
         return new AddressDTO(
@@ -84,7 +91,7 @@ public class LibrarianMapper {
 
     // Example mapping method for AddressDTO to Address
     static Address mapToAddress(AddressDTO addressDTO) {
-        if (addressDTO == null) {
+        if (null == addressDTO) {
             return null;
         }
         return new Address(
@@ -97,7 +104,7 @@ public class LibrarianMapper {
     }
 
     private static AdminResponse mapToAdminResponse(Admin admin) {
-        if (admin == null) {
+        if (null == admin) {
             return null;
         }
 
@@ -105,8 +112,9 @@ public class LibrarianMapper {
                 .id(admin.getId())
                 .name(admin.getName())
                 .email(admin.getEmail())
-                .contact(admin.getContact())
                 .address(mapToAddressDTO(admin.getAddress()))
+                .contact(admin.getContact())
+                .adminCode(admin.getAdminCode())
                 .role(admin.getRole())
                 .build();
     }

@@ -63,7 +63,7 @@ public class Fine implements Serializable {
     @ManyToOne
     @JoinColumn(name = "admin_id") // Foreign key to Admin
     @JsonIgnore
-    private transient Admin admin; // Admin managing this fine
+    private Admin admin; // Admin managing this fine
 
     /**
      * Calculates the fine amount based on the due date and current date.
