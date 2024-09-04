@@ -103,4 +103,8 @@ public class AdminMapper {
                 .postalCode(address.getPostalCode())
                 .build();
     }
+
+    private AdminMapper() {
+        // Private constructor to prevent instantiation
+    }
 }

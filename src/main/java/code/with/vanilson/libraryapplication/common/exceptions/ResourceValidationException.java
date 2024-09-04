@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @version 1.0
  * @since 2024-07-05
  */
-@ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY, reason = "Validation failed")
+@ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
 public class ResourceValidationException extends RuntimeException {
     public ResourceValidationException(String message) {
         super(message);

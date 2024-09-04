@@ -1,8 +1,6 @@
 package code.with.vanilson.libraryapplication.book;
 
-import javax.swing.text.html.Option;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * IBookService

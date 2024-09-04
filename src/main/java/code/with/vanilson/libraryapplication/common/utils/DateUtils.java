@@ -16,7 +16,7 @@ import java.util.TimeZone;
  * @version 1.0
  * @since 2024-08-20
  */
-
+@SuppressWarnings("unused")
 public class DateUtils {
 
     // Default date formats

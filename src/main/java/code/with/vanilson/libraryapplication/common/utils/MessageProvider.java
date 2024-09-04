@@ -14,21 +14,23 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@SuppressWarnings("unused")
+
 public class MessageProvider {
 
     public static final String PROPERTIES = "messages.properties";
-    private static final Properties properties = new Properties();
+    private static final Properties PROPERTY = new Properties();
     private static final Logger logger = Logger.getLogger(MessageProvider.class.getName());
 
-    /**
-     * Initializes the MessageProvider class by loading the properties file into the property object.
-     * If an IOException occurs during the loading process, it is logged as a severe error.
+    /*
+      Initializes the MessageProvider class by loading the properties file into the property object.
+      If an IOException occurs during the loading process, it is logged as a severe error.
      */
 
     static {
         try (InputStream inputStream = MessageProvider.class.getClassLoader().getResourceAsStream(PROPERTIES)) {
             if (inputStream != null) {
-                properties.load(inputStream);
+                PROPERTY.load(inputStream);
             } else {
                 logger.log(Level.SEVERE, "Properties file not found: " + PROPERTIES);
             }
@@ -45,7 +47,7 @@ public class MessageProvider {
      * @return The message associated with the key, or a default message if the key is not found.
      */
     public static String getMessage(String key) {
-        return properties.getProperty(key, "Message not found for key: " + key);
+        return PROPERTY.getProperty(key, "Message not found for key: " + key);
     }
 
     /**
@@ -58,7 +60,7 @@ public class MessageProvider {
      */
 
     public static String getMessage(String key, Object... args) {
-        String message = properties.getProperty(key);
+        String message = PROPERTY.getProperty(key);
         if (message != null && args.length > 0) {
             return String.format(message, args);
         }

@@ -1,11 +1,8 @@
 package code.with.vanilson.libraryapplication.fine;
 
 import jakarta.validation.constraints.*;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-
 
 import java.util.Date;
 
@@ -18,8 +15,6 @@ import java.util.Date;
  */
 @Builder
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class FineDTO {
     @NotNull(message = "ID must not be null")
     private Long id;

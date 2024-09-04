@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static code.with.vanilson.libraryapplication.admin.AdminMapper.*;
 import static code.with.vanilson.libraryapplication.common.utils.MessageProvider.getMessage;
@@ -28,8 +27,10 @@ import static code.with.vanilson.libraryapplication.common.utils.MessageProvider
 @Repository
 @Slf4j
 @Service
+@SuppressWarnings("unused")
 public class AdminService implements IAdminService {
 
+    public static final String LIBRARY_ADMIN_NOT_FOUND = "library.admin.not_found";
     private final AdminRepository adminRepository;
 
     public AdminService(AdminRepository adminRepository) {
@@ -50,7 +51,7 @@ public class AdminService implements IAdminService {
         return adminRepository.findAll()
                 .stream()
                 .map(AdminMapper::mapToAdminResponse)
-                .collect(Collectors.toList());
+                .toList();
 
     }
 
@@ -76,7 +77,7 @@ public class AdminService implements IAdminService {
                 .orElseThrow(() -> {
                     loggerError(adminId);
                     var errorMessage = MessageFormat.format(
-                            getMessage("library.admin.not_found"), adminId);
+                            getMessage(LIBRARY_ADMIN_NOT_FOUND), adminId);
                     return new ResourceNotFoundException(errorMessage);
                 });
 
@@ -138,7 +139,7 @@ public class AdminService implements IAdminService {
     @Transactional
     public AdminResponse updateAdmin(AdminRequest adminRequest, Long adminId) {
         var existingAdmin = getAdmin(adminRequest == null, adminRepository.findById(adminId)
-                .orElseThrow(() -> new ResourceNotFoundException("library.admin.not_found")));
+                .orElseThrow(() -> new ResourceNotFoundException(LIBRARY_ADMIN_NOT_FOUND)));
 
         methodAuxiliaryToCreateAdmin(adminRequest, existingAdmin);
 
@@ -178,7 +179,7 @@ public class AdminService implements IAdminService {
         if (admin.isEmpty()) {
             loggerError(adminId);
             var errorMessage = MessageFormat.format(
-                    getMessage("library.admin.not_found"), adminId);
+                    getMessage(LIBRARY_ADMIN_NOT_FOUND), adminId);
             throw new ResourceNotFoundException(errorMessage);
         }
 
@@ -194,7 +195,7 @@ public class AdminService implements IAdminService {
      * @param adminId The unique identifier of the admin that was not found.
      */
     private static void loggerError(Long adminId) {
-        var message = MessageFormat.format(MessageProvider.getMessage("library.admin.not_found"), adminId);
+        var message = MessageFormat.format(MessageProvider.getMessage(LIBRARY_ADMIN_NOT_FOUND), adminId);
         log.error(message);
     }
 

@@ -6,7 +6,6 @@ import code.with.vanilson.libraryapplication.admin.AdminRepository;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceConflictException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
-import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -212,34 +211,6 @@ public class LibrarianService implements ILibrarian {
 
     private static void loggerMessage(Long librarianId) {
         log.error("No librarian found with ID {}", librarianId);
-    }
-
-    /**
-     * Validates and checks if a librarian with the same unique fields (email, contact, and employee code) already exists.
-     * If a librarian with the same unique fields is found, a {@link ResourceConflictException} is thrown with an appropriate error message.
-     *
-     * @param librarianRequest The details of the librarian to be validated.
-     *                         This object must not be null.
-     * @throws ResourceConflictException If a librarian with the same unique fields already exists in the system.
-     */
-    private void validateAndCheckLibrarianUniqueFields(LibrarianRequest librarianRequest) {
-        // Check if a librarianRequest with the same unique fields already exists
-        if (librarianRepository.existsLibrarianByEmail(librarianRequest.getEmail())) {
-            var message = MessageFormat.format(MessageProvider.getMessage("library.librarian.email_exists"),
-                    librarianRequest.getEmail(), librarianRequest.getContact());
-            throw new ResourceConflictException(message);
-        }
-        if (librarianRepository.existsLibrarianByContact(librarianRequest.getContact())) {
-            var message = MessageFormat.format(MessageProvider.getMessage("library.librarian.contact_exists"),
-                    librarianRequest.getContact());
-            throw new ResourceConflictException(message);
-        }
-        if (librarianRepository.existsLibrarianByEmployeeCode(librarianRequest.getEmployeeCode())) {
-            var message =
-                    MessageFormat.format(MessageProvider.getMessage("librarian.employee_with_code_Already_exists"),
-                            librarianRequest.getEmployeeCode());
-            throw new ResourceConflictException(message);
-        }
     }
 
     /**

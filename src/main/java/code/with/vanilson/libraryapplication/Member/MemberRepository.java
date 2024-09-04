@@ -1,6 +1,5 @@
 package code.with.vanilson.libraryapplication.Member;
 
-import code.with.vanilson.libraryapplication.book.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

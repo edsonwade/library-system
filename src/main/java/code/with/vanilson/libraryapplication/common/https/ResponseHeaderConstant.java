@@ -7,6 +7,7 @@ package code.with.vanilson.libraryapplication.common.https;
  * @version 1.0
  * @since 2024-07-05
  */
+@SuppressWarnings("unused")
 public class ResponseHeaderConstant {
     // Common response header field names
     public static final String CONTENT_TYPE = "Content-Type";

@@ -14,11 +14,6 @@ import java.util.Optional;
  */
 @Repository
 public interface LibrarianRepository extends JpaRepository<Librarian, Long> {
-    boolean existsLibrarianByEmail(String email);
-
-    boolean existsLibrarianByEmployeeCode(String code);
-
-    boolean existsLibrarianByContact(String contact);
 
     Optional<Librarian> findLibrariansByEmail(String email);
 

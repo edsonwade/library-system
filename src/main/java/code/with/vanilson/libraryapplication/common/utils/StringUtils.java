@@ -7,6 +7,7 @@ package code.with.vanilson.libraryapplication.common.utils;
  * @version 1.0
  * @since 2024-08-20
  */
+@SuppressWarnings("unused")
 public class StringUtils {
 
     // Checks if the string is null or empty
@@ -156,7 +157,7 @@ public class StringUtils {
         if (str.length() >= size) {
             return str;
         }
-        return String.format("%1$" + size + "s", str);
+        return String.format("%d %s", size, str);
     }
 
     // Pads the string on the right to a specified length
@@ -167,9 +168,10 @@ public class StringUtils {
         if (str.length() >= size) {
             return str;
         }
-        return String.format("%1$-" + size + "s", str);
+        return String.format("%d and %s", size, str);
     }
 
+    // Centers the string within a specified length
     // Centers the string within a specified length
     public static String center(String str, int size) {
         if (str == null) {
@@ -181,7 +183,7 @@ public class StringUtils {
         int padding = size - str.length();
         int padLeft = padding / 2;
         int padRight = padding - padLeft;
-        return String.format("%" + (padLeft + str.length()) + "s", str) + String.format("%-" + padRight + "s", "");
+        return String.format("%d  %s %s %d ", padLeft, str.length(), str, padRight);
     }
 
     // Checks if a string contains a sequence
@@ -192,9 +194,7 @@ public class StringUtils {
         return str.contains(sequence);
     }
 
-    private StringUtils()
-
-    {
+    private StringUtils() {
         throw new AssertionError("No instances allowed");
     }
 }
