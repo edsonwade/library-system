@@ -4,7 +4,10 @@ import code.with.vanilson.libraryapplication.common.https.HeaderConstants;
 import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.*;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseCookie;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;

@@ -8,7 +8,6 @@ import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundE
 import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import code.with.vanilson.libraryapplication.librarian.LibrarianRepository;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -21,7 +20,6 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static code.with.vanilson.libraryapplication.book.BookMapper.mapToBookEntity;
 import static code.with.vanilson.libraryapplication.book.BookMapper.mapToBookResponse;
 
 /**
@@ -31,11 +29,13 @@ import static code.with.vanilson.libraryapplication.book.BookMapper.mapToBookRes
  * @version 1.0
  * @since 2024-08-26
  */
+@SuppressWarnings("unused")
 @Repository
 @Slf4j
 @Service
 public class BookService implements IBookService {
 
+    public static final String LIBRARY_BOOK_NOT_FOUND = "library.book.not_found";
     private final BookRepository bookRepository;
     private final MemberRepository memberRepository;
     private final LibrarianRepository librarianRepository;
@@ -58,7 +58,7 @@ public class BookService implements IBookService {
         log.info("Retrieving all books");
         return bookRepository.findAll().stream()
                 .map(BookMapper::mapToBookResponse)
-                .collect(Collectors.toList());
+                .toList();
     }
 
     /**
@@ -81,7 +81,7 @@ public class BookService implements IBookService {
                 .orElseThrow(() -> {
                     loggerError(bookId);
                     String errorMessage = MessageFormat.format(
-                            MessageProvider.getMessage("library.book.not_found"), bookId);
+                            MessageProvider.getMessage(LIBRARY_BOOK_NOT_FOUND), bookId);
                     return new ResourceNotFoundException(errorMessage);
                 });
     }
@@ -133,28 +133,6 @@ public class BookService implements IBookService {
     }
 
     /**
-     * Updates an existing book.
-     *
-     * @param bookRequest The request containing updated book details.
-     * @param bookId      The ID of the book to be updated.
-     * @return The updated {@link BookResponse}.
-     */
-//    @Override
-//    @Transactional
-//    public BookResponse updateBook(BookRequest bookRequest, Long bookId) {
-//        validateBookRequest(bookRequest);
-//
-//        var existingBook = findBookById(bookId);
-//        var librarian = findLibrarianById(bookRequest.getLibrarianId());
-//        var member = findMembersByIds(bookRequest.getMemberIds());
-//
-//        updateBookEntity(existingBook, bookRequest, librarian, member);
-//        var updatedBook = bookRepository.save(existingBook);
-//
-//        return mapToBookResponse(updatedBook);
-//    }
-
-    /**
      * Deletes a book by its ID.
      *
      * @param bookId The ID of the book to be deleted.
@@ -192,7 +170,7 @@ public class BookService implements IBookService {
                 .orElseThrow(() -> {
                     loggerError(bookId);
                     return new ResourceNotFoundException(
-                            MessageFormat.format(MessageProvider.getMessage("library.book.not_found"), bookId));
+                            MessageFormat.format(MessageProvider.getMessage(LIBRARY_BOOK_NOT_FOUND), bookId));
                 });
     }
 
@@ -212,35 +190,6 @@ public class BookService implements IBookService {
                 });
     }
 
-    /**
-     * Finds members by their IDs from the book request and returns them as a set.
-     * If any member ID is not found, it throws a {@link ResourceNotFoundException}.
-     *
-     * @param bookRequest The request containing the member IDs to find.
-     * @return A set of found {@link Member}s.
-     * @throws ResourceNotFoundException if any member ID is not found.
-     */
-//    private Set<Member> findMemberById(BookRequest bookRequest) {
-//        Set<Member> member = new HashSet<>();
-//        for (Long memberId : bookRequest.getMemberIds()) {
-//            var foundMember = memberRepository.findById(memberId).orElseThrow(() -> {
-//                loggerError(memberId);
-//                String errorMessage = MessageFormat.format(
-//                        MessageProvider.getMessage("library.members.not_found"), memberId);
-//                return new ResourceNotFoundException(errorMessage);
-//            });
-//            member.add(foundMember);
-//        }
-//        return member;
-//    }
-
-    /**
-     * Finds members by their IDs or throws an exception if any member ID is not found.
-     *
-     * @param memberIds The IDs of the members to find.
-     * @return A set of found {@link Member}s.
-     * @throws ResourceNotFoundException if any member ID is not found.
-     */
     /**
      * Finds members by their IDs or throws an exception if any member ID is not found.
      *
@@ -305,7 +254,7 @@ public class BookService implements IBookService {
      * @param bookId The ID of the book that was not found.
      */
     private static void loggerError(Long bookId) {
-        var message = MessageFormat.format(MessageProvider.getMessage("library.book.not_found"), bookId);
+        var message = MessageFormat.format(MessageProvider.getMessage(LIBRARY_BOOK_NOT_FOUND), bookId);
         log.error(message);
     }
 }

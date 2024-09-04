@@ -13,6 +13,7 @@ import java.util.Locale;
  * @since 2024-07-05
  */
 @Component
+@SuppressWarnings("unused")
 public class MessageUtils {
     private final MessageSource messageSource;
 

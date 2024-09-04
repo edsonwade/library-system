@@ -11,6 +11,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -20,6 +22,7 @@ import java.util.Date;
  * @version 1.0
  * @since 2024-08-24
  */
+@SuppressWarnings("unused")
 @Entity(name = "Fine")
 @Table(name = "fines")
 @AllArgsConstructor
@@ -27,7 +30,11 @@ import java.util.Date;
 @Data
 @Builder
 @JsonPropertyOrder(value = {"id", "amount", "issueDate", "member", "librarian"})
-public class Fine {
+public class Fine implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1905122041950251207L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "fine_id", nullable = false, unique = true)
@@ -56,7 +63,7 @@ public class Fine {
     @ManyToOne
     @JoinColumn(name = "admin_id") // Foreign key to Admin
     @JsonIgnore
-    private Admin admin; // Admin managing this fine
+    private transient Admin admin; // Admin managing this fine
 
     /**
      * Calculates the fine amount based on the due date and current date.

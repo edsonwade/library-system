@@ -34,11 +34,5 @@ public class TimeZoneUtil {
     private TimeZoneUtil() {
         throw new AssertionError("Utility class cannot be instantiated");
     }
-//
-//    public static void main(String[] args) {
-//        // Example usage
-//
-//            System.out.println(getRandomTimeZone());
-//
-//    }
+
 }

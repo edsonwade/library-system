@@ -1,8 +1,6 @@
 package code.with.vanilson.libraryapplication.book;
 
-import javax.swing.text.html.Option;
 import java.util.List;
-import java.util.Optional;
 
 /**
  * IBookService
@@ -11,6 +9,7 @@ import java.util.Optional;
  * @version 1.0
  * @since 2024-08-26
  */
+@SuppressWarnings("unused")
 public interface IBookService {
 
     /**

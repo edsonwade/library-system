@@ -7,12 +7,13 @@ import code.with.vanilson.libraryapplication.fine.Fine;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -28,7 +29,11 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Admin extends Person {
+public class Admin extends Person implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 2405172041950251807L;
+
     @Column(name = "admin_code", unique = true, nullable = false)
     private String adminCode;
 
@@ -51,6 +56,12 @@ public class Admin extends Person {
     // Constructor with fields
     public Admin(String name, String email, Address address, String contact, String adminCode, Role role) {
         super(name, email, address, contact);
+        this.adminCode = adminCode;
+        this.role = role;
+    }
+
+    public Admin(Long id, String name, String email, Address address, String contact, String adminCode, Role role) {
+        super(id, name, email, address, contact);
         this.adminCode = adminCode;
         this.role = role;
     }

@@ -1,11 +1,13 @@
 package code.with.vanilson.libraryapplication.Person;
 
-import code.with.vanilson.libraryapplication.admin.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * Member
@@ -18,7 +20,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public abstract class Person {
+public abstract class Person implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 19051220419502517L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +45,7 @@ public abstract class Person {
     private String contact;
 
     // Constructor with fields
-    public Person(String name, String email, Address address, String contact) {
+    protected Person(String name, String email, Address address, String contact) {
         this.name = name;
         this.email = email;
         this.address = address;

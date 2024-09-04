@@ -7,6 +7,7 @@ package code.with.vanilson.libraryapplication.common.constants;
  * @version 1.0
  * @since 2024-07-05
  */
+@SuppressWarnings("unused")
 public class ErrorCodes {
     public static final String NOT_FOUND = "NOT_FOUND";
     public static final String BAD_REQUEST = "BAD_REQUEST";

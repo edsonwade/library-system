@@ -4,8 +4,7 @@ import code.with.vanilson.libraryapplication.Member.Member;
 import code.with.vanilson.libraryapplication.Member.MemberDTO;
 import code.with.vanilson.libraryapplication.Person.Address;
 import code.with.vanilson.libraryapplication.Person.AddressDTO;
-import code.with.vanilson.libraryapplication.admin.Admin;
-import code.with.vanilson.libraryapplication.admin.AdminDTO;
+import code.with.vanilson.libraryapplication.admin.AdminMapper;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
 import code.with.vanilson.libraryapplication.fine.Fine;
@@ -34,9 +33,14 @@ import java.util.stream.Collectors;
  */
 public class BookMapper {
 
+    public static final String LIBRARY_BOOK_CANNOT_BE_NULL = "library.book.cannot_be_null";
+
+    private BookMapper() {
+    }
+
     public static Book mapToBookEntity(BookRequest request, Librarian librarian, Set<Member> members) {
         // Validate inputs and throw exceptions if necessary
-        validateNotNull(request, "library.book.cannot_be_null");
+        validateNotNull(request, LIBRARY_BOOK_CANNOT_BE_NULL);
         validateNotNull(librarian, "library.librarian.cannot_be_null");
         validateNotNull(members, "library.members.cannot_be_null");
 
@@ -80,7 +84,7 @@ public class BookMapper {
 
     // Convert Book entity to BookResponse
     public static BookResponse mapToBookResponse(Book book) {
-        validateNotNull(book, "library.book.cannot_be_null");
+        validateNotNull(book, LIBRARY_BOOK_CANNOT_BE_NULL);
 
         return BookResponse.builder()
                 .id(book.getBookId())
@@ -116,26 +120,11 @@ public class BookMapper {
                 .address(mapToAddressDTO(librarian.getAddress()))
                 .contact(librarian.getContact())
                 .employeeCode(librarian.getEmployeeCode())
-                .managedBooksIds(librarian.getManagedBooks() != null ?
-                        librarian.getManagedBooks().stream().map(Book::getBookId).collect(Collectors.toSet()) :
-                        new HashSet<>())
-                .membersIds(librarian.getMembers() != null ?
-                        librarian.getMembers().stream().map(Member::getId).collect(Collectors.toSet()) :
-                        new HashSet<>())
                 .build();
     }
 
     private static AddressDTO mapToAddressDTO(Address address) {
-        if (address == null) {
-            throw new ResourceBadRequestException("Address cannot be null"); // Or handle this case as needed
-        }
-        return AddressDTO.builder()
-                .street(address.getStreet())
-                .city(address.getCity())
-                .state(address.getState())
-                .country(address.getCountry())
-                .postalCode(address.getPostalCode())
-                .build();
+        return AdminMapper.mapToAddressDTO(address);
     }
 
     /**
@@ -146,7 +135,7 @@ public class BookMapper {
      * @throws ResourceBadRequestException If the book parameter is null.
      */
     private static BookDTO mapToBookDTO(Book book) {
-        validateNotNull(book, "library.book.cannot_be_null");
+        validateNotNull(book, LIBRARY_BOOK_CANNOT_BE_NULL);
         return BookDTO.builder()
                 .id(book.getBookId())
                 .title(book.getTitle())
@@ -193,25 +182,25 @@ public class BookMapper {
      */
 
 //    private static AdminDTO mapToAdminDTO(Admin admin) {
-//        validateNotNull(admin, "library.admin.cannot_be_null");
-//        return AdminDTO.builder()
-//                .id(admin.getId())
-//                .name(admin.getName())
-//                .email(admin.getEmail())
-//                .address(mapToAddressDTO(admin.getAddress()))
-//                .contact(admin.getContact())
-//                .adminCode(admin.getAdminCode())
-//                .role(admin.getRole())
-//                .managedLibrariansIds(admin.getManagedLibrarians() != null ?
-//                        admin.getManagedLibrarians().stream().map(Librarian::getId).collect(Collectors.toSet()) :
-//                        new HashSet<>())
-//                .managedMembersIds(admin.getManagedMembers() != null ?
-//                        admin.getManagedMembers().stream().map(Member::getId).collect(Collectors.toSet()) :
-//                        new HashSet<>())
-//                .managedFinesIds(admin.getManagedFines() != null ?
-//                        admin.getManagedFines().stream().map(Fine::getId).collect(Collectors.toSet()) : new HashSet<>())
-//                .build();
-//    }
+////        validateNotNull(admin, "library.admin.cannot_be_null");
+////        return AdminDTO.builder()
+////                .id(admin.getId())
+////                .name(admin.getName())
+////                .email(admin.getEmail())
+////                .address(mapToAddressDTO(admin.getAddress()))
+////                .contact(admin.getContact())
+////                .adminCode(admin.getAdminCode())
+////                .role(admin.getRole())
+////                .managedLibrariansIds(admin.getManagedLibrarians() != null ?
+////                        admin.getManagedLibrarians().stream().map(Librarian::getId).collect(Collectors.toSet()) :
+////                        new HashSet<>())
+////                .managedMembersIds(admin.getManagedMembers() != null ?
+////                        admin.getManagedMembers().stream().map(Member::getId).collect(Collectors.toSet()) :
+////                        new HashSet<>())
+////                .managedFinesIds(admin.getManagedFines() != null ?
+////                        admin.getManagedFines().stream().map(Fine::getId).collect(Collectors.toSet()) : new HashSet<>())
+////                .build();
+////    }
 
     /**
      * Maps a Member entity to a MemberDTO object.

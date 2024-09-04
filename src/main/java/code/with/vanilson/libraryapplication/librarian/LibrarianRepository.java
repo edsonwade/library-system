@@ -1,8 +1,9 @@
 package code.with.vanilson.libraryapplication.librarian;
 
-import code.with.vanilson.libraryapplication.book.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 /**
  * BookRepository
@@ -13,4 +14,12 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface LibrarianRepository extends JpaRepository<Librarian, Long> {
+
+    Optional<Librarian> findLibrariansByEmail(String email);
+
+    boolean existsLibrarianByEmailAndIdNot(String email, Long librarianId);
+
+    boolean existsLibrarianByContactAndIdNot(String contact, Long librarianId);
+
+    boolean existsLibrarianByEmployeeCodeAndIdNot(String employeeCode, Long librarianId);
 }
