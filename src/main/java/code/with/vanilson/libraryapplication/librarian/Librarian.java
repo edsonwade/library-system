@@ -1,6 +1,7 @@
 package code.with.vanilson.libraryapplication.librarian;
 
 import code.with.vanilson.libraryapplication.Member.Member;
+import code.with.vanilson.libraryapplication.Person.Address;
 import code.with.vanilson.libraryapplication.Person.Person;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.book.Book;
@@ -50,4 +51,15 @@ public class Librarian extends Person implements Serializable {
     @JoinColumn(name = "admin_id")
     @JsonIgnore
     private Admin admin;
+
+    public Librarian(String name, String email, Address address, String contact, String employeeCode) {
+        super(name, email, address, contact);
+        this.employeeCode = employeeCode;
+    }
+
+    public Librarian(String name, String email, Address address, String contact, String employeeCode, Admin admin) {
+        super(name, email, address, contact);
+        this.employeeCode = employeeCode;
+        this.admin = admin;
+    }
 }

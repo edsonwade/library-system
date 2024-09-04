@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * LibrarianDTO
+ * LibrarianRequest
  *
  * @author vamuhong
  * @version 1.0
@@ -14,10 +14,7 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class LibrarianDTO {
-    @NotNull(message = "ID must not be null")
-    private Long id;
-
+public class LibrarianRequest {
     @NotNull(message = "Name must not be null")
     @NotBlank(message = "Name must not be blank")
     @Size(max = 255, message = "Name must be no longer than 255 characters")

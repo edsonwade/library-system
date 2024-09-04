@@ -1,6 +1,5 @@
 package code.with.vanilson.libraryapplication.Person;
 
-import code.with.vanilson.libraryapplication.admin.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -41,7 +40,7 @@ public abstract class Person {
     private String contact;
 
     // Constructor with fields
-    public Person(String name, String email, Address address, String contact) {
+    protected Person(String name, String email, Address address, String contact) {
         this.name = name;
         this.email = email;
         this.address = address;

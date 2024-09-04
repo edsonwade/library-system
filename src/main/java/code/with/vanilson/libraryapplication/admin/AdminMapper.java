@@ -42,7 +42,7 @@ public class AdminMapper {
      * @return The mapped {@link AdminResponse} object.
      * @throws ResourceBadRequestException If the input {@link Admin} is null.
      */
-    static AdminResponse mapToAdminResponse(Admin admin) {
+    public static AdminResponse mapToAdminResponse(Admin admin) {
         if (null == admin) {
             throw new ResourceBadRequestException("library.admin.cannot_be_null");
         }
@@ -70,7 +70,7 @@ public class AdminMapper {
      * @throws ResourceBadRequestException If the input {@link Address} is null.
      */
 
-    private static AddressDTO mapToAddressDTO(Address address) {
+    public static AddressDTO mapToAddressDTO(Address address) {
         if (address == null) {
             throw new ResourceBadRequestException("Address cannot be null"); // Or handle this case as needed
         }
@@ -90,7 +90,7 @@ public class AdminMapper {
      * @return The mapped {@link Address} object.
      * @throws ResourceBadRequestException If the input {@link AddressDTO} is null.
      */
-    static Address mapToAddress(AddressDTO address) {
+    public static Address mapToAddress(AddressDTO address) {
         if (address == null) {
             throw new ResourceBadRequestException(
                     "library.address.cannot_be_null"); // Or handle this case as needed
