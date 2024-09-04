@@ -22,6 +22,7 @@ import java.util.Date;
  * @version 1.0
  * @since 2024-08-24
  */
+@SuppressWarnings("unused")
 @Entity(name = "Fine")
 @Table(name = "fines")
 @AllArgsConstructor

@@ -9,6 +9,7 @@ import java.util.List;
  * @version 1.0
  * @since 2024-08-26
  */
+@SuppressWarnings("unused")
 public interface IBookService {
 
     /**

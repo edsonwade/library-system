@@ -133,14 +133,6 @@ public class BookService implements IBookService {
     }
 
     /**
-     * Updates an existing book.
-     *
-     * @param bookRequest The request containing updated book details.
-     * @param bookId      The ID of the book to be updated.
-     * @return The updated {@link BookResponse}.
-     */
-
-    /**
      * Deletes a book by its ID.
      *
      * @param bookId The ID of the book to be deleted.
@@ -198,14 +190,6 @@ public class BookService implements IBookService {
                 });
     }
 
-
-    /**
-     * Finds members by their IDs or throws an exception if any member ID is not found.
-     *
-     * @param memberIds The IDs of the members to find.
-     * @return A set of found {@link Member}s.
-     * @throws ResourceNotFoundException if any member ID is not found.
-     */
     /**
      * Finds members by their IDs or throws an exception if any member ID is not found.
      *
