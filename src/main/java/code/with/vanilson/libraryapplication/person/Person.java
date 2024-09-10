@@ -1,4 +1,4 @@
-package code.with.vanilson.libraryapplication.Person;
+package code.with.vanilson.libraryapplication.person;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -10,13 +10,13 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- * Member
+ * member
  *
  * @author vamuhong
  * @version 1.0
  * @since 2024-08-22
  */
-@MappedSuperclass // inherited from Member constructor methods
+@MappedSuperclass // inherited from member constructor methods
 @NoArgsConstructor
 @AllArgsConstructor
 @Data

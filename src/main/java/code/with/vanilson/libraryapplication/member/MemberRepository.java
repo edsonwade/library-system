@@ -1,7 +1,9 @@
-package code.with.vanilson.libraryapplication.Member;
+package code.with.vanilson.libraryapplication.member;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 
 /**
  * BookRepository
@@ -12,4 +14,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long> {
+    Optional<Member> findMemberByEmail(String email);
+
+    boolean existsMemberByEmailAndIdNot(String email, Long memberId);
+
+    boolean existsMemberByContactAndIdNot(String contact, Long memberId);
+
 }

@@ -1,4 +1,4 @@
-package code.with.vanilson.libraryapplication.Person;
+package code.with.vanilson.libraryapplication.person;
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;

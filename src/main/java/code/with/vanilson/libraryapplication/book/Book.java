@@ -1,6 +1,6 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.Member.Member;
+import code.with.vanilson.libraryapplication.member.Member;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -61,7 +61,7 @@ public class Book implements Serializable {
     private Librarian librarian; // Librarian managing this book
 
     /**
-     * Adds a member to the set of members who have borrowed this book.
+     * Adds a member to the set of member who have borrowed this book.
      * Also adds this book to the member's list of borrowed books.
      *
      * @param member The member to be added to the set of borrowers.
@@ -83,7 +83,7 @@ public class Book implements Serializable {
      *
      * @param member The member to check if they have reserved this book.
      * @return {@code true} if the book is reserved by the given member, {@code false} otherwise.
-     * The book is considered reserved by a member if the member is present in the set of members
+     * The book is considered reserved by a member if the member is present in the set of member
      * who have borrowed this book.
      */
     public boolean isReservedBy(Member member) {

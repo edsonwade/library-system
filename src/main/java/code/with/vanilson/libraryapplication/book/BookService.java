@@ -1,7 +1,7 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.Member.Member;
-import code.with.vanilson.libraryapplication.Member.MemberRepository;
+import code.with.vanilson.libraryapplication.member.Member;
+import code.with.vanilson.libraryapplication.member.MemberRepository;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceInvalidException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
@@ -191,20 +191,20 @@ public class BookService implements IBookService {
     }
 
     /**
-     * Finds members by their IDs or throws an exception if any member ID is not found.
+     * Finds member by their IDs or throws an exception if any member ID is not found.
      *
-     * @param memberIds The IDs of the members to find.
+     * @param memberIds The IDs of the member to find.
      * @return A set of found {@link Member}s.
      * @throws ResourceNotFoundException if any member ID is not found.
      */
     private Set<Member> findMembersByIds(Set<Long> memberIds) {
-        // Fetch all members by their IDs
+        // Fetch all member by their IDs
         List<Member> memberList = memberRepository.findAllById(memberIds);
 
-        // Create a set from the list to ensure unique members
+        // Create a set from the list to ensure unique member
         Set<Member> members = new HashSet<>(memberList);
 
-        // Check if the number of found members matches the number of requested IDs
+        // Check if the number of found member matches the number of requested IDs
         if (members.size() != memberIds.size()) {
             // Determine which member IDs were not found
             Set<Long> foundMemberIds = members.stream()
@@ -241,7 +241,7 @@ public class BookService implements IBookService {
         existingBook.setPublisherYear(bookRequest.getPublisherYear());
         existingBook.setStatus(bookRequest.getStatus());
         existingBook.setLibrarian(librarian);
-        existingBook.setMembers(members); // Set the members
+        existingBook.setMembers(members); // Set the member
     }
 
     /**

@@ -1,6 +1,6 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.Member.Member;
+import code.with.vanilson.libraryapplication.member.Member;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

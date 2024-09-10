@@ -1,6 +1,6 @@
 package code.with.vanilson.libraryapplication.fine;
 
-import code.with.vanilson.libraryapplication.Member.Member;
+import code.with.vanilson.libraryapplication.member.Member;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import com.fasterxml.jackson.annotation.JsonIgnore;

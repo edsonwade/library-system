@@ -221,7 +221,7 @@ public class GlobalExceptionHandler {
      * <p>
      * The error code is determined by analyzing the request path and matching it to a specific resource.
      * If the path contains "/books/", the error code "BOOK_INVALID_DATA" is returned.
-     * If the path contains "/members/", the error code "MEMBER_INVALID_DATA" is returned.
+     * If the path contains "/member/", the error code "MEMBER_INVALID_DATA" is returned.
      * If the path contains "/librarians/", the error code "LIBRARIAN_INVALID_DATA" is returned.
      * If the path contains "/admins/", the error code "ADMIN_INVALID_DATA" is returned.
      * If the path contains "/fines/", the error code "FINE_INVALID_DATA" is returned.
@@ -231,7 +231,7 @@ public class GlobalExceptionHandler {
     private String determineErrorCodeFromPath(String path) {
         if (path.contains("/api/books/")) {
             return BOOK_INVALID_DATA;
-        } else if (path.contains("/api/members/")) {
+        } else if (path.contains("/api/member/")) {
             return "MEMBER_INVALID_DATA";
         } else if (path.contains("/api/librarians/")) {
             return "LIBRARIAN_INVALID_DATA";
