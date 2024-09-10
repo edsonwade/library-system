@@ -1,7 +1,7 @@
 package code.with.vanilson.libraryapplication.admin;
 
-import code.with.vanilson.libraryapplication.Person.Address;
-import code.with.vanilson.libraryapplication.Person.AddressDTO;
+import code.with.vanilson.libraryapplication.person.Address;
+import code.with.vanilson.libraryapplication.person.AddressDTO;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import org.springframework.stereotype.Component;
 
@@ -92,8 +92,7 @@ public class AdminMapper {
      */
     public static Address mapToAddress(AddressDTO address) {
         if (address == null) {
-            throw new ResourceBadRequestException(
-                    "library.address.cannot_be_null"); // Or handle this case as needed
+            throw new ResourceBadRequestException("library.address.cannot_be_null"); // Or handle this case as needed
         }
         return Address.builder()
                 .street(address.getStreet())

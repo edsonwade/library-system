@@ -25,7 +25,7 @@ import java.util.Map;
  * @since 2024-09-02
  */
 @RestController
-@RequestMapping("/api/librarians")
+@RequestMapping("/api/v1/librarians")
 @CrossOrigin(
         origins = "http://localhost:8081", // Replace it with your frontend URL(s) if needed.
         methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE},
@@ -48,7 +48,7 @@ public class LibrarianController {
         var responses = librarianService.getAllLibrarians();
         // Prepare response headers
         HttpHeaders headers = prepareResponseHeaders(null, false);
-        log.info("Received a GET request to /api/librarian endpoint");
+        log.info("Received a GET request to /api/v1/librarian endpoint");
 
         // Return the response entity with headers and body
         return ResponseEntity.ok()
@@ -111,7 +111,7 @@ public class LibrarianController {
 
         // Return the response entity with the LibrarianResponse object and headers
         return ResponseEntity
-                .created(URI.create("/api/librarians/" + librarianResponse.getId()))
+                .created(URI.create("/api/v1/librarians/" + librarianResponse.getId()))
                 .eTag(librarianResponse.getEmployeeCode())
                 .headers(headers)
                 .body(librarianResponse);
@@ -182,9 +182,9 @@ public class LibrarianController {
     /**
      * Prepares HTTP headers for the response based on the provided admin data and cookie inclusion flag.
      * This method sets standard security headers, CORS headers, and optionally includes custom headers
-     * specific to an {@link AdminResponse} object and a {@code Set-Cookie} header.
+     * specific to an {@link LibrarianResponse} object and a {@code Set-Cookie} header.
      *
-     * @param response      The {@link AdminResponse} object used to set custom headers specific to the admin details.
+     * @param response      The {@link LibrarianResponse} object used to set custom headers specific to the admin details.
      *                      If {@code null}, custom admin-specific headers will not be set.
      * @param includeCookie A {@code boolean} indicating whether to include a {@code Set-Cookie} header in the response.
      *                      If {@code true}, a session cookie is added; if {@code false}, no session cookie is added.

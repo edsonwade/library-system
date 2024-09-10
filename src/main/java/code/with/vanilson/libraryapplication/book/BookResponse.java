@@ -1,6 +1,6 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.Member.MemberDTO;
+import code.with.vanilson.libraryapplication.member.MemberDTO;
 import code.with.vanilson.libraryapplication.librarian.LibrarianDTO;
 import lombok.Builder;
 import lombok.Data;
@@ -25,6 +25,6 @@ public class BookResponse  {
     private String publisherName;
     private Integer publisherYear;
     private BookStatus status;
-    private Set<MemberDTO> members; // Updated to Set<Member>
+    private Set<MemberDTO> members; // Updated to Set<member>
     private LibrarianDTO librarian; // Updated to Librarian
 }

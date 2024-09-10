@@ -1,9 +1,9 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.Member.Member;
-import code.with.vanilson.libraryapplication.Member.MemberDTO;
-import code.with.vanilson.libraryapplication.Person.Address;
-import code.with.vanilson.libraryapplication.Person.AddressDTO;
+import code.with.vanilson.libraryapplication.member.Member;
+import code.with.vanilson.libraryapplication.member.MemberDTO;
+import code.with.vanilson.libraryapplication.person.Address;
+import code.with.vanilson.libraryapplication.person.AddressDTO;
 import code.with.vanilson.libraryapplication.admin.AdminMapper;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
@@ -42,7 +42,7 @@ public class BookMapper {
         // Validate inputs and throw exceptions if necessary
         validateNotNull(request, LIBRARY_BOOK_CANNOT_BE_NULL);
         validateNotNull(librarian, "library.librarian.cannot_be_null");
-        validateNotNull(members, "library.members.cannot_be_null");
+        validateNotNull(members, "library.member.cannot_be_null");
 
         return Book.builder()
                 .bookId(request.getId())
@@ -97,7 +97,7 @@ public class BookMapper {
                 .status(book.getStatus())
                 .librarian(mapToLibrarianDTO(book.getLibrarian())) // Map entire Librarian to LibrarianDTO
                 .members(book.getMembers().stream()
-                        .map(BookMapper::mapToMemberDTO) // Map each Member to MemberDTO
+                        .map(BookMapper::mapToMemberDTO) // Map each member to MemberDTO
                         .collect(Collectors.toSet()))
                 .build();
     }
@@ -111,7 +111,7 @@ public class BookMapper {
      */
 
     // Convert Book entity to BookDTO
-    private static LibrarianDTO mapToLibrarianDTO(Librarian librarian) {
+    public static LibrarianDTO mapToLibrarianDTO(Librarian librarian) {
         validateNotNull(librarian, "library.librarian.cannot_be_null");
         return LibrarianDTO.builder()
                 .id(librarian.getId())
@@ -178,7 +178,7 @@ public class BookMapper {
      * @param admin The Admin entity to be converted.
      * @return A new AdminDTO object containing the details of the Admin entity.
      * Returns null if the admin parameter is null.
-     * @throws ResourceBadRequestException If the admin's address, managed librarians, managed members, or managed fines are null.
+     * @throws ResourceBadRequestException If the admin's address, managed librarians, managed member, or managed fines are null.
      */
 
 //    private static AdminDTO mapToAdminDTO(Admin admin) {
@@ -195,7 +195,7 @@ public class BookMapper {
 ////                        admin.getManagedLibrarians().stream().map(Librarian::getId).collect(Collectors.toSet()) :
 ////                        new HashSet<>())
 ////                .managedMembersIds(admin.getManagedMembers() != null ?
-////                        admin.getManagedMembers().stream().map(Member::getId).collect(Collectors.toSet()) :
+////                        admin.getManagedMembers().stream().map(member::getId).collect(Collectors.toSet()) :
 ////                        new HashSet<>())
 ////                .managedFinesIds(admin.getManagedFines() != null ?
 ////                        admin.getManagedFines().stream().map(Fine::getId).collect(Collectors.toSet()) : new HashSet<>())
@@ -203,14 +203,14 @@ public class BookMapper {
 ////    }
 
     /**
-     * Maps a Member entity to a MemberDTO object.
+     * Maps a member entity to a MemberDTO object.
      *
-     * @param member The Member entity to be converted.
-     * @return A new MemberDTO object containing the details of the Member entity.
+     * @param member The member entity to be converted.
+     * @return A new MemberDTO object containing the details of the member entity.
      * @throws ResourceBadRequestException If the member parameter is null.
      */
 
-    private static MemberDTO mapToMemberDTO(Member member) {
+    public static MemberDTO mapToMemberDTO(Member member) {
         validateNotNull(member, "library.member.cannot_be_null");
         return MemberDTO.builder()
                 .id(member.getId())
@@ -219,9 +219,6 @@ public class BookMapper {
                 .address(mapToAddressDTO(member.getAddress()))
                 .contact(member.getContact())
                 .membershipStatus(member.getMembershipStatus())
-                .borrowedBooksIds(member.getBorrowedBooks() != null ?
-                        member.getBorrowedBooks().stream().map(Book::getBookId).collect(Collectors.toSet()) :
-                        new HashSet<>())
                 .librarianId(member.getLibrarian() != null ? member.getLibrarian().getId() : 0L)
                 .adminId(member.getAdmin() != null ? member.getAdmin().getId() : 0L)
                 .build();

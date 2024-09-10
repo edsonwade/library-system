@@ -1,4 +1,4 @@
-package code.with.vanilson.libraryapplication.Member;
+package code.with.vanilson.libraryapplication.member;
 
 import lombok.Getter;
 

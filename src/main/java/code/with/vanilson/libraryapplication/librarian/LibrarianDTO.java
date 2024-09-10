@@ -1,6 +1,6 @@
 package code.with.vanilson.libraryapplication.librarian;
 
-import code.with.vanilson.libraryapplication.Person.AddressDTO;
+import code.with.vanilson.libraryapplication.person.AddressDTO;
 import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Data;

@@ -32,7 +32,7 @@ public class FineDTO {
     private Date dueDate;
 
     // Only include IDs or relevant fields instead of full objects
-    @NotNull(message = "Member must not be null")
+    @NotNull(message = "member must not be null")
     private Long memberId;
 
     @NotNull(message = "Librarian must not be null")

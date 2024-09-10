@@ -1,6 +1,7 @@
-package code.with.vanilson.libraryapplication.Member;
+package code.with.vanilson.libraryapplication.member;
 
-import code.with.vanilson.libraryapplication.Person.Person;
+import code.with.vanilson.libraryapplication.person.Address;
+import code.with.vanilson.libraryapplication.person.Person;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.book.Book;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
@@ -13,7 +14,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * Member
+ * member
  *
  * @author vamuhong
  * @version 1.0
@@ -49,4 +50,12 @@ public class Member extends Person implements Serializable {
     @JoinColumn(name = "admin_id") // Foreign key to Admin
     private Admin admin; // Admin managing this member
 
+    public Member(String name, String email,
+                  Address address, String contact,
+                  MembershipStatus membershipStatus, Librarian librarian, Admin admin) {
+        super(name, email, address, contact);
+        this.membershipStatus = membershipStatus;
+        this.librarian = librarian;
+        this.admin = admin;
+    }
 }

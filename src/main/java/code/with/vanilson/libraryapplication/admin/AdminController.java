@@ -24,7 +24,7 @@ import java.util.List;
  * @since 2024-08-30
  */
 @RestController
-@RequestMapping("/api/admins")
+@RequestMapping("/api/v1/admins")
 @CrossOrigin(
         origins = "http://localhost:8081", // Replace it with your frontend URL(s) if needed.
         methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE},
@@ -132,7 +132,7 @@ public class AdminController {
 
         // Return the response entity with the AdminResponse object and headers
         return ResponseEntity
-                .created(URI.create("/api/admins/" + adminResponse.getId()))
+                .created(URI.create("/api/v1/admins/" + adminResponse.getId()))
                 .eTag(adminResponse.getAdminCode())
                 .headers(headers)
                 .body(adminResponse);
