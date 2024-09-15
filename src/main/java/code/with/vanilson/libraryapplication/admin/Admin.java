@@ -1,10 +1,10 @@
 package code.with.vanilson.libraryapplication.admin;
 
+import code.with.vanilson.libraryapplication.fine.Fine;
+import code.with.vanilson.libraryapplication.librarian.Librarian;
 import code.with.vanilson.libraryapplication.member.Member;
 import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.Person;
-import code.with.vanilson.libraryapplication.fine.Fine;
-import code.with.vanilson.libraryapplication.librarian.Librarian;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -12,8 +12,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -29,10 +27,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Admin extends Person implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 2405172041950251807L;
+public class Admin extends Person {
 
     @Column(name = "admin_code", unique = true, nullable = false)
     private String adminCode;
@@ -41,15 +36,15 @@ public class Admin extends Person implements Serializable {
     @Column(nullable = false, name = "role")
     private Role role;
 
-    @OneToMany(mappedBy = "admin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "admin")
     @JsonIgnore
     private Set<Librarian> managedLibrarians;
 
-    @OneToMany(mappedBy = "admin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "admin")
     @JsonIgnore
     private Set<Member> managedMembers;
 
-    @OneToMany(mappedBy = "admin", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "admin")
     @JsonIgnore
     private Set<Fine> managedFines;
 

@@ -1,8 +1,8 @@
 package code.with.vanilson.libraryapplication.admin;
 
+import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
-import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import org.springframework.stereotype.Component;
 
 /**
@@ -101,6 +101,21 @@ public class AdminMapper {
                 .country(address.getCountry())
                 .postalCode(address.getPostalCode())
                 .build();
+    }
+
+    public static Admin mapToAdmin(AdminResponse adminResponse) {
+        if (null == adminResponse) {
+            throw new ResourceBadRequestException("library.admin.cannot_be_null");
+        }
+
+        return new Admin(
+                adminResponse.getName(),
+                adminResponse.getEmail(),
+                mapToAddress(adminResponse.getAddress()),
+                adminResponse.getContact(),
+                adminResponse.getAdminCode(),
+                adminResponse.getRole()
+        );
     }
 
     private AdminMapper() {

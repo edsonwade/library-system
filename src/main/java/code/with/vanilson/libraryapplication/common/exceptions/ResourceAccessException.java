@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * @version 1.0
  * @since 2024-08-20
  */
+@SuppressWarnings("unused")
 @ResponseStatus(HttpStatus.FORBIDDEN)
 public class ResourceAccessException extends RuntimeException {
     public ResourceAccessException(String message) {

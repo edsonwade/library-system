@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.text.MessageFormat;
 
 import static code.with.vanilson.libraryapplication.admin.AdminMapper.*;
+import static code.with.vanilson.libraryapplication.librarian.LibrarianMapper.mapToLibrarian;
 import static code.with.vanilson.libraryapplication.librarian.LibrarianMapper.mapToLibrarianResponse;
 
 /**
@@ -21,6 +22,8 @@ import static code.with.vanilson.libraryapplication.librarian.LibrarianMapper.ma
 @Slf4j
 public class MemberMapper {
 
+    public static final String LIBRARY_MEMBER_CANNOT_BE_NULL = "library.member.cannot_be_null";
+
     private MemberMapper() {
         // Private constructor to prevent instantiation
     }
@@ -29,7 +32,7 @@ public class MemberMapper {
     public static MemberResponse mapToMemberResponse(Member member) {
         if (null == member) {
             log.error("Librarian is null %s".formatted((Object) null));
-            throw new ResourceBadRequestException("library.member.cannot_be_null");
+            throw new ResourceBadRequestException(LIBRARY_MEMBER_CANNOT_BE_NULL);
         }
         if (null == member.getLibrarian()) {
             log.error(MessageFormat.format("librarian is null {0}", (Object) null));
@@ -56,7 +59,7 @@ public class MemberMapper {
     public static Member mapToMemberEntity(MemberRequest memberRequest, Admin admin, Librarian librarian) {
         if (null == memberRequest) {
             log.error("Librarian is null %s".formatted((Object) null));
-            throw new ResourceBadRequestException("library.member.cannot_be_null");
+            throw new ResourceBadRequestException(LIBRARY_MEMBER_CANNOT_BE_NULL);
         }
         if (null == memberRequest.getLibrarianId()) {
             log.error(MessageFormat.format("librarian is null {0}", (Object) null));
@@ -79,5 +82,21 @@ public class MemberMapper {
                 admin // Set the admin from the service layer
         );
     }
+
+    public static Member mapToMember(MemberResponse memberResponse) {
+        if (null == memberResponse) {
+            log.error("Member is null %s".formatted((Object) null));
+            throw new ResourceBadRequestException(LIBRARY_MEMBER_CANNOT_BE_NULL);
+        }
+
+        Member member = new Member();
+        member.setId(memberResponse.getId());
+        member.setMembershipStatus(memberResponse.getMembershipStatus());
+        member.setLibrarian(mapToLibrarian(memberResponse.getLibrarianResponse()));
+        member.setAdmin(mapToAdmin(memberResponse.getAdminResponse()));
+
+        return member;
+    }
+
 
 }

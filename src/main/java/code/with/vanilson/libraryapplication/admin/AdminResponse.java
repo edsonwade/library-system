@@ -1,8 +1,11 @@
 package code.with.vanilson.libraryapplication.admin;
 
 import code.with.vanilson.libraryapplication.person.AddressDTO;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 /**
  * AdminResponse
@@ -13,7 +16,9 @@ import lombok.Data;
  */
 @Builder
 @Data
-public class AdminResponse {
+@AllArgsConstructor
+@NoArgsConstructor
+public class AdminResponse extends RepresentationModel<AdminResponse> {
     private Long id;
     private String name;
     private String email;

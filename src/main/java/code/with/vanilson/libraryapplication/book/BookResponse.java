@@ -4,6 +4,7 @@ import code.with.vanilson.libraryapplication.member.MemberDTO;
 import code.with.vanilson.libraryapplication.librarian.LibrarianDTO;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.util.Set;
 
@@ -16,7 +17,7 @@ import java.util.Set;
  */
 @Data
 @Builder
-public class BookResponse  {
+public class BookResponse extends RepresentationModel<BookResponse> {
     private Long id;
     private String title;
     private String author;

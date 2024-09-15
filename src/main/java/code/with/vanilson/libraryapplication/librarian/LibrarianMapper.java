@@ -1,15 +1,17 @@
 package code.with.vanilson.libraryapplication.librarian;
 
-import code.with.vanilson.libraryapplication.person.Address;
-import code.with.vanilson.libraryapplication.person.AddressDTO;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.admin.AdminResponse;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
+import code.with.vanilson.libraryapplication.person.Address;
+import code.with.vanilson.libraryapplication.person.AddressDTO;
 import lombok.Builder;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.text.MessageFormat;
+
+import static code.with.vanilson.libraryapplication.admin.AdminMapper.mapToAdmin;
 
 /**
  * LibrarianMapper
@@ -133,6 +135,19 @@ public class LibrarianMapper {
                 .employeeCode(response.getEmployeeCode())
                 .admin(response.getAdmin().getId()) // Use the admin ID for the request
                 .build();
+    }
+
+    public static Librarian mapToLibrarian(LibrarianResponse librarianResponse) {
+        if (null == librarianResponse) {
+            throw new ResourceBadRequestException(LIBRARY_LIBRARIAN_CANNOT_BE_NULL);
+        }
+        return new Librarian(
+                librarianResponse.getName(),
+                librarianResponse.getEmail(),
+                mapToAddress(librarianResponse.getAddress()),
+                librarianResponse.getContact(),
+                librarianResponse.getEmployeeCode(),
+                mapToAdmin(librarianResponse.getAdmin()));
     }
 
 }

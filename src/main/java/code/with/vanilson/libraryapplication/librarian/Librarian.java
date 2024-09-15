@@ -1,11 +1,11 @@
 package code.with.vanilson.libraryapplication.librarian;
 
-import code.with.vanilson.libraryapplication.member.Member;
-import code.with.vanilson.libraryapplication.person.Address;
-import code.with.vanilson.libraryapplication.person.Person;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.book.Book;
 import code.with.vanilson.libraryapplication.fine.Fine;
+import code.with.vanilson.libraryapplication.member.Member;
+import code.with.vanilson.libraryapplication.person.Address;
+import code.with.vanilson.libraryapplication.person.Person;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
