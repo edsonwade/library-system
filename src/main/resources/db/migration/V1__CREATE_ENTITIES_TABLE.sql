@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS admins
 -- Librarians Table
 CREATE TABLE IF NOT EXISTS librarians
 (
-    person_id    BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    person_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name          VARCHAR(255) NOT NULL,
     email         VARCHAR(255) NOT NULL UNIQUE,
     contact       VARCHAR(255) NOT NULL UNIQUE,
@@ -70,14 +70,15 @@ CREATE TABLE IF NOT EXISTS books
 -- Fine Table
 CREATE TABLE IF NOT EXISTS fines
 (
-    fine_id     BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    fine_id   BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     amount       DECIMAL(10, 2) NOT NULL,
     issue_date   DATE           NOT NULL,
     due_date     DATE           NOT NULL,
-    member_id    BIGINT         NOT NULL,
+    is_paid   BOOLEAN DEFAULT FALSE,
+    member_id BIGINT,
     librarian_id BIGINT,
     admin_id     BIGINT,
-    FOREIGN KEY (member_id) REFERENCES members (person_id) ON DELETE CASCADE,
+    FOREIGN KEY (member_id) REFERENCES members (person_id) ON DELETE SET NULL,
     FOREIGN KEY (librarian_id) REFERENCES librarians (person_id) ON DELETE SET NULL,
     FOREIGN KEY (admin_id) REFERENCES admins (person_id) ON DELETE SET NULL
 );

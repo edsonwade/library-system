@@ -1,5 +1,7 @@
 package code.with.vanilson.libraryapplication.common.utils;
 
+import code.with.vanilson.libraryapplication.common.exceptions.ResourceInvalidException;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
@@ -23,11 +25,12 @@ public class DateUtils {
     private static final String DEFAULT_DATE_FORMAT = "yyyy-MM-dd";
     private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
     private static final String TIME_FORMAT = "HH:mm:ss";
+    private static final SimpleDateFormat SIMPLE_DATE_FORMAT = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
 
     // Default date formats
-    private static final DateTimeFormatter DEFAULT_DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern("HH:mm:ss");
+    private static final DateTimeFormatter DEFAULT_DATE_FORMATTER = DateTimeFormatter.ofPattern(DEFAULT_DATE_FORMAT);
+    private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(DATE_TIME_FORMAT);
+    private static final DateTimeFormatter TIME_FORMATTER = DateTimeFormatter.ofPattern(TIME_FORMAT);
 
     // Gets the current date
     public static Date getCurrentDate() {
@@ -46,11 +49,6 @@ public class DateUtils {
         }
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         return sdf.format(date);
-    }
-
-    // Parses a date from a string with default format
-    public static Date parseDate(String dateStr) throws ParseException {
-        return parseDate(dateStr, DEFAULT_DATE_FORMAT);
     }
 
     // Parses a date from a string with a specified format
@@ -228,5 +226,13 @@ public class DateUtils {
     private DateUtils() {
         // Private constructor to prevent instantiation of utility class
         throw new AssertionError("Utility class cannot be instantiated");
+    }
+
+    public static Date parseDate(String date) {
+        try {
+            return SIMPLE_DATE_FORMAT.parse(date);
+        } catch (ParseException e) {
+            throw new ResourceInvalidException("Invalid date format");
+        }
     }
 }

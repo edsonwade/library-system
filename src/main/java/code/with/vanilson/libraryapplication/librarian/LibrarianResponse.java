@@ -1,9 +1,12 @@
 package code.with.vanilson.libraryapplication.librarian;
 
-import code.with.vanilson.libraryapplication.person.AddressDTO;
 import code.with.vanilson.libraryapplication.admin.AdminResponse;
+import code.with.vanilson.libraryapplication.person.AddressDTO;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.hateoas.RepresentationModel;
 
 /**
  * LibrarianResponse
@@ -14,7 +17,9 @@ import lombok.Data;
  */
 @Data
 @Builder
-public class LibrarianResponse {
+@NoArgsConstructor
+@AllArgsConstructor
+public class LibrarianResponse extends RepresentationModel<LibrarianResponse> {
 
     private Long id;
 

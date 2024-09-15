@@ -1,16 +1,14 @@
 package code.with.vanilson.libraryapplication.member;
 
-import code.with.vanilson.libraryapplication.person.Address;
-import code.with.vanilson.libraryapplication.person.Person;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.book.Book;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
+import code.with.vanilson.libraryapplication.person.Address;
+import code.with.vanilson.libraryapplication.person.Person;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.io.Serial;
-import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -27,9 +25,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Member extends Person implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 3L;
+public class Member extends Person {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private MembershipStatus membershipStatus;
@@ -41,12 +37,12 @@ public class Member extends Person implements Serializable {
     @JsonIgnore
     private Set<Book> borrowedBooks;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "librarian_id")
     @JsonIgnore
     private Librarian librarian; // Librarian managing this member
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "admin_id") // Foreign key to Admin
     private Admin admin; // Admin managing this member
 

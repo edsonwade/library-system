@@ -16,13 +16,6 @@ import java.text.MessageFormat;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
-/**
- * BookMapper
- *
- * @author vamuhong
- * @version 1.0
- * @since 2024-08-30
- */
 
 /**
  * BookMapper
@@ -31,6 +24,7 @@ import java.util.stream.Collectors;
  * @version 1.0
  * @since 2024-08-26
  */
+@SuppressWarnings("unused")
 public class BookMapper {
 
     public static final String LIBRARY_BOOK_CANNOT_BE_NULL = "library.book.cannot_be_null";
@@ -162,7 +156,6 @@ public class BookMapper {
     private static FineDTO mapToFineDTO(Fine fine) {
         validateNotNull(fine, "fine.cannot_be_null");
         return FineDTO.builder()
-                .id(fine.getId())
                 .amount(fine.getAmount())
                 .issueDate(fine.getIssueDate())
                 .dueDate(fine.getDueDate())
@@ -180,27 +173,6 @@ public class BookMapper {
      * Returns null if the admin parameter is null.
      * @throws ResourceBadRequestException If the admin's address, managed librarians, managed member, or managed fines are null.
      */
-
-//    private static AdminDTO mapToAdminDTO(Admin admin) {
-////        validateNotNull(admin, "library.admin.cannot_be_null");
-////        return AdminDTO.builder()
-////                .id(admin.getId())
-////                .name(admin.getName())
-////                .email(admin.getEmail())
-////                .address(mapToAddressDTO(admin.getAddress()))
-////                .contact(admin.getContact())
-////                .adminCode(admin.getAdminCode())
-////                .role(admin.getRole())
-////                .managedLibrariansIds(admin.getManagedLibrarians() != null ?
-////                        admin.getManagedLibrarians().stream().map(Librarian::getId).collect(Collectors.toSet()) :
-////                        new HashSet<>())
-////                .managedMembersIds(admin.getManagedMembers() != null ?
-////                        admin.getManagedMembers().stream().map(member::getId).collect(Collectors.toSet()) :
-////                        new HashSet<>())
-////                .managedFinesIds(admin.getManagedFines() != null ?
-////                        admin.getManagedFines().stream().map(Fine::getId).collect(Collectors.toSet()) : new HashSet<>())
-////                .build();
-////    }
 
     /**
      * Maps a member entity to a MemberDTO object.

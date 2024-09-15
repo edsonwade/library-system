@@ -40,6 +40,7 @@ springdoc:
     default-sort: method,asc
 
 
+
   flyway:
     locations: classpath:db/migration/  # Ensure your migrations are here
     baseline-on-migrate: true           # Baseline the database if necessary

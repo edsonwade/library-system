@@ -1,9 +1,9 @@
 package code.with.vanilson.libraryapplication.fine;
 
-import code.with.vanilson.libraryapplication.member.Member;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import code.with.vanilson.libraryapplication.member.Member;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,9 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serial;
-import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Fine
@@ -27,13 +25,10 @@ import java.util.Date;
 @Table(name = "fines")
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Builder
-@JsonPropertyOrder(value = {"id", "amount", "issueDate", "member", "librarian"})
-public class Fine implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 1905122041950251207L;
+@Data
+@JsonPropertyOrder(value = {"id", "amount", "issueDate", "dueDate", "isPaid", "member", "librarian", "admin"})
+public class Fine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,50 +38,36 @@ public class Fine implements Serializable {
     @Column(nullable = false)
     private double amount;
 
-    @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
-    private Date issueDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate issueDate;
 
-    @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
-    private Date dueDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate dueDate;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @Column(name = "is_paid")
+    private Boolean isPaid;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 
-    @ManyToOne
-    @JoinColumn(name = "librarian_id")
-    @JsonIgnore
-    private Librarian librarian; // Librarian processing this fine
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "librarian_id", nullable = false)
+    private Librarian librarian;
 
-    @ManyToOne
-    @JoinColumn(name = "admin_id") // Foreign key to Admin
-    @JsonIgnore
-    private Admin admin; // Admin managing this fine
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "admin_id", nullable = false)
+    private Admin admin;
 
-    /**
-     * Calculates the fine amount based on the due date and current date.
-     * The fine grows per day the book is overdue.
-     *
-     * @param dueDate     The due date of the book.
-     * @param currentDate The current date for calculating the overdue days.
-     * @return The calculated fine amount.
-     */
-    public static double calculateFineAmount(Date dueDate, Date currentDate) {
-        if (null == dueDate || currentDate.before(dueDate) || currentDate.equals(dueDate)) {
-            return 0.0;
-        }
-
-        long daysOverdue = (currentDate.getTime() - dueDate.getTime()) / (1000 * 60 * 60 * 24);
-
-        double baseFine = 2.0; // Base fine amount in euros
-        double incrementPerDay = 1.0; // Additional fine per day in euros
-
-        // Calculate the total fine based on the number of overdue days
-        double totalFine = baseFine + (daysOverdue - 1) * incrementPerDay; // Initial base fine plus incremental fine
-
-        return totalFine > 0 ? totalFine : 0; // Ensure that fine is not negative
+    public Fine(double amount, LocalDate issueDate, LocalDate dueDate, Boolean isPaid, Member member,
+                Librarian librarian,
+                Admin admin) {
+        this.amount = amount;
+        this.issueDate = issueDate;
+        this.dueDate = dueDate;
+        this.isPaid = isPaid;
+        this.member = member;
+        this.librarian = librarian;
+        this.admin = admin;
     }
-
 }
