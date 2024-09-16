@@ -1,7 +1,7 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.member.MemberDTO;
-import code.with.vanilson.libraryapplication.librarian.LibrarianDTO;
+import code.with.vanilson.libraryapplication.librarian.LibrarianResponse;
+import code.with.vanilson.libraryapplication.member.MemberResponse;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.hateoas.RepresentationModel;
@@ -26,6 +26,6 @@ public class BookResponse extends RepresentationModel<BookResponse> {
     private String publisherName;
     private Integer publisherYear;
     private BookStatus status;
-    private Set<MemberDTO> members; // Updated to Set<member>
-    private LibrarianDTO librarian; // Updated to Librarian
+    private Set<MemberResponse> members; // Updated to Set<member>
+    private LibrarianResponse librarian; // Updated to Librarian
 }

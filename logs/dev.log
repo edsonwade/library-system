@@ -2261,3 +2261,26 @@ Consider defining a bean of type 'code.with.vanilson.libraryapplication.fine.Fin
 2024-09-15 12:52:59,160 ERROR [main] c.w.v.l.member.MemberService: The librarian id provide is less than or equal to zero 0 
 2024-09-15 12:52:59,176 INFO  [main] c.w.v.l.member.MemberService: Get all member
 2024-09-15 12:52:59,218 ERROR [main] c.w.v.l.member.MemberService: The member id provided is less than or equal to zero 0 
+2024-09-16 09:34:48,272 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2024-09-16 09:34:48,347 INFO  [main] c.w.v.l.member.MemberControllerTest: Starting MemberControllerTest using Java 17.0.8 with PID 5432 (started by vamuhong in C:\Users\vamuhong\Documents\Formation 2023\backend\library-management-system)
+2024-09-16 09:34:48,348 DEBUG [main] c.w.v.l.member.MemberControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2024-09-16 09:34:48,349 INFO  [main] c.w.v.l.member.MemberControllerTest: The following 1 profile is active: "dev"
+2024-09-16 09:34:51,887 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2024-09-16 09:34:51,888 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2024-09-16 09:34:51,891 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2024-09-16 09:34:51,933 INFO  [main] c.w.v.l.member.MemberControllerTest: Started MemberControllerTest in 4.569 seconds (process running for 7.358)
+2024-09-16 09:34:52,097 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2024-09-16 09:34:52,372 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2024-09-16 09:34:52,798 INFO  [main] c.w.v.l.member.MemberController: retrieve member by id 1
+2024-09-16 09:34:53,134 ERROR [main] c.w.v.l.member.MemberMapper: admin is null null
+2024-09-16 09:34:53,285 ERROR [main] c.w.v.l.member.MemberMapper: Librarian is null null
+2024-09-16 09:34:53,315 ERROR [main] c.w.v.l.member.MemberMapper: librarian is null null
+2024-09-16 09:34:53,320 ERROR [main] c.w.v.l.member.MemberMapper: librarian is null null
+2024-09-16 09:34:53,326 ERROR [main] c.w.v.l.member.MemberMapper: admin is null null
+2024-09-16 09:34:53,336 ERROR [main] c.w.v.l.member.MemberMapper: Librarian is null null
+2024-09-16 09:34:53,611 ERROR [main] c.w.v.l.member.MemberService: No member found with ID 1
+2024-09-16 09:34:53,618 INFO  [main] c.w.v.l.member.MemberService: member deleted successfully with ID 1
+2024-09-16 09:34:53,669 ERROR [main] c.w.v.l.member.MemberService: No member found with ID 1
+2024-09-16 09:34:53,674 ERROR [main] c.w.v.l.member.MemberService: The librarian id provide is less than or equal to zero 0 
+2024-09-16 09:34:53,715 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2024-09-16 09:34:53,746 ERROR [main] c.w.v.l.member.MemberService: The member id provided is less than or equal to zero 0 

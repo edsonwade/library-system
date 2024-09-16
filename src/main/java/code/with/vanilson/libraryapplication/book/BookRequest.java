@@ -1,6 +1,5 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.member.Member;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -21,10 +20,6 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 public class BookRequest {
-    @NotNull(message = "The book ID must not be null")
-    @Positive(message = "The book ID must be a positive integer")
-    private Long id;
-
     @NotNull(message = "The book title must not be null")
     @NotEmpty(message = "The book title should not be empty")
     @NotBlank(message = "The book title should not be blank")
@@ -53,13 +48,14 @@ public class BookRequest {
     @NotNull(message = "The book status must not be null")
     private BookStatus status;
 
+    @NotNull(message = "The member Id must not be null")
+    @Positive(message = "The member ID must be a positive integer")
+    @Min(value = 1, message = "The member ID must be greater than or equal to 1")
+    private Set<Long> memberIds;
 
-
-    @NotNull(message = "The member ID must not be null")
-    private Set<Member> memberIds;
-
-    @NotNull(message = "The librarian ID must not be null")
+    @NotNull(message = "The librarian must not be null")
     @Positive(message = "The librarian ID must be a positive integer")
+    @Min(value = 1, message = "The librarian ID must be greater than or equal to 1")
     private Long librarianId;
 
 }
