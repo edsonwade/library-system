@@ -1,7 +1,7 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.member.Member;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
+import code.with.vanilson.libraryapplication.member.Member;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
@@ -59,6 +59,20 @@ public class Book implements Serializable {
     @JsonIgnore
     @JoinColumn(name = "librarian_id")
     private Librarian librarian; // Librarian managing this book
+
+    public Book(String title, String author, String isbn, String genre, String publisherName, Integer publisherYear,
+                BookStatus status, Set<Member> members, Librarian librarian) {
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.genre = genre;
+        this.publisherName = publisherName;
+        this.publisherYear = publisherYear;
+        this.status = status;
+        this.members = members;
+        this.librarian = librarian;
+    }
+
 
     /**
      * Adds a member to the set of member who have borrowed this book.

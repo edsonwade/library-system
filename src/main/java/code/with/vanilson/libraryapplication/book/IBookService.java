@@ -27,6 +27,36 @@ public interface IBookService {
     BookResponse getBookById(Long id);
 
     /**
+     * Get a book by its title
+     *
+     * @param title title of the book to be retrieved
+     */
+    BookResponse getBookByTitle(String title);
+
+    /**
+     * Get a book by its author
+     *
+     * @param author author of the book to be retrieved
+     */
+    BookResponse getBookByAuthor(String author);
+
+    /**
+     * Get a book by its isbn
+     *
+     * @param isbn isbn of the book to be retrieved
+     */
+    BookResponse getBookByIsbn(String isbn);
+
+    /**
+     * Get a book by its genre
+     *
+     * @param genre isbn of the book to be retrieved
+     */
+    BookResponse getBookByGenre(String genre);
+
+
+
+    /**
      * Create a new book
      *
      * @param bookRequest Book object to be created

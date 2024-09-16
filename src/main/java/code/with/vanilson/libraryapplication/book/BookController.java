@@ -89,4 +89,50 @@ public class BookController {
                 .body(newBook);
     }
 
+    /**
+     * Endpoint for borrowing a book.
+     *
+     * @param bookId      The ID of the book to be borrowed.
+     * @param memberId    The ID of the member borrowing the book.
+     * @param librarianId The ID of the librarian processing the request.
+     * @return Updated {@link BookResponse} representing the borrowed book.
+     */
+    @PostMapping("/{bookId}/borrow")
+    public ResponseEntity<BookResponse> borrowBook(
+            @PathVariable Long bookId,
+            @RequestParam Long memberId,
+            @RequestParam Long librarianId) {
+        BookResponse response = bookService.borrowBook(bookId, memberId, librarianId);
+        return ResponseEntity.ok(response);
+    }
+
+    /**
+     * Endpoint for checking if a book is available.
+     *
+     * @param bookId The ID of the book to check.
+     * @return {@code true} if the book is available, {@code false} otherwise.
+     */
+    @GetMapping("/{bookId}/available")
+    public ResponseEntity<Boolean> isBookAvailable(@PathVariable Long bookId) {
+        boolean available = bookService.isBookAvailable(bookId);
+        return ResponseEntity.ok(available);
+    }
+
+    /**
+     * Endpoint for returning a borrowed book.
+     *
+     * @param bookId      The ID of the book being returned.
+     * @param memberId    The ID of the member returning the book.
+     * @param librarianId The ID of the librarian processing the return.
+     * @return Updated {@link BookResponse} after the book is returned.
+     */
+    @PostMapping("/{bookId}/return")
+    public ResponseEntity<BookResponse> returnBook(
+            @PathVariable Long bookId,
+            @RequestParam Long memberId,
+            @RequestParam Long librarianId) {
+        BookResponse response = bookService.returnBook(bookId, memberId, librarianId);
+        return ResponseEntity.ok(response);
+    }
+
 }

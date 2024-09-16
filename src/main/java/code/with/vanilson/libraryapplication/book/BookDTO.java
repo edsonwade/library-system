@@ -20,10 +20,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 public class BookDTO {
-    @NotNull(message = "The book ID must not be null")
-    @Positive(message = "The book ID must be a positive integer")
-    private Long id;
-
     @NotNull(message = "The book title must not be null")
     @NotEmpty(message = "The book title should not be empty")
     @NotBlank(message = "The book title should not be blank")
@@ -51,8 +47,10 @@ public class BookDTO {
 
     @NotNull(message = "The book status must not be null")
     private BookStatus status;
-    @NotNull
-    @NotEmpty
+
+    @NotNull(message = "The member Id must not be null")
+    @Positive(message = "The member ID must be a positive integer")
+    @Min(value = 1, message = "The member ID must be greater than or equal to 1")
     private Set<Long> memberIds;
 
     @NotNull(message = "The librarian must not be null")

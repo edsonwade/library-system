@@ -15,9 +15,14 @@ import java.util.Optional;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    Optional<Book> findBookByAuthorAndTitle(String author, String title);
+    Optional<Book> findBookByAuthor(String author);
 
-    public boolean existsBooksByTitle(String title);
+    Optional<Book> findBookByIsbn(String isbn);
 
-    public boolean existsBooksByAuthorAndTitle(String author, String title);
+    Optional<Book> findBookByTitle(String title);
+
+    Optional<Book> findBookByGenre(String genre);
+
+    public boolean existsBooksByIsbn(String isbn);
+
 }
