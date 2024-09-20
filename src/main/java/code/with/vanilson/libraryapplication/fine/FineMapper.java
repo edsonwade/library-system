@@ -39,13 +39,13 @@ public class FineMapper {
             return null;
         }
 
-        AdminResponse adminResponse = new AdminResponse();
+        var adminResponse = new AdminResponse();
         adminResponse.setId(admin.getId());
         adminResponse.setName(admin.getName());
         adminResponse.setEmail(admin.getEmail());
 
         // Assuming AddressDTO has similar fields in Admin entity
-        AddressDTO addressDTO = new AddressDTO();
+        var addressDTO = new AddressDTO();
         addressDTO.setStreet(admin.getAddress().getStreet());
         addressDTO.setCity(admin.getAddress().getCity());
         addressDTO.setState(admin.getAddress().getState());
@@ -55,7 +55,6 @@ public class FineMapper {
         // Set other address fields
 
         adminResponse.setAddress(addressDTO);
-
         adminResponse.setContact(admin.getContact());
         adminResponse.setAdminCode(admin.getAdminCode());
         adminResponse.setRole(admin.getRole());
@@ -68,7 +67,7 @@ public class FineMapper {
             return null;
         }
 
-        MemberResponse memberResponse = new MemberResponse();
+        var memberResponse = new MemberResponse();
         memberResponse.setId(member.getId());
         memberResponse.setName(member.getName());
         memberResponse.setEmail(member.getEmail());
@@ -98,13 +97,13 @@ public class FineMapper {
             return null;
         }
 
-        LibrarianResponse librarianResponse = new LibrarianResponse();
+        var librarianResponse = new LibrarianResponse();
         librarianResponse.setId(librarian.getId());
         librarianResponse.setName(librarian.getName());
         librarianResponse.setEmail(librarian.getEmail());
 
         // Assuming AddressDTO has similar fields in Librarian entity
-        AddressDTO addressDTO = new AddressDTO();
+        var addressDTO = new AddressDTO();
         addressDTO.setStreet(librarian.getAddress().getStreet());
         addressDTO.setCity(librarian.getAddress().getCity());
         addressDTO.setState(librarian.getAddress().getState());

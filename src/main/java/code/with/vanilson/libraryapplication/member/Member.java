@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -25,6 +26,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class Member extends Person {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -35,7 +37,8 @@ public class Member extends Person {
             joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     @JsonIgnore
-    private Set<Book> borrowedBooks;
+    private Set<Book> borrowedBooks = new HashSet<>();
+
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "librarian_id")

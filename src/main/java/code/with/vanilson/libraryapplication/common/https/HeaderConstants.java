@@ -86,6 +86,13 @@ public class HeaderConstants {
     public static final String X_XSS_PROTECTION_VALUE = "1; mode=block";
     public static final String ACCESS_CONTROL_ALLOW_ORIGIN_VALUE = "*";
 
+    // Custom headers
+    public static final String X_BOOK_ID = "X-Book-ID";
+    public static final String X_BOOK_TITLE = "X-Book-Title";
+    public static final String X_BOOK_AUTHOR = "X-Book-Author";
+    public static final String X_BOOK_ISBN = "X-Book-Isbn";
+
+
 
     private HeaderConstants() {
         // Private constructor to prevent instantiation

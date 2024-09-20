@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS members
 );
 
 -- Books Table
+-- Updated Books Table (Remove member_id)
 CREATE TABLE IF NOT EXISTS books
 (
     book_id        BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -61,11 +62,10 @@ CREATE TABLE IF NOT EXISTS books
     publisher_name VARCHAR(255),
     publisher_year INT,
     book_status    VARCHAR(255) NOT NULL,
-    member_id      BIGINT,
     librarian_id   BIGINT,
-    FOREIGN KEY (member_id) REFERENCES members (person_id) ON DELETE CASCADE,
     FOREIGN KEY (librarian_id) REFERENCES librarians (person_id) ON DELETE SET NULL
 );
+
 
 -- Fine Table
 CREATE TABLE IF NOT EXISTS fines
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS fines
     FOREIGN KEY (admin_id) REFERENCES admins (person_id) ON DELETE SET NULL
 );
 
--- Member_Books Table (Many-to-Many relationship between Members and Books)
+-- Member_Books Table (unchanged, handling many-to-many relationship)
 CREATE TABLE IF NOT EXISTS member_books
 (
     member_id BIGINT NOT NULL,

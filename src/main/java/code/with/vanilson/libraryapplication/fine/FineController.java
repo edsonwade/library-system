@@ -92,7 +92,6 @@ public class FineController {
     public ResponseEntity<Void> deleteFine(@PathVariable Long id) {
         log.warn("Deleting fine with ID: {}", id);
         fineService.deleteFine(id);
-
         // Add HATEOAS link to the list of all fines
         // Create a base URL for listing fines
         String allFinesUrl = linkTo(methodOn(FineController.class).getAllFines()).toUri().toString();
