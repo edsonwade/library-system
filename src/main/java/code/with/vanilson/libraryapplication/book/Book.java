@@ -15,6 +15,8 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import static code.with.vanilson.libraryapplication.book.BookStatus.*;
+
 /**
  * Book
  *
@@ -22,6 +24,7 @@ import java.util.Set;
  * @version 1.0
  * @since 2024-08-22
  */
+@SuppressWarnings("unused")
 @Table(name = "books")
 @Entity(name = "Book")
 @Data
@@ -51,9 +54,9 @@ public class Book implements Serializable {
     @Column(name = "book_status")
     private BookStatus status;
 
-    @ManyToMany(mappedBy = "borrowedBooks")
+    @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonIgnore
-    private Set<Member> members;
+    private Set<Member> members = new HashSet<>();
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
@@ -72,7 +75,6 @@ public class Book implements Serializable {
         this.members = members;
         this.librarian = librarian;
     }
-
 
     /**
      * Adds a member to the set of member who have borrowed this book.
@@ -111,7 +113,7 @@ public class Book implements Serializable {
      * The book is considered available if its status is {@link BookStatus#AVAILABLE}.
      */
     public boolean isAvailable() {
-        return status == BookStatus.AVAILABLE;
+        return AVAILABLE.equals(status);
     }
 
     /**
@@ -131,7 +133,7 @@ public class Book implements Serializable {
      * The book is considered borrowed if its status is {@link BookStatus#BORROWED}.
      */
     public boolean isBorrowed() {
-        return status == BookStatus.BORROWED;
+        return BORROWED.equals(status);
     }
 
     /**
@@ -141,7 +143,7 @@ public class Book implements Serializable {
      * The book is considered loaned if its status is {@link BookStatus#LOANED}.
      */
     public boolean isLoaned() {
-        return status == BookStatus.LOANED;
+        return LOANED.equals(status);
     }
 
     /**
@@ -152,7 +154,7 @@ public class Book implements Serializable {
      */
 
     public boolean isLost() {
-        return status == BookStatus.LOST;
+        return LOST.equals(status);
     }
 
     /**
@@ -163,7 +165,7 @@ public class Book implements Serializable {
      */
 
     public boolean isReserved() {
-        return status == BookStatus.RESERVED;
+        return RESERVED.equals(status);
     }
 
 }

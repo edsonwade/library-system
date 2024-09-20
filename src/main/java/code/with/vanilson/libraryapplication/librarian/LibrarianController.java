@@ -1,6 +1,5 @@
 package code.with.vanilson.libraryapplication.librarian;
 
-import code.with.vanilson.libraryapplication.admin.AdminResponse;
 import code.with.vanilson.libraryapplication.common.https.HeaderConstants;
 import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
 import jakarta.validation.Valid;
@@ -206,9 +205,26 @@ public class LibrarianController {
      */
 
     private HttpHeaders prepareResponseHeaders(LibrarianResponse response, boolean includeCookie) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON); // Set Content-Type correctly
+        var headers = getHttpHeaders(response);
 
+        // Optionally include Set-Cookie header based on context
+        if (includeCookie) {
+            ResponseCookie sessionCookie = ResponseCookie.from("sessionId", "abc123")
+                    .httpOnly(true)
+                    .secure(true)
+                    .path("/")
+                    .maxAge(Duration.ofHours(1))
+                    .sameSite("Strict")
+                    .build();
+            headers.add(HeaderConstants.SET_COOKIE, sessionCookie.toString()); // Add the cookie to headers
+        }
+
+        return headers;
+    }
+
+    private static HttpHeaders getHttpHeaders(LibrarianResponse response) {
+        var headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON); // Set Content-Type correctly
         // Security headers (always include)
         headers.set(HeaderConstants.STRICT_TRANSPORT_SECURITY, HeaderConstants.STRICT_TRANSPORT_SECURITY_VALUE); // HSTS
         headers.set(HeaderConstants.X_CONTENT_TYPE_OPTIONS,
@@ -227,19 +243,6 @@ public class LibrarianController {
             headers.set(HeaderConstants.X_ADMIN_EMAIL, response.getEmail());
             headers.set(HeaderConstants.X_ADMIN_CODE, response.getEmployeeCode());
         }
-
-        // Optionally include Set-Cookie header based on context
-        if (includeCookie) {
-            ResponseCookie sessionCookie = ResponseCookie.from("sessionId", "abc123")
-                    .httpOnly(true)
-                    .secure(true)
-                    .path("/")
-                    .maxAge(Duration.ofHours(1))
-                    .sameSite("Strict")
-                    .build();
-            headers.add(HeaderConstants.SET_COOKIE, sessionCookie.toString()); // Add the cookie to headers
-        }
-
         return headers;
     }
 }

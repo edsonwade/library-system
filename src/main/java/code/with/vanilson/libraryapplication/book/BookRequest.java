@@ -48,10 +48,10 @@ public class BookRequest {
     @NotNull(message = "The book status must not be null")
     private BookStatus status;
 
-    @NotNull(message = "The member Id must not be null")
-    @Positive(message = "The member ID must be a positive integer")
-    @Min(value = 1, message = "The member ID must be greater than or equal to 1")
-    private Set<Long> memberIds;
+    @NotNull(message = "The member Ids must not be null")
+    @Size(min = 1, message = "There must be at least one member ID")
+    private Set<@Positive(message = "Each member ID must be a positive integer") Long> memberIds;
+
 
     @NotNull(message = "The librarian must not be null")
     @Positive(message = "The librarian ID must be a positive integer")

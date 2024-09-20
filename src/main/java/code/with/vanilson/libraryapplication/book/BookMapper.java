@@ -34,7 +34,7 @@ public class BookMapper {
         validateNotNull(librarian, "library.librarian.cannot_be_null");
         validateNotNull(members, "library.member.cannot_be_null");
 
-        return Book.builder()
+        Book book = Book.builder()
                 .title(request.getTitle())
                 .author(request.getAuthor())
                 .isbn(request.getIsbn())
@@ -42,9 +42,16 @@ public class BookMapper {
                 .publisherName(request.getPublisherName())
                 .publisherYear(request.getPublisherYear())
                 .status(request.getStatus())
-                .members(members)
                 .librarian(librarian)
+                .members(members) // Add members to book
                 .build();
+
+        // Synchronize the relationship by adding the book to each member's borrowedBooks set
+        for (Member member : members) {
+            member.getBorrowedBooks().add(book);
+        }
+
+        return book;
     }
 
     // Converts Book entity to BookResponse

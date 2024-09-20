@@ -76,22 +76,30 @@ public class BookService implements IBookService {
 
     @Override
     public BookResponse getBookByTitle(String title) {
-        return null;
+        return bookRepository.findBookByTitle(title)
+                .map(BookMapper::mapToBookResponse)
+                .orElseThrow(() -> resourceNotFoundException("library.library.book.with.title.not_found", title));
     }
 
     @Override
     public BookResponse getBookByAuthor(String author) {
-        return null;
+        return bookRepository.findBookByAuthor(author)
+                .map(BookMapper::mapToBookResponse)
+                .orElseThrow(() -> resourceNotFoundException("library.library.book.with.author.not_found", author));
     }
 
     @Override
     public BookResponse getBookByIsbn(String isbn) {
-        return null;
+        return bookRepository.findBookByIsbn(isbn)
+                .map(BookMapper::mapToBookResponse)
+                .orElseThrow(() -> resourceNotFoundException("library.library.book.with.isbn.not_found", isbn));
     }
 
     @Override
     public BookResponse getBookByGenre(String genre) {
-        return null;
+        return bookRepository.findBookByGenre(genre)
+                .map(BookMapper::mapToBookResponse)
+                .orElseThrow(() -> resourceNotFoundException("library.library.book.with.genre.not_found", genre));
     }
 
     /**
@@ -110,6 +118,9 @@ public class BookService implements IBookService {
 
         Book newBook = BookMapper.mapToBookEntity(bookRequest, librarian, members);
         Book savedBook = bookRepository.save(newBook);
+        System.out.println("Book ID: " + savedBook.getBookId());
+        System.out.println("Associated members: ");
+        savedBook.getMembers().forEach(member -> System.out.println("Member ID: " + member.getId()));
         return BookMapper.mapToBookResponse(savedBook);
     }
 
@@ -163,16 +174,15 @@ public class BookService implements IBookService {
     @Transactional
     public BookResponse borrowBook(Long bookId, Long memberId, Long librarianId) {
         Book book = findBookById(bookId);
-
         if (!book.isAvailable()) {
-            throw new ResourceBadRequestException("Book is not available for borrowing.");
+            throw new ResourceNotFoundException("library.book.not_available");
         }
 
         // Retrieve member by ID and handle Optional
-        Member member = memberRepository.findById(memberId)
-                .orElseThrow(() -> new ResourceNotFoundException("Member not found with ID: " + memberId));
+        var member = memberRepository.findById(memberId)
+                .orElseThrow(() -> resourceNotFoundException(LIBRARY_MEMBERS_NOT_FOUND, memberId));
 
-        Librarian librarian = findLibrarianById(librarianId);
+        var librarian = findLibrarianById(librarianId);
 
         // Add member to the book and update status
         book.addBookMember(member);
@@ -194,7 +204,12 @@ public class BookService implements IBookService {
      */
     @Transactional(readOnly = true)
     public boolean isBookAvailable(Long bookId) {
-        Book book = findBookById(bookId);
+        var book = findBookById(bookId);
+        if (!book.isAvailable()) {
+            log.error("book is not available {}", book);
+            throw resourceNotFoundException("library.book.not_available", book);
+        }
+        log.info("The book is available for for borrowing {}", book);
         return book.isAvailable();
     }
 
@@ -215,7 +230,9 @@ public class BookService implements IBookService {
         Librarian librarian = findLibrarianById(librarianId);
 
         if (!book.isBorrowed() || !book.isReservedBy(member)) {
-            throw new ResourceBadRequestException("Book is not borrowed by this member.");
+            var message = MessageFormat.format(MessageProvider.getMessage("library.book.not_borrowed"), bookId);
+            log.error(message);
+            throw new ResourceBadRequestException(message);
         }
 
         book.getMembers().remove(member);
@@ -239,7 +256,8 @@ public class BookService implements IBookService {
     private void validateBookRequest(BookRequest bookRequest) {
         if (bookRequest == null) {
             log.error("Book request is null");
-            throw new ResourceBadRequestException("Book request cannot be null");
+            var message = MessageFormat.format(MessageProvider.getMessage("library.book.cannot_be_null"), bookRequest);
+            throw new ResourceBadRequestException(message);
         }
     }
 
@@ -251,7 +269,9 @@ public class BookService implements IBookService {
      */
     private void validateBookId(Long bookId) {
         if (bookId == null || bookId <= 0) {
-            throw new ResourceBadRequestException("Invalid book ID");
+            var message = MessageFormat.format(MessageProvider.getMessage("library.book.bad_request"), bookId);
+            log.error(message);
+            throw new ResourceBadRequestException(message);
         }
     }
 
@@ -262,6 +282,11 @@ public class BookService implements IBookService {
      * @return Book entity if found.
      */
     private Book findBookById(Long bookId) {
+        if (bookId <= 0) {
+            var message = MessageFormat.format(MessageProvider.getMessage("library.book.bad_request"), bookId);
+            log.error(message);
+            throw new ResourceBadRequestException(message);
+        }
         return bookRepository.findById(bookId)
                 .orElseThrow(() -> resourceNotFoundException(LIBRARY_BOOK_NOT_FOUND, bookId));
     }
@@ -274,6 +299,11 @@ public class BookService implements IBookService {
      * @throws ResourceNotFoundException if librarian is not found.
      */
     private Librarian findLibrarianById(Long librarianId) {
+        if (librarianId <= 0) {
+            var message =
+                    MessageFormat.format(MessageProvider.getMessage("library.librarian.bad_request"), librarianId);
+            throw resourceBadRequestException(message);
+        }
         return librarianRepository.findById(librarianId)
                 .orElseThrow(() -> resourceNotFoundException(LIBRARY_LIBRARIAN_NOT_FOUND, librarianId));
     }
@@ -286,8 +316,16 @@ public class BookService implements IBookService {
      * @throws ResourceNotFoundException if any member is not found.
      */
     private Set<Member> findMembersByIds(Set<Long> memberIds) {
-        return memberRepository.findMemberByIdIn(memberIds)
+        Set<Member> members = memberRepository.findMemberByIdIn(memberIds)
                 .orElseThrow(() -> resourceNotFoundException(LIBRARY_MEMBERS_NOT_FOUND, memberIds));
+
+        if (members.isEmpty()) {
+            throw new ResourceNotFoundException("No members found for the given IDs: " + memberIds);
+        }
+
+        members.forEach(member -> System.out.println("Fetched member: " + member.getId() + ", " + member.getName()));
+
+        return members;
     }
 
     /**
@@ -321,5 +359,11 @@ public class BookService implements IBookService {
         String message = MessageFormat.format(MessageProvider.getMessage(messageKey), args);
         log.error(message);
         return new ResourceNotFoundException(message);
+    }
+
+    private ResourceBadRequestException resourceBadRequestException(String messageKey, Object... args) {
+        String message = MessageFormat.format(MessageProvider.getMessage(messageKey), args);
+        log.error(message);
+        return new ResourceBadRequestException(message);
     }
 }
