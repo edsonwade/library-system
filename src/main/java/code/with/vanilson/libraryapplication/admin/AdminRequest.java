@@ -2,8 +2,10 @@ package code.with.vanilson.libraryapplication.admin;
 
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * BookRequest
@@ -14,6 +16,8 @@ import lombok.Data;
  */
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class AdminRequest {
     @NotNull(message = "Name must not be null")
     @NotEmpty(message = "Name should not be empty")

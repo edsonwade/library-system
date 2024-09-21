@@ -3,6 +3,8 @@ package code.with.vanilson.libraryapplication.admin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 /**
  * BookRepository
  *
@@ -13,7 +15,7 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface AdminRepository extends JpaRepository<Admin, Long> {
-    Admin findAdminByEmail(String email);
+    Optional<Admin> findAdminByEmail(String email);
 
     boolean existsAdminByEmail(String email);
 }

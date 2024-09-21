@@ -15,10 +15,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class AdminMapper {
 
+    public static final String LIBRARY_ADMIN_CANNOT_BE_NULL = "library.admin.cannot_be_null";
+
     public static Admin mapToAdminEntity(AdminRequest request) {
         // Validate inputs and throw exceptions if necessary
         if (null == request) {
-            throw new ResourceBadRequestException("library.admin.cannot_be_null");
+            throw new ResourceBadRequestException(LIBRARY_ADMIN_CANNOT_BE_NULL);
         }
         return new Admin(
                 request.getName(),
@@ -44,7 +46,7 @@ public class AdminMapper {
      */
     public static AdminResponse mapToAdminResponse(Admin admin) {
         if (null == admin) {
-            throw new ResourceBadRequestException("library.admin.cannot_be_null");
+            throw new ResourceBadRequestException(LIBRARY_ADMIN_CANNOT_BE_NULL);
         }
         return AdminResponse.builder()
                 .id(admin.getId())
@@ -105,7 +107,7 @@ public class AdminMapper {
 
     public static Admin mapToAdmin(AdminResponse adminResponse) {
         if (null == adminResponse) {
-            throw new ResourceBadRequestException("library.admin.cannot_be_null");
+            throw new ResourceBadRequestException(LIBRARY_ADMIN_CANNOT_BE_NULL);
         }
 
         return new Admin(
