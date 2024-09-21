@@ -75,7 +75,7 @@ public class AdminService implements IAdminService {
         return admin
                 .map(AdminMapper::mapToAdminResponse)
                 .orElseThrow(() -> {
-                    loggerError(adminId);
+                    log.error("Admin {} not found", adminId);
                     var errorMessage = MessageFormat.format(
                             getMessage(LIBRARY_ADMIN_NOT_FOUND), adminId);
                     return new ResourceNotFoundException(errorMessage);
@@ -86,130 +86,113 @@ public class AdminService implements IAdminService {
     @Override
     @Transactional(readOnly = true)
     public AdminResponse getAdminByEmail(String email) {
-        return null;
+        return adminRepository.findAdminByEmail(email)
+                .map(AdminMapper::mapToAdminResponse)
+                .orElseThrow(() -> {
+                    log.error("The admin email {} provide not found ", email);
+                    var errorMessage = MessageFormat.format(
+                            getMessage("library.admin_email_not_found"), email);
+                    return new ResourceNotFoundException(errorMessage);
+                });
     }
 
     /**
      * Creates a new admin in the database based on the provided adminRequest.
      *
      * @param adminRequest The request object containing the details of the admin to be created.
-     *                     This object should not be null.
      * @return The response object containing the details of the newly created admin.
      * @throws ResourceBadRequestException If the provided adminRequest is null.
      */
     @Override
     @Transactional
     public AdminResponse createAdmin(AdminRequest adminRequest) {
-        var admin = getAdmin(null == adminRequest, mapToAdminEntity(adminRequest));
+        validateAdminRequest(adminRequest);
 
-        // Check if an Admin with the same unique fields already exists
         if (adminRepository.existsAdminByEmail(adminRequest.getEmail())) {
-            var message = MessageFormat.format(MessageProvider.getMessage("library.admin.email_exists"),
-                    adminRequest.getEmail());
+            String message = formatMessage("library.admin.email_exists", adminRequest.getEmail());
             throw new ResourceConflictException(message);
         }
 
+        var adminEntity = mapToAdminEntity(adminRequest);
+
         try {
-            var adminResponseSaved = adminRepository.save(admin);
-            var message = MessageFormat.format(MessageProvider.getMessage("library.admin.creation_success"),
-                    adminResponseSaved.getId());
-            log.info(message);
-            return mapToAdminResponse(adminResponseSaved);
+            var savedAdmin = adminRepository.save(adminEntity);
+
+            log.info(formatMessage("library.admin.creation_success", savedAdmin.getId()));
+            return mapToAdminResponse(savedAdmin);
+
         } catch (DataIntegrityViolationException e) {
-            // Handle specific unique constraint violation
-            String errorMessage = getFormattedMessage("database.exception.unique_constraint_violation");
+            // Handle specific unique constraint violations
+            String errorMessage = formatMessage("database.exception.unique_constraint_violation");
             throw new ResourceConflictException(errorMessage);
         }
-
     }
 
     /**
      * Updates an admin in the database based on the provided adminRequest and adminId.
      *
      * @param adminRequest The request object containing the details of the admin to be updated.
-     *                     This object should not be null.
      * @param adminId      The unique identifier of the admin to be updated.
-     *                     This value should be greater than zero.
      * @return The response object containing the details of the updated admin.
-     * @throws ResourceBadRequestException If the provided adminRequest is null or the adminId is less than or equal to zero.
-     * @throws ResourceNotFoundException   If the admin with the given adminId does not exist in the database.
+     * @throws ResourceBadRequestException If the provided adminRequest is null or adminId is invalid.
+     * @throws ResourceNotFoundException   If the admin with the given adminId does not exist.
      */
-
     @Override
     @Transactional
     public AdminResponse updateAdmin(AdminRequest adminRequest, Long adminId) {
-        var existingAdmin = getAdmin(adminRequest == null, adminRepository.findById(adminId)
-                .orElseThrow(() -> new ResourceNotFoundException(LIBRARY_ADMIN_NOT_FOUND)));
+        validateAdminRequest(adminRequest);
 
-        methodAuxiliaryToCreateAdmin(adminRequest, existingAdmin);
+        checkIfTheValueIsGreatOrLessThanZero(adminId);
 
-        // Save the updated Admin entity
+        // Fetch the Admin entity directly from the repository, not the response.
+        var existingAdmin = adminRepository.findById(adminId)
+                .orElseThrow(() -> new ResourceNotFoundException(LIBRARY_ADMIN_NOT_FOUND));
+
+        updateAdminDetails(adminRequest, existingAdmin);
         var updatedAdmin = adminRepository.save(existingAdmin);
 
-        // Log the update operation
-        var message = MessageFormat.format(MessageProvider.getMessage("library.admin.update_success"),
-                updatedAdmin.getId());
-        log.info(message);
+        log.info(formatMessage("library.admin.update_success", updatedAdmin.getId()));
+        return mapToAdminResponse(updatedAdmin);  // Return the mapped response object
+    }
 
-        // Return the updated AdminResponse
-        return mapToAdminResponse(updatedAdmin);
+    private void checkIfTheValueIsGreatOrLessThanZero(Long adminId) {
+        if (adminId <= 0) {
+            log.error("Invalid admin ID: {}", adminId);
+            throw new ResourceBadRequestException(formatMessage("library.admin.bad_request", adminId));
+        }
     }
 
     /**
      * Deletes an admin from the database based on the provided adminId.
      *
      * @param adminId The unique identifier of the admin to be deleted.
-     * @throws ResourceBadRequestException If the provided adminId is less than or equal to zero.
-     * @throws ResourceNotFoundException   If the admin with the given adminId does not exist in the database.
-     **/
-    @Transactional
-    @Override
-    public void deleteAdmin(Long adminId) {
-        if (adminId <= 0) {
-            var errorMessage = getMessage("library.admin.bad_request", adminId);
-            log.error("The admin id provided is less than or equal to zero {} ", adminId);
-            throw new ResourceBadRequestException(errorMessage);
-        }
-        Optional<Admin> admin = adminRepository.findById(adminId);
-        admin.ifPresent(adminRepository::delete);
-
-        var message = MessageFormat.format(MessageProvider.getMessage("library.admin.deletion_success"), adminId);
-        log.info(message);
-
-        if (admin.isEmpty()) {
-            loggerError(adminId);
-            var errorMessage = MessageFormat.format(
-                    getMessage(LIBRARY_ADMIN_NOT_FOUND), adminId);
-            throw new ResourceNotFoundException(errorMessage);
-        }
-
-    }
-
-    /**
-     * Logs an error message for a non-existent admin.
-     * <p>
-     * This method is used to log an error message when an attempt is made to retrieve, update, or delete an admin
-     * that does not exist in the database. The error message is formatted using the provided adminId and the
-     * corresponding message from the MessageProvider.
-     *
-     * @param adminId The unique identifier of the admin that was not found.
+     * @throws ResourceBadRequestException If the provided adminId is invalid.
+     * @throws ResourceNotFoundException   If the admin with the given adminId does not exist.
      */
-    private static void loggerError(Long adminId) {
-        var message = MessageFormat.format(MessageProvider.getMessage(LIBRARY_ADMIN_NOT_FOUND), adminId);
-        log.error(message);
+    @Override
+    @Transactional
+    public void deleteAdmin(Long adminId) {
+        checkIfTheValueIsGreatOrLessThanZero(adminId);
+
+        var admin = adminRepository.findById(adminId)
+                .orElseThrow(() -> {
+                    logAdminNotFound(adminId);
+                    return new ResourceNotFoundException(formatMessage(LIBRARY_ADMIN_NOT_FOUND, adminId));
+                });
+
+        adminRepository.delete(admin);
+        log.info(formatMessage("library.admin.deletion_success", adminId));
     }
 
-    private Admin getAdmin(boolean adminRequest, Admin adminRepository) {
-        if (adminRequest) {
-            throw new ResourceBadRequestException("library.admin.cannot_be_null");
+    // Private helper methods for validation, logging, and mapping
+
+    private void validateAdminRequest(AdminRequest adminRequest) {
+        if (adminRequest == null) {
+            throw new ResourceBadRequestException("Admin request cannot be null");
         }
-
-        // Retrieve the existing Admin from the database
-        return adminRepository;
     }
 
-    private static void methodAuxiliaryToCreateAdmin(AdminRequest adminRequest, Admin existingAdmin) {
-        // Update the existing Admin with new values
+    private void updateAdminDetails(AdminRequest adminRequest, Admin existingAdmin) {
         existingAdmin.setName(adminRequest.getName());
         existingAdmin.setEmail(adminRequest.getEmail());
         existingAdmin.setAddress(mapToAddress(adminRequest.getAddress()));
@@ -218,16 +201,12 @@ public class AdminService implements IAdminService {
         existingAdmin.setRole(adminRequest.getRole());
     }
 
-    /**
-     * Retrieves and formats a message based on the provided key and parameters.
-     *
-     * @param key    The key for the message in the properties file.
-     * @param params Parameters to be inserted into the message format.
-     * @return The formatted message.
-     */
-    private String getFormattedMessage(String key, Object... params) {
+    private void logAdminNotFound(Long adminId) {
+        log.error(formatMessage(LIBRARY_ADMIN_NOT_FOUND, adminId));
+    }
+
+    protected String formatMessage(String key, Object... params) {
         String pattern = MessageProvider.getMessage(key);
         return MessageFormat.format(pattern, params);
-
     }
 }

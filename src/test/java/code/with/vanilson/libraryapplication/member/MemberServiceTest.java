@@ -1,21 +1,14 @@
 package code.with.vanilson.libraryapplication.member;
 
-/**
- * MemberServiceTest
- *
- * @author vamuhong
- * @version 1.0
- * @since 2024-09-10
- */
 
-import code.with.vanilson.libraryapplication.person.Address;
-import code.with.vanilson.libraryapplication.person.AddressDTO;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.admin.AdminRepository;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import code.with.vanilson.libraryapplication.librarian.LibrarianRepository;
+import code.with.vanilson.libraryapplication.person.Address;
+import code.with.vanilson.libraryapplication.person.AddressDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -30,6 +23,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
+
+/**
+ * MemberServiceTest
+ *
+ * @author vamuhong
+ * @version 1.0
+ * @since 2024-09-10
+ */
 
 class MemberServiceTest {
 
@@ -142,14 +143,9 @@ class MemberServiceTest {
         assertThrows(ResourceNotFoundException.class, () -> memberService.createMember(memberRequest));
     }
 
-//    @Test
-//    void testCreateMember_DuplicateEmailOrContact() {
-//        when(adminRepository.findById(anyLong())).thenReturn(Optional.of(admin));
-//        when(librarianRepository.findById(anyLong())).thenReturn(Optional.of(librarian));
-//        doThrow(DataIntegrityViolationException.class).when(memberRepository).save(any(member.class));
-//
-//        assertThrows(ResourceConflictException.class, () -> memberService.createMember(memberRequest));
-//    }
+    void testCreateMember_DuplicateEmailOrContact() {
+        // todo : create test here
+    }
 
     @Test
     void testUpdateMember_Success() {
