@@ -33,7 +33,7 @@ public class AdminRequest {
     private AddressDTO address;
 
     @NotNull(message = "Contact must not be null")
-    @Pattern(regexp = "^[\\D]{10}$", message = "Contact must be a 10-digit number")
+    @Pattern(regexp = "^\\+\\d{1,3} \\d{3}-\\d{3}-\\d{3}$", message = "Contact must be in the format +XXX XXX-XXX-XXX")
     private String contact;
 
     @NotNull(message = "Admin code must not be null")

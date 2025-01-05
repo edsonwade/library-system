@@ -20,7 +20,7 @@ RUN mvn package -DskipTests
 FROM openjdk:17
 
 # Set environment variables
-ENV SERVER_PORT=8081
+ENV SERVER_PORT=8080
 
 # Copy the built JAR file from the build stage to the new image
 COPY --from=builder /app/target/*.jar /library-management-system-0.0.1-SNAPSHOT.jar

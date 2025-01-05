@@ -43,3 +43,8 @@ This API can be used for library management systems or similar applications wher
 - **Response:**
     - 201 Created: Librarian added successfully.
     - 400 Bad Request: Invalid request parameters.
+  
+```bash
+on powershell
+bash ./execute.sh
+```

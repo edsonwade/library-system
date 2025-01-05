@@ -2,17 +2,17 @@ version: '3.8'
 
 services:
   library-management-system:
-    image: library-management-system
+    image: library-management-system:latest
     container_name: library-management
     ports:
-      - "8082:8081"
+      - "8080:8080"
     depends_on:
       - postgres
     environment:
       DATABASE_URL: jdbc:postgresql://postgres:5432/library_management_db
       POSTGRES_USERNAME: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      SERVER_PORT: '8081'
+      SERVER_PORT: '8080'
       HIBERNATE_DDL_AUTO: 'update'
       SPRING_PROFILES_ACTIVE: 'docker'
     env_file:
@@ -26,8 +26,9 @@ services:
 
   postgres:
     image: postgres:latest
+    container_name: postgres
     environment:
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_DB: library_management_db
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
@@ -59,7 +60,7 @@ services:
     image: grafana/grafana
     container_name: grafana
     ports:
-      - "3001:3000"
+      - "3000:3000"
     volumes:
       - grafana_data:/var/lib/grafana
     depends_on:
@@ -72,8 +73,11 @@ services:
 
 volumes:
   postgres_data:
+    driver: local  # Volume for PostgreSQL persistence
   prometheus_data:
+    driver: local  # Volume for PostgreSQL persistence
   grafana_data:
+    driver: local  # Volume for PostgreSQL persistence
 
 networks:
   library-management-net:
