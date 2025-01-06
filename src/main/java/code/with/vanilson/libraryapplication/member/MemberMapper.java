@@ -31,7 +31,7 @@ public class MemberMapper {
     // mapping methods for member response
     public static MemberResponse mapToMemberResponse(Member member) {
         if (null == member) {
-            log.error("Librarian is null %s".formatted((Object) null));
+            log.error("member is null %s".formatted((Object) null));
             throw new ResourceBadRequestException(LIBRARY_MEMBER_CANNOT_BE_NULL);
         }
         if (null == member.getLibrarian()) {

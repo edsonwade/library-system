@@ -69,7 +69,7 @@ public class MemberService implements IMember {
                 .orElseThrow(() -> new ResourceNotFoundException(getMessage("library.members.email_not_found", email)));
 
     }
-
+    @Transactional
     @Override
     public MemberResponse createMember(MemberRequest memberRequest) {
         if (null == memberRequest) {
@@ -94,6 +94,7 @@ public class MemberService implements IMember {
     }
 
     @Override
+    @Transactional
     public MemberResponse updateMember(MemberRequest memberRequest, Long memberId) {
         if (null == memberRequest) {
             throw new ResourceBadRequestException("library.member.cannot_be_null");
@@ -125,6 +126,7 @@ public class MemberService implements IMember {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void deleteMemberById(Long memberId) {
         if (memberId <= 0) {
             var errorMessage = getMessage("library.member.bad_request", memberId);

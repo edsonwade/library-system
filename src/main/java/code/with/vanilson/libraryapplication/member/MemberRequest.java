@@ -45,4 +45,6 @@ public class MemberRequest {
 
     @NotNull(message = "Admin ID must not be null")
     private Long adminId;
+
+
 }
