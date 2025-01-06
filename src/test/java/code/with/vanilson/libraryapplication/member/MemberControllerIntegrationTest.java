@@ -51,30 +51,44 @@ class MemberControllerIntegrationTest {
     @Autowired
     private LibrarianRepository librarianRepository;
 
-    // Store the created member's ID
+    // Store the IDs of the created entities
+    private Long createdAdminId;
+    private Long createdLibrarianId;
     private Long createdMemberId;
 
     @BeforeEach
     void setUp() {
-        // Clear the database to ensure a clean state for each test
+        initializeDatabaseWithTestData();
+        MemberResponse memberResponse = createSampleMemberEntry();
+        createdMemberId = memberResponse.getId();
+    }
+
+    private void initializeDatabaseWithTestData() {
         memberRepository.deleteAll();
         adminRepository.deleteAll();
         librarianRepository.deleteAll();
 
-        // Create and save an admin
+        Admin admin1 = createAndSaveSampleAdmin();
+        createdAdminId = admin1.getId();
+
+        Librarian librarian1 = createAndSaveSampleLibrarian(admin1);
+        createdLibrarianId = librarian1.getId();
+
+    }
+
+    private Admin createAndSaveSampleAdmin() {
         Admin admin1 = createSampleAdmin();
-        admin1 = adminRepository.saveAndFlush(admin1); // Save and flush to ensure it's persisted
+        return adminRepository.saveAndFlush(admin1);
+    }
 
-        // Create and save a librarian
-        Librarian librarian1 = createSampleLibrarian(admin1);
-        librarian1 = librarianRepository.saveAndFlush(librarian1); // Save and flush to ensure it's persisted
+    private Librarian createAndSaveSampleLibrarian(Admin admin) {
+        Librarian librarian1 = createSampleLibrarian(admin);
+        return librarianRepository.saveAndFlush(librarian1);
+    }
 
-        // Populate the test database with initial data
-        var memberRequest = createSampleMemberRequest(librarian1.getId(), admin1.getId());
-        MemberResponse memberResponse = memberService.createMember(memberRequest);
-
-        // Store the created member's ID
-        createdMemberId = memberResponse.getId();
+    private MemberResponse createSampleMemberEntry() {
+        var memberRequest = createSampleMemberRequest(createdLibrarianId, createdAdminId);
+        return memberService.createMember(memberRequest);
     }
 
     @Test
