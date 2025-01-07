@@ -126,7 +126,7 @@ public class MemberService implements IMember {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public void deleteMemberById(Long memberId) {
         if (memberId <= 0) {
             var errorMessage = getMessage("library.member.bad_request", memberId);
