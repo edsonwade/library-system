@@ -8,21 +8,31 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.DataIntegrityViolationException;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.IntStream;
 
 import static code.with.vanilson.libraryapplication.common.utils.MessageProvider.getMessage;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 
+@DisplayName("Admin Service Test")
+@SuppressWarnings("all")
 class AdminServiceTest {
+    public static final long ADMIN_ID = 0L;
+    public static final long ID = 1L;
+    public static final String PLEASE_VERIFY_THE_EMAIL_AND_TRY_AGAIN =
+            "No admin found with the email \"admin.@out.tst\". Please verify the email and try again.";
+    String errorMessage = getMessage("library.admin.bad_request", ADMIN_ID);
+    String expected = getMessage("library.admin.cannot_be_null", ADMIN_ID);
+
     private final AdminRepository adminRepository = mock(AdminRepository.class);
     private final AdminService adminService = new AdminService(adminRepository);
     public AdminMapperTest adminMapperTest;
     public List<Admin> admins;
     public Admin admin;
-    String errorMessage = getMessage("library.admin.bad_request", 0L);
 
     @BeforeEach
     void setUp() {
@@ -44,38 +54,48 @@ class AdminServiceTest {
      * @implNote The method uses @link to refer to the auxiliary method auxiliarMethodToAllAdminResponse().
      */
     @Test
-    @DisplayName("Test successful retrieval of all admins in AdminService")
-    void testGetAllAdminsSuccess() {
-        // Mock the behavior of adminRepository.findAll() to return a list of admins
+    @DisplayName("Should return a list of all admins successfully")
+    void shouldReturnAllAdmins_WhenRepositoryFindsAll() {
+
         when(adminRepository.findAll()).thenReturn(admins);
-
-        // Call the method under test to get the expected result
         var expected = adminService.getAllAdmins();
-
-        // Call the auxiliary method to create the expected AdminResponse objects
         var actual = adminMapperTest.auxiliarMethodToAllAdminResponse();
 
-        // Assert that the lists are equal
-        assertEquals(expected, actual, "Retrieve all admins");
-
-        // Assert that the objects are not the same instance
-        assertNotSame(expected, actual, "The objects are not the same instance");
-
-        // Verify that adminRepository.findAll() was called at least once
+        assertEquals(expected, actual, "Admin list should match");
+        assertNotSame(expected, actual, "Objects should not be the same instance");
         verify(adminRepository, atLeast(1)).findAll();
 
-        // Additional assertions to verify specific properties of the AdminResponse objects
-        for (int i = 0; i < expected.size(); i++) {
+        IntStream.range(0, expected.size()).forEach(i -> {
             assertEquals(expected.get(i).getId(), actual.get(i).getId(), "Admin ID matches");
             assertEquals(expected.get(i).getName(), actual.get(i).getName(), "Admin name matches");
             assertEquals(expected.get(i).getEmail(), actual.get(i).getEmail(), "Admin email matches");
-
-        }
+        });
     }
 
     @Test
-    @DisplayName("Get the Admin by provide Id - Success.")
-    void testGetAdminById_found_with_success() {
+    @DisplayName("Should throw an exception when admins is null")
+    void shouldThrownBadRequest_WhenAdminIsNull() {
+        when(adminRepository.findAll()).thenReturn(null);
+        var message = assertThrows(ResourceBadRequestException.class, adminService::getAllAdmins);
+        assertEquals(expected, message.getMessage());
+
+        verify(adminRepository, atLeast(1)).findAll();
+
+    }
+
+    @DisplayName("Retrieve admins - should return empty list when no admin exists")
+    @Test
+    void shouldReturnEmptyListWhenNoAdminExists() {
+        when(adminRepository.findAll()).thenReturn(Collections.emptyList());
+        var expected = adminService.getAllAdmins();
+        assertTrue(expected.isEmpty(), "Admin list should be empty");
+        verify(adminRepository, atLeast(1)).findAll();
+
+    }
+
+    @Test
+    @DisplayName("Should retrieve admin by ID successfully")
+    void shouldReturnAdminById_WhenIdIsValid() {
         when(adminRepository.findById(anyLong())).thenReturn(Optional.of(admin));
         // expected any value greater than zero.
         var expectedResult = adminService.getAdminById(1234_34546_00L);
@@ -92,21 +112,18 @@ class AdminServiceTest {
     }
 
     @Test
-    @DisplayName("Get the Admin by provide Id - Success.")
-    void testGetAdminByEmail_found_with_success() {
+    @DisplayName("Should retrieve admin by email successfully")
+    void shouldReturnAdminByEmail_WhenEmailIsValid() {
         when(adminRepository.findAdminByEmail(anyString())).thenReturn(Optional.of(admin));
         // expected any value greater than zero.
         var expectedResult = adminService.getAdminByEmail("test@test.com");
         var actualResult = adminMapperTest.auxiliarMethodToAdminResponse();
 
         // Asserts
-        assertEquals(expectedResult, actualResult, "Retrieve all admins");
-        assertNotEquals(Long.valueOf(1234_34546_00L), expectedResult.getId(), "The id provide are not equals");
-        assertNotEquals("test@test.com", expectedResult.getEmail(), "The email provide are not equals");
-        assertNotSame("test@test.com", expectedResult.getEmail(), "The email provide are not equals");
-        assertNotNull(expectedResult, " The Object is not null");
-        assertNotSame(actualResult, expectedResult, "Not same instantiate object ");
-        assertNotSame(expectedResult, actualResult, "objects are not the same instance");
+        assertEquals(expectedResult, actualResult, "Admin details should match");
+        assertEquals("John Doe", expectedResult.getName(), "Admin name should match");
+        assertNotNull(expectedResult, "Admin object should not be null");
+        assertNotSame(actualResult, expectedResult, "Objects should not be the same instance");
 
         verify(adminRepository, atLeast(1)).findAdminByEmail(anyString());
     }
@@ -121,16 +138,14 @@ class AdminServiceTest {
      * @implNote This method is currently empty and needs to be implemented with the test logic.
      */
     @Test
-    @DisplayName("Verify bad request exception is thrown when id is zero or negative in getAdminById")
-    void testGetAdminById_failed_with_bad_Request_exception_when_id_is_zero_or_negative() {
-        // Mock the behavior of adminRepository.findById() to throw a ResourceBadRequestException for id <= 0
-        when(adminRepository.findById(argThat(id -> id <= 0L))).thenThrow(
+    @DisplayName("Should throw BadRequestException when ID is zero or negative")
+    void shouldThrowBadRequestException_WhenIdIsZeroOrNegative() {
+        when(adminRepository.findById(argThat(id -> id <= ADMIN_ID))).thenThrow(
                 new ResourceBadRequestException(errorMessage));
-        // Verify that a ResourceBadRequestException is thrown when id is 1L
-        assertThrows(ResourceBadRequestException.class, () -> adminService.getAdminById(0L), errorMessage);
-
-        // Verify that adminRepository.findById() is never called for id <= 0
-        verify(adminRepository, never()).findById(argThat(id -> id <= 0L));
+        var message = assertThrows(ResourceBadRequestException.class, () -> adminService.getAdminById(ADMIN_ID),
+                errorMessage);
+        assertEquals(errorMessage, message.getMessage());
+        verify(adminRepository, never()).findById(argThat(id -> id <= ADMIN_ID));
     }
 
     /**
@@ -141,25 +156,23 @@ class AdminServiceTest {
      * at least once when the ID does not exist.</p>
      */
     @Test
-    @DisplayName("Verify ResourceNotFoundException is thrown for non-existent admin ID")
-    void testGetAdminById_failed_with_not_found_exception_when_id_does_not_exists() {
+    @DisplayName("Should throw NotFoundException when admin ID does not exist")
+    void shouldThrowNotFoundException_WhenAdminIdNotFound() {
         when(adminRepository.findById(anyLong())).thenReturn(Optional.empty());
 
-        assertThrows(ResourceNotFoundException.class, () -> adminService.getAdminById(1L), errorMessage);
+        var message = assertThrows(ResourceNotFoundException.class, () -> adminService.getAdminById(ID), errorMessage);
+        assertEquals("No admin found with ID 1. Please verify the ID and try again.", message.getMessage());
 
         verify(adminRepository, atLeast(1)).findById(anyLong());
     }
 
     @Test
-    @DisplayName("Verify not found exception is thrown when email does not exists.")
-    void testGetAdminByEmail_failed_with_not_found_exception_when_email_does_not_exists() {
-
+    @DisplayName("Should throw NotFoundException when admin email does not exist")
+    void shouldThrowNotFoundException_WhenAdminEmailNotFound() {
         when(adminRepository.findAdminByEmail(anyString())).thenReturn(Optional.empty());
         var expectedMessage =
                 assertThrows(ResourceNotFoundException.class, () -> adminService.getAdminByEmail("admin.@out.tst"));
-        assertEquals("""
-                        No admin found with the email "admin.@out.tst". Please verify the email and try again.""",
-                expectedMessage.getMessage());
+        assertEquals(PLEASE_VERIFY_THE_EMAIL_AND_TRY_AGAIN, expectedMessage.getMessage());
         verify(adminRepository, atLeast(1)).findAdminByEmail(anyString());
     }
 
@@ -167,11 +180,12 @@ class AdminServiceTest {
      * Test for handling the case where the admin request object is null.
      * Verifies that a ResourceBadRequestException is thrown and no interaction with the repository occurs.
      */
-    @DisplayName("Should throw ResourceBadRequestException for null admin request")
+    @DisplayName("Should throw BadRequestException when admin request is null")
     @Test
-    void testCreateAdmin_ThrowsBadRequestException_NullRequest() {
+    void shouldThrowBadRequestException_WhenAdminRequestIsNull() {
         // Given + When + Then
-        assertThrows(ResourceBadRequestException.class, () -> adminService.createAdmin(null));
+        var message = assertThrows(ResourceBadRequestException.class, () -> adminService.createAdmin(null));
+        assertEquals("Admin request cannot be null", message.getMessage());
         verify(adminRepository, never()).existsAdminByEmail(anyString());
         verify(adminRepository, never()).save(any());
     }
@@ -180,29 +194,15 @@ class AdminServiceTest {
      * Test for handling the case where the email already exists in the database.
      * Verifies that a ResourceConflictException is thrown and the save method is never called.
      */
-    @DisplayName("Should throw ResourceConflictException when email already exists")
+    @DisplayName("Should throw ConflictException when email already exists")
     @Test
-    void testCreateAdmin_ThrowsConflictException_EmailExists() {
-        // Given
+    void shouldThrowConflictException_WhenEmailAlreadyExists() {
         var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
-
-        // Mock the repository behavior
         when(adminRepository.existsAdminByEmail(adminRequest.getEmail())).thenReturn(true);
-
-        // When + Then: Assert that the conflict exception is thrown
-        var exception =
-                assertThrows(ResourceConflictException.class, () -> adminService.createAdmin(adminRequest));
-
-        // Retrieve the expected message using the MessageProvider
+        var exception = assertThrows(ResourceConflictException.class, () -> adminService.createAdmin(adminRequest));
         var expectedMessage = adminService.formatMessage("library.admin.email_exists", adminRequest.getEmail());
-
-        // Verify that the message is as expected
         assertEquals(expectedMessage, exception.getMessage());
-
-        // Verify that the repository check for email uniqueness was called once
         verify(adminRepository, times(1)).existsAdminByEmail(adminRequest.getEmail());
-
-        // Verify that the save method was never called
         verify(adminRepository, never()).save(any());
     }
 
@@ -212,21 +212,15 @@ class AdminServiceTest {
      */
     @DisplayName("Should successfully create a new admin")
     @Test
-    void testCreateAdmin_Success() {
-        // Given
+    void shouldCreateAdminSuccessfully_WhenRequestIsValid() {
         var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
         adminRequest.setEmail("test@test.com");
         var adminEntity = admin;
         var savedAdmin = admin;
         savedAdmin.setId(2L);
-
         when(adminRepository.existsAdminByEmail(adminRequest.getEmail())).thenReturn(false);
         when(adminRepository.save(adminEntity)).thenReturn(savedAdmin);
-
-        // When
         AdminResponse result = adminService.createAdmin(adminRequest);
-
-        // Then
         assertNotNull(result);
         assertEquals(2L, result.getId());
         verify(adminRepository, times(1)).save(adminEntity);
@@ -237,18 +231,14 @@ class AdminServiceTest {
      * Test for handling the case where the email already exists in the database.
      * Verifies that a ResourceConflictException is thrown and the save method is never called.
      */
-    @DisplayName("Should throw ResourceConflictException when email already exists")
+    @DisplayName("Should throw ConflictException for unique constraint violation")
     @Test
-    void testCreateAdmin_ThrowsConflictException_UniqueConstraintViolation() {
-        // Given
+    void shouldThrowConflictException_WhenUniqueConstraintViolation() {
         var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
         adminRequest.setEmail("johndoe@example.com");
         var adminEntity = admin;
-
         when(adminRepository.existsAdminByEmail(adminRequest.getEmail())).thenReturn(false);
         when(adminRepository.save(adminEntity)).thenThrow(DataIntegrityViolationException.class);
-
-        // When + Then
         assertThrows(ResourceConflictException.class, () -> adminService.createAdmin(adminRequest));
         verify(adminRepository, times(1)).save(adminEntity);
     }
@@ -259,21 +249,15 @@ class AdminServiceTest {
      */
     @DisplayName("Should successfully update an existing admin")
     @Test
-    void testUpdateAdmin_Success() {
-        // Given
+    void shouldUpdateAdminSuccessfully_WhenAdminExists() {
         var adminId = 1L;
         var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
         var existingAdmin = admin;
         var updatedAdmin = admin;
         updatedAdmin.setId(2L);
-
         when(adminRepository.findById(adminId)).thenReturn(Optional.of(existingAdmin));
         when(adminRepository.save(existingAdmin)).thenReturn(updatedAdmin);
-
-        // When
         var result = adminService.updateAdmin(adminRequest, adminId);
-
-        // Then
         assertNotNull(result);
         assertEquals(2L, result.getId());
         verify(adminRepository, times(1)).findById(adminId);
@@ -285,18 +269,23 @@ class AdminServiceTest {
      * Verifies that a ResourceNotFoundException is thrown and the save method is not called.
      */
 
-    @DisplayName("Should throw ResourceNotFoundException when admin not found")
+    @DisplayName("Should throw NotFoundException when admin to update is not found")
     @Test
-    void testUpdateAdmin_ThrowsNotFoundException() {
-        // Given
+    void shouldThrowNotFoundException_WhenAdminToUpdateNotFound() {
         var adminId = 1L;
         var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
-
         when(adminRepository.findById(adminId)).thenReturn(Optional.empty());
-
-        // When + Then
         assertThrows(ResourceNotFoundException.class, () -> adminService.updateAdmin(adminRequest, adminId));
         verify(adminRepository, times(1)).findById(adminId);
+        verify(adminRepository, never()).save(any());
+    }
+
+    @Test
+    @DisplayName("Should throw BadRequestException when update request is null")
+    void shouldThrowBadRequestException_WhenUpdateRequestIsNull() {
+        Long adminId = 1L;
+        assertThrows(ResourceBadRequestException.class, () -> adminService.updateAdmin(null, adminId));
+        verify(adminRepository, never()).findById(anyLong());
         verify(adminRepository, never()).save(any());
     }
 
@@ -304,14 +293,13 @@ class AdminServiceTest {
      * Test for handling the case where the admin request object is null.
      * Verifies that a ResourceBadRequestException is thrown and no interaction with the repository occurs.
      */
-    @DisplayName("Should throw ResourceBadRequestException for null admin request")
+    @DisplayName("Should throw BadRequestException for invalid admin ID during update")
     @Test
-    void testUpdateAdmin_ThrowsBadRequestException_NullRequest() {
-        // Given
-        Long adminId = 1L;
-
-        // When + Then
-        assertThrows(ResourceBadRequestException.class, () -> adminService.updateAdmin(null, adminId));
+    void shouldThrowBadRequestException_WhenAdminIdIsInvalid() {
+        var adminId = -1L;
+        when(adminRepository.findById(argThat(id -> id <= 0L))).thenThrow(
+                new ResourceBadRequestException(errorMessage));
+        assertThrows(ResourceBadRequestException.class, () -> adminService.updateAdmin(new AdminRequest(), adminId));
         verify(adminRepository, never()).findById(anyLong());
         verify(adminRepository, never()).save(any());
     }
@@ -322,18 +310,12 @@ class AdminServiceTest {
      */
     @DisplayName("Should throw ResourceBadRequestException for invalid admin ID")
     @Test
-    void testUpdateAdmin_ThrowsBadRequestException_InvalidAdminId() {
-        // Given
-        var adminId = -1L;
-
-        // Mock the behavior of adminRepository.findById() to throw a ResourceBadRequestException for id <= 0
-        when(adminRepository.findById(argThat(id -> id <= 0L))).thenThrow(
-                new ResourceBadRequestException(errorMessage));
-
-        // When + Then
-        assertThrows(ResourceBadRequestException.class, () -> adminService.updateAdmin(new AdminRequest(), adminId));
-        verify(adminRepository, never()).findById(anyLong());
-        verify(adminRepository, never()).save(any());
+    void shouldDeleteAdminSuccessfully_WhenIdIsValid() {
+        var adminId = 1L;
+        when(adminRepository.findById(adminId)).thenReturn(Optional.of(admin));
+        adminService.deleteAdmin(adminId);
+        verify(adminRepository, times(1)).findById(adminId);
+        verify(adminRepository, times(1)).delete(admin);
     }
 
     /**
@@ -342,9 +324,9 @@ class AdminServiceTest {
      */
     @DisplayName("Should successfully delete an admin by ID")
     @Test
-    void testDeleteAdmin_Success() {
+    void shouldThrowNotFoundException_WhenAdminToDeleteNotFound() {
         // Given
-        var adminId = 1L;
+        var adminId = ID;
 
         when(adminRepository.findById(adminId)).thenReturn(Optional.of(admin));
 
@@ -360,11 +342,11 @@ class AdminServiceTest {
      * Test for handling the case where the admin with the provided ID does not exist.
      * Verifies that a ResourceNotFoundException is thrown and the delete method is not called.
      */
-    @DisplayName("Should throw ResourceNotFoundException when admin not found")
+    @DisplayName("Should throw NotFoundException when deleting non-existing admin")
     @Test
-    void testDeleteAdmin_ThrowsNotFoundException() {
+    void testDeleteAdmin_ThrowsNotFoundException_WhenAdminNotFound() {
         // Given
-        Long adminId = 1L;
+        Long adminId = ID;
 
         when(adminRepository.findById(adminId)).thenReturn(Optional.empty());
 
@@ -378,14 +360,14 @@ class AdminServiceTest {
      * Test for handling the case where an invalid admin ID (e.g., negative value) is provided.
      * Verifies that a ResourceBadRequestException is thrown and no interaction with the repository occurs.
      */
-    @DisplayName("Should throw ResourceBadRequestException for invalid admin ID")
+    @DisplayName("Should throw BadRequestException for invalid admin ID during delete")
     @Test
-    void testDeleteAdmin_ThrowsBadRequestException_InvalidAdminId() {
+    void shouldThrowBadRequestException_WhenAdminIdIsInvalidForDelete() {
         // Given
-        var adminId = -1L;
+        var adminId = -ID;
 
         // Mock the behavior of adminRepository.findById() to throw a ResourceBadRequestException for id <= 0
-        when(adminRepository.findById(argThat(id -> id <= 0L))).thenThrow(
+        when(adminRepository.findById(argThat(id -> id <= ADMIN_ID))).thenThrow(
                 new ResourceBadRequestException(errorMessage));
 
         // When + Then

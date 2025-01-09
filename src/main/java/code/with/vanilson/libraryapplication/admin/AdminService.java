@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.MessageFormat;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import static code.with.vanilson.libraryapplication.admin.AdminMapper.*;
@@ -27,7 +29,7 @@ import static code.with.vanilson.libraryapplication.common.utils.MessageProvider
 @Repository
 @Slf4j
 @Service
-@SuppressWarnings("unused")
+@SuppressWarnings("all")
 public class AdminService implements IAdminService {
 
     public static final String LIBRARY_ADMIN_NOT_FOUND = "library.admin.not_found";
@@ -47,12 +49,10 @@ public class AdminService implements IAdminService {
     @Override
     @Transactional(readOnly = true)
     public List<AdminResponse> getAllAdmins() {
-        log.info("Retrieving all books");
-        return adminRepository.findAll()
-                .stream()
+        List<Admin> admins = fetchAllAdmins();
+        return admins.stream()
                 .map(AdminMapper::mapToAdminResponse)
                 .toList();
-
     }
 
     /**
@@ -208,5 +208,29 @@ public class AdminService implements IAdminService {
     protected String formatMessage(String key, Object... params) {
         String pattern = MessageProvider.getMessage(key);
         return MessageFormat.format(pattern, params);
+    }
+
+    /**
+     * Fetches all admins from the repository.
+     *
+     * @return A list of {@link Admin} objects representing all admins in the repository.
+     * If the repository returns null, a {@link ResourceBadRequestException} is thrown.
+     * If the repository returns an empty list, an empty list is returned.
+     * @throws ResourceBadRequestException if the admin list is null.
+     */
+    private List<Admin> fetchAllAdmins() {
+        List<Admin> admins = adminRepository.findAll();
+
+        if (Objects.isNull(admins)) {
+            log.warn("No admins found in the system: {}", admins);
+            String message = formatMessage("library.admin.cannot_be_null", admins);
+            throw new ResourceBadRequestException(message);
+        }
+        if (admins.isEmpty()) {
+            log.info("empty list of admins found in the system: {}", admins);
+            return Collections.emptyList();
+        }
+        log.info("Retrieving all admins: {}", admins);
+        return admins;
     }
 }

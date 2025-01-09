@@ -123,8 +123,7 @@ class MemberControllerTest {
                 // Assert: Expect 201 status code and validate the response fields
                 .andExpect(status().isCreated())  // Expect 201 status code
                 .andExpect(jsonPath("$.id").value(1))  // Validate that the response contains ID 1
-                .andExpect(
-                        jsonPath("$.name").value("John Doe"));  // Validate that the response contains the correct name
+                .andExpect(jsonPath("$.name").value("John Doe"));  // Validate that the response contains the correct name
     }
 
     /**

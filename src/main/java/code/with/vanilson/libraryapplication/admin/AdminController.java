@@ -63,17 +63,14 @@ public class AdminController {
      */
     @GetMapping
     public ResponseEntity<List<AdminResponse>> getAllAdmins() {
-        log.info("Retrieves a list of all admins");
-
         List<AdminResponse> admins = adminService.getAllAdmins();
-
         // Prepare response headers
         HttpHeaders headers = prepareResponseHeaders(null, false);
-
-        // Return the response entity with headers and body
-        return ResponseEntity.ok()
-                .headers(headers) // Apply headers
-                .body(admins);
+        return admins.isEmpty()
+                ? ResponseEntity.noContent().build() // If the list is empty, return 204 No Content
+                : ResponseEntity.ok()
+                .headers(headers)
+                .body(admins); // Otherwise, return 200 OK with content
     }
 
     /**

@@ -2,8 +2,7 @@ package code.with.vanilson.libraryapplication.book;
 
 import code.with.vanilson.libraryapplication.librarian.LibrarianResponse;
 import code.with.vanilson.libraryapplication.member.MemberResponse;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.util.Set;
@@ -15,8 +14,10 @@ import java.util.Set;
  * @version 1.0
  * @since 2024-08-26
  */
-@Data
+@EqualsAndHashCode(callSuper = true)
 @Builder
+@Getter
+@Setter
 public class BookResponse extends RepresentationModel<BookResponse> {
     private Long id;
     private String title;

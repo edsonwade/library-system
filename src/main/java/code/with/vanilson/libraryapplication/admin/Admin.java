@@ -7,10 +7,7 @@ import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.Person;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
@@ -23,10 +20,12 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "admins")
-@Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Getter
+@Setter
 public class Admin extends Person {
 
     @Column(name = "admin_code", unique = true, nullable = false)

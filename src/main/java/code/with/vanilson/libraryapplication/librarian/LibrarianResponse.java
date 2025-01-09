@@ -2,10 +2,7 @@ package code.with.vanilson.libraryapplication.librarian;
 
 import code.with.vanilson.libraryapplication.admin.AdminResponse;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 
 /**
@@ -15,10 +12,13 @@ import org.springframework.hateoas.RepresentationModel;
  * @version 1.0
  * @since 2024-08-28
  */
-@Data
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = true)
 public class LibrarianResponse extends RepresentationModel<LibrarianResponse> {
 
     private Long id;
