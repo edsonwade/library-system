@@ -1,6 +1,7 @@
 package code.with.vanilson.libraryapplication.admin;
 
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
+import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
@@ -17,8 +18,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -143,4 +143,92 @@ class AdminControllerTest {
         verify(adminService, times(1)).getAllAdmins();
     }
 
+    /**
+     * Test to verify that the API returns HTTP 404 Not Found when a specific admin
+     * is requested by ID but does not exist in the system.
+     *
+     * <p>This test simulates the scenario where the admin service returns a valid
+     * admin response for a given ID. It verifies that the controller correctly
+     * returns an HTTP 200 OK status and the expected admin details.</p>
+     *
+     * @throws Exception if the request fails
+     */
+    @DisplayName("Retrieve a specific admin by providing the ID - should return HTTP 404 Not Found")
+    @Test
+    void retrieveAdmins_ShouldReturnNotFound_WhenNoAdminsExist() throws Exception {
+        // Arrange: Mock the service to throw a ResourceNotFoundException
+        long nonExistentAdminId = 999L;
+        String expectedMessage = "Admin with id " + nonExistentAdminId + " not found";
+        when(adminService.getAdminById(nonExistentAdminId))
+                .thenThrow(new ResourceNotFoundException(expectedMessage));
+
+        // Act: Perform the GET request
+        mockMvc.perform(get("http://localhost:8080/api/v1/admins/{id}", nonExistentAdminId))
+                .andExpect(status().isNotFound()) // Verify status code is 404
+                .andExpect(jsonPath("$.message").value(expectedMessage)); // Verify error message
+
+        // Assert: Verify the service interaction
+        verify(adminService, times(1)).getAdminById(nonExistentAdminId);
+    }
+
+    /**
+     * Test to verify that the API retrieves a specific admin successfully,
+     * returning the expected HTTP status and the specific admin details.
+     *
+     * @throws Exception if the request fails
+     */
+    @DisplayName("Retrieve a specific admin by provide the id - should return HTTP 200 OK and the admin details")
+    @Test
+    void retrieveExistingAdminsReturnsExpectedStatusAndAdmin() throws Exception {
+        // Arrange: Prepare the response for all admins (mocked)
+        when(adminService.getAdminById(adminResponse.getId())).thenReturn(adminResponse);
+
+        // Act: Perform the GET request
+        mockMvc.perform(get("http://localhost:8080/api/v1/admins/%d".formatted(adminResponse.getId())))
+                .andExpect(status().isOk()) // Verify status code is 200
+
+                // Verify JSON response matches the mocked admin data
+                .andExpect(jsonPath("$.id").value(adminResponse.getId()))
+                .andExpect(jsonPath("$.name").value(adminResponse.getName()))
+                .andExpect(jsonPath("$.email").value(adminResponse.getEmail()))
+                .andExpect(jsonPath("$.role").value(adminResponse.getRole().toString()));
+
+        // Assert: Verify the size and content of the response list
+        assertEquals(1L, adminResponse.getId(), "should be teh same");
+        assertEquals("Admin ", adminResponse.getName(), "should be the same");
+        assertNotNull(adminResponse, "The adminResponses should not be null");
+
+        verify(adminService, times(1)).getAdminById(adminResponse.getId());
+    }
+
+    /**
+     * Test to verify that the API retrieves a specific admin successfully,
+     * returning the expected HTTP status and the specific admin details.
+     *
+     * @throws Exception if the request fails
+     */
+    @DisplayName("Retrieve a specific admin by provide the email - should return HTTP 200 OK and the admin details")
+    @Test
+    void retrieveExistingAdminsByEmailAndReturnsTheExpectedStatusAndAdmin() throws Exception {
+        // Arrange: Prepare the response for all admins (mocked)
+        when(adminService.getAdminByEmail(adminResponse.getEmail())).thenReturn(adminResponse);
+
+        // Act: Perform the GET request
+        mockMvc.perform(get("http://localhost:8080/api/v1/admins/email/%s".formatted(adminResponse.getEmail())))
+                .andExpect(status().isOk())
+
+                // Verify JSON response matches the mocked admin data
+                .andExpect(jsonPath("$.id").value(adminResponse.getId()))
+                .andExpect(jsonPath("$.name").value(adminResponse.getName()))
+                .andExpect(jsonPath("$.email").value(adminResponse.getEmail()))
+                .andExpect(jsonPath("$.role").value(adminResponse.getRole().toString()));
+
+        // Assert: Verify the size and content of the response list
+        assertEquals(1L, adminResponse.getId(), "should be the equals");
+        assertTrue(adminResponse.getId() > 0, "should be greater than zero");
+        assertEquals("vanilson@test.test", adminResponse.getEmail(), "should be the same");
+        assertNotNull(adminResponse, "The adminResponses should not be null");
+
+        verify(adminService, times(1)).getAdminByEmail(adminResponse.getEmail());
+    }
 }
