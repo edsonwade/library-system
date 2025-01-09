@@ -63,7 +63,7 @@ public class AdminController {
      */
     @GetMapping
     public ResponseEntity<List<AdminResponse>> getAllAdmins() {
-        List<AdminResponse> admins = adminService.getAllAdmins();
+        var admins = adminService.getAllAdmins();
         // Prepare response headers
         HttpHeaders headers = prepareResponseHeaders(null, false);
         return admins.isEmpty()
@@ -89,7 +89,29 @@ public class AdminController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<AdminResponse> getAdminById(@PathVariable Long id, @RequestHeader HttpHeaders headers) {
-        AdminResponse adminResponse = adminService.getAdminById(id); // assuming this service call returns AdminResponse
+        var adminResponse = adminService.getAdminById(id); // assuming this service call returns AdminResponse
+        return ResponseEntity.ok()
+                .headers(headers) // Use headers if necessary
+                .body(adminResponse);
+    }
+
+    /**
+     * Retrieves an admin by their email.
+     * This method responds with the details of a specific admin based on the provided email.
+     *
+     * @param email   The email of the admin to be retrieved.
+     * @param headers Optional HTTP headers that can be included in the request (not used in this method).
+     * @return {@link ResponseEntity} containing the {@link AdminResponse} with the admin details and an HTTP status of 200 (OK).
+     *
+     * <p>
+     * This method logs the retrieval request and returns the admin details wrapped in a {@code ResponseEntity} with an HTTP status of 200.
+     * If the specified admin email does not exist, an exception should be handled by the global exception handler.
+     * </p>
+     */
+
+    @GetMapping(value = "/email/{email}")
+    public ResponseEntity<AdminResponse> getAdminByEmail(@PathVariable String email, @RequestHeader HttpHeaders headers) {
+        var adminResponse = adminService.getAdminByEmail(email); // assuming this service call returns AdminResponse
         return ResponseEntity.ok()
                 .headers(headers) // Use headers if necessary
                 .body(adminResponse);
@@ -119,13 +141,13 @@ public class AdminController {
     public ResponseEntity<AdminResponse> createAdmin(@RequestBody @Valid AdminRequest adminRequest) throws
                                                                                                     URISyntaxException {
 
-        AdminResponse adminResponse = adminService.createAdmin(adminRequest);
+        var adminResponse = adminService.createAdmin(adminRequest);
 
         // Log the created admin information
         log.info("Created a new admin with ID: {}", adminResponse.getId());
 
         // Prepare response headers
-        HttpHeaders headers = prepareResponseHeaders(adminResponse, true);
+        var headers = prepareResponseHeaders(adminResponse, true);
 
         // Return the response entity with the AdminResponse object and headers
         return ResponseEntity
@@ -148,13 +170,13 @@ public class AdminController {
             @RequestBody @Valid AdminRequest adminRequest) {
 
         // Call the service to update the admin
-        AdminResponse updatedAdminResponse = adminService.updateAdmin(adminRequest, adminId);
+        var updatedAdminResponse = adminService.updateAdmin(adminRequest, adminId);
 
         // Log the updated admin information
         log.info("Updated admin with ID: {}", updatedAdminResponse.getId());
 
         // Prepare response headers
-        HttpHeaders headers = prepareResponseHeaders(updatedAdminResponse, false);
+        var headers = prepareResponseHeaders(updatedAdminResponse, false);
 
         // Return the response entity with the AdminResponse object and headers
         return ResponseEntity
@@ -208,7 +230,7 @@ public class AdminController {
      */
 
     private HttpHeaders prepareResponseHeaders(AdminResponse adminResponse, boolean includeCookie) {
-        HttpHeaders headers = new HttpHeaders();
+        var headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON); // Set Content-Type correctly
 
         // Security headers (always include)

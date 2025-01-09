@@ -797,3 +797,131 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 2025-01-09 15:11:25,402 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-01-09 15:11:25,405 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
 2025-01-09 15:11:25,407 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2025-01-09 17:34:43,224 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:34:43,303 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 19028 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:34:43,304 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:34:43,305 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:34:46,588 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:34:46,590 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:34:46,594 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 3 ms
+2025-01-09 17:34:46,716 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 4.374 seconds (process running for 7.138)
+2025-01-09 17:35:46,411 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:35:46,463 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 18608 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:35:46,465 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:35:46,466 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:35:49,363 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:35:49,364 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:35:49,367 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 1 ms
+2025-01-09 17:35:49,453 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 3.687 seconds (process running for 5.719)
+2025-01-09 17:37:03,305 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:37:03,361 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 18004 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:37:03,362 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:37:03,363 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:37:06,359 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:37:06,359 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:37:06,362 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-09 17:37:06,449 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 3.804 seconds (process running for 5.678)
+2025-01-09 17:37:36,619 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:37:36,666 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 27860 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:37:36,667 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:37:36,668 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:37:39,343 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:37:39,344 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:37:39,347 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 3 ms
+2025-01-09 17:37:39,441 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 3.412 seconds (process running for 5.438)
+2025-01-09 17:39:24,193 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:39:24,263 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 15596 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:39:24,264 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:39:24,265 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:39:27,283 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:39:27,284 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:39:27,287 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-09 17:39:27,392 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 3.983 seconds (process running for 6.684)
+2025-01-09 17:41:34,435 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:41:34,501 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 12628 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:41:34,502 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:41:34,504 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:41:37,586 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:41:37,587 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:41:37,590 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-09 17:41:37,699 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 4.032 seconds (process running for 6.678)
+2025-01-09 17:42:18,224 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:42:18,274 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 20888 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:42:18,274 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:42:18,275 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:42:21,211 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:42:21,211 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:42:21,213 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 1 ms
+2025-01-09 17:42:21,288 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 3.717 seconds (process running for 5.562)
+2025-01-09 17:46:53,449 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:46:53,502 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 22708 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:46:53,503 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:46:53,504 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:46:56,492 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:46:56,494 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:46:56,496 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-09 17:46:56,592 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 3.909 seconds (process running for 6.036)
+2025-01-09 17:49:38,569 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:49:38,629 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 13480 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:49:38,630 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:49:38,631 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:49:42,031 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:49:42,032 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:49:42,037 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 3 ms
+2025-01-09 17:49:42,153 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 4.5 seconds (process running for 6.976)
+2025-01-09 17:50:06,741 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:50:06,802 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 25424 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:50:06,803 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:50:06,804 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:50:10,811 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:50:10,812 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:50:10,815 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 3 ms
+2025-01-09 17:50:10,912 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 4.795 seconds (process running for 6.625)
+2025-01-09 17:51:40,776 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:51:40,828 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 24416 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:51:40,829 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:51:40,830 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:51:43,921 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:51:43,922 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:51:43,926 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-09 17:51:44,033 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 3.877 seconds (process running for 5.956)
+2025-01-09 17:55:20,337 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 17:55:20,401 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 14412 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 17:55:20,402 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 17:55:20,404 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 17:55:23,507 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 17:55:23,508 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 17:55:23,511 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 1 ms
+2025-01-09 17:55:23,589 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 4.156 seconds (process running for 6.631)
+2025-01-09 18:02:08,252 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 18:02:08,316 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 27528 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 18:02:08,317 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 18:02:08,318 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 18:02:11,706 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 18:02:11,707 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 18:02:11,710 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-09 18:02:11,825 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 4.383 seconds (process running for 6.965)
+2025-01-09 18:02:58,818 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 18:02:58,885 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 26456 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 18:02:58,887 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 18:02:58,888 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 18:03:02,213 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 18:03:02,214 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 18:03:02,218 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 3 ms
+2025-01-09 18:03:02,328 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 4.331 seconds (process running for 6.769)
+2025-01-09 18:03:22,487 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 18:03:22,552 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 12992 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 18:03:22,553 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 18:03:22,554 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 18:03:25,912 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 18:03:25,913 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 18:03:25,916 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-09 18:03:26,018 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 4.335 seconds (process running for 6.864)
+2025-01-09 18:04:52,564 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-09 18:04:52,636 INFO  [main] c.w.v.l.admin.AdminControllerTest: Starting AdminControllerTest using Java 21.0.5 with PID 12012 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-09 18:04:52,638 DEBUG [main] c.w.v.l.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-09 18:04:52,639 INFO  [main] c.w.v.l.admin.AdminControllerTest: The following 1 profile is active: "dev"
+2025-01-09 18:04:56,256 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-09 18:04:56,257 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-09 18:04:56,261 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 3 ms
+2025-01-09 18:04:56,376 INFO  [main] c.w.v.l.admin.AdminControllerTest: Started AdminControllerTest in 4.942 seconds (process running for 7.858)
