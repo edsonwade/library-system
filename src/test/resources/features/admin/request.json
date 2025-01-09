@@ -1,0 +1,14 @@
+{
+  "name": "Ella Adams",
+  "email": "ella.adams@example.com",
+  "address": {
+    "street": "83 Rua do Lago",
+    "city": "Brasília",
+    "state": "Federal District",
+    "country": "Brazil",
+    "postalCode": "70000-000"
+  },
+  "contact": "+556 132-109-876",
+  "employeeCode": "EMP020",
+  "admin": 12
+}

@@ -3,10 +3,7 @@ package code.with.vanilson.libraryapplication.fine;
 import code.with.vanilson.libraryapplication.admin.AdminResponse;
 import code.with.vanilson.libraryapplication.librarian.LibrarianResponse;
 import code.with.vanilson.libraryapplication.member.MemberResponse;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.time.LocalDate;
@@ -18,10 +15,13 @@ import java.time.LocalDate;
  * @version 1.0
  * @since 2024-09-10
  */
-@Data
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
 public class FineResponse extends RepresentationModel<FineResponse> {
     private Long id;
     private double amount;

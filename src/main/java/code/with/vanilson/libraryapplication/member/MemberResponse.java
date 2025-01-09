@@ -7,10 +7,7 @@ import code.with.vanilson.libraryapplication.person.AddressDTO;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 
 /**
@@ -21,10 +18,12 @@ import org.springframework.hateoas.RepresentationModel;
  * @since 2024-08-28
  */
 @Builder
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @SuppressWarnings("all")
+@EqualsAndHashCode(callSuper = true)
+@Getter
+@Setter
 public class MemberResponse extends RepresentationModel<MemberResponse> {
     private Long id;
     @NotBlank(message = "Name is mandatory")

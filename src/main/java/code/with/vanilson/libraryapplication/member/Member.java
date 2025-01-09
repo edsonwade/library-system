@@ -19,6 +19,7 @@ import java.util.Set;
  * @version 1.0
  * @since 2024-08-22
  */
+@EqualsAndHashCode(callSuper = false)
 @Table(name = "members")
 @Entity(name = "Member")
 @Builder
@@ -26,7 +27,6 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class Member extends Person {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -37,6 +37,7 @@ public class Member extends Person {
             joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     @JsonIgnore
+    @Builder.Default
     private Set<Book> borrowedBooks = new HashSet<>();
 
 

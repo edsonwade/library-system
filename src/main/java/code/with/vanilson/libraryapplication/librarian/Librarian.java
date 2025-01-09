@@ -8,9 +8,7 @@ import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.Person;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -25,9 +23,11 @@ import java.util.Set;
  */
 @Entity(name = "Librarian")
 @Table(name = "librarians")
-@Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Librarian extends Person implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
