@@ -1,8 +1,10 @@
-package code.with.vanilson.libraryapplication.admin;
+package code.with.vanilson.libraryapplication.unit.admin;
 
+import code.with.vanilson.libraryapplication.admin.*;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceConflictException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -66,9 +68,9 @@ class AdminServiceTest {
         verify(adminRepository, atLeast(1)).findAll();
 
         IntStream.range(0, expected.size()).forEach(i -> {
-            assertEquals(expected.get(i).getId(), actual.get(i).getId(), "Admin ID matches");
-            assertEquals(expected.get(i).getName(), actual.get(i).getName(), "Admin name matches");
-            assertEquals(expected.get(i).getEmail(), actual.get(i).getEmail(), "Admin email matches");
+            Assertions.assertEquals(expected.get(i).getId(), actual.get(i).getId(), "Admin ID matches");
+            Assertions.assertEquals(expected.get(i).getName(), actual.get(i).getName(), "Admin name matches");
+            Assertions.assertEquals(expected.get(i).getEmail(), actual.get(i).getEmail(), "Admin email matches");
         });
     }
 
@@ -102,11 +104,11 @@ class AdminServiceTest {
         var actualResult = adminMapperTest.auxiliarMethodToAdminResponse();
 
         // Asserts
-        assertEquals(expectedResult, actualResult, "Retrieve all admins");
+        Assertions.assertEquals(expectedResult, actualResult, "Retrieve all admins");
         assertNotEquals(Long.valueOf(1234_34546_00L), expectedResult.getId(), "The id provide are not equals");
         assertNotNull(expectedResult, " The Object is not null");
-        assertNotSame(actualResult, expectedResult, "Not same instantiate object ");
-        assertNotSame(expectedResult, actualResult, "objects are not the same instance");
+        Assertions.assertNotSame(actualResult, expectedResult, "Not same instantiate object ");
+        Assertions.assertNotSame(expectedResult, actualResult, "objects are not the same instance");
 
         verify(adminRepository, atLeast(1)).findById(anyLong());
     }
@@ -120,10 +122,10 @@ class AdminServiceTest {
         var actualResult = adminMapperTest.auxiliarMethodToAdminResponse();
 
         // Asserts
-        assertEquals(expectedResult, actualResult, "Admin details should match");
+        Assertions.assertEquals(expectedResult, actualResult, "Admin details should match");
         assertEquals("John Doe", expectedResult.getName(), "Admin name should match");
         assertNotNull(expectedResult, "Admin object should not be null");
-        assertNotSame(actualResult, expectedResult, "Objects should not be the same instance");
+        Assertions.assertNotSame(actualResult, expectedResult, "Objects should not be the same instance");
 
         verify(adminRepository, atLeast(1)).findAdminByEmail(anyString());
     }
@@ -185,7 +187,7 @@ class AdminServiceTest {
     void shouldThrowBadRequestException_WhenAdminRequestIsNull() {
         // Given + When + Then
         var message = assertThrows(ResourceBadRequestException.class, () -> adminService.createAdmin(null));
-        assertEquals("Admin request cannot be null", message.getMessage());
+        assertEquals(expected, message.getMessage());
         verify(adminRepository, never()).existsAdminByEmail(anyString());
         verify(adminRepository, never()).save(any());
     }

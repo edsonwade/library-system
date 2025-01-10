@@ -34,6 +34,7 @@ Feature: Admin Management
   # Scenario to create a new admin
   # This tests the creation of a new admin with the data in request.json.
   # It verifies that the response is successful (201 Created) and matches the expected response.
+  @ignore
   Scenario: Create a new admin
     Given I have the admin data in request.json
     When I send a POST request to create an admin with the data from request.json

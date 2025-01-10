@@ -1,4 +1,4 @@
-package code.with.vanilson.libraryapplication.member.steps;
+package code.with.vanilson.libraryapplication.bdd.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -6,12 +6,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 /**
- * code.with.vanilson.libraryapplication.member.steps.AdminSteps
+ * code.with.vanilson.libraryapplication.bdd.steps.AdminSteps
  *
  * @author vamuhong
  * @version 1.0
  * @since 2025-01-07
  */
+@SuppressWarnings("all")
 public class AdminSteps {
     @When("I request to retrieve all admins")
     public void iRequestToRetrieveAllAdmins() {

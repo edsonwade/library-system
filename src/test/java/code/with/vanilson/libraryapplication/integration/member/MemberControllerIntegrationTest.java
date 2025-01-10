@@ -1,18 +1,13 @@
-package code.with.vanilson.libraryapplication.member;
+package code.with.vanilson.libraryapplication.integration.member;
 
-/**
- * MemberControllerIntegrationTest
- *
- * @author vamuhong
- * @version 1.0
- * @since 2025-01-06
- */
+
 
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.admin.AdminRepository;
 import code.with.vanilson.libraryapplication.admin.Role;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import code.with.vanilson.libraryapplication.librarian.LibrarianRepository;
+import code.with.vanilson.libraryapplication.member.*;
 import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,6 +23,14 @@ import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
+
+/**
+ * MemberControllerIntegrationTest
+ *
+ * @author vamuhong
+ * @version 1.0
+ * @since 2025-01-06
+ */
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")

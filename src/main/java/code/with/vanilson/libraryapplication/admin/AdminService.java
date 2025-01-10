@@ -188,7 +188,8 @@ public class AdminService implements IAdminService {
 
     private void validateAdminRequest(AdminRequest adminRequest) {
         if (adminRequest == null) {
-            throw new ResourceBadRequestException("Admin request cannot be null");
+            var message= formatMessage("library.admin.cannot_be_null");
+            throw new ResourceBadRequestException(message);
         }
     }
 
@@ -205,7 +206,7 @@ public class AdminService implements IAdminService {
         log.error(formatMessage(LIBRARY_ADMIN_NOT_FOUND, adminId));
     }
 
-    protected String formatMessage(String key, Object... params) {
+    public static String formatMessage(String key, Object... params) {
         String pattern = MessageProvider.getMessage(key);
         return MessageFormat.format(pattern, params);
     }
