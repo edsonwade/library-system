@@ -1,5 +1,6 @@
-package code.with.vanilson.libraryapplication.admin;
+package code.with.vanilson.libraryapplication.unit.admin;
 
+import code.with.vanilson.libraryapplication.admin.*;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.AddressDTO;

@@ -5,8 +5,11 @@ import code.with.vanilson.libraryapplication.common.exceptions.details.ErrorDeta
 import code.with.vanilson.libraryapplication.common.utils.TimeZoneUtil;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 import static code.with.vanilson.libraryapplication.common.constants.ErrorCodes.*;
@@ -28,7 +32,11 @@ import static java.time.LocalDateTime.now;
  * @since 2024-07-05
  */
 @ControllerAdvice
+@SuppressWarnings("all")
 public class GlobalExceptionHandler {
+    @Autowired
+    private MessageSource messageSource;
+
     /**
      * Handles and responds to ResourceNotFoundException exceptions.
      * This exception is thrown when a requested resource is not found in the system.
@@ -216,7 +224,7 @@ public class GlobalExceptionHandler {
     /**
      * Determines the appropriate error code based on the given request path.
      *
-     * @param path The request URI that triggered the error.
+     * @param ex The request URI that triggered the error.
      * @return A string representing the error code.
      * <p>
      * The error code is determined by analyzing the request path and matching it to a specific resource.
@@ -227,6 +235,20 @@ public class GlobalExceptionHandler {
      * If the path contains "/fines/", the error code "FINE_INVALID_DATA" is returned.
      * If none of the above conditions are met, the error code "UNKNOWN_ERROR" is returned.
      */
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<ErrorResponse> handleInvalidRequestBody(HttpMessageNotReadableException ex,
+                                                                  HttpServletRequest request) {
+        var path = request.getRequestURI();
+
+        // Fetch message from messages.properties
+        String message = messageSource.getMessage("library.admin.invalid_request_body", null, Locale.getDefault());
+
+        // Return the custom error response
+        return buildErrorResponse(message, HttpStatus.BAD_REQUEST, path);
+    }
+
 
     private String determineErrorCodeFromPath(String path) {
         if (path.contains("/api/books/")) {
@@ -243,6 +265,5 @@ public class GlobalExceptionHandler {
             return "UNKNOWN_ERROR";
         }
     }
-
 
 }

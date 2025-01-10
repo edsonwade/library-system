@@ -1,7 +1,8 @@
 package code.with.vanilson.libraryapplication.admin;
 
 import code.with.vanilson.libraryapplication.common.https.HeaderConstants;
-import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -11,10 +12,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.net.URISyntaxException;
-import java.text.MessageFormat;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static code.with.vanilson.libraryapplication.admin.AdminService.formatMessage;
 
 /**
  * AdminController
@@ -36,7 +39,6 @@ import java.util.List;
 @Slf4j
 public class AdminController {
 
-    public static final String X_ADMIN_ID = "X-Admin-ID";
     private final AdminService adminService;
 
     public AdminController(AdminService adminService) {
@@ -134,13 +136,10 @@ public class AdminController {
      *     <li>Returns the created admin details in the response body with HTTP status 201 and the appropriate headers.</li>
      * </ul>
      * </p>
-     * @throws URISyntaxException if the URI syntax is incorrect while setting the location header.
      */
 
     @PostMapping(value = "/create-admin")
-    public ResponseEntity<AdminResponse> createAdmin(@RequestBody @Valid AdminRequest adminRequest) throws
-                                                                                                    URISyntaxException {
-
+    public ResponseEntity<AdminResponse> createAdmin(@RequestBody @Valid AdminRequest adminRequest) {
         var adminResponse = adminService.createAdmin(adminRequest);
 
         // Log the created admin information
@@ -156,6 +155,8 @@ public class AdminController {
                 .headers(headers)
                 .body(adminResponse);
     }
+
+
 
     /**
      * Updates an existing admin.
@@ -192,15 +193,19 @@ public class AdminController {
      * @param adminId The ID of the admin to be deleted.
      * @return ResponseEntity containing a message indicating the result of the deletion operation.
      */
-    @DeleteMapping("/delete-admin/{adminId}")
-    public ResponseEntity<String> deleteAdmin(@PathVariable Long adminId) {
-        // Call the service to delete the admin
-        adminService.deleteAdmin(adminId);
 
-        // Return a success message indicating the deletion was successful
-        var message = MessageFormat.format(MessageProvider.getMessage("library.admin.deletion_success"), adminId);
-        log.info(message);
-        return ResponseEntity.ok(message);
+    @DeleteMapping("/delete-admin/{adminId}")
+    public ResponseEntity<String> deleteAdmin(@PathVariable Long adminId) throws JsonProcessingException {
+        adminService.deleteAdmin(adminId);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", formatMessage("library.admin.delete_success", adminId));
+
+        // Convert the response map to a JSON string
+        String jsonResponse = new ObjectMapper().writeValueAsString(response);
+
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(jsonResponse);
     }
 
     /**

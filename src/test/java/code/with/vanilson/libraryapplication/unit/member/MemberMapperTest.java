@@ -1,5 +1,6 @@
-package code.with.vanilson.libraryapplication.member;
+package code.with.vanilson.libraryapplication.unit.member;
 
+import code.with.vanilson.libraryapplication.member.*;
 import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import code.with.vanilson.libraryapplication.admin.Admin;
@@ -76,9 +77,7 @@ class MemberMapperTest {
         member.setAdmin(admin);
 
         // When & Then
-        ResourceBadRequestException exception = assertThrows(ResourceBadRequestException.class, () -> {
-            MemberMapper.mapToMemberResponse(member);
-        });
+        ResourceBadRequestException exception = assertThrows(ResourceBadRequestException.class, () -> MemberMapper.mapToMemberResponse(member));
 
         assertThat(exception.getMessage()).isEqualTo("library.member.association_must_exists");
     }
@@ -95,9 +94,7 @@ class MemberMapperTest {
         member.setAdmin(null);
 
         // When & Then
-        ResourceBadRequestException exception = assertThrows(ResourceBadRequestException.class, () -> {
-            MemberMapper.mapToMemberResponse(member);
-        });
+        ResourceBadRequestException exception = assertThrows(ResourceBadRequestException.class, () -> MemberMapper.mapToMemberResponse(member));
 
         assertThat(exception.getMessage()).isEqualTo("library.admin.association_must_exists");
     }
@@ -132,9 +129,7 @@ class MemberMapperTest {
         MemberRequest memberRequest = null;
 
         // When & Then
-        assertThrows(ResourceBadRequestException.class, () -> {
-            MemberMapper.mapToMemberEntity(memberRequest, admin, librarian);
-        });
+        assertThrows(ResourceBadRequestException.class, () -> MemberMapper.mapToMemberEntity(memberRequest, admin, librarian));
     }
 
     /**
@@ -149,9 +144,7 @@ class MemberMapperTest {
         memberRequest.setAdminId(2L);
 
         // When & Then
-        assertThrows(ResourceBadRequestException.class, () -> {
-            MemberMapper.mapToMemberEntity(memberRequest, admin, librarian);
-        });
+        assertThrows(ResourceBadRequestException.class, () -> MemberMapper.mapToMemberEntity(memberRequest, admin, librarian));
     }
 
     /**
@@ -166,9 +159,7 @@ class MemberMapperTest {
         memberRequest.setAdminId(null);
 
         // When & Then
-        assertThrows(ResourceBadRequestException.class, () -> {
-            MemberMapper.mapToMemberEntity(memberRequest, admin, librarian);
-        });
+        assertThrows(ResourceBadRequestException.class, () -> MemberMapper.mapToMemberEntity(memberRequest, admin, librarian));
     }
 
     // Helper methods to avoid repetition in tests

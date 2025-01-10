@@ -1,5 +1,6 @@
-package code.with.vanilson.libraryapplication.member;
+package code.with.vanilson.libraryapplication.unit.member;
 
+import code.with.vanilson.libraryapplication.member.*;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;

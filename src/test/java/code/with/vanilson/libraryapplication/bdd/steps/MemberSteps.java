@@ -1,12 +1,4 @@
-package code.with.vanilson.libraryapplication.member.steps;
-
-/**
- * MemberSteps
- *
- * @author vamuhong
- * @version 1.0
- * @since 2025-01-07
- */
+package code.with.vanilson.libraryapplication.bdd.steps;
 
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.admin.AdminRepository;
@@ -20,7 +12,6 @@ import code.with.vanilson.libraryapplication.member.MembershipStatus;
 import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -29,7 +20,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.UUID;
 
@@ -37,6 +27,13 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
+ * MemberSteps
+ *
+ * @author vamuhong
+ * @version 1.0
+ * @since 2025-01-07
+ */
 @SpringBootTest
 @SuppressWarnings("all")
 public class MemberSteps {

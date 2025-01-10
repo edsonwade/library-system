@@ -1,4 +1,4 @@
-package code.with.vanilson.libraryapplication.member;
+package code.with.vanilson.libraryapplication.unit.member;
 
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.admin.AdminRepository;
@@ -7,6 +7,7 @@ import code.with.vanilson.libraryapplication.common.exceptions.ResourceConflictE
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
 import code.with.vanilson.libraryapplication.librarian.Librarian;
 import code.with.vanilson.libraryapplication.librarian.LibrarianRepository;
+import code.with.vanilson.libraryapplication.member.*;
 import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import org.junit.jupiter.api.BeforeEach;
