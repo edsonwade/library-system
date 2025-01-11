@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   library-management-system:
-    image: library-management-system:latest
+    image: edsonwade126/library-management-system:latest
     container_name: library-management
     ports:
       - "8080:8080"

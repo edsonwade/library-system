@@ -139,6 +139,7 @@ mvn test
 4. Push to the branch (git push origin feature-branch) 📤
 5. Create a new Pull Request 📩
    Please read [CONTRIBUTING.md](link-to-contributing-file) for details on how to contribute to this project.🤝
+6. http://prometheus:9090 - for grafana 
 
 ### Contact
 

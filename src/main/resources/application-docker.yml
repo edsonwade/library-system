@@ -29,3 +29,12 @@ management:
         details: always
     metrics:
       enabled: true
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /library-api.html
+    operationsSorter: method
+    tagsSorter: alpha
+    default-sort: method,asc
