@@ -23,25 +23,25 @@ target/
 *.env
 /.env
 /logs/archived/
+
+# Ignore specific markdown files
 DDD-Architecture-Structure-and-Standard-for-Software-Development.md
-.DDD-Architecture-Structure-and-Standard-for-Software-Development.md
-.*DDD-Architecture-Structure-and-Standard-for-Software-Development.md
 REQUIREMENTS.md
-.REQUIREMENTS.md
-.*REQUIREMENTS.md
 Systems_Library_Management_Project_Timeline.md
-.Systems_Library_Management_Project_Timeline.md
-.*Systems_Library_Management_Project_Timeline.md
-
 LIBRARIAN_REQUEST.md
-.LIBRARIAN_REQUEST.md
-.*LIBRARIAN_REQUEST.md
 PLAN.md
-.PLAN.md
-.*PLAN.md
 USER_STORIES.md
-
 execute.sh
+
+# Ignore dot-prefixed versions
+.DDD-Architecture-Structure-and-Standard-for-Software-Development.md
+.REQUIREMENTS.md
+.Systems_Library_Management_Project_Timeline.md
+.LIBRARIAN_REQUEST.md
+.PLAN.md
+
+
+
 
 
 ### NetBeans ###
