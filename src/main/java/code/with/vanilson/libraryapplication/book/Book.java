@@ -56,6 +56,7 @@ public class Book implements Serializable {
 
     @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonIgnore
+    @Builder.Default
     private Set<Member> members = new HashSet<>();
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -81,15 +82,13 @@ public class Book implements Serializable {
      * Also adds this book to the member's list of borrowed books.
      *
      * @param member The member to be added to the set of borrowers.
-     * @return The updated book instance with the added member.
      */
-    public Book addBookMember(Member member) {
+    public void addBookMember(Member member) {
         if (null == members) {
             members = new HashSet<>();
         }
         members.add(member);
         member.getBorrowedBooks().add(this);
-        return this;
     }
 
     // Method to check if the book is reserved by the given member
