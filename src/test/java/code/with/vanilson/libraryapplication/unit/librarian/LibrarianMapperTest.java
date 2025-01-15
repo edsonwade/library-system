@@ -48,8 +48,8 @@ class LibrarianMapperTest {
         librarian =
                 new Librarian("test 1", "test@test.com", testDataHelper.createAddress(), "+351 123-235-345", "EMPLO01",
                         testDataHelper.createAdmin());
-        response = createLibrarianResponse();
-        request = createLibrarianRequest();
+        response = testDataHelper.createLibrarianResponse();
+        request = testDataHelper.createLibrarianRequest();
     }
 
     /**
@@ -202,47 +202,4 @@ class LibrarianMapperTest {
                         "The librarian's admin is null")
         );
     }
-
-
-
-
-    /**
-     * Creates a {@link LibrarianResponse} object populated with mock data.
-     * This method is used to generate a sample response object for testing purposes,
-     * typically when simulating the return value of a service or controller method.
-     *
-     * @return a {@link LibrarianResponse} object populated with mock data
-     */
-    private LibrarianResponse createLibrarianResponse() {
-        return LibrarianResponse.builder()
-                .id(librarian.getId())
-                .name(librarian.getName())
-                .email(librarian.getEmail())
-                .address(testDataHelper.createAddressDTO())
-                .contact(librarian.getContact())
-                .employeeCode(librarian.getEmployeeCode())
-                .admin(testDataHelper.createAdminResponse())
-                .build();
-    }
-
-
-    /**
-     * Creates a {@link LibrarianRequest} object populated with mock data.
-     * This method is used to generate a sample request object for testing purposes,
-     * typically when simulating the input of a librarian creation or update process.
-     *
-     * @return a {@link LibrarianRequest} object populated with mock data
-     */
-    private LibrarianRequest createLibrarianRequest() {
-        return LibrarianRequest.builder()
-                .name(librarian.getName())
-                .email(librarian.getEmail())
-                .contact(librarian.getContact())
-                .address(testDataHelper.createAddressDTO())
-                .employeeCode(librarian.getEmployeeCode())
-                .admin(testDataHelper.createAdminResponse().getId())
-                .build();
-    }
-
-
 }

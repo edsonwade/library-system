@@ -35,7 +35,7 @@ public class LibrarianMapper {
         }
 
         if (null == librarian.getAdmin()) {
-            log.error(MessageFormat.format("admin is null {0}", (Object) null));
+            log.error(MessageFormat.format("admin is null {0} ", (Object) null));
             String message = formatMessage("library.admin.association_must_exists", (Object) null);
             throw new ResourceBadRequestException(message);
         }
