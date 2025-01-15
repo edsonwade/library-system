@@ -1,5 +1,6 @@
 package code.with.vanilson.libraryapplication.unit.admin;
 
+import code.with.vanilson.libraryapplication.TestDataHelper;
 import code.with.vanilson.libraryapplication.admin.*;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceConflictException;
@@ -23,24 +24,25 @@ import static org.mockito.Mockito.*;
 @DisplayName("Admin Service Test")
 @SuppressWarnings("all")
 class AdminServiceTest {
-    public static final long ADMIN_ID = 0L;
-    public static final long ID = 1L;
-    public static final String PLEASE_VERIFY_THE_EMAIL_AND_TRY_AGAIN =
+    private static final long ADMIN_ID = 0L;
+    private static final long ID = 1L;
+    private static final String PLEASE_VERIFY_THE_EMAIL_AND_TRY_AGAIN =
             "No admin found with the email \"admin.@out.tst\". Please verify the email and try again.";
     String errorMessage = getMessage("library.admin.bad_request", ADMIN_ID);
     String expected = getMessage("library.admin.cannot_be_null", ADMIN_ID);
 
     private final AdminRepository adminRepository = mock(AdminRepository.class);
     private final AdminService adminService = new AdminService(adminRepository);
-    public AdminMapperTest adminMapperTest;
-    public List<Admin> admins;
-    public Admin admin;
+    private AdminMapperTest adminMapperTest;
+    private List<Admin> admins;
+    private Admin admin;
+    private final TestDataHelper testDataHelper= new TestDataHelper();
 
     @BeforeEach
     void setUp() {
         adminMapperTest = new AdminMapperTest();
-        admins = adminMapperTest.auxiliarMethodToAllAdmin();
-        admin = adminMapperTest.auxiliarMethodToAdmin();
+        admins = testDataHelper.auxiliarMethodToAllAdmin();
+        admin = testDataHelper.createAdmin();
     }
 
     /**
@@ -61,7 +63,7 @@ class AdminServiceTest {
 
         when(adminRepository.findAll()).thenReturn(admins);
         var expected = adminService.getAllAdmins();
-        var actual = adminMapperTest.auxiliarMethodToAllAdminResponse();
+        var actual = testDataHelper.auxiliarMethodToAllAdminResponse();
 
         assertEquals(expected, actual, "Admin list should match");
         assertNotSame(expected, actual, "Objects should not be the same instance");
@@ -100,12 +102,12 @@ class AdminServiceTest {
     void shouldReturnAdminById_WhenIdIsValid() {
         when(adminRepository.findById(anyLong())).thenReturn(Optional.of(admin));
         // expected any value greater than zero.
-        var expectedResult = adminService.getAdminById(1234_34546_00L);
-        var actualResult = adminMapperTest.auxiliarMethodToAdminResponse();
+        var expectedResult = adminService.getAdminById(1L);
+        var actualResult = testDataHelper.createAdminResponse();
 
         // Asserts
         Assertions.assertEquals(expectedResult, actualResult, "Retrieve all admins");
-        assertNotEquals(Long.valueOf(1234_34546_00L), expectedResult.getId(), "The id provide are not equals");
+        assertNotEquals(34L, expectedResult.getId(), "The id provide are not equals");
         assertNotNull(expectedResult, " The Object is not null");
         Assertions.assertNotSame(actualResult, expectedResult, "Not same instantiate object ");
         Assertions.assertNotSame(expectedResult, actualResult, "objects are not the same instance");
@@ -119,7 +121,7 @@ class AdminServiceTest {
         when(adminRepository.findAdminByEmail(anyString())).thenReturn(Optional.of(admin));
         // expected any value greater than zero.
         var expectedResult = adminService.getAdminByEmail("test@test.com");
-        var actualResult = adminMapperTest.auxiliarMethodToAdminResponse();
+        var actualResult = testDataHelper.createAdminResponse();
 
         // Asserts
         Assertions.assertEquals(expectedResult, actualResult, "Admin details should match");
@@ -199,7 +201,7 @@ class AdminServiceTest {
     @DisplayName("Should throw ConflictException when email already exists")
     @Test
     void shouldThrowConflictException_WhenEmailAlreadyExists() {
-        var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
+        var adminRequest = testDataHelper.createAdminRequest();
         when(adminRepository.existsAdminByEmail(adminRequest.getEmail())).thenReturn(true);
         var exception = assertThrows(ResourceConflictException.class, () -> adminService.createAdmin(adminRequest));
         var expectedMessage = adminService.formatMessage("library.admin.email_exists", adminRequest.getEmail());
@@ -215,7 +217,7 @@ class AdminServiceTest {
     @DisplayName("Should successfully create a new admin")
     @Test
     void shouldCreateAdminSuccessfully_WhenRequestIsValid() {
-        var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
+        var adminRequest = testDataHelper.createAdminRequest();
         adminRequest.setEmail("test@test.com");
         var adminEntity = admin;
         var savedAdmin = admin;
@@ -236,7 +238,7 @@ class AdminServiceTest {
     @DisplayName("Should throw ConflictException for unique constraint violation")
     @Test
     void shouldThrowConflictException_WhenUniqueConstraintViolation() {
-        var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
+        var adminRequest = testDataHelper.createAdminRequest();
         adminRequest.setEmail("johndoe@example.com");
         var adminEntity = admin;
         when(adminRepository.existsAdminByEmail(adminRequest.getEmail())).thenReturn(false);
@@ -253,7 +255,7 @@ class AdminServiceTest {
     @Test
     void shouldUpdateAdminSuccessfully_WhenAdminExists() {
         var adminId = 1L;
-        var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
+        var adminRequest = testDataHelper.createAdminRequest();
         var existingAdmin = admin;
         var updatedAdmin = admin;
         updatedAdmin.setId(2L);
@@ -275,7 +277,7 @@ class AdminServiceTest {
     @Test
     void shouldThrowNotFoundException_WhenAdminToUpdateNotFound() {
         var adminId = 1L;
-        var adminRequest = adminMapperTest.auxiliarMethodToAdminRequest();
+        var adminRequest = testDataHelper.createAdminRequest();
         when(adminRepository.findById(adminId)).thenReturn(Optional.empty());
         assertThrows(ResourceNotFoundException.class, () -> adminService.updateAdmin(adminRequest, adminId));
         verify(adminRepository, times(1)).findById(adminId);

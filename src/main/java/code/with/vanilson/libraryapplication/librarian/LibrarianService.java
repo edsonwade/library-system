@@ -1,5 +1,6 @@
 package code.with.vanilson.libraryapplication.librarian;
 
+import code.with.vanilson.libraryapplication.admin.AdminMapper;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.admin.AdminRepository;
@@ -304,7 +305,7 @@ public class LibrarianService implements ILibrarian {
                     break;
                 case "address":
                     AddressDTO addressDTO = (AddressDTO) value;
-                    existingLibrarian.setAddress(LibrarianMapper.mapToAddress(addressDTO));
+                    existingLibrarian.setAddress(AdminMapper.mapToAddress(addressDTO));
                     break;
                 case "contact":
                     existingLibrarian.setContact((String) value);
