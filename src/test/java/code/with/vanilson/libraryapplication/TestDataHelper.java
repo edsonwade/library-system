@@ -4,6 +4,8 @@ import code.with.vanilson.libraryapplication.admin.Admin;
 import code.with.vanilson.libraryapplication.admin.AdminRequest;
 import code.with.vanilson.libraryapplication.admin.AdminResponse;
 import code.with.vanilson.libraryapplication.admin.Role;
+import code.with.vanilson.libraryapplication.librarian.LibrarianRequest;
+import code.with.vanilson.libraryapplication.librarian.LibrarianResponse;
 import code.with.vanilson.libraryapplication.person.Address;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 
@@ -99,6 +101,7 @@ public class TestDataHelper {
         return adminReq;
 
     }
+
     /**
      * Creates and returns an Admin List object with predefined values.
      *
@@ -117,5 +120,42 @@ public class TestDataHelper {
     public List<AdminResponse> auxiliarMethodToAllAdminResponse() {
         return List.of(createAdminResponse());
 
+    }
+
+    /**
+     * Creates a {@link LibrarianResponse} object populated with mock data.
+     * This method is used to generate a sample response object for testing purposes,
+     * typically when simulating the return value of a service or controller method.
+     *
+     * @return a {@link LibrarianResponse} object populated with mock data
+     */
+    public LibrarianResponse createLibrarianResponse() {
+        return LibrarianResponse.builder()
+                .id(1L)
+                .name("test 1")
+                .email("test@test.com")
+                .address(createAddressDTO())
+                .contact("+351 123-235-345")
+                .employeeCode("EMPLO01")
+                .admin(createAdminResponse())
+                .build();
+    }
+
+    /**
+     * Creates a {@link LibrarianRequest} object populated with mock data.
+     * This method is used to generate a sample request object for testing purposes,
+     * typically when simulating the input of a librarian creation or update process.
+     *
+     * @return a {@link LibrarianRequest} object populated with mock data
+     */
+    public LibrarianRequest createLibrarianRequest() {
+        return LibrarianRequest.builder()
+                .name("test 1")
+                .email("test@test.com")
+                .contact("+351 123-235-345")
+                .address(createAddressDTO())
+                .employeeCode("EMPLO01")
+                .admin(createAdminResponse().getId())
+                .build();
     }
 }
