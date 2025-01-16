@@ -1,12 +1,12 @@
 package code.with.vanilson.libraryapplication.librarian;
 
-import code.with.vanilson.libraryapplication.admin.AdminMapper;
-import code.with.vanilson.libraryapplication.person.AddressDTO;
 import code.with.vanilson.libraryapplication.admin.Admin;
+import code.with.vanilson.libraryapplication.admin.AdminMapper;
 import code.with.vanilson.libraryapplication.admin.AdminRepository;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceConflictException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
+import code.with.vanilson.libraryapplication.person.AddressDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -79,7 +79,9 @@ public class LibrarianService implements ILibrarian {
     @Override
     public LibrarianResponse createLibrarian(LibrarianRequest librarianRequest) {
         if (null == librarianRequest) {
-            throw new ResourceBadRequestException("library.librarian.cannot_be_null");
+            var errorMessage = MessageFormat.format(getMessage("library.librarian.cannot_be_null"),
+                    "");
+            throw new ResourceBadRequestException(errorMessage);
         }
 
         var admin = fetchAssociatedAdmin(librarianRequest);
@@ -89,9 +91,12 @@ public class LibrarianService implements ILibrarian {
             var requestSaved = librarianRepository.save(librarian);
             return mapToLibrarianResponse(requestSaved);
         } catch (DataIntegrityViolationException e) {
-            var errorMessage = MessageFormat.format(getMessage("library.librarian.email_and_contact_already_exists"),
-                    e.getMessage());
-            loggerMessage(Long.valueOf(errorMessage));
+            var errorMessage = MessageFormat.format(
+                    getMessage("library.librarian.email_and_contact_already_exists"),
+                    librarianRequest.getEmail(), librarianRequest.getContact()
+            );
+
+            //loggerMessage(errorMessage);  // Log the error message as a string
             throw new ResourceConflictException(errorMessage);
         }
 
@@ -248,9 +253,15 @@ public class LibrarianService implements ILibrarian {
      */
 
     private Admin fetchAssociatedAdmin(LibrarianRequest librarianRequest) {
+
         return adminRepository.findById(librarianRequest.getAdmin())
-                .orElseThrow(
-                        () -> new ResourceNotFoundException("Admin not found with ID: " + librarianRequest.getAdmin()));
+                .orElseThrow(() -> {
+                    var errorMessage = MessageFormat.format(getMessage("library.admin.not_found"),
+                            librarianRequest.getAdmin());
+                    return new ResourceNotFoundException(errorMessage);
+
+                });
+
     }
 
     /**
@@ -267,7 +278,7 @@ public class LibrarianService implements ILibrarian {
      *                                   excluding the current librarian's own fields.
      */
 
-    private void validateAndCheckLibrarianUniqueFieldsForUpdate(LibrarianRequest librarianRequest, Long librarianId) {
+    public void validateAndCheckLibrarianUniqueFieldsForUpdate(LibrarianRequest librarianRequest, Long librarianId) {
         // Exclude the current librarian's own fields from the uniqueness checks
         if (librarianRepository.existsLibrarianByEmailAndIdNot(librarianRequest.getEmail(), librarianId)) {
             throw new ResourceConflictException("library.librarian.email_exists");

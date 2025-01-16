@@ -3,11 +3,13 @@ package code.with.vanilson.libraryapplication.unit.librarian;
 import code.with.vanilson.libraryapplication.TestDataHelper;
 import code.with.vanilson.libraryapplication.admin.AdminRepository;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
+import code.with.vanilson.libraryapplication.common.exceptions.ResourceConflictException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceNotFoundException;
 import code.with.vanilson.libraryapplication.librarian.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.dao.DataIntegrityViolationException;
 
 import java.text.MessageFormat;
 import java.util.List;
@@ -205,6 +207,168 @@ class LibrarianServiceTest {
 
         // Verify that the repository method findById was not called because the exception was thrown
         verify(librarianRepository, times(0)).findById(invalidId);
+    }
+
+    /**
+     * This test ensures that the service returns a new librarian with the correct attributes
+     * (e.g., email, name) when a librarian is created.
+     */
+    @DisplayName("Test librarian creation service")
+    @Test
+    void shouldReturnLibrarianWhenLibrarianIsCreated() {
+        // Given
+        when(adminRepository.findById(anyLong())).thenReturn(Optional.of(testDataHelper.createAdmin()));
+        when(librarianRepository.save(any(Librarian.class))).thenReturn(librarian);
+
+        // When
+        var responseResult = librarianService.createLibrarian(request);
+
+        // Then
+        assertAll(
+                () -> assertNull(responseResult.getId(), "The ID should be null when creating a new librarian."),
+                () -> assertEquals(librarian.getEmail(), responseResult.getEmail(),
+                        "The email of the response should match the librarian's email."),
+                () -> assertEquals(librarian.getName(), responseResult.getName(),
+                        "The name of the librarian should match."),
+                () -> assertEquals(librarian.getContact(), responseResult.getContact(), "The phone number of the " +
+                        "librarian should match."),
+                () -> assertNotNull(String.valueOf(responseResult.getAddress()),
+                        "The address of the librarian should not be null."),
+                () -> assertNotNull(String.valueOf(responseResult.getAdmin()),
+                        "The associated admin should not be null."),
+                () -> assertEquals(librarian.getAdmin().getEmail(), responseResult.getAdmin().getEmail(),
+                        "The email of the associated admin should match."),
+                () -> assertTrue(responseResult.getName().contains("test"),
+                        "The librarian's name should contain 'test'."),
+                () -> assertDoesNotThrow(() -> librarianService.createLibrarian(request),
+                        "Creating a librarian should not throw an exception.")
+        );
+
+        // Verify interaction with the repository
+        verify(librarianRepository, times(2)).save(any(Librarian.class));
+    }
+
+    /**
+     * This test ensures that when a librarian is created with an invalid admin ID,
+     * a ResourceNotFoundException is thrown, and the appropriate error message is returned.
+     * Specifically, it verifies that the error message correctly indicates that no admin
+     * was found with the provided ID.
+     */
+    @DisplayName("Should throw ResourceNotFoundException when admin ID is not found during librarian creation")
+    @Test
+    void shouldThrowNotFoundExceptionWhenAdminIdIsNotFoundForCreatingLibrarian() {
+        // Given
+        when(librarianRepository.save(any(Librarian.class))).thenReturn(librarian);
+
+        // Then
+        var expectedMessage = assertThrows(ResourceNotFoundException.class,
+                () -> librarianService.createLibrarian(request));
+        var errorMessage = MessageFormat.format(getMessage("library.admin.not_found"), librarian.getAdmin().getId());
+        assertEquals(errorMessage, expectedMessage.getMessage(), "Message should contain 'No Admin found with ID'");
+        assertTrue(expectedMessage.getMessage().contains("No admin found with ID"),
+                "Message should contain the 'No admin found with ID' part");
+
+        // Verify interaction with the repository
+        verify(librarianRepository, never()).save(any(Librarian.class));
+    }
+
+    /**
+     * Test that verifies the creation of a librarian fails with a bad request exception
+     * when the provided librarian data is null.
+     * This simulates a scenario where the librarian creation service is called
+     * with invalid input (null in this case), and checks that the appropriate
+     * exception is thrown and the error message is as expected.
+     *
+     * @throws ResourceBadRequestException if the librarian data is null
+     */
+    @DisplayName("Should throw BadRequestException when creating a librarian with null data")
+    @Test
+    void shouldThrowBadRequestExceptionWhenCreatingLibrarianIsNull() {
+        // Given
+        when(librarianRepository.save(any(Librarian.class))).thenReturn(librarian);
+
+        // Then
+        var expectedMessage = assertThrows(ResourceBadRequestException.class,
+                () -> librarianService.createLibrarian(null));
+
+        var errorMessage =
+                MessageFormat.format(getMessage("library.librarian.cannot_be_null"), librarian.getAdmin().getId());
+        assertEquals(errorMessage, expectedMessage.getMessage(), "Message should contain 'No Admin found with ID'");
+        assertTrue(expectedMessage.getMessage().contains("Cannot create a librarian"),
+                "Should contain the same message");
+
+        // Verify interaction with the repository
+        verify(librarianRepository, never()).save(any(Librarian.class));
+    }
+
+    @DisplayName("Should throw ResourceConflictException when email already exists")
+    @Test
+    void shouldThrowResourceConflictExceptionWhenEmailExists() {
+        // Given
+        var librarianRequest = LibrarianRequest.builder()
+                .email("existingEmail@example.com")
+                .contact("+351 934-345-678")
+                .employeeCode("E123")
+                .build();
+        when(librarianRepository.existsLibrarianByEmailAndIdNot(anyString(), anyLong())).thenReturn(true);
+
+        // Then
+        var exception = assertThrows(ResourceConflictException.class, () -> {
+            librarianService.validateAndCheckLibrarianUniqueFieldsForUpdate(librarianRequest, 1L);
+        });
+
+        // Verify the error message
+        assertEquals("library.librarian.email_exists", exception.getMessage());
+    }
+
+    @DisplayName("Should throw ResourceConflictException when contact already exists")
+    @Test
+    void shouldThrowResourceConflictExceptionWhenContactExists() {
+        // Given
+        when(librarianRepository.existsLibrarianByContactAndIdNot(anyString(), anyLong())).thenReturn(true);
+
+        // Then
+        var exception = assertThrows(ResourceConflictException.class, () -> {
+            librarianService.validateAndCheckLibrarianUniqueFieldsForUpdate(request, 1L);
+        });
+
+        // Verify the error message
+        assertEquals("library.librarian.contact_exists", exception.getMessage());
+    }
+
+    @DisplayName("Should throw ResourceConflictException when employee code already exists")
+    @Test
+    void shouldThrowResourceConflictExceptionWhenEmployeeCodeExists() {
+        // Given
+        when(librarianRepository.existsLibrarianByEmployeeCodeAndIdNot(anyString(), anyLong())).thenReturn(true);
+
+        // Then
+        var exception = assertThrows(ResourceConflictException.class, () -> {
+            librarianService.validateAndCheckLibrarianUniqueFieldsForUpdate(request, 1L);
+        });
+
+        // Verify the error message
+        assertEquals("librarian.employee_with_code_Already_exists", exception.getMessage());
+    }
+
+    @DisplayName("Should catch DataIntegrityViolationException and throw ResourceConflictException")
+    @Test
+    void shouldCatchDataIntegrityViolationExceptionAndThrowResourceConflictException() {
+        // Given
+        when(adminRepository.findById(anyLong())).thenReturn(Optional.of(testDataHelper.createAdmin()));
+        when(librarianRepository.save(any(Librarian.class))).thenThrow(DataIntegrityViolationException.class);
+
+        // Then
+        var message = "A librarian with the email test@test.com and contact +351 123-235-345 already exists.";
+        var exception = assertThrows(ResourceConflictException.class, () -> {
+            librarianService.createLibrarian(request);
+        });
+
+        // Verify the error message
+        assertEquals(message, exception.getMessage(), "conatins the same message");
+        assertTrue(exception.getMessage().contains("A librarian with the email"), "Should contain the same message");
+
+        verify(adminRepository, times(1)).findById(anyLong());
     }
 
 }
