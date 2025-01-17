@@ -165,7 +165,8 @@ public class LibrarianService implements ILibrarian {
             Long adminId = ((Number) updates.get(ADMIN)).longValue();
             var admin = adminRepository.findById(adminId)
                     .orElseThrow(() -> new ResourceNotFoundException("Admin not found with ID: " + adminId));
-            existingLibrarian.setAdmin(admin);  // Set associated admin
+            existingLibrarian.setAdmin(admin);
+            // Set associated admin
             updates.remove(ADMIN);
         }
 
