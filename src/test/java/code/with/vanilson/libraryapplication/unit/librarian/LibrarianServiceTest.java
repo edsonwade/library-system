@@ -1,6 +1,7 @@
 package code.with.vanilson.libraryapplication.unit.librarian;
 
 import code.with.vanilson.libraryapplication.TestDataHelper;
+import code.with.vanilson.libraryapplication.admin.AdminMapper;
 import code.with.vanilson.libraryapplication.admin.AdminRepository;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceBadRequestException;
 import code.with.vanilson.libraryapplication.common.exceptions.ResourceConflictException;
@@ -13,6 +14,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 
 import java.text.MessageFormat;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static code.with.vanilson.libraryapplication.common.utils.MessageProvider.getMessage;
@@ -321,6 +323,30 @@ class LibrarianServiceTest {
         assertEquals("library.librarian.email_exists", exception.getMessage());
     }
 
+    @Test
+    void findLibrarinByEmail_shouldReturnLibrarian() {
+        // Given
+        var email = "test@test.com";
+        when(librarianRepository.findLibrariansByEmail(anyString())).thenReturn(Optional.of(librarian));
+        //Wehn
+        var response = librarianService.getLibrarianByEmail(email);
+
+        //Then
+        assertNotNull(response);
+        assertEquals(email, response.getEmail());
+        // Verify the error message
+        verify(librarianRepository, times(1)).findLibrariansByEmail(email);
+    }
+
+    @Test
+    void findLibrarinByEmail_shouldThrowNotFoundException_WhenProvideEmailDoesNotExist() {
+        // Given
+        var email = "librariantest.test";
+        when(librarianRepository.findLibrariansByEmail(anyString())).thenReturn(Optional.empty());
+        //Wehn
+        assertThrows(ResourceNotFoundException.class, () -> librarianService.getLibrarianByEmail(email));
+    }
+
     @DisplayName("Should throw ResourceConflictException when contact already exists")
     @Test
     void shouldThrowResourceConflictExceptionWhenContactExists() {
@@ -369,6 +395,222 @@ class LibrarianServiceTest {
         assertTrue(exception.getMessage().contains("A librarian with the email"), "Should contain the same message");
 
         verify(adminRepository, times(1)).findById(anyLong());
+    }
+
+    @DisplayName("Should update librarian when librarian is saved")
+    @Test
+    void updateLibrarian_WhenLibrarianIsSave() {
+        // Given
+        when(adminRepository.findById(anyLong())).thenReturn(Optional.of(testDataHelper.createAdmin()));
+        when(librarianRepository.findById(anyLong())).thenReturn(Optional.of(librarian));
+        when(librarianRepository.save(any(Librarian.class))).thenReturn(librarian);
+        //When
+        var librarianResponse = librarianService.updateLibrarian(request, 1L);
+        //Then
+        assertNotNull(librarianResponse);
+        assertEquals(request.getEmail(), librarianResponse.getEmail(), "Should return the same email");
+        assertEquals(request.getContact(), librarianResponse.getContact(), "Should return the same contact");
+        verify(adminRepository, times(1)).findById(anyLong());
+        verify(librarianRepository, times(1)).save(any(Librarian.class));
+    }
+
+    @DisplayName("Should throw NotFoundException when admin ID is not provided")
+    @Test
+    void updateLibrarian_ShouldThrowNotFoundException_WhenAdminIdIsNotProvided() {
+        // When
+        when(librarianRepository.save(any(Librarian.class))).thenReturn(librarian);
+        //Then
+        assertThrows(ResourceNotFoundException.class, () -> librarianService.updateLibrarian(request, 1L));
+
+        verify(librarianRepository, never()).save(any(Librarian.class));
+
+    }
+
+    @DisplayName("Should throw BadRequestException when librarian is null")
+    @Test
+    void updateLibrarian_ShouldThrowBadRequestException_WhenLibrarianIsNull() {
+        // When
+        when(adminRepository.findById(anyLong())).thenReturn(Optional.of(testDataHelper.createAdmin()));
+        when(librarianRepository.save(any(Librarian.class))).thenReturn(librarian);
+        //Then
+        assertThrows(ResourceBadRequestException.class, () -> librarianService.updateLibrarian(null, 1L));
+
+        verify(librarianRepository, never()).save(any(Librarian.class));
+
+    }
+
+    @DisplayName("Should throw NotFoundException when librarian ID is not provided")
+    @Test
+    void updateLibrarian_ShouldThrowNotFoundException_WhenLibrarianIdIsNotProvided() {
+        // When
+        when(adminRepository.findById(anyLong())).thenReturn(Optional.of(testDataHelper.createAdmin()));
+        when(librarianRepository.save(any(Librarian.class))).thenReturn(librarian);
+        //Then
+        assertThrows(ResourceNotFoundException.class, () -> librarianService.updateLibrarian(request, 99L));
+
+        verify(librarianRepository, never()).save(any(Librarian.class));
+
+    }
+
+    @DisplayName("Should throw BadRequestException when librarian ID is less than or equal to zero")
+    @Test
+    void updateLibrarian_ShouldThrowNBadRequestException_WhenLibrarianIdIsLessThanOrEqualToZero() {
+        // When
+        when(adminRepository.findById(anyLong())).thenReturn(Optional.of(testDataHelper.createAdmin()));
+        when(librarianRepository.save(any(Librarian.class))).thenReturn(librarian);
+        //Then
+        assertThrows(ResourceBadRequestException.class, () -> librarianService.updateLibrarian(request, -134L));
+
+        verify(librarianRepository, never()).save(any(Librarian.class));
+
+    }
+
+    /**
+     * Verifies that when a valid librarian ID is provided, the corresponding librarian is deleted from the service.
+     * This test ensures that the service correctly deletes a librarian from the repository based on the provided ID.
+     */
+    @DisplayName("Should delete librarian when provided ID is present")
+    @Test
+    void deleteLibrarian_ShouldDelete_WhenProvidedIdIsPresent() {
+        // Given
+        when(librarianRepository.findById(anyLong())).thenReturn(Optional.of(librarian));
+        // When
+        librarianRepository.deleteById(anyLong());
+        librarianService.deleteLibrarianById(1L);
+
+        // Then
+        verify(librarianRepository, times(1)).deleteById(anyLong());
+    }
+
+    /**
+     * Verifies that when an provide librarian ID (is less or eqauls to zero).
+     * a {@link ResourceBadRequestException} is thrown.
+     */
+    @DisplayName("Should throw BadRequestException when provided ID is not present")
+    @Test
+    void deleteLibrarian_shoudThrowBadRequestException_WhenProvidedIdIsLessOrEqualsToZero() {
+        // When
+        var invalidId = 0L;
+        // When
+        var errorMessage = MessageFormat.format(getMessage("library.librarian.bad_request"), null);
+
+        var expectedMessage = assertThrows(ResourceBadRequestException.class,
+                () -> librarianService.deleteLibrarianById(invalidId));
+
+        assertEquals(errorMessage, expectedMessage.getMessage());
+        assertNotNull(String.valueOf(expectedMessage), "Expected message should not be null.");
+        assertTrue(expectedMessage.getMessage().contains("Invalid data provided"),
+                "Message should contain 'Invalid data provided'");
+
+        // Verify that the repository method findById was not called because the exception was thrown
+        verify(librarianRepository, times(0)).findById(invalidId);
+    }
+
+    /**
+     * Verifies that when an invalid librarian ID (not present in the repository) is provided,
+     * a {@link ResourceNotFoundException} is thrown.
+     */
+    @DisplayName("Should throw NotFoundException when provided ID is not present")
+    @Test
+    void deleteLibrarian_ShouldThrowNotFoundException_WhenProvidedIdIsNotPresent() {
+        // Given
+        var invalidId = 99L;
+        // When
+        var errorMessage = MessageFormat.format(getMessage("library.librarian.not_found"), invalidId);
+
+        var expectedMessage = assertThrows(ResourceNotFoundException.class,
+                () -> librarianService.deleteLibrarianById(invalidId));
+
+        assertEquals(errorMessage, expectedMessage.getMessage());
+        assertNotNull(String.valueOf(expectedMessage), "Expected message should not be null.");
+        assertTrue(expectedMessage.getMessage().contains("No librarian found with ID"),
+                "Message should contain 'No librarian found with ID'");
+
+        // Verify that the repository method findById was not called because the exception was thrown
+        verify(librarianRepository, times(1)).findById(invalidId);
+    }
+
+    @Test
+    @DisplayName("Should patch librarian when valid updates are provided")
+    void shouldPatchLibrarian_WhenValidUpdatesAreProvided() {
+        // Given
+        Long librarianId = 1L;
+        Map<String, Object> updates = Map.of(
+                "name", "Updated Name",
+                "email", "updated.email@example.com",
+                "address", testDataHelper.createAddressDTO(),
+                "contact", "+351 987-654-321",
+                "employeeCode", "EMPLO01"
+        );
+        Librarian existingLibrarian =
+                new Librarian("Original Name", "original.email@example.com", testDataHelper.createAddress(),
+                        "+351 123-456-789", "EMPLO01", testDataHelper.createAdmin());
+        existingLibrarian.setAddress(AdminMapper.mapToAddress(testDataHelper.createAddressDTO()));
+
+        when(librarianRepository.findById(librarianId)).thenReturn(Optional.of(existingLibrarian));
+        when(librarianRepository.save(any(Librarian.class))).thenReturn(existingLibrarian);
+
+        // When
+        LibrarianResponse response = librarianService.patchLibrarian(librarianId, updates);
+
+        // Then
+        assertNotNull(response);
+        assertEquals("Updated Name", response.getName());
+        assertEquals("updated.email@example.com", response.getEmail());
+        assertEquals("+351 987-654-321", response.getContact());
+        verify(librarianRepository, times(1)).findById(librarianId);
+        verify(librarianRepository, times(1)).save(existingLibrarian);
+    }
+
+    @Test
+    @DisplayName("Should throw ResourceNotFoundException when librarian ID is not found")
+    void shouldThrowResourceNotFoundException_WhenLibrarianIdIsNotFound() {
+        // Given
+        Long librarianId = 99L;
+        Map<String, Object> updates = Map.of("name", "Updated Name");
+        when(librarianRepository.findById(librarianId)).thenReturn(Optional.empty());
+
+        // When / Then
+        assertThrows(ResourceNotFoundException.class, () -> librarianService.patchLibrarian(librarianId, updates));
+        verify(librarianRepository, times(1)).findById(librarianId);
+        verify(librarianRepository, never()).save(any(Librarian.class));
+    }
+
+    @Test
+    @DisplayName("Should throw ResourceNotFoundException when admin ID is not found")
+    void shouldThrowResourceNotFoundException_WhenAdminIdIsNotFound() {
+        // Given
+        Long librarianId = 1L;
+        Long adminId = 99L;
+        Map<String, Object> updates = Map.of("admin", adminId);
+        Librarian existingLibrarian =
+                new Librarian("Original Name", "original.email@example.com", testDataHelper.createAddress(),
+                        "+351 123-456-789", "EMPLO01", testDataHelper.createAdmin());
+        when(librarianRepository.findById(librarianId)).thenReturn(Optional.of(existingLibrarian));
+        when(adminRepository.findById(adminId)).thenReturn(Optional.empty());
+
+        // When / Then
+        assertThrows(ResourceNotFoundException.class, () -> librarianService.patchLibrarian(librarianId, updates));
+        verify(librarianRepository, times(1)).findById(librarianId);
+        verify(adminRepository, times(1)).findById(adminId);
+        verify(librarianRepository, never()).save(any(Librarian.class));
+    }
+
+    @Test
+    @DisplayName("Should throw IllegalArgumentException when unsupported field is provided")
+    void shouldThrowIllegalArgumentException_WhenUnsupportedFieldIsProvided() {
+        // Given
+        Long librarianId = 1L;
+        Map<String, Object> updates = Map.of("unsupportedField", "value");
+        Librarian existingLibrarian =
+                new Librarian("Original Name", "original.email@example.com", testDataHelper.createAddress(),
+                        "+351 123-456-789", "EMPLO01", testDataHelper.createAdmin());
+        when(librarianRepository.findById(librarianId)).thenReturn(Optional.of(existingLibrarian));
+
+        // When / Then
+        assertThrows(IllegalArgumentException.class, () -> librarianService.patchLibrarian(librarianId, updates));
+        verify(librarianRepository, times(1)).findById(librarianId);
+        verify(librarianRepository, never()).save(any(Librarian.class));
     }
 
 }
