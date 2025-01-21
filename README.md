@@ -145,7 +145,7 @@ mvn test
 
 For questions or feedback, please reach out to:
 
-- **GitHub**:[edsonwade](https://github.com/edsonwade) 🐱
+- **GitHub**: [edsonwade](https://github.com/edsonwade) 🐱
 
 ### License
 
