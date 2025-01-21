@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.springframework.security.test.context.support.WithMockUser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
@@ -16,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0
  * @since 2025-01-10
  */
+@WithMockUser(username = "admin", roles = "ADMIN")
 class AdminE2ETest {
 
     // todo: Set the path to the chromedriver executable ,need to install

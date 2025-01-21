@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
@@ -30,6 +31,7 @@ import static org.hamcrest.Matchers.notNullValue;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @SuppressWarnings("all")
+@AutoConfigureMockMvc
 class AdminIntegrationTest {
 
     public static final String APPLICATION_HAL_JSON = " application/hal+json";
@@ -118,6 +120,7 @@ class AdminIntegrationTest {
                 .then()
                 .statusCode(HttpStatus.NOT_FOUND.value());
     }
+
     @Test
     @DisplayName("Get Admin by Email - Success")
     void testGetAdminByEmail_Success() {

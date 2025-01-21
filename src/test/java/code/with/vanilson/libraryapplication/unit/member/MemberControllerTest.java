@@ -1,6 +1,9 @@
 package code.with.vanilson.libraryapplication.unit.member;
 
-import code.with.vanilson.libraryapplication.member.*;
+import code.with.vanilson.libraryapplication.member.MemberRequest;
+import code.with.vanilson.libraryapplication.member.MemberResponse;
+import code.with.vanilson.libraryapplication.member.MemberService;
+import code.with.vanilson.libraryapplication.member.MembershipStatus;
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,10 +11,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -25,8 +30,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(MemberController.class)
 @DisplayName("Member Controller Test")
+@AutoConfigureMockMvc(addFilters = false)
+@SpringBootTest
+@ActiveProfiles(profiles = "test")
 class MemberControllerTest {
     private static final long ID = 1L;
     public static final String INVALID_INPUT_DATA = "Invalid input data.";
@@ -124,7 +131,8 @@ class MemberControllerTest {
                 // Assert: Expect 201 status code and validate the response fields
                 .andExpect(status().isCreated())  // Expect 201 status code
                 .andExpect(jsonPath("$.id").value(1))  // Validate that the response contains ID 1
-                .andExpect(jsonPath("$.name").value("John Doe"));  // Validate that the response contains the correct name
+                .andExpect(
+                        jsonPath("$.name").value("John Doe"));  // Validate that the response contains the correct name
     }
 
     /**
