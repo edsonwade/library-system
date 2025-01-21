@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.test.context.support.WithMockUser;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +37,7 @@ import static org.mockito.Mockito.*;
  */
 @SuppressWarnings("all")
 @DisplayName("Member Service Test")
+@WithMockUser(username = "admin", roles = "ADMIN")
 class MemberServiceTest {
 
     public static final String EMAIL = "john.doe@example.com";

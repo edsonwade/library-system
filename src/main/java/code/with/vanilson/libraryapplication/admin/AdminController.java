@@ -137,7 +137,6 @@ public class AdminController {
      * </ul>
      * </p>
      */
-
     @PostMapping(value = "/create-admin")
     public ResponseEntity<AdminResponse> createAdmin(@RequestBody @Valid AdminRequest adminRequest) {
         var adminResponse = adminService.createAdmin(adminRequest);
@@ -193,7 +192,6 @@ public class AdminController {
      * @param adminId The ID of the admin to be deleted.
      * @return ResponseEntity containing a message indicating the result of the deletion operation.
      */
-
     @DeleteMapping("/delete-admin/{adminId}")
     public ResponseEntity<String> deleteAdmin(@PathVariable Long adminId) throws JsonProcessingException {
         adminService.deleteAdmin(adminId);

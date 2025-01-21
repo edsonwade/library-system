@@ -10,9 +10,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Collections;
@@ -25,8 +27,10 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(AdminController.class)
 @DisplayName("Test Admin Controller")
+@AutoConfigureMockMvc(addFilters = false) //skip CSRF token .. not best solution.
+@SpringBootTest
+@ActiveProfiles(profiles = "test")
 class AdminControllerTest {
 
     @Autowired
@@ -144,6 +148,7 @@ class AdminControllerTest {
      */
     @DisplayName("Retrieve all admins - should return HTTP 204 No Content when no admins exist")
     @Test
+    
     void shouldReturnEmptyListAndExpectedStatusWhenNoAdminsExist() throws Exception {
         when(adminService.getAllAdmins()).thenReturn(Collections.emptyList());
         // Act: Perform the GET request
@@ -162,6 +167,7 @@ class AdminControllerTest {
      */
     @DisplayName("Retrieve admins - should return HTTP 400 Bad Request when the admin list is null")
     @Test
+    
     void retrieveAdmins_ShouldReturnBadRequest_WhenNoAdminsExist() throws Exception {
         // Arrange: Mock the service to throw a ResourceBadRequestException
         var expectedMessage = formatMessage(getMessage("library.admin.cannot_be_null", (Object) null));
@@ -185,6 +191,7 @@ class AdminControllerTest {
      */
     @DisplayName("Retrieve a specific admin by provide the id - should return HTTP 200 OK and the admin details")
     @Test
+    
     void retrieveExistingAdminsReturnsExpectedStatusAndAdmin() throws Exception {
         // Arrange: Prepare the response for all admins (mocked)
         when(adminService.getAdminById(adminResponse.getId())).thenReturn(adminResponse);
@@ -219,6 +226,7 @@ class AdminControllerTest {
      */
     @DisplayName("Retrieve a specific admin by providing the ID - should return HTTP 404 Not Found")
     @Test
+    
     void retrieveAdmins_ShouldReturnNotFound_WhenNoAdminsExist() throws Exception {
         // Arrange: Mock the service to throw a ResourceNotFoundException
         var nonExistentAdminId = 999L;
@@ -244,6 +252,7 @@ class AdminControllerTest {
      */
     @DisplayName("Retrieve a specific admin by provide the email - should return HTTP 200 OK and the admin details")
     @Test
+    
     void retrieveExistingAdminsByEmailAndReturnsTheExpectedStatusAndAdmin() throws Exception {
         // Arrange: Prepare the response for all admins (mocked)
         when(adminService.getAdminByEmail(adminResponse.getEmail())).thenReturn(adminResponse);
@@ -269,6 +278,7 @@ class AdminControllerTest {
 
     @DisplayName("Retrieve a specific admin by providing the email - should return HTTP 404 Not Found")
     @Test
+    
     void retrieveAdminsByEmail_ShouldReturnNotFound_WhenNoAdminsExist() throws Exception {
         // Arrange: Prep"are the response for all admins (mocked)
         var email = "test@test.test";
@@ -293,6 +303,7 @@ class AdminControllerTest {
      */
     @DisplayName("Create a new admin - should return HTTP 201 Created and the admin details")
     @Test
+    
     void createAdmin_ShouldReturnCreatedStatusAndAdmin() throws Exception {
         // Arrange
 
@@ -330,6 +341,7 @@ class AdminControllerTest {
      */
     @Test
     @DisplayName("Create a new admin - should return HTTP 400 Bad Request when admin request is null")
+    
     void createAdmin_returnsBadRequest_whenAdminRequestIsNull() throws Exception {
         // Arrange
         var expectedMessage =
@@ -346,6 +358,7 @@ class AdminControllerTest {
 
     @Test
     @DisplayName("Create a new admin - should return HTTP 400 Bad Request when name is missing")
+    
     void createAdmin_returnsBadRequest_whenNameIsMissing() throws Exception {
         // Arrange
         var adminRequestNew = new AdminRequest();
@@ -370,6 +383,7 @@ class AdminControllerTest {
 
     @Test
     @DisplayName("Create a new admin - should return HTTP 400 Bad Request when email is invalid")
+    
     void createAdmin_returnsBadRequest_whenEmailIsInvalid() throws Exception {
         // Arrange
         var newAdminReq = new AdminRequest();
@@ -395,6 +409,7 @@ class AdminControllerTest {
 
     @Test
     @DisplayName("Create a new admin - should return HTTP 409 Conflict when email already exists")
+    
     void createAdmin_returnsConflict_whenEmailAlreadyExists() throws Exception {
         // Arrange
         var request = new AdminRequest();
@@ -434,6 +449,7 @@ class AdminControllerTest {
      * @throws Exception if the request fails
      */
     @DisplayName("Update an existing admin - should return HTTP 200 OK and the updated admin details")
+    
     @Test
     void updateAdmin_ShouldReturnOkStatusAndUpdatedAdmin() throws Exception {
         // Arrange
@@ -468,6 +484,7 @@ class AdminControllerTest {
      * @throws Exception if the request fails
      */
     @DisplayName("Update an existing admin - should return HTTP 404 Not Found when admin does not exist")
+    
     @Test
     void updateAdmin_ShouldReturnNotFound_WhenAdminDoesNotExist() throws Exception {
         // Arrange
@@ -495,6 +512,7 @@ class AdminControllerTest {
      */
     @Test
     @DisplayName("Delete an existing admin - should return HTTP 200 OK and a success message")
+    
     void deleteAdmin_ShouldReturnOkStatusAndSuccessMessage() throws Exception {
         // Arrange
         doNothing().when(adminService).deleteAdmin(adminResponse.getId());
@@ -513,6 +531,7 @@ class AdminControllerTest {
     @Test
     @DisplayName(
             "Delete an existing admin - should return HTTP 400 Bad Request when admin provide value is equal to or less than zero")
+    
     void deleteAdmin_ShouldThrownBadRequestWhenTheValueIsEqualsOrLessThanZero() throws Exception {
         // Arrange
         Long invalidAdminId = 0L; // or any value less than or equal to zero
@@ -537,6 +556,7 @@ class AdminControllerTest {
      */
     @DisplayName("Delete an existing admin - should return HTTP 404 Not Found when admin does not exist")
     @Test
+    
     void deleteAdmin_ShouldReturnNotFound_WhenAdminDoesNotExist() throws Exception {
         // Arrange
         Long invalidAdminId = 999L; // or any value less than or equal to zero
