@@ -30,6 +30,11 @@ management:
     metrics:
       enabled: true
 
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:my-secret-key}
+
 springdoc:
   api-docs:
     path: /v3/api-docs

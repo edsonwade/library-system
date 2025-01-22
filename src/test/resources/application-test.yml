@@ -12,3 +12,8 @@ spring:
       ddl-auto: update
     show-sql: true
     open-in-view: false
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:my-secret-key}
