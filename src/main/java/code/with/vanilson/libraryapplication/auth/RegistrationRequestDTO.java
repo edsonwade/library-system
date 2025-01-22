@@ -2,5 +2,5 @@ package code.with.vanilson.libraryapplication.auth;
 
 import code.with.vanilson.libraryapplication.user.Role;
 
-public record RegisterDTO(String login, String password, Role role) {
+public record RegistrationRequestDTO(String login, String password, Role role) {
 }

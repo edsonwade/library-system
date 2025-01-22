@@ -1,4 +1,4 @@
-package code.with.vanilson.libraryapplication.auth;
+package code.with.vanilson.libraryapplication.security;
 
 import code.with.vanilson.libraryapplication.user.UserRepository;
 import jakarta.validation.constraints.NotNull;
@@ -8,15 +8,20 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class AuthorizationService implements UserDetailsService {
+public class CustomUserDetailsService implements UserDetailsService {
     private final UserRepository userRepository;
 
-    public AuthorizationService(UserRepository userRepository) {
+    public CustomUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(@NotNull String username) throws UsernameNotFoundException {
-        return userRepository.findUserByLogin(username);
+        var userDetails = userRepository.findUserByLogin(username);
+        if (userDetails == null) {
+            throw new UsernameNotFoundException("User not found with username: " + username);
+        }
+        return userDetails;
     }
+
 }

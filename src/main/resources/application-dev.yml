@@ -15,11 +15,10 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
-      format_sql: true
-      show-sql: true
-    database:
-      platform: postgresql
+    database-platform: postgresql
     open-in-view: true
+    show-sql: true
+    format-sql: true
 
 management:
   endpoints:
@@ -29,6 +28,18 @@ management:
   endpoint:
     health:
       show-details: always
+  appoptics:
+    metrics:
+      export:
+        api-token:
+  datadog:
+    metrics:
+      export:
+        api-key:
+  dynatrace:
+    metrics:
+      export:
+        api-token:
 
 springdoc:
   api-docs:
@@ -39,6 +50,11 @@ springdoc:
     tagsSorter: alpha
     default-sort: method,asc
 
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:my-secret-key}   # default to my-secret-key if not found
 
 
   flyway:
