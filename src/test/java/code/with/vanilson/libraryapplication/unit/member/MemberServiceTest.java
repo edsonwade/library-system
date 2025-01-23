@@ -17,6 +17,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.test.context.support.WithMockUser;
 
 import java.util.List;
@@ -106,7 +107,7 @@ class MemberServiceTest {
         MemberResponse response = memberService.getMemberById(MEMBER_ID);
         // Then
         assertThat(response.getName()).isEqualTo(JOHN_DOE);
-        verify(memberRepository, times(1)).findById(MEMBER_ID);
+        verify(memberRepository).findById(MEMBER_ID);
     }
 
     /**
@@ -120,7 +121,8 @@ class MemberServiceTest {
     @DisplayName("Should throw ResourceBadRequestException when invalid ID is provided")
     void shouldThrowBadRequestException_WhenInvalidIdIsProvided() {
         // Act & Assert
-        assertThrows(ResourceBadRequestException.class, () -> memberService.getMemberById(INVALID_ID));
+        assertThrows(ResourceBadRequestException.class, () -> memberService.getMemberById(INVALID_ID), "should have " +
+                "thrown ResourceBadRequestException when invalid ID is provided");
     }
 
     /**
@@ -179,35 +181,6 @@ class MemberServiceTest {
         // Act & Assert: Try to retrieve a member by email and expect ResourceNotFoundException
         assertThrows(ResourceNotFoundException.class,
                 () -> memberService.getMemberByEmail(EMAIL));
-    }
-
-    /**
-     * Tests the scenario when a member with the given email already exists.
-     * This should throw a ResourceConflictException to indicate a conflict.
-     *
-     * @throws Exception if an error occurs during the request.
-     */
-    @Test
-    @DisplayName("Should throw ResourceConflictException when email already exists")
-    @Disabled("This test is disabled because the method is not implemented yet.")
-    void shouldThrowResourceConflictException_WhenEmailAlreadyExists() {
-        // Arrange: Mock the repository to return an existing member when searching by email
-        when(adminRepository.findById(anyLong())).thenReturn(Optional.of(admin));
-        when(librarianRepository.findById(anyLong())).thenReturn(Optional.of(librarian));
-        when(memberRepository.findMemberByEmail(EMAIL)).thenReturn(Optional.of(member));
-
-        // Act & Assert: Try to create a new member with an already existing email and expect ResourceConflictException
-        var memberRequests = new MemberRequest();
-        memberRequests.setName(JOHN_DOE);
-        memberRequests.setEmail(EMAIL);  // Set the email that already exists
-        memberRequests.setContact("+123 456-789-123");
-        memberRequests.setAddress(auxiliarMethodToAddressDTO());
-        memberRequests.setMembershipStatus(MembershipStatus.ACTIVE);
-        memberRequests.setLibrarianId(1L);
-        memberRequests.setAdminId(2L);
-
-        assertThrows(ResourceConflictException.class,
-                () -> memberService.createMember(memberRequests));
     }
 
     /**
@@ -375,10 +348,73 @@ class MemberServiceTest {
     void shouldThrowNotFoundException_WhenMemberNotFoundByIdForDeletion() {
         // Arrange
         when(memberRepository.existsById(MEMBER_ID)).thenReturn(false);
-
         // Act & Assert
         assertThrows(ResourceNotFoundException.class,
                 () -> memberService.deleteMemberById(MEMBER_ID));
+
+        verify(memberRepository, never()).deleteById(MEMBER_ID);
+    }
+
+    @DisplayName("Should catch DataIntegrityViolationException and throw ResourceConflictException")
+    @Test
+    void shouldCatchDataIntegrityViolationExceptionAndThrowResourceConflictException() {
+        // Given
+        when(adminRepository.findById(anyLong())).thenReturn(Optional.of(admin));
+        when(librarianRepository.findById(anyLong())).thenReturn(Optional.of(librarian));
+        when(memberRepository.save(any(Member.class))).thenThrow(DataIntegrityViolationException.class);
+
+        // Then
+        var message = "A member with the email john.doe@example.com and contact +123 456-789-123 already exists.";
+        var exception = assertThrows(ResourceConflictException.class, () -> {
+            memberService.createMember(memberRequest);
+        });
+
+        // Verify the error message
+        assertEquals(message, exception.getMessage(), "expected the same message");
+        assertTrue(exception.getMessage().contains("A member with the email"), "Should contain the same message");
+
+        verify(adminRepository).findById(anyLong());
+    }
+
+    @Test
+    void findMemberByEmail_shouldThrowNotFoundException_WhenProvideEmailDoesNotExist() {
+        // Given
+        var email = "member@test.test";
+        when(memberRepository.findMemberByEmail(anyString())).thenReturn(Optional.empty());
+        //Wehn
+        assertThrows(ResourceNotFoundException.class, () -> memberService.getMemberByEmail(email));
+    }
+
+    @DisplayName("Should throw ResourceConflictException when contact already exists")
+    @Test
+    void shouldThrowResourceConflictExceptionWhenContactExists() {
+        // Given
+        when(memberRepository.existsMemberByContactAndIdNot(anyString(), anyLong())).thenReturn(true);
+
+        // Then
+        var exception = assertThrows(ResourceConflictException.class, () -> {
+            memberService.validateAndCheckMemberUniqueFieldsForUpdate(memberRequest);
+        });
+
+        // Verify the error message
+        assertEquals("library.member.contact_exists", exception.getMessage());
+    }
+
+    @DisplayName("Should throw ResourceConflictException when email already exists")
+    @Test
+    void shouldThrowResourceConflictException_WhenEmailAlreadyExists() {
+        // Given
+        when(memberRepository.existsMemberByEmailAndIdNot(anyString(), anyLong())).thenReturn(true);
+
+        // Then
+        var exception = assertThrows(ResourceConflictException.class, () -> {
+            memberService.validateAndCheckMemberUniqueFieldsForUpdate(memberRequest);
+        });
+
+        // Verify the error message
+        assertEquals("library.member.email_exists", exception.getMessage());
+
+        verify(memberRepository).existsMemberByEmailAndIdNot(anyString(), anyLong());
     }
 
     // Helper methods to avoid repetition in tests
