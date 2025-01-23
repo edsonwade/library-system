@@ -8505,3 +8505,1029 @@ java.lang.IllegalStateException: ApplicationContext failure threshold (1) exceed
 2025-01-23 20:43:45,817 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-01-23 20:43:45,819 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown initiated...
 2025-01-23 20:43:45,823 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown completed.
+2025-01-23 20:59:14,751 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-23 20:59:14,949 INFO  [main] c.w.v.l.b.s.CucumberSpringConfiguration: Starting CucumberSpringConfiguration using Java 17.0.8 with PID 23748 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 20:59:14,950 DEBUG [main] c.w.v.l.b.s.CucumberSpringConfiguration: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 20:59:14,952 INFO  [main] c.w.v.l.b.s.CucumberSpringConfiguration: The following 1 profile is active: "test"
+2025-01-23 20:59:18,948 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:18,952 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 20:59:19,047 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:19,052 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:19,056 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:19,059 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:19,061 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:19,067 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:19,070 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 105 ms. Found 0 JDBC repository interfaces.
+2025-01-23 20:59:19,095 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:19,099 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 20:59:19,222 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 111 ms. Found 6 JPA repository interfaces.
+2025-01-23 20:59:20,801 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2025-01-23 20:59:21,571 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 20:59:21,575 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2025-01-23 20:59:21,785 INFO  [main] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2025-01-23 20:59:21,786 INFO  [main] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2025-01-23 20:59:21,787 INFO  [main] o.f.c.i.license.VersionPrinter: 
+2025-01-23 20:59:21,936 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 20:59:21,949 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 20:59:22,005 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2025-01-23 20:59:22,014 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.038s)
+2025-01-23 20:59:22,033 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2025-01-23 20:59:22,094 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": << Empty Schema >>
+2025-01-23 20:59:22,119 INFO  [main] o.f.core.internal.command.DbMigrate: Migrating schema "PUBLIC" to version "1 - CREATE ENTITIES TABLE"
+2025-01-23 20:59:22,225 INFO  [main] o.f.core.internal.command.DbMigrate: Migrating schema "PUBLIC" to version "2 - CREATE USER TABLE"
+2025-01-23 20:59:22,238 INFO  [main] o.f.core.internal.command.DbMigrate: Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.090s)
+2025-01-23 20:59:22,468 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 20:59:22,638 INFO  [main] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2025-01-23 20:59:22,740 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 20:59:23,294 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 20:59:26,227 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 20:59:26,336 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:29,424 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 20:59:29,579 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5bf4454c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1225750a, org.springframework.security.web.context.SecurityContextHolderFilter@7cfa70d5, org.springframework.security.web.header.HeaderWriterFilter@4b4807e0, org.springframework.security.web.authentication.logout.LogoutFilter@5105afad, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@36d97d00, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@76a0d43b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@9c98bf6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@58f6464e, org.springframework.security.web.session.SessionManagementFilter@31bd3c7, org.springframework.security.web.access.ExceptionTranslationFilter@30153a85, org.springframework.security.web.access.intercept.AuthorizationFilter@6d1902d6]
+2025-01-23 20:59:29,598 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 20:59:29,599 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 20:59:31,286 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 20:59:31,454 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 20:59:31,457 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-23 20:59:31,457 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 20:59:31,460 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-23 20:59:31,614 INFO  [main] c.w.v.l.b.s.CucumberSpringConfiguration: Started CucumberSpringConfiguration in 18.036 seconds (process running for 22.103)
+2025-01-23 20:59:32,690 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:32,722 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2025-01-23 20:59:32,756 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 20:59:32,947 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:32,949 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2025-01-23 20:59:32,956 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 20:59:33,158 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:33,186 INFO  [main] c.w.v.l.member.MemberController: retrieve member by id 1
+2025-01-23 20:59:33,245 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:33,818 INFO  [main] c.w.v.l.member.MemberService: member deleted successfully with ID 1
+2025-01-23 20:59:33,847 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2025-01-23 20:59:34,094 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.integration.admin.AdminIntegrationTest]: AdminIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 20:59:34,135 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.integration.admin.AdminIntegrationTest
+2025-01-23 20:59:34,146 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 20:59:34,233 INFO  [main] c.w.v.l.i.admin.AdminIntegrationTest: Starting AdminIntegrationTest using Java 17.0.8 with PID 23748 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 20:59:34,234 DEBUG [main] c.w.v.l.i.admin.AdminIntegrationTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 20:59:34,235 INFO  [main] c.w.v.l.i.admin.AdminIntegrationTest: The following 1 profile is active: "test"
+2025-01-23 20:59:35,024 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:35,025 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 20:59:35,054 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:35,055 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:35,056 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:35,057 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:35,058 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:35,059 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:35,060 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 34 ms. Found 0 JDBC repository interfaces.
+2025-01-23 20:59:35,065 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:35,066 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 20:59:35,113 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 47 ms. Found 6 JPA repository interfaces.
+2025-01-23 20:59:35,657 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 0 (http)
+2025-01-23 20:59:35,684 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-auto-1"]
+2025-01-23 20:59:35,689 INFO  [main] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2025-01-23 20:59:35,691 INFO  [main] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2025-01-23 20:59:35,938 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2025-01-23 20:59:35,939 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1698 ms
+2025-01-23 20:59:36,054 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Starting...
+2025-01-23 20:59:36,057 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 20:59:36,059 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Start completed.
+2025-01-23 20:59:36,060 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 20:59:36,199 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 20:59:36,204 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 20:59:36,219 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.010s)
+2025-01-23 20:59:36,222 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 20:59:36,224 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 20:59:36,294 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 20:59:36,305 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 20:59:36,321 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 20:59:36,726 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 20:59:36,741 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:36,917 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 20:59:37,542 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 20:59:37,587 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@651af8ba, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f846fa8, org.springframework.security.web.context.SecurityContextHolderFilter@25fe76d9, org.springframework.security.web.header.HeaderWriterFilter@2dc65fb0, org.springframework.security.web.authentication.logout.LogoutFilter@480ece86, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@2dc72d9a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@301503df, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@13056397, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@21843f4d, org.springframework.security.web.session.SessionManagementFilter@6ee23dcf, org.springframework.security.web.access.ExceptionTranslationFilter@6deae611, org.springframework.security.web.access.intercept.AuthorizationFilter@7c58df9e]
+2025-01-23 20:59:37,599 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 20:59:37,600 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 20:59:38,187 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 20:59:38,188 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring TestDispatcherServlet ''
+2025-01-23 20:59:38,188 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 20:59:38,191 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-23 20:59:38,277 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-auto-1"]
+2025-01-23 20:59:38,360 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 51512 (http) with context path ''
+2025-01-23 20:59:38,381 INFO  [main] c.w.v.l.i.admin.AdminIntegrationTest: Started AdminIntegrationTest in 4.236 seconds (process running for 28.872)
+2025-01-23 20:59:38,766 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 3 has been successfully created.
+2025-01-23 20:59:40,291 INFO  [http-nio-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-23 20:59:40,292 INFO  [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2025-01-23 20:59:40,293 INFO  [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet: Completed initialization in 1 ms
+2025-01-23 20:59:40,305 ERROR [http-nio-auto-1-exec-1] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:40,326 ERROR [http-nio-auto-1-exec-1] c.w.v.l.admin.AdminService: The admin email nonexistent@test.test provide not found 
+2025-01-23 20:59:40,515 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 5 has been successfully created.
+2025-01-23 20:59:40,540 ERROR [http-nio-auto-1-exec-2] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:41,780 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 7 has been successfully created.
+2025-01-23 20:59:41,933 ERROR [http-nio-auto-1-exec-4] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:42,064 INFO  [http-nio-auto-1-exec-4] c.w.v.l.admin.AdminService: The admin with ID 7 has been successfully updated.
+2025-01-23 20:59:42,076 INFO  [http-nio-auto-1-exec-4] c.w.v.l.admin.AdminController: Updated admin with ID: 7
+2025-01-23 20:59:42,178 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 9 has been successfully created.
+2025-01-23 20:59:42,205 ERROR [http-nio-auto-1-exec-5] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:42,210 INFO  [http-nio-auto-1-exec-5] c.w.v.l.admin.AdminService: The admin with ID 9 has been successfully deleted.
+2025-01-23 20:59:42,249 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 11 has been successfully created.
+2025-01-23 20:59:42,285 ERROR [http-nio-auto-1-exec-6] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:42,321 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 13 has been successfully created.
+2025-01-23 20:59:42,340 ERROR [http-nio-auto-1-exec-7] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:42,343 ERROR [http-nio-auto-1-exec-7] c.w.v.l.admin.AdminService: No admin found with ID 999. Please verify the ID and try again.
+2025-01-23 20:59:42,376 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 15 has been successfully created.
+2025-01-23 20:59:42,394 ERROR [http-nio-auto-1-exec-8] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:42,401 INFO  [http-nio-auto-1-exec-8] c.w.v.l.admin.AdminService: Retrieving all admins: [Person(id=14, name=John Doe, email=john.doe@example.com, address=Address(street=123 Main St, city=Anytown, state=NY, country=USA, postalCode=12345), contact=+123 456-789-123), Person(id=15, name=Sandro Doe, email=sando@test.test, address=Address(street=123 Main St, city=Anytown, state=NY, country=USA, postalCode=12345), contact=+345 456-789-123)]
+2025-01-23 20:59:42,458 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 17 has been successfully created.
+2025-01-23 20:59:42,492 ERROR [http-nio-auto-1-exec-9] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:42,500 INFO  [http-nio-auto-1-exec-9] c.w.v.l.admin.AdminService: The admin with ID 18 has been successfully created.
+2025-01-23 20:59:42,502 INFO  [http-nio-auto-1-exec-9] c.w.v.l.admin.AdminController: Created a new admin with ID: 18
+2025-01-23 20:59:42,581 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 20 has been successfully created.
+2025-01-23 20:59:42,596 ERROR [http-nio-auto-1-exec-10] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:42,599 INFO  [http-nio-auto-1-exec-10] c.w.v.l.admin.AdminService: Retrieving book with ID: 999
+2025-01-23 20:59:42,601 ERROR [http-nio-auto-1-exec-10] c.w.v.l.admin.AdminService: Admin 999 not found
+2025-01-23 20:59:42,627 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 22 has been successfully created.
+2025-01-23 20:59:42,642 ERROR [http-nio-auto-1-exec-1] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:42,646 INFO  [http-nio-auto-1-exec-1] c.w.v.l.admin.AdminService: Retrieving book with ID: 22
+2025-01-23 20:59:42,721 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.integration.member.MemberControllerIntegrationTest]: MemberControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 20:59:42,749 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.integration.member.MemberControllerIntegrationTest
+2025-01-23 20:59:42,755 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 20:59:42,806 INFO  [main] c.w.v.l.i.m.MemberControllerIntegrationTest: Starting MemberControllerIntegrationTest using Java 17.0.8 with PID 23748 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 20:59:42,807 DEBUG [main] c.w.v.l.i.m.MemberControllerIntegrationTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 20:59:42,808 INFO  [main] c.w.v.l.i.m.MemberControllerIntegrationTest: The following 1 profile is active: "test"
+2025-01-23 20:59:43,469 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:43,470 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 20:59:43,496 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:43,497 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:43,498 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:43,498 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:43,499 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:43,499 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:43,500 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 29 ms. Found 0 JDBC repository interfaces.
+2025-01-23 20:59:43,504 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:43,505 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 20:59:43,556 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 50 ms. Found 6 JPA repository interfaces.
+2025-01-23 20:59:43,795 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 0 (http)
+2025-01-23 20:59:43,796 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-auto-2"]
+2025-01-23 20:59:43,796 INFO  [main] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2025-01-23 20:59:43,797 INFO  [main] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2025-01-23 20:59:43,881 INFO  [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2025-01-23 20:59:43,882 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1071 ms
+2025-01-23 20:59:43,963 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Starting...
+2025-01-23 20:59:43,966 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 20:59:43,967 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Start completed.
+2025-01-23 20:59:43,968 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 20:59:44,057 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 20:59:44,061 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 20:59:44,069 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.006s)
+2025-01-23 20:59:44,074 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 20:59:44,075 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 20:59:44,126 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 20:59:44,134 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 20:59:44,152 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 20:59:44,492 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 20:59:44,500 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:44,571 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 20:59:45,173 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 20:59:45,211 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@277c3af5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e67b6c2, org.springframework.security.web.context.SecurityContextHolderFilter@3d13a7d4, org.springframework.security.web.header.HeaderWriterFilter@1fb8f734, org.springframework.security.web.authentication.logout.LogoutFilter@6efaa45f, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@29c65a2c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36bc918, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@72c3d973, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4ab63fcb, org.springframework.security.web.session.SessionManagementFilter@6c43e746, org.springframework.security.web.access.ExceptionTranslationFilter@2f5a314a, org.springframework.security.web.access.intercept.AuthorizationFilter@7f06da92]
+2025-01-23 20:59:45,220 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 20:59:45,221 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 20:59:45,643 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-auto-2"]
+2025-01-23 20:59:45,659 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 51528 (http) with context path ''
+2025-01-23 20:59:45,670 INFO  [main] c.w.v.l.i.m.MemberControllerIntegrationTest: Started MemberControllerIntegrationTest in 2.915 seconds (process running for 36.161)
+2025-01-23 20:59:45,779 INFO  [http-nio-auto-2-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-23 20:59:45,780 INFO  [http-nio-auto-2-exec-1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2025-01-23 20:59:45,782 INFO  [http-nio-auto-2-exec-1] o.s.web.servlet.DispatcherServlet: Completed initialization in 2 ms
+2025-01-23 20:59:45,785 ERROR [http-nio-auto-2-exec-1] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:45,788 INFO  [http-nio-auto-2-exec-1] c.w.v.l.member.MemberService: Get all member
+2025-01-23 20:59:45,797 INFO  [http-nio-auto-2-exec-1] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 20:59:45,932 ERROR [http-nio-auto-2-exec-2] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:45,938 ERROR [http-nio-auto-2-exec-2] c.w.v.l.member.MemberService: No member found with ID 999
+2025-01-23 20:59:46,005 ERROR [http-nio-auto-2-exec-3] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:46,083 ERROR [http-nio-auto-2-exec-4] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:46,165 ERROR [http-nio-auto-2-exec-5] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:46,171 INFO  [http-nio-auto-2-exec-5] c.w.v.l.member.MemberController: retrieve member by id 6
+2025-01-23 20:59:46,265 ERROR [http-nio-auto-2-exec-7] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 20:59:46,273 ERROR [http-nio-auto-2-exec-7] c.w.v.l.member.MemberService: No member found with ID 999
+2025-01-23 20:59:46,291 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.unit.admin.AdminControllerTest]: AdminControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 20:59:46,326 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.unit.admin.AdminControllerTest
+2025-01-23 20:59:46,334 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 20:59:46,382 INFO  [main] c.w.v.l.u.admin.AdminControllerTest: Starting AdminControllerTest using Java 17.0.8 with PID 23748 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 20:59:46,382 DEBUG [main] c.w.v.l.u.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 20:59:46,384 INFO  [main] c.w.v.l.u.admin.AdminControllerTest: The following 1 profile is active: "test"
+2025-01-23 20:59:47,152 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:47,152 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 20:59:47,176 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:47,177 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:47,177 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:47,178 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:47,178 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:47,178 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:47,179 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 25 ms. Found 0 JDBC repository interfaces.
+2025-01-23 20:59:47,183 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:47,183 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 20:59:47,222 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 38 ms. Found 6 JPA repository interfaces.
+2025-01-23 20:59:47,627 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Starting...
+2025-01-23 20:59:47,630 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 20:59:47,631 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Start completed.
+2025-01-23 20:59:47,644 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 20:59:47,646 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 20:59:47,654 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.006s)
+2025-01-23 20:59:47,659 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 20:59:47,660 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 20:59:47,732 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 20:59:47,740 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 20:59:47,753 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 20:59:48,038 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 20:59:48,044 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:48,675 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 20:59:48,705 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@313110b7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c1debd7, org.springframework.security.web.context.SecurityContextHolderFilter@789e94c6, org.springframework.security.web.header.HeaderWriterFilter@4528508e, org.springframework.security.web.authentication.logout.LogoutFilter@7182e514, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@42a6a062, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@41ba7961, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3ad2ee35, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f9e6408, org.springframework.security.web.session.SessionManagementFilter@4db3451e, org.springframework.security.web.access.ExceptionTranslationFilter@614b01ca, org.springframework.security.web.access.intercept.AuthorizationFilter@7e227c6a]
+2025-01-23 20:59:48,716 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 20:59:48,717 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 20:59:49,081 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 20:59:49,127 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-23 20:59:49,127 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 20:59:49,129 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-23 20:59:49,160 INFO  [main] c.w.v.l.u.admin.AdminControllerTest: Started AdminControllerTest in 2.826 seconds (process running for 39.65)
+2025-01-23 20:59:49,490 INFO  [main] c.w.v.l.admin.AdminController: Updated admin with ID: 1
+2025-01-23 20:59:49,536 INFO  [main] c.w.v.l.admin.AdminController: Created a new admin with ID: 2
+2025-01-23 20:59:49,598 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 2 has been successfully created.
+2025-01-23 20:59:49,609 ERROR [main] c.w.v.l.admin.AdminService: Invalid admin ID: -1
+2025-01-23 20:59:49,614 ERROR [main] c.w.v.l.admin.AdminService: Invalid admin ID: -1
+2025-01-23 20:59:49,620 ERROR [main] c.w.v.l.admin.AdminService: The admin email admin.@out.tst provide not found 
+2025-01-23 20:59:49,637 WARN  [main] c.w.v.l.admin.AdminService: No admins found in the system: null
+2025-01-23 20:59:49,641 INFO  [main] c.w.v.l.admin.AdminService: Retrieving book with ID: 1
+2025-01-23 20:59:49,645 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 1 has been successfully deleted.
+2025-01-23 20:59:49,650 ERROR [main] c.w.v.l.admin.AdminService: No admin found with ID 1. Please verify the ID and try again.
+2025-01-23 20:59:49,658 ERROR [main] c.w.v.l.admin.AdminService: The admin id provide is less than or equal to zero 0 
+2025-01-23 20:59:49,661 INFO  [main] c.w.v.l.admin.AdminService: empty list of admins found in the system: []
+2025-01-23 20:59:49,665 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 2 has been successfully updated.
+2025-01-23 20:59:49,672 INFO  [main] c.w.v.l.admin.AdminService: Retrieving book with ID: 1
+2025-01-23 20:59:49,672 ERROR [main] c.w.v.l.admin.AdminService: Admin 1 not found
+2025-01-23 20:59:49,676 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 1 has been successfully deleted.
+2025-01-23 20:59:49,682 INFO  [main] c.w.v.l.admin.AdminService: Retrieving all admins: [Person(id=1, name=John Doe, email=johndoe@example.com, address=Address(street=123 Main Street, city=New York, state=NY, country=United States, postalCode=10001), contact=+531 990 900 000)]
+2025-01-23 20:59:49,704 ERROR [main] c.w.v.l.librarian.LibrarianMapper: Librarian is nullnull
+2025-01-23 20:59:49,706 ERROR [main] c.w.v.l.librarian.LibrarianMapper: admin is null null 
+2025-01-23 20:59:49,795 ERROR [main] c.w.v.l.librarian.LibrarianService: The librarian id provide is less than or equal to zero 0 
+2025-01-23 20:59:49,808 ERROR [main] c.w.v.l.librarian.LibrarianService: No librarian found with ID 99
+2025-01-23 20:59:49,830 INFO  [main] c.w.v.l.librarian.LibrarianService: Get librarian by email librariantest.test
+2025-01-23 20:59:49,838 INFO  [main] c.w.v.l.librarian.LibrarianService: Get librarian by email test@test.com
+2025-01-23 20:59:49,848 INFO  [main] c.w.v.l.librarian.LibrarianService: The librarian with ID 1 has been successfully deleted.
+2025-01-23 20:59:49,852 ERROR [main] c.w.v.l.librarian.LibrarianService: The librarian id provide is less than or equal to zero 0 
+2025-01-23 20:59:49,873 ERROR [main] c.w.v.l.librarian.LibrarianService: No librarian found with ID 99
+2025-01-23 20:59:49,879 INFO  [main] c.w.v.l.librarian.LibrarianService: Get all librarians
+2025-01-23 20:59:49,889 ERROR [main] c.w.v.l.librarian.LibrarianService: The librarian id provide is less than or equal to zero -134 
+2025-01-23 20:59:49,894 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.unit.member.MemberControllerTest]: MemberControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 20:59:49,925 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.unit.member.MemberControllerTest
+2025-01-23 20:59:49,933 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 20:59:49,967 INFO  [main] c.w.v.l.u.m.MemberControllerTest: Starting MemberControllerTest using Java 17.0.8 with PID 23748 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 20:59:49,967 DEBUG [main] c.w.v.l.u.m.MemberControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 20:59:49,968 INFO  [main] c.w.v.l.u.m.MemberControllerTest: The following 1 profile is active: "test"
+2025-01-23 20:59:50,496 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:50,497 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 20:59:50,526 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:50,527 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:50,527 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:50,528 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:50,528 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:50,528 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 20:59:50,529 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 31 ms. Found 0 JDBC repository interfaces.
+2025-01-23 20:59:50,532 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 20:59:50,533 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 20:59:50,573 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 39 ms. Found 6 JPA repository interfaces.
+2025-01-23 20:59:50,764 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Starting...
+2025-01-23 20:59:50,766 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 20:59:50,767 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Start completed.
+2025-01-23 20:59:50,779 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 20:59:50,781 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 20:59:50,788 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.005s)
+2025-01-23 20:59:50,793 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 20:59:50,794 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 20:59:50,850 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 20:59:50,857 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 20:59:50,866 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 20:59:51,102 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 20:59:51,110 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:51,635 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 20:59:51,660 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4e69d8be, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@787415a, org.springframework.security.web.context.SecurityContextHolderFilter@1e3dff1d, org.springframework.security.web.header.HeaderWriterFilter@4b004ee8, org.springframework.security.web.authentication.logout.LogoutFilter@34aaadbd, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@74949d63, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5703ed69, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@56885c9d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d972740, org.springframework.security.web.session.SessionManagementFilter@205c592, org.springframework.security.web.access.ExceptionTranslationFilter@a3a2127, org.springframework.security.web.access.intercept.AuthorizationFilter@179bd78e]
+2025-01-23 20:59:51,666 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 20:59:51,667 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 20:59:51,997 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 20:59:52,036 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-23 20:59:52,036 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 20:59:52,038 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 1 ms
+2025-01-23 20:59:52,063 INFO  [main] c.w.v.l.u.m.MemberControllerTest: Started MemberControllerTest in 2.131 seconds (process running for 42.554)
+2025-01-23 20:59:52,116 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2025-01-23 20:59:52,144 INFO  [main] c.w.v.l.member.MemberController: retrieve member by id 1
+2025-01-23 20:59:52,153 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 20:59:52,229 INFO  [main] c.w.v.l.member.MemberController: Created a new member with ID: 1
+2025-01-23 20:59:52,239 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2025-01-23 20:59:52,403 ERROR [main] c.w.v.l.member.MemberMapper: admin is null null
+2025-01-23 20:59:52,406 ERROR [main] c.w.v.l.member.MemberMapper: Librarian is null null
+2025-01-23 20:59:52,413 ERROR [main] c.w.v.l.member.MemberMapper: librarian is null null
+2025-01-23 20:59:52,416 ERROR [main] c.w.v.l.member.MemberMapper: librarian is null null
+2025-01-23 20:59:52,419 ERROR [main] c.w.v.l.member.MemberMapper: admin is null null
+2025-01-23 20:59:52,425 ERROR [main] c.w.v.l.member.MemberMapper: member is null null
+2025-01-23 20:59:52,536 INFO  [main] c.w.v.l.member.MemberService: member deleted successfully with ID 1
+2025-01-23 20:59:52,545 ERROR [main] c.w.v.l.member.MemberService: No member found with ID 1
+2025-01-23 20:59:52,562 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2025-01-23 20:59:52,583 ERROR [main] c.w.v.l.member.MemberService: No member found with ID 1
+2025-01-23 20:59:52,591 ERROR [main] c.w.v.l.member.MemberService: The member id provided is less than or equal to zero 0 
+2025-01-23 20:59:52,598 ERROR [main] c.w.v.l.member.MemberService: The librarian id provide is less than or equal to zero 0 
+2025-01-23 20:59:54,135 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:54,138 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2025-01-23 20:59:54,142 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2025-01-23 20:59:54,862 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:54,863 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown initiated...
+2025-01-23 20:59:54,864 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown completed.
+2025-01-23 20:59:55,596 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:55,597 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Shutdown initiated...
+2025-01-23 20:59:55,598 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Shutdown completed.
+2025-01-23 20:59:55,602 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:55,603 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Shutdown initiated...
+2025-01-23 20:59:55,605 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Shutdown completed.
+2025-01-23 20:59:55,608 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 20:59:55,608 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown initiated...
+2025-01-23 20:59:55,611 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown completed.
+2025-01-23 21:05:58,577 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-23 21:05:58,789 INFO  [main] c.w.v.l.b.s.CucumberSpringConfiguration: Starting CucumberSpringConfiguration using Java 17.0.8 with PID 26576 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:05:58,791 DEBUG [main] c.w.v.l.b.s.CucumberSpringConfiguration: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:05:58,793 INFO  [main] c.w.v.l.b.s.CucumberSpringConfiguration: The following 1 profile is active: "test"
+2025-01-23 21:06:03,876 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:06:03,881 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:06:04,025 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:04,036 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:04,041 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:04,045 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:04,048 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:04,053 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:04,056 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 155 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:06:04,083 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:06:04,088 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:06:04,220 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 120 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:06:06,594 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2025-01-23 21:06:07,625 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:06:07,635 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2025-01-23 21:06:08,178 INFO  [main] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2025-01-23 21:06:08,180 INFO  [main] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2025-01-23 21:06:08,181 INFO  [main] o.f.c.i.license.VersionPrinter: 
+2025-01-23 21:06:09,223 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:06:09,340 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:06:09,535 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2025-01-23 21:06:09,548 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.065s)
+2025-01-23 21:06:09,570 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2025-01-23 21:06:09,866 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": << Empty Schema >>
+2025-01-23 21:06:10,032 INFO  [main] o.f.core.internal.command.DbMigrate: Migrating schema "PUBLIC" to version "1 - CREATE ENTITIES TABLE"
+2025-01-23 21:06:10,641 INFO  [main] o.f.core.internal.command.DbMigrate: Migrating schema "PUBLIC" to version "2 - CREATE USER TABLE"
+2025-01-23 21:06:10,708 INFO  [main] o.f.core.internal.command.DbMigrate: Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.609s)
+2025-01-23 21:06:12,192 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:06:13,219 INFO  [main] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2025-01-23 21:06:14,272 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:06:18,060 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:06:29,943 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:06:30,438 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:06:37,500 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:06:37,740 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@94efc28, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@46283e50, org.springframework.security.web.context.SecurityContextHolderFilter@394c3a0f, org.springframework.security.web.header.HeaderWriterFilter@23746f63, org.springframework.security.web.authentication.logout.LogoutFilter@39c8c277, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@36d97d00, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5bdf1de9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44721f5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@57d211ba, org.springframework.security.web.session.SessionManagementFilter@19cb29c7, org.springframework.security.web.access.ExceptionTranslationFilter@76b1d49b, org.springframework.security.web.access.intercept.AuthorizationFilter@3df53090]
+2025-01-23 21:06:37,777 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:06:37,778 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:06:41,564 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:06:43,892 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 21:06:43,895 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-23 21:06:43,897 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 21:06:43,902 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 4 ms
+2025-01-23 21:06:44,513 INFO  [main] c.w.v.l.b.s.CucumberSpringConfiguration: Started CucumberSpringConfiguration in 47.547 seconds (process running for 53.411)
+2025-01-23 21:06:51,355 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:06:51,449 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2025-01-23 21:06:51,514 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 21:06:51,792 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:06:51,795 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2025-01-23 21:06:51,804 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 21:06:52,697 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:06:52,811 INFO  [main] c.w.v.l.member.MemberController: retrieve member by id 1
+2025-01-23 21:06:53,259 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:06:54,664 INFO  [main] c.w.v.l.member.MemberService: member deleted successfully with ID 1
+2025-01-23 21:06:54,741 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2025-01-23 21:06:55,106 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.integration.admin.AdminIntegrationTest]: AdminIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 21:06:55,163 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.integration.admin.AdminIntegrationTest
+2025-01-23 21:06:55,176 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 21:06:55,321 INFO  [main] c.w.v.l.i.admin.AdminIntegrationTest: Starting AdminIntegrationTest using Java 17.0.8 with PID 26576 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:06:55,322 DEBUG [main] c.w.v.l.i.admin.AdminIntegrationTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:06:55,323 INFO  [main] c.w.v.l.i.admin.AdminIntegrationTest: The following 1 profile is active: "test"
+2025-01-23 21:06:56,880 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:06:56,881 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:06:56,974 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:56,977 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:56,978 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:56,979 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:56,980 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:56,982 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:06:56,983 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 101 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:06:56,991 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:06:56,992 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:06:57,218 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 223 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:07:00,581 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 0 (http)
+2025-01-23 21:07:00,793 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-auto-1"]
+2025-01-23 21:07:00,800 INFO  [main] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2025-01-23 21:07:00,802 INFO  [main] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2025-01-23 21:07:01,438 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2025-01-23 21:07:01,439 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 6110 ms
+2025-01-23 21:07:01,602 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Starting...
+2025-01-23 21:07:01,608 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:07:01,610 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Start completed.
+2025-01-23 21:07:01,611 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:07:01,784 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:07:01,790 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:07:01,804 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.010s)
+2025-01-23 21:07:01,809 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 21:07:01,811 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 21:07:01,926 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:07:01,976 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:07:02,000 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:07:03,811 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:07:03,830 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:07:04,152 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 21:07:07,301 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:07:07,420 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45a948c7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3416a8eb, org.springframework.security.web.context.SecurityContextHolderFilter@13056397, org.springframework.security.web.header.HeaderWriterFilter@1dff110c, org.springframework.security.web.authentication.logout.LogoutFilter@66e5b9ad, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@2da6fe1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@306779a5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@480ece86, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@18aed2cb, org.springframework.security.web.session.SessionManagementFilter@301503df, org.springframework.security.web.access.ExceptionTranslationFilter@1e9d555, org.springframework.security.web.access.intercept.AuthorizationFilter@bbf5e3f]
+2025-01-23 21:07:07,434 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:07:07,435 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:07:09,230 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 21:07:09,238 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring TestDispatcherServlet ''
+2025-01-23 21:07:09,240 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 21:07:09,244 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 3 ms
+2025-01-23 21:07:09,368 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-auto-1"]
+2025-01-23 21:07:09,488 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 56253 (http) with context path ''
+2025-01-23 21:07:09,524 INFO  [main] c.w.v.l.i.admin.AdminIntegrationTest: Started AdminIntegrationTest in 14.35 seconds (process running for 78.422)
+2025-01-23 21:07:10,617 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 3 has been successfully created.
+2025-01-23 21:07:14,223 INFO  [http-nio-auto-1-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-23 21:07:14,224 INFO  [http-nio-auto-1-exec-2] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2025-01-23 21:07:14,229 INFO  [http-nio-auto-1-exec-2] o.s.web.servlet.DispatcherServlet: Completed initialization in 5 ms
+2025-01-23 21:07:14,288 ERROR [http-nio-auto-1-exec-2] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:14,376 ERROR [http-nio-auto-1-exec-2] c.w.v.l.admin.AdminService: The admin email nonexistent@test.test provide not found 
+2025-01-23 21:07:15,324 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 5 has been successfully created.
+2025-01-23 21:07:15,376 ERROR [http-nio-auto-1-exec-3] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:19,889 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 7 has been successfully created.
+2025-01-23 21:07:20,433 ERROR [http-nio-auto-1-exec-7] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:20,704 INFO  [http-nio-auto-1-exec-7] c.w.v.l.admin.AdminService: The admin with ID 7 has been successfully updated.
+2025-01-23 21:07:20,732 INFO  [http-nio-auto-1-exec-7] c.w.v.l.admin.AdminController: Updated admin with ID: 7
+2025-01-23 21:07:20,971 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 9 has been successfully created.
+2025-01-23 21:07:21,276 ERROR [http-nio-auto-1-exec-10] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:21,373 INFO  [http-nio-auto-1-exec-10] c.w.v.l.admin.AdminService: The admin with ID 9 has been successfully deleted.
+2025-01-23 21:07:21,463 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 11 has been successfully created.
+2025-01-23 21:07:21,596 ERROR [http-nio-auto-1-exec-1] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:21,713 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 13 has been successfully created.
+2025-01-23 21:07:21,753 ERROR [http-nio-auto-1-exec-4] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:21,758 ERROR [http-nio-auto-1-exec-4] c.w.v.l.admin.AdminService: No admin found with ID 999. Please verify the ID and try again.
+2025-01-23 21:07:21,811 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 15 has been successfully created.
+2025-01-23 21:07:22,000 ERROR [http-nio-auto-1-exec-5] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:22,122 INFO  [http-nio-auto-1-exec-5] c.w.v.l.admin.AdminService: Retrieving all admins: [Person(id=14, name=John Doe, email=john.doe@example.com, address=Address(street=123 Main St, city=Anytown, state=NY, country=USA, postalCode=12345), contact=+123 456-789-123), Person(id=15, name=Sandro Doe, email=sando@test.test, address=Address(street=123 Main St, city=Anytown, state=NY, country=USA, postalCode=12345), contact=+345 456-789-123)]
+2025-01-23 21:07:22,289 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 17 has been successfully created.
+2025-01-23 21:07:22,429 ERROR [http-nio-auto-1-exec-8] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:22,474 INFO  [http-nio-auto-1-exec-8] c.w.v.l.admin.AdminService: The admin with ID 18 has been successfully created.
+2025-01-23 21:07:22,482 INFO  [http-nio-auto-1-exec-8] c.w.v.l.admin.AdminController: Created a new admin with ID: 18
+2025-01-23 21:07:22,801 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 20 has been successfully created.
+2025-01-23 21:07:22,836 ERROR [http-nio-auto-1-exec-9] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:22,854 INFO  [http-nio-auto-1-exec-9] c.w.v.l.admin.AdminService: Retrieving book with ID: 999
+2025-01-23 21:07:22,864 ERROR [http-nio-auto-1-exec-9] c.w.v.l.admin.AdminService: Admin 999 not found
+2025-01-23 21:07:22,906 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 22 has been successfully created.
+2025-01-23 21:07:22,930 ERROR [http-nio-auto-1-exec-2] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:22,936 INFO  [http-nio-auto-1-exec-2] c.w.v.l.admin.AdminService: Retrieving book with ID: 22
+2025-01-23 21:07:23,097 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.integration.member.MemberControllerIntegrationTest]: MemberControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 21:07:23,174 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.integration.member.MemberControllerIntegrationTest
+2025-01-23 21:07:23,185 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 21:07:23,276 INFO  [main] c.w.v.l.i.m.MemberControllerIntegrationTest: Starting MemberControllerIntegrationTest using Java 17.0.8 with PID 26576 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:07:23,276 DEBUG [main] c.w.v.l.i.m.MemberControllerIntegrationTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:07:23,277 INFO  [main] c.w.v.l.i.m.MemberControllerIntegrationTest: The following 1 profile is active: "test"
+2025-01-23 21:07:24,861 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:07:24,863 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:07:24,972 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:24,973 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:25,021 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:25,034 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:25,037 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:25,040 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:25,041 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 177 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:07:25,090 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:07:25,090 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:07:25,297 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 205 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:07:25,723 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 0 (http)
+2025-01-23 21:07:25,725 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-auto-2"]
+2025-01-23 21:07:25,726 INFO  [main] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2025-01-23 21:07:25,727 INFO  [main] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2025-01-23 21:07:25,899 INFO  [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2025-01-23 21:07:25,900 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 2616 ms
+2025-01-23 21:07:26,102 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Starting...
+2025-01-23 21:07:26,119 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:07:26,120 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Start completed.
+2025-01-23 21:07:26,120 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:07:26,253 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:07:26,257 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:07:26,270 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.007s)
+2025-01-23 21:07:26,587 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 21:07:26,589 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 21:07:26,694 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:07:26,711 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:07:26,733 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:07:27,523 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:07:27,541 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:07:27,759 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 21:07:29,393 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:07:29,495 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6278d1b4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@a8a882f, org.springframework.security.web.context.SecurityContextHolderFilter@2f7db7a2, org.springframework.security.web.header.HeaderWriterFilter@598f22f0, org.springframework.security.web.authentication.logout.LogoutFilter@7900272, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@6e7d6459, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4e991ee7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2366e3a6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@277c3af5, org.springframework.security.web.session.SessionManagementFilter@163279d1, org.springframework.security.web.access.ExceptionTranslationFilter@269c8221, org.springframework.security.web.access.intercept.AuthorizationFilter@5826078b]
+2025-01-23 21:07:29,519 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:07:29,520 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:07:30,864 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-auto-2"]
+2025-01-23 21:07:30,887 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 56273 (http) with context path ''
+2025-01-23 21:07:30,904 INFO  [main] c.w.v.l.i.m.MemberControllerIntegrationTest: Started MemberControllerIntegrationTest in 7.719 seconds (process running for 99.801)
+2025-01-23 21:07:31,063 INFO  [http-nio-auto-2-exec-3] o.a.c.c.C.[Tomcat-1].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-23 21:07:31,063 INFO  [http-nio-auto-2-exec-3] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2025-01-23 21:07:31,067 INFO  [http-nio-auto-2-exec-3] o.s.web.servlet.DispatcherServlet: Completed initialization in 3 ms
+2025-01-23 21:07:31,070 ERROR [http-nio-auto-2-exec-3] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:31,076 INFO  [http-nio-auto-2-exec-3] c.w.v.l.member.MemberService: Get all member
+2025-01-23 21:07:31,089 INFO  [http-nio-auto-2-exec-3] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 21:07:31,438 ERROR [http-nio-auto-2-exec-2] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:31,445 ERROR [http-nio-auto-2-exec-2] c.w.v.l.member.MemberService: No member found with ID 999
+2025-01-23 21:07:31,550 ERROR [http-nio-auto-2-exec-6] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:31,683 ERROR [http-nio-auto-2-exec-7] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:31,797 ERROR [http-nio-auto-2-exec-1] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:31,806 INFO  [http-nio-auto-2-exec-1] c.w.v.l.member.MemberController: retrieve member by id 6
+2025-01-23 21:07:31,970 ERROR [http-nio-auto-2-exec-8] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:07:31,979 ERROR [http-nio-auto-2-exec-8] c.w.v.l.member.MemberService: No member found with ID 999
+2025-01-23 21:07:32,026 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.unit.admin.AdminControllerTest]: AdminControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 21:07:32,073 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.unit.admin.AdminControllerTest
+2025-01-23 21:07:32,084 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 21:07:32,166 INFO  [main] c.w.v.l.u.admin.AdminControllerTest: Starting AdminControllerTest using Java 17.0.8 with PID 26576 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:07:32,166 DEBUG [main] c.w.v.l.u.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:07:32,167 INFO  [main] c.w.v.l.u.admin.AdminControllerTest: The following 1 profile is active: "test"
+2025-01-23 21:07:33,540 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:07:33,541 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:07:33,580 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:33,582 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:33,583 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:33,584 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:33,585 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:33,586 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:33,586 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 44 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:07:33,592 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:07:33,593 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:07:33,656 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 61 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:07:34,649 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Starting...
+2025-01-23 21:07:34,653 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:07:34,654 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Start completed.
+2025-01-23 21:07:34,673 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:07:34,676 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:07:34,693 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.014s)
+2025-01-23 21:07:34,700 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 21:07:34,701 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 21:07:34,802 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:07:34,819 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:07:34,836 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:07:35,224 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:07:35,243 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:07:38,786 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:07:38,865 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@463b6c0a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f683579, org.springframework.security.web.context.SecurityContextHolderFilter@7ae292b7, org.springframework.security.web.header.HeaderWriterFilter@7c3c8a00, org.springframework.security.web.authentication.logout.LogoutFilter@3ad2ee35, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@42a6a062, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4db3451e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@789e94c6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2cc8019d, org.springframework.security.web.session.SessionManagementFilter@1419f5dd, org.springframework.security.web.access.ExceptionTranslationFilter@2b2ac65f, org.springframework.security.web.access.intercept.AuthorizationFilter@2b72531f]
+2025-01-23 21:07:38,887 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:07:38,888 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:07:41,362 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:07:41,514 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-23 21:07:41,515 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 21:07:41,519 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 4 ms
+2025-01-23 21:07:41,711 INFO  [main] c.w.v.l.u.admin.AdminControllerTest: Started AdminControllerTest in 9.625 seconds (process running for 110.607)
+2025-01-23 21:07:44,023 INFO  [main] c.w.v.l.admin.AdminController: Updated admin with ID: 1
+2025-01-23 21:07:44,315 INFO  [main] c.w.v.l.admin.AdminController: Created a new admin with ID: 2
+2025-01-23 21:07:44,823 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 2 has been successfully created.
+2025-01-23 21:07:45,223 ERROR [main] c.w.v.l.admin.AdminService: Invalid admin ID: -1
+2025-01-23 21:07:45,229 ERROR [main] c.w.v.l.admin.AdminService: Invalid admin ID: -1
+2025-01-23 21:07:45,236 ERROR [main] c.w.v.l.admin.AdminService: The admin email admin.@out.tst provide not found 
+2025-01-23 21:07:45,401 WARN  [main] c.w.v.l.admin.AdminService: No admins found in the system: null
+2025-01-23 21:07:45,416 INFO  [main] c.w.v.l.admin.AdminService: Retrieving book with ID: 1
+2025-01-23 21:07:45,422 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 1 has been successfully deleted.
+2025-01-23 21:07:45,461 ERROR [main] c.w.v.l.admin.AdminService: No admin found with ID 1. Please verify the ID and try again.
+2025-01-23 21:07:45,470 ERROR [main] c.w.v.l.admin.AdminService: The admin id provide is less than or equal to zero 0 
+2025-01-23 21:07:45,481 INFO  [main] c.w.v.l.admin.AdminService: empty list of admins found in the system: []
+2025-01-23 21:07:45,487 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 2 has been successfully updated.
+2025-01-23 21:07:45,507 INFO  [main] c.w.v.l.admin.AdminService: Retrieving book with ID: 1
+2025-01-23 21:07:45,508 ERROR [main] c.w.v.l.admin.AdminService: Admin 1 not found
+2025-01-23 21:07:45,513 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 1 has been successfully deleted.
+2025-01-23 21:07:45,542 INFO  [main] c.w.v.l.admin.AdminService: Retrieving all admins: [Person(id=1, name=John Doe, email=johndoe@example.com, address=Address(street=123 Main Street, city=New York, state=NY, country=United States, postalCode=10001), contact=+531 990 900 000)]
+2025-01-23 21:07:45,664 ERROR [main] c.w.v.l.librarian.LibrarianMapper: Librarian is nullnull
+2025-01-23 21:07:45,674 ERROR [main] c.w.v.l.librarian.LibrarianMapper: admin is null null 
+2025-01-23 21:07:46,101 ERROR [main] c.w.v.l.librarian.LibrarianService: The librarian id provide is less than or equal to zero 0 
+2025-01-23 21:07:46,119 ERROR [main] c.w.v.l.librarian.LibrarianService: No librarian found with ID 99
+2025-01-23 21:07:46,173 INFO  [main] c.w.v.l.librarian.LibrarianService: Get librarian by email librariantest.test
+2025-01-23 21:07:46,189 INFO  [main] c.w.v.l.librarian.LibrarianService: Get librarian by email test@test.com
+2025-01-23 21:07:46,227 INFO  [main] c.w.v.l.librarian.LibrarianService: The librarian with ID 1 has been successfully deleted.
+2025-01-23 21:07:46,234 ERROR [main] c.w.v.l.librarian.LibrarianService: The librarian id provide is less than or equal to zero 0 
+2025-01-23 21:07:46,269 ERROR [main] c.w.v.l.librarian.LibrarianService: No librarian found with ID 99
+2025-01-23 21:07:46,285 INFO  [main] c.w.v.l.librarian.LibrarianService: Get all librarians
+2025-01-23 21:07:46,305 ERROR [main] c.w.v.l.librarian.LibrarianService: The librarian id provide is less than or equal to zero -134 
+2025-01-23 21:07:46,313 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.unit.member.MemberControllerTest]: MemberControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 21:07:46,474 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.unit.member.MemberControllerTest
+2025-01-23 21:07:46,493 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 21:07:46,578 INFO  [main] c.w.v.l.u.m.MemberControllerTest: Starting MemberControllerTest using Java 17.0.8 with PID 26576 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:07:46,580 DEBUG [main] c.w.v.l.u.m.MemberControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:07:46,581 INFO  [main] c.w.v.l.u.m.MemberControllerTest: The following 1 profile is active: "test"
+2025-01-23 21:07:48,337 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:07:48,338 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:07:48,382 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:48,383 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:48,384 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:48,385 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:48,386 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:48,386 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:07:48,387 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 48 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:07:48,394 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:07:48,395 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:07:48,471 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 75 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:07:48,991 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Starting...
+2025-01-23 21:07:48,994 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:07:48,995 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Start completed.
+2025-01-23 21:07:49,015 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:07:49,019 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:07:49,029 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.007s)
+2025-01-23 21:07:49,037 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 21:07:49,039 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 21:07:49,140 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:07:49,157 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:07:49,185 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:07:49,772 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:07:49,786 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:07:50,858 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:07:50,928 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6dece1a5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52603c6c, org.springframework.security.web.context.SecurityContextHolderFilter@8e6eca, org.springframework.security.web.header.HeaderWriterFilter@4fb54f55, org.springframework.security.web.authentication.logout.LogoutFilter@58083327, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@74c1f9ed, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6fcdca96, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27c79609, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@10a4f85f, org.springframework.security.web.session.SessionManagementFilter@7cf584d3, org.springframework.security.web.access.ExceptionTranslationFilter@649ec997, org.springframework.security.web.access.intercept.AuthorizationFilter@45ef5b97]
+2025-01-23 21:07:50,951 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:07:50,951 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:07:54,915 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:07:55,042 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-23 21:07:55,042 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 21:07:55,046 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 3 ms
+2025-01-23 21:07:55,109 INFO  [main] c.w.v.l.u.m.MemberControllerTest: Started MemberControllerTest in 8.618 seconds (process running for 124.007)
+2025-01-23 21:07:55,218 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2025-01-23 21:07:55,273 INFO  [main] c.w.v.l.member.MemberController: retrieve member by id 1
+2025-01-23 21:07:55,290 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 21:07:55,361 INFO  [main] c.w.v.l.member.MemberController: Created a new member with ID: 1
+2025-01-23 21:07:55,383 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2025-01-23 21:07:55,656 ERROR [main] c.w.v.l.member.MemberMapper: admin is null null
+2025-01-23 21:07:55,660 ERROR [main] c.w.v.l.member.MemberMapper: Librarian is null null
+2025-01-23 21:07:55,668 ERROR [main] c.w.v.l.member.MemberMapper: librarian is null null
+2025-01-23 21:07:55,671 ERROR [main] c.w.v.l.member.MemberMapper: librarian is null null
+2025-01-23 21:07:55,675 ERROR [main] c.w.v.l.member.MemberMapper: admin is null null
+2025-01-23 21:07:55,692 ERROR [main] c.w.v.l.member.MemberMapper: member is null null
+2025-01-23 21:07:55,864 INFO  [main] c.w.v.l.member.MemberService: member deleted successfully with ID 1
+2025-01-23 21:07:55,892 ERROR [main] c.w.v.l.member.MemberService: No member found with ID 1
+2025-01-23 21:07:55,911 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2025-01-23 21:07:55,940 ERROR [main] c.w.v.l.member.MemberService: No member found with ID 1
+2025-01-23 21:07:55,952 ERROR [main] c.w.v.l.member.MemberService: The member id provided is less than or equal to zero 0 
+2025-01-23 21:07:55,965 ERROR [main] c.w.v.l.member.MemberService: The librarian id provide is less than or equal to zero 0 
+2025-01-23 21:07:56,137 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:07:56,153 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2025-01-23 21:07:56,191 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2025-01-23 21:07:59,751 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:07:59,752 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown initiated...
+2025-01-23 21:07:59,755 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown completed.
+2025-01-23 21:08:00,959 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:08:00,960 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Shutdown initiated...
+2025-01-23 21:08:00,962 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Shutdown completed.
+2025-01-23 21:08:00,968 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:08:00,968 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Shutdown initiated...
+2025-01-23 21:08:00,970 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Shutdown completed.
+2025-01-23 21:08:00,973 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:08:00,974 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown initiated...
+2025-01-23 21:08:00,978 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown completed.
+2025-01-23 21:08:53,702 INFO  [background-preinit] o.h.validator.internal.util.Version: HV000001: Hibernate Validator 8.0.1.Final
+2025-01-23 21:08:53,901 INFO  [main] c.w.v.l.b.s.CucumberSpringConfiguration: Starting CucumberSpringConfiguration using Java 17.0.8 with PID 6568 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:08:53,902 DEBUG [main] c.w.v.l.b.s.CucumberSpringConfiguration: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:08:53,904 INFO  [main] c.w.v.l.b.s.CucumberSpringConfiguration: The following 1 profile is active: "test"
+2025-01-23 21:08:58,181 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:08:58,185 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:08:58,302 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:08:58,308 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:08:58,313 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:08:58,316 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:08:58,319 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:08:58,325 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:08:58,327 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 128 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:08:58,350 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:08:58,353 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:08:58,481 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 116 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:09:00,265 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Starting...
+2025-01-23 21:09:00,971 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:09:00,977 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Start completed.
+2025-01-23 21:09:01,192 INFO  [main] o.f.c.i.license.VersionPrinter: Flyway Community Edition 9.22.3 by Redgate
+2025-01-23 21:09:01,194 INFO  [main] o.f.c.i.license.VersionPrinter: See release notes here: https://rd.gt/416ObMi
+2025-01-23 21:09:01,195 INFO  [main] o.f.c.i.license.VersionPrinter: 
+2025-01-23 21:09:01,321 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:09:01,338 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:09:01,409 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory: Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+2025-01-23 21:09:01,418 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.050s)
+2025-01-23 21:09:01,433 INFO  [main] o.f.c.i.s.JdbcTableSchemaHistory: Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+2025-01-23 21:09:01,505 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": << Empty Schema >>
+2025-01-23 21:09:01,528 INFO  [main] o.f.core.internal.command.DbMigrate: Migrating schema "PUBLIC" to version "1 - CREATE ENTITIES TABLE"
+2025-01-23 21:09:01,603 INFO  [main] o.f.core.internal.command.DbMigrate: Migrating schema "PUBLIC" to version "2 - CREATE USER TABLE"
+2025-01-23 21:09:01,615 INFO  [main] o.f.core.internal.command.DbMigrate: Successfully applied 2 migrations to schema "PUBLIC", now at version v2 (execution time 00:00.064s)
+2025-01-23 21:09:01,904 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:09:02,086 INFO  [main] org.hibernate.Version: HHH000412: Hibernate ORM core version 6.4.9.Final
+2025-01-23 21:09:02,192 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:09:02,711 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:09:05,413 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:09:05,508 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:08,613 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:09:08,765 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@56e9cbee, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2187d7ac, org.springframework.security.web.context.SecurityContextHolderFilter@307ab1f1, org.springframework.security.web.header.HeaderWriterFilter@1a6bbcb0, org.springframework.security.web.authentication.logout.LogoutFilter@5d1ef2ce, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@6a13143, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@372f07eb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b5a0626, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3de5f812, org.springframework.security.web.session.SessionManagementFilter@30153a85, org.springframework.security.web.access.ExceptionTranslationFilter@49b4b5fc, org.springframework.security.web.access.intercept.AuthorizationFilter@6a9ceb28]
+2025-01-23 21:09:08,783 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:09:08,784 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:09:10,381 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:09:10,583 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 21:09:10,586 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-23 21:09:10,587 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 21:09:10,591 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-23 21:09:10,765 INFO  [main] c.w.v.l.b.s.CucumberSpringConfiguration: Started CucumberSpringConfiguration in 18.245 seconds (process running for 22.504)
+2025-01-23 21:09:11,897 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:11,927 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2025-01-23 21:09:11,956 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 21:09:12,105 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:12,106 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2025-01-23 21:09:12,112 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 21:09:12,261 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:12,280 INFO  [main] c.w.v.l.member.MemberController: retrieve member by id 1
+2025-01-23 21:09:12,335 ERROR [main] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:12,827 INFO  [main] c.w.v.l.member.MemberService: member deleted successfully with ID 1
+2025-01-23 21:09:12,855 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2025-01-23 21:09:13,044 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.integration.admin.AdminIntegrationTest]: AdminIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 21:09:13,090 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.integration.admin.AdminIntegrationTest
+2025-01-23 21:09:13,100 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 21:09:13,219 INFO  [main] c.w.v.l.i.admin.AdminIntegrationTest: Starting AdminIntegrationTest using Java 17.0.8 with PID 6568 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:09:13,220 DEBUG [main] c.w.v.l.i.admin.AdminIntegrationTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:09:13,221 INFO  [main] c.w.v.l.i.admin.AdminIntegrationTest: The following 1 profile is active: "test"
+2025-01-23 21:09:14,024 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:09:14,024 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:09:14,054 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:14,055 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:14,056 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:14,057 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:14,057 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:14,058 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:14,059 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 34 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:09:14,065 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:09:14,066 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:09:14,127 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 60 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:09:14,658 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 0 (http)
+2025-01-23 21:09:14,682 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-auto-1"]
+2025-01-23 21:09:14,687 INFO  [main] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2025-01-23 21:09:14,688 INFO  [main] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2025-01-23 21:09:14,876 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2025-01-23 21:09:14,877 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1651 ms
+2025-01-23 21:09:15,007 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Starting...
+2025-01-23 21:09:15,010 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:09:15,010 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Start completed.
+2025-01-23 21:09:15,011 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:09:15,111 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:09:15,115 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:09:15,127 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.009s)
+2025-01-23 21:09:15,131 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 21:09:15,132 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 21:09:15,197 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:09:15,209 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:09:15,231 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:09:15,630 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:09:15,642 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:15,788 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 21:09:16,371 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:09:16,407 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1f167648, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1a3598ab, org.springframework.security.web.context.SecurityContextHolderFilter@aaaea3a, org.springframework.security.web.header.HeaderWriterFilter@7785c701, org.springframework.security.web.authentication.logout.LogoutFilter@5faa31de, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@eea818, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@20614945, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2f661ac4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@51efa55e, org.springframework.security.web.session.SessionManagementFilter@2fc5dfb, org.springframework.security.web.access.ExceptionTranslationFilter@5724bba, org.springframework.security.web.access.intercept.AuthorizationFilter@41f89bca]
+2025-01-23 21:09:16,416 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:09:16,417 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:09:16,896 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 21:09:16,898 INFO  [main] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring TestDispatcherServlet ''
+2025-01-23 21:09:16,898 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 21:09:16,902 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 3 ms
+2025-01-23 21:09:16,971 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-auto-1"]
+2025-01-23 21:09:17,046 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 49977 (http) with context path ''
+2025-01-23 21:09:17,072 INFO  [main] c.w.v.l.i.admin.AdminIntegrationTest: Started AdminIntegrationTest in 3.973 seconds (process running for 28.812)
+2025-01-23 21:09:17,434 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 3 has been successfully created.
+2025-01-23 21:09:19,090 INFO  [http-nio-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-23 21:09:19,090 INFO  [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2025-01-23 21:09:19,101 INFO  [http-nio-auto-1-exec-1] o.s.web.servlet.DispatcherServlet: Completed initialization in 3 ms
+2025-01-23 21:09:19,120 ERROR [http-nio-auto-1-exec-1] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:19,147 ERROR [http-nio-auto-1-exec-1] c.w.v.l.admin.AdminService: The admin email nonexistent@test.test provide not found 
+2025-01-23 21:09:19,395 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 5 has been successfully created.
+2025-01-23 21:09:19,428 ERROR [http-nio-auto-1-exec-2] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:21,001 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 7 has been successfully created.
+2025-01-23 21:09:21,209 ERROR [http-nio-auto-1-exec-4] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:21,350 INFO  [http-nio-auto-1-exec-4] c.w.v.l.admin.AdminService: The admin with ID 7 has been successfully updated.
+2025-01-23 21:09:21,362 INFO  [http-nio-auto-1-exec-4] c.w.v.l.admin.AdminController: Updated admin with ID: 7
+2025-01-23 21:09:21,465 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 9 has been successfully created.
+2025-01-23 21:09:21,490 ERROR [http-nio-auto-1-exec-10] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:21,497 INFO  [http-nio-auto-1-exec-10] c.w.v.l.admin.AdminService: The admin with ID 9 has been successfully deleted.
+2025-01-23 21:09:21,547 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 11 has been successfully created.
+2025-01-23 21:09:21,577 ERROR [http-nio-auto-1-exec-6] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:21,632 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 13 has been successfully created.
+2025-01-23 21:09:21,652 ERROR [http-nio-auto-1-exec-8] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:21,656 ERROR [http-nio-auto-1-exec-8] c.w.v.l.admin.AdminService: No admin found with ID 999. Please verify the ID and try again.
+2025-01-23 21:09:21,703 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 15 has been successfully created.
+2025-01-23 21:09:21,726 ERROR [http-nio-auto-1-exec-9] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:21,734 INFO  [http-nio-auto-1-exec-9] c.w.v.l.admin.AdminService: Retrieving all admins: [Person(id=14, name=John Doe, email=john.doe@example.com, address=Address(street=123 Main St, city=Anytown, state=NY, country=USA, postalCode=12345), contact=+123 456-789-123), Person(id=15, name=Sandro Doe, email=sando@test.test, address=Address(street=123 Main St, city=Anytown, state=NY, country=USA, postalCode=12345), contact=+345 456-789-123)]
+2025-01-23 21:09:21,787 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 17 has been successfully created.
+2025-01-23 21:09:21,823 ERROR [http-nio-auto-1-exec-7] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:21,832 INFO  [http-nio-auto-1-exec-7] c.w.v.l.admin.AdminService: The admin with ID 18 has been successfully created.
+2025-01-23 21:09:21,833 INFO  [http-nio-auto-1-exec-7] c.w.v.l.admin.AdminController: Created a new admin with ID: 18
+2025-01-23 21:09:21,922 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 20 has been successfully created.
+2025-01-23 21:09:21,938 ERROR [http-nio-auto-1-exec-5] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:21,942 INFO  [http-nio-auto-1-exec-5] c.w.v.l.admin.AdminService: Retrieving book with ID: 999
+2025-01-23 21:09:21,943 ERROR [http-nio-auto-1-exec-5] c.w.v.l.admin.AdminService: Admin 999 not found
+2025-01-23 21:09:21,972 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 22 has been successfully created.
+2025-01-23 21:09:21,991 ERROR [http-nio-auto-1-exec-1] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:21,994 INFO  [http-nio-auto-1-exec-1] c.w.v.l.admin.AdminService: Retrieving book with ID: 22
+2025-01-23 21:09:22,070 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.integration.member.MemberControllerIntegrationTest]: MemberControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 21:09:22,096 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.integration.member.MemberControllerIntegrationTest
+2025-01-23 21:09:22,104 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 21:09:22,155 INFO  [main] c.w.v.l.i.m.MemberControllerIntegrationTest: Starting MemberControllerIntegrationTest using Java 17.0.8 with PID 6568 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:09:22,156 DEBUG [main] c.w.v.l.i.m.MemberControllerIntegrationTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:09:22,156 INFO  [main] c.w.v.l.i.m.MemberControllerIntegrationTest: The following 1 profile is active: "test"
+2025-01-23 21:09:22,832 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:09:22,833 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:09:22,862 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:22,863 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:22,864 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:22,865 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:22,866 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:22,867 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:22,868 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 34 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:09:22,873 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:09:22,874 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:09:22,923 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 47 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:09:23,144 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat initialized with port 0 (http)
+2025-01-23 21:09:23,146 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Initializing ProtocolHandler ["http-nio-auto-2"]
+2025-01-23 21:09:23,147 INFO  [main] o.a.catalina.core.StandardService: Starting service [Tomcat]
+2025-01-23 21:09:23,148 INFO  [main] o.a.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/10.1.26]
+2025-01-23 21:09:23,233 INFO  [main] o.a.c.c.C.[Tomcat-1].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+2025-01-23 21:09:23,233 INFO  [main] o.s.b.w.s.c.ServletWebServerApplicationContext: Root WebApplicationContext: initialization completed in 1073 ms
+2025-01-23 21:09:23,309 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Starting...
+2025-01-23 21:09:23,312 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:09:23,312 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Start completed.
+2025-01-23 21:09:23,313 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:09:23,390 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:09:23,393 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:09:23,401 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.005s)
+2025-01-23 21:09:23,406 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 21:09:23,408 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 21:09:23,461 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:09:23,472 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:09:23,487 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:09:23,811 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:09:23,820 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:23,885 DEBUG [main] c.w.v.l.s.JwtAuthenticationFilter: Filter 'jwtAuthenticationFilter' configured for use
+2025-01-23 21:09:24,470 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:09:24,504 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3ac47c54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@50e7c622, org.springframework.security.web.context.SecurityContextHolderFilter@4d25bdeb, org.springframework.security.web.header.HeaderWriterFilter@71735a13, org.springframework.security.web.authentication.logout.LogoutFilter@7bc031ed, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@4b5e303, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@80e5af1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62610026, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@29bf4988, org.springframework.security.web.session.SessionManagementFilter@7a2fcfbb, org.springframework.security.web.access.ExceptionTranslationFilter@288231f6, org.springframework.security.web.access.intercept.AuthorizationFilter@37eba45a]
+2025-01-23 21:09:24,514 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:09:24,515 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:09:25,019 INFO  [main] o.a.coyote.http11.Http11NioProtocol: Starting ProtocolHandler ["http-nio-auto-2"]
+2025-01-23 21:09:25,036 INFO  [main] o.s.b.w.e.tomcat.TomcatWebServer: Tomcat started on port 49990 (http) with context path ''
+2025-01-23 21:09:25,046 INFO  [main] c.w.v.l.i.m.MemberControllerIntegrationTest: Started MemberControllerIntegrationTest in 2.942 seconds (process running for 36.786)
+2025-01-23 21:09:25,160 INFO  [http-nio-auto-2-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-01-23 21:09:25,161 INFO  [http-nio-auto-2-exec-1] o.s.web.servlet.DispatcherServlet: Initializing Servlet 'dispatcherServlet'
+2025-01-23 21:09:25,164 INFO  [http-nio-auto-2-exec-1] o.s.web.servlet.DispatcherServlet: Completed initialization in 3 ms
+2025-01-23 21:09:25,166 ERROR [http-nio-auto-2-exec-1] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:25,169 INFO  [http-nio-auto-2-exec-1] c.w.v.l.member.MemberService: Get all member
+2025-01-23 21:09:25,179 INFO  [http-nio-auto-2-exec-1] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 21:09:25,335 ERROR [http-nio-auto-2-exec-2] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:25,339 ERROR [http-nio-auto-2-exec-2] c.w.v.l.member.MemberService: No member found with ID 999
+2025-01-23 21:09:25,414 ERROR [http-nio-auto-2-exec-3] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:25,514 ERROR [http-nio-auto-2-exec-4] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:25,590 ERROR [http-nio-auto-2-exec-5] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:25,597 INFO  [http-nio-auto-2-exec-5] c.w.v.l.member.MemberController: retrieve member by id 6
+2025-01-23 21:09:25,683 ERROR [http-nio-auto-2-exec-7] c.w.v.l.s.JwtAuthenticationFilter: Token not found or invalid format
+2025-01-23 21:09:25,688 ERROR [http-nio-auto-2-exec-7] c.w.v.l.member.MemberService: No member found with ID 999
+2025-01-23 21:09:25,702 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.unit.admin.AdminControllerTest]: AdminControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 21:09:25,738 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.unit.admin.AdminControllerTest
+2025-01-23 21:09:25,747 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 21:09:25,801 INFO  [main] c.w.v.l.u.admin.AdminControllerTest: Starting AdminControllerTest using Java 17.0.8 with PID 6568 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:09:25,802 DEBUG [main] c.w.v.l.u.admin.AdminControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:09:25,802 INFO  [main] c.w.v.l.u.admin.AdminControllerTest: The following 1 profile is active: "test"
+2025-01-23 21:09:26,558 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:09:26,559 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:09:26,591 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:26,592 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:26,593 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:26,594 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:26,595 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:26,595 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:26,596 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 36 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:09:26,601 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:09:26,602 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:09:26,681 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 78 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:09:27,342 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Starting...
+2025-01-23 21:09:27,345 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-4 - Added connection conn30: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:09:27,346 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Start completed.
+2025-01-23 21:09:27,368 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:09:27,373 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:09:27,382 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.006s)
+2025-01-23 21:09:27,396 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 21:09:27,397 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 21:09:27,489 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:09:27,499 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:09:27,515 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:09:27,913 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:09:27,930 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:29,057 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:09:29,135 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5d58126e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@19b3e502, org.springframework.security.web.context.SecurityContextHolderFilter@7bcbb7a6, org.springframework.security.web.header.HeaderWriterFilter@10d93d15, org.springframework.security.web.authentication.logout.LogoutFilter@49552f42, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@7ae1605c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5be3d085, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e30cee0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@587d36e9, org.springframework.security.web.session.SessionManagementFilter@7f4eb5fc, org.springframework.security.web.access.ExceptionTranslationFilter@d24c2c6, org.springframework.security.web.access.intercept.AuthorizationFilter@7b37e304]
+2025-01-23 21:09:29,152 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:09:29,153 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:09:30,202 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:09:30,442 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-23 21:09:30,443 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 21:09:30,446 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 2 ms
+2025-01-23 21:09:30,551 INFO  [main] c.w.v.l.u.admin.AdminControllerTest: Started AdminControllerTest in 4.804 seconds (process running for 42.29)
+2025-01-23 21:09:31,212 INFO  [main] c.w.v.l.admin.AdminController: Updated admin with ID: 1
+2025-01-23 21:09:31,263 INFO  [main] c.w.v.l.admin.AdminController: Created a new admin with ID: 2
+2025-01-23 21:09:31,363 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 2 has been successfully created.
+2025-01-23 21:09:31,379 ERROR [main] c.w.v.l.admin.AdminService: Invalid admin ID: -1
+2025-01-23 21:09:31,386 ERROR [main] c.w.v.l.admin.AdminService: Invalid admin ID: -1
+2025-01-23 21:09:31,392 ERROR [main] c.w.v.l.admin.AdminService: The admin email admin.@out.tst provide not found 
+2025-01-23 21:09:31,426 WARN  [main] c.w.v.l.admin.AdminService: No admins found in the system: null
+2025-01-23 21:09:31,431 INFO  [main] c.w.v.l.admin.AdminService: Retrieving book with ID: 1
+2025-01-23 21:09:31,438 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 1 has been successfully deleted.
+2025-01-23 21:09:31,444 ERROR [main] c.w.v.l.admin.AdminService: No admin found with ID 1. Please verify the ID and try again.
+2025-01-23 21:09:31,455 ERROR [main] c.w.v.l.admin.AdminService: The admin id provide is less than or equal to zero 0 
+2025-01-23 21:09:31,460 INFO  [main] c.w.v.l.admin.AdminService: empty list of admins found in the system: []
+2025-01-23 21:09:31,466 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 2 has been successfully updated.
+2025-01-23 21:09:31,478 INFO  [main] c.w.v.l.admin.AdminService: Retrieving book with ID: 1
+2025-01-23 21:09:31,479 ERROR [main] c.w.v.l.admin.AdminService: Admin 1 not found
+2025-01-23 21:09:31,484 INFO  [main] c.w.v.l.admin.AdminService: The admin with ID 1 has been successfully deleted.
+2025-01-23 21:09:31,493 INFO  [main] c.w.v.l.admin.AdminService: Retrieving all admins: [Person(id=1, name=John Doe, email=johndoe@example.com, address=Address(street=123 Main Street, city=New York, state=NY, country=United States, postalCode=10001), contact=+531 990 900 000)]
+2025-01-23 21:09:31,528 ERROR [main] c.w.v.l.librarian.LibrarianMapper: Librarian is nullnull
+2025-01-23 21:09:31,532 ERROR [main] c.w.v.l.librarian.LibrarianMapper: admin is null null 
+2025-01-23 21:09:31,662 ERROR [main] c.w.v.l.librarian.LibrarianService: The librarian id provide is less than or equal to zero 0 
+2025-01-23 21:09:31,686 ERROR [main] c.w.v.l.librarian.LibrarianService: No librarian found with ID 99
+2025-01-23 21:09:31,722 INFO  [main] c.w.v.l.librarian.LibrarianService: Get librarian by email librariantest.test
+2025-01-23 21:09:31,737 INFO  [main] c.w.v.l.librarian.LibrarianService: Get librarian by email test@test.com
+2025-01-23 21:09:31,753 INFO  [main] c.w.v.l.librarian.LibrarianService: The librarian with ID 1 has been successfully deleted.
+2025-01-23 21:09:31,758 ERROR [main] c.w.v.l.librarian.LibrarianService: The librarian id provide is less than or equal to zero 0 
+2025-01-23 21:09:31,786 ERROR [main] c.w.v.l.librarian.LibrarianService: No librarian found with ID 99
+2025-01-23 21:09:31,794 INFO  [main] c.w.v.l.librarian.LibrarianService: Get all librarians
+2025-01-23 21:09:31,806 ERROR [main] c.w.v.l.librarian.LibrarianService: The librarian id provide is less than or equal to zero -134 
+2025-01-23 21:09:31,817 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils: Could not detect default configuration classes for test class [code.with.vanilson.libraryapplication.unit.member.MemberControllerTest]: MemberControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2025-01-23 21:09:31,879 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper: Found @SpringBootConfiguration code.with.vanilson.libraryapplication.LibraryManagementSystemApplication for test class code.with.vanilson.libraryapplication.unit.member.MemberControllerTest
+2025-01-23 21:09:31,906 INFO  [main] o.s.b.d.r.RestartApplicationListener: Restart disabled due to context in which it is running
+2025-01-23 21:09:31,966 INFO  [main] c.w.v.l.u.m.MemberControllerTest: Starting MemberControllerTest using Java 17.0.8 with PID 6568 (started by vamuhong in C:\Users\vamuhong\Documents\Vanilson\Learning\backend\Github\library-management-system)
+2025-01-23 21:09:31,966 DEBUG [main] c.w.v.l.u.m.MemberControllerTest: Running with Spring Boot v3.2.8, Spring v6.1.11
+2025-01-23 21:09:31,967 INFO  [main] c.w.v.l.u.m.MemberControllerTest: The following 1 profile is active: "test"
+2025-01-23 21:09:32,960 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:09:32,961 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2025-01-23 21:09:33,001 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.admin.AdminRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:33,002 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.book.BookRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:33,003 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.fine.FineRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:33,004 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.librarian.LibrarianRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:33,005 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.member.MemberRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:33,006 INFO  [main] o.s.d.r.c.RepositoryConfigurationExtensionSupport: Spring Data JDBC - Could not safely identify store assignment for repository candidate interface code.with.vanilson.libraryapplication.user.UserRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2025-01-23 21:09:33,007 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 45 ms. Found 0 JDBC repository interfaces.
+2025-01-23 21:09:33,015 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Multiple Spring Data modules found, entering strict repository configuration mode
+2025-01-23 21:09:33,016 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-23 21:09:33,086 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate: Finished Spring Data repository scanning in 69 ms. Found 6 JPA repository interfaces.
+2025-01-23 21:09:33,392 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Starting...
+2025-01-23 21:09:33,395 INFO  [main] com.zaxxer.hikari.pool.HikariPool: HikariPool-5 - Added connection conn40: url=jdbc:h2:mem:testdb user=SA
+2025-01-23 21:09:33,396 INFO  [main] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Start completed.
+2025-01-23 21:09:33,420 INFO  [main] org.flywaydb.core.FlywayExecutor: Database: jdbc:h2:mem:testdb (H2 2.2)
+2025-01-23 21:09:33,424 WARN  [main] o.f.c.i.database.base.Database: Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2025-01-23 21:09:33,436 INFO  [main] o.f.core.internal.command.DbValidate: Successfully validated 2 migrations (execution time 00:00.008s)
+2025-01-23 21:09:33,444 INFO  [main] o.f.core.internal.command.DbMigrate: Current version of schema "PUBLIC": 2
+2025-01-23 21:09:33,445 INFO  [main] o.f.core.internal.command.DbMigrate: Schema "PUBLIC" is up to date. No migration necessary.
+2025-01-23 21:09:33,529 INFO  [main] o.h.jpa.internal.util.LogHelper: HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-23 21:09:33,540 INFO  [main] o.h.c.i.RegionFactoryInitiator: HHH000026: Second-level cache disabled
+2025-01-23 21:09:33,555 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo: No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-23 21:09:33,915 INFO  [main] o.h.e.t.j.p.i.JtaPlatformInitiator: HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-23 21:09:33,925 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean: Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:34,769 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver: Exposing 1 endpoint(s) beneath base path '/actuator'
+2025-01-23 21:09:34,799 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6ba7482, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@225b38ef, org.springframework.security.web.context.SecurityContextHolderFilter@6d9fa590, org.springframework.security.web.header.HeaderWriterFilter@3d5a080, org.springframework.security.web.authentication.logout.LogoutFilter@7e26c64e, code.with.vanilson.libraryapplication.security.JwtAuthenticationFilter@4ba1c1d4, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c6b8ce7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@18909ee8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@649d4acc, org.springframework.security.web.session.SessionManagementFilter@161092b, org.springframework.security.web.access.ExceptionTranslationFilter@27fd6fa4, org.springframework.security.web.access.intercept.AuthorizationFilter@40cc8123]
+2025-01-23 21:09:34,806 WARN  [main] o.s.s.c.a.web.builders.WebSecurity: You are asking Spring Security to ignore Ant [pattern='/**']. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+2025-01-23 21:09:34,807 INFO  [main] o.s.s.web.DefaultSecurityFilterChain: Will not secure Ant [pattern='/**']
+2025-01-23 21:09:35,174 INFO  [main] o.s.b.a.h.H2ConsoleAutoConfiguration: H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2025-01-23 21:09:35,218 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext: Initializing Spring TestDispatcherServlet ''
+2025-01-23 21:09:35,219 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Initializing Servlet ''
+2025-01-23 21:09:35,220 INFO  [main] o.s.t.w.s.TestDispatcherServlet: Completed initialization in 1 ms
+2025-01-23 21:09:35,257 INFO  [main] c.w.v.l.u.m.MemberControllerTest: Started MemberControllerTest in 3.351 seconds (process running for 46.998)
+2025-01-23 21:09:35,329 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2025-01-23 21:09:35,364 INFO  [main] c.w.v.l.member.MemberController: retrieve member by id 1
+2025-01-23 21:09:35,376 INFO  [main] c.w.v.l.member.MemberController: Received a GET request to /api/v1/member endpoint
+2025-01-23 21:09:35,415 INFO  [main] c.w.v.l.member.MemberController: Created a new member with ID: 1
+2025-01-23 21:09:35,423 INFO  [main] c.w.v.l.member.MemberController: The member with ID 1 has been successfully deleted.
+2025-01-23 21:09:35,578 ERROR [main] c.w.v.l.member.MemberMapper: admin is null null
+2025-01-23 21:09:35,580 ERROR [main] c.w.v.l.member.MemberMapper: Librarian is null null
+2025-01-23 21:09:35,586 ERROR [main] c.w.v.l.member.MemberMapper: librarian is null null
+2025-01-23 21:09:35,589 ERROR [main] c.w.v.l.member.MemberMapper: librarian is null null
+2025-01-23 21:09:35,591 ERROR [main] c.w.v.l.member.MemberMapper: admin is null null
+2025-01-23 21:09:35,596 ERROR [main] c.w.v.l.member.MemberMapper: member is null null
+2025-01-23 21:09:35,714 INFO  [main] c.w.v.l.member.MemberService: member deleted successfully with ID 1
+2025-01-23 21:09:35,725 ERROR [main] c.w.v.l.member.MemberService: No member found with ID 1
+2025-01-23 21:09:35,745 INFO  [main] c.w.v.l.member.MemberService: Get all member
+2025-01-23 21:09:35,767 ERROR [main] c.w.v.l.member.MemberService: No member found with ID 1
+2025-01-23 21:09:35,777 ERROR [main] c.w.v.l.member.MemberService: The member id provided is less than or equal to zero 0 
+2025-01-23 21:09:35,785 ERROR [main] c.w.v.l.member.MemberService: The librarian id provide is less than or equal to zero 0 
+2025-01-23 21:09:37,391 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:37,394 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown initiated...
+2025-01-23 21:09:37,396 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-1 - Shutdown completed.
+2025-01-23 21:09:38,183 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:38,184 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown initiated...
+2025-01-23 21:09:38,186 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown completed.
+2025-01-23 21:09:38,994 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:38,995 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Shutdown initiated...
+2025-01-23 21:09:38,997 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-3 - Shutdown completed.
+2025-01-23 21:09:39,001 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:39,002 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Shutdown initiated...
+2025-01-23 21:09:39,003 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-4 - Shutdown completed.
+2025-01-23 21:09:39,006 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean: Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-23 21:09:39,007 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown initiated...
+2025-01-23 21:09:39,010 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource: HikariPool-5 - Shutdown completed.

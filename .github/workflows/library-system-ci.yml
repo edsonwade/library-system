@@ -39,3 +39,20 @@ jobs:
 
       - name: Run Cucumber and Integration Tests
         run: mvn verify
+
+      # JaCoCo Test Coverage Reporting
+      - name: Generate JaCoCo Test Coverage Report
+        run: mvn jacoco:report
+
+      # Upload JaCoCo HTML Report as Artifact
+      - name: Upload JaCoCo HTML Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: jacoco-report
+          path: target/site/jacoco/index.html
+
+      # Optional: Display JaCoCo coverage summary in GitHub Actions output
+      - name: Display JaCoCo Coverage Summary
+        run: |
+          echo "JaCoCo Coverage Summary:"
+          tail -n 20 target/site/jacoco/index.html
