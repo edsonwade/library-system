@@ -40,19 +40,34 @@ jobs:
       - name: Run Cucumber and Integration Tests
         run: mvn verify
 
-      # JaCoCo Test Coverage Reporting
-      - name: Generate JaCoCo Test Coverage Report
-        run: mvn jacoco:report
-
-      # Upload JaCoCo HTML Report as Artifact using v2 of upload-artifact action
-      - name: Upload JaCoCo HTML Report
-        uses: actions/upload-artifact@v2
+      # JaCoCo Code Coverage Reporting using PavanMudigonda/jacoco-reporter action
+      - name: JaCoCo Code Coverage Report
+        id: jacoco_reporter
+        uses: PavanMudigonda/jacoco-reporter@v5.0
         with:
-          name: jacoco-report
-          path: target/site/jacoco/index.html
+          coverage_results_path: target/jacoco-test-coverage.xml  # Path to your JaCoCo XML report
+          coverage_report_name: Coverage
+          coverage_report_title: JaCoCo Coverage Report
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          skip_check_run: false
+          minimum_coverage: 80  # Optional: Set a minimum threshold for coverage
+          fail_below_threshold: false  # Optional: Fail the build if coverage is below threshold
+          publish_only_summary: false  # Optional: Publish the full report or just the summary
 
-      # Optional: Display JaCoCo coverage summary in GitHub Actions output
-      - name: Display JaCoCo Coverage Summary
+      # Optional: Add JaCoCo coverage summary to the workflow run summary
+      - name: Add JaCoCo Report to Workflow Run Summary
         run: |
-          echo "JaCoCo Coverage Summary:"
-          tail -n 20 target/site/jacoco/index.html
+          echo "| Outcome | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "| --- | --- |" >> $GITHUB_STEP_SUMMARY
+          echo "| Code Coverage % | ${{ steps.jacoco_reporter.outputs.coverage_percentage }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| :heavy_check_mark: Number of Lines Covered | ${{ steps.jacoco_reporter.outputs.covered_lines }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| :x: Number of Lines Missed | ${{ steps.jacoco_reporter.outputs.missed_lines }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Total Number of Lines | ${{ steps.jacoco_reporter.outputs.total_lines }} |" >> $GITHUB_STEP_SUMMARY
+
+      # Optional: Upload the coverage report as an artifact (Markdown)
+      - name: Upload Code Coverage Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage-report-markdown
+          path: */coverage-results.md
+          retention-days: 1
