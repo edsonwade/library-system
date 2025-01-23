@@ -15,9 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.MessageFormat;
 import java.util.List;
 
-import static code.with.vanilson.libraryapplication.member.MemberMapper.mapToMemberResponse;
 import static code.with.vanilson.libraryapplication.admin.AdminMapper.mapToAddress;
 import static code.with.vanilson.libraryapplication.common.utils.MessageProvider.getMessage;
+import static code.with.vanilson.libraryapplication.member.MemberMapper.mapToMemberResponse;
 
 /**
  * MemberService
@@ -69,6 +69,7 @@ public class MemberService implements IMember {
                 .orElseThrow(() -> new ResourceNotFoundException(getMessage("library.members.email_not_found", email)));
 
     }
+
     @Transactional
     @Override
     public MemberResponse createMember(MemberRequest memberRequest) {
@@ -86,8 +87,7 @@ public class MemberService implements IMember {
 
         } catch (DataIntegrityViolationException e) {
             var errorMessage = MessageFormat.format(getMessage("library.member.email_and_contact_already_exists"),
-                    e.getMessage());
-            loggerMessage(Long.valueOf(errorMessage));
+                    memberRequest.getEmail(), memberRequest.getContact());
             throw new ResourceConflictException(errorMessage);
         }
 
@@ -184,13 +184,13 @@ public class MemberService implements IMember {
                                 memberRequest.getLibrarianId())));
     }
 
-    private void validateAndCheckMemberUniqueFieldsForUpdate(MemberRequest memberRequest) {
+    public void validateAndCheckMemberUniqueFieldsForUpdate(MemberRequest memberRequest) {
         // Exclude the current librarian's own fields from the uniqueness checks
         if (memberRepository.existsMemberByEmailAndIdNot(memberRequest.getEmail(), 0L)) {
-            var message = MessageFormat.format(getMessage("library.member.email_exists"), memberRequest.getEmail());
-            throw new ResourceConflictException(message);
+            throw new ResourceConflictException("library.member.email_exists");
         }
         if (memberRepository.existsMemberByContactAndIdNot(memberRequest.getContact(), 0L)) {
+
             throw new ResourceConflictException("library.member.contact_exists");
         }
     }

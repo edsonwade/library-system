@@ -95,8 +95,6 @@ public class LibrarianService implements ILibrarian {
                     getMessage("library.librarian.email_and_contact_already_exists"),
                     librarianRequest.getEmail(), librarianRequest.getContact()
             );
-
-            //loggerMessage(errorMessage);  // Log the error message as a string
             throw new ResourceConflictException(errorMessage);
         }
 
