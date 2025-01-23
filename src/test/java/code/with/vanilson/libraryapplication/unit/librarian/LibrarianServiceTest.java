@@ -197,7 +197,7 @@ class LibrarianServiceTest {
         // given
         var invalidId = 0L;
         // when
-        var errorMessage = MessageFormat.format(getMessage("library.librarian.bad_request"), null);
+        var errorMessage = MessageFormat.format(getMessage("library.librarian.bad_request"), "{0}");
 
         var expectedMessage = assertThrows(ResourceBadRequestException.class,
                 () -> librarianService.getLibrarianById(invalidId));
@@ -492,7 +492,7 @@ class LibrarianServiceTest {
         // When
         var invalidId = 0L;
         // When
-        var errorMessage = MessageFormat.format(getMessage("library.librarian.bad_request"), null);
+        var errorMessage = MessageFormat.format(getMessage("library.librarian.bad_request"), "{0}");
 
         var expectedMessage = assertThrows(ResourceBadRequestException.class,
                 () -> librarianService.deleteLibrarianById(invalidId));
