@@ -2,8 +2,10 @@ package code.with.vanilson.libraryapplication.librarian;
 
 import code.with.vanilson.libraryapplication.person.AddressDTO;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * LibrarianRequest
@@ -14,6 +16,8 @@ import lombok.Data;
  */
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class LibrarianRequest {
     @NotNull(message = "Name must not be null")
     @NotBlank(message = "Name must not be blank")
