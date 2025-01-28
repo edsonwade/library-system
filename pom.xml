@@ -111,7 +111,7 @@
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
-            <version>8.0.33</version>
+            <version>9.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>
@@ -223,6 +223,20 @@
             <artifactId>selenium-java</artifactId>
             <version>4.22.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers</artifactId>
+            <version>1.20.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>1.20.0</version>
+            <scope>test</scope>
+        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
