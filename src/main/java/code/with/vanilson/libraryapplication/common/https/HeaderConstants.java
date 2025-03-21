@@ -62,8 +62,6 @@ public class HeaderConstants {
     public static final String CONTENT_TYPE_CSV = "text/csv";
     public static final String CONTENT_TYPE_HTML = "text/html";
 
-
-
     // Security headers
     public static final String STRICT_TRANSPORT_SECURITY = "Strict-Transport-Security";
     public static final String X_CONTENT_TYPE_OPTIONS = "X-Content-Type-Options";
@@ -72,12 +70,21 @@ public class HeaderConstants {
 
     // CORS header
 
-    // Custom headers
+    // Custom headers admin
     public static final String X_ADMIN_ID = "X-Admin-ID";
     public static final String X_ADMIN_NAME = "X-Admin-Name";
     public static final String X_ADMIN_EMAIL = "X-Admin-Email";
     public static final String X_ADMIN_CODE = "X-Admin-Code";
-
+    // Custom headers librarian
+    public static final String X_LIBRARIAN_ID = "X-Librarian-ID";
+    public static final String X_LIBRARIAN_NAME = "X-Librarian-Name";
+    public static final String X_LIBRARIAN_EMAIL = "X-Librarian-Email";
+    public static final String X_LIBRARIAN_CODE = "X-Librarian-Code";
+    // Custom headers member
+    public static final String X_MEMBER_ID = "X-Member-ID";
+    public static final String X_MEMBER_NAME = "X-Member-Name";
+    public static final String X_MEMBER_EMAIL = "X-Member-Email";
+    public static final String X_MEMBER_CODE = "X-Member-Code";
 
     // Common values
     public static final String STRICT_TRANSPORT_SECURITY_VALUE = "max-age=31536000; includeSubDomains";
@@ -91,8 +98,6 @@ public class HeaderConstants {
     public static final String X_BOOK_TITLE = "X-Book-Title";
     public static final String X_BOOK_AUTHOR = "X-Book-Author";
     public static final String X_BOOK_ISBN = "X-Book-Isbn";
-
-
 
     private HeaderConstants() {
         // Private constructor to prevent instantiation

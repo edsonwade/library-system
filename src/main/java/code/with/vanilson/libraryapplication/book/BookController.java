@@ -1,19 +1,18 @@
 package code.with.vanilson.libraryapplication.book;
 
-import code.with.vanilson.libraryapplication.common.https.HeaderConstants;
+import code.with.vanilson.libraryapplication.util.cookies.CookieUtil;
+import code.with.vanilson.libraryapplication.util.http.HeaderUtil;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.Duration;
 import java.util.List;
 
+import static code.with.vanilson.libraryapplication.member.MemberController.getHttpHeaders;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
@@ -332,40 +331,9 @@ public class BookController {
      */
 
     private HttpHeaders prepareResponseHeaders(BookResponse bookResponse, boolean includeCookie) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON); // Set Content-Type correctly
-
-        // Security headers (always include)
-        headers.set(HeaderConstants.STRICT_TRANSPORT_SECURITY, HeaderConstants.STRICT_TRANSPORT_SECURITY_VALUE); // HSTS
-        headers.set(HeaderConstants.X_CONTENT_TYPE_OPTIONS,
-                HeaderConstants.X_CONTENT_TYPE_OPTIONS_VALUE); // Prevent MIME type sniffing
-        headers.set(HeaderConstants.X_FRAME_OPTIONS, HeaderConstants.X_FRAME_OPTIONS_VALUE); // Prevent clickjacking
-        headers.set(HeaderConstants.X_XSS_PROTECTION, HeaderConstants.X_XSS_PROTECTION_VALUE); // Enable XSS protection
-
-        // CORS header (adjust based on access needs)
-        headers.set(HeaderConstants.ACCESS_CONTROL_ALLOW_ORIGIN,
-                HeaderConstants.ACCESS_CONTROL_ALLOW_ORIGIN_VALUE); // Allow cross-origin access from any domain
-
-        if (bookResponse != null) {
-            // Custom headers (if the response contains resource-specific data)
-            headers.set(HeaderConstants.X_BOOK_ID, String.valueOf(bookResponse.getId()));
-            headers.set(HeaderConstants.X_BOOK_TITLE, bookResponse.getTitle());
-            headers.set(HeaderConstants.X_BOOK_AUTHOR, bookResponse.getAuthor());
-            headers.set(HeaderConstants.X_BOOK_ISBN, bookResponse.getIsbn());
-        }
-
-        // Optionally include Set-Cookie header based on context
-        if (includeCookie) {
-            ResponseCookie sessionCookie = ResponseCookie.from("sessionId", "abc123")
-                    .httpOnly(true)
-                    .secure(true)
-                    .path("/")
-                    .maxAge(Duration.ofHours(1))
-                    .sameSite("Strict")
-                    .build();
-            headers.add(HeaderConstants.SET_COOKIE, sessionCookie.toString()); // Add the cookie to headers
-        }
-
+        HttpHeaders headers = getHttpHeaders();
+        HeaderUtil.prepareBookResponseHeaders(bookResponse, includeCookie);
+        CookieUtil.addSessionCookieIfRequired(includeCookie, headers);
         return headers;
     }
 

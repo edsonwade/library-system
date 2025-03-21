@@ -5,16 +5,16 @@ import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.text.MessageFormat;
-import java.time.Duration;
 import java.util.List;
 import java.util.Map;
+
+import static code.with.vanilson.libraryapplication.member.MemberController.getHttpHeaders;
+import static code.with.vanilson.libraryapplication.util.cookies.CookieUtil.addSessionCookieIfRequired;
 
 /**
  * LibrarianController
@@ -205,44 +205,20 @@ public class LibrarianController {
      */
 
     private HttpHeaders prepareResponseHeaders(LibrarianResponse response, boolean includeCookie) {
-        var headers = getHttpHeaders(response);
-
-        // Optionally include Set-Cookie header based on context
-        if (includeCookie) {
-            ResponseCookie sessionCookie = ResponseCookie.from("sessionId", "abc123")
-                    .httpOnly(true)
-                    .secure(true)
-                    .path("/")
-                    .maxAge(Duration.ofHours(1))
-                    .sameSite("Strict")
-                    .build();
-            headers.add(HeaderConstants.SET_COOKIE, sessionCookie.toString()); // Add the cookie to headers
-        }
-
-        return headers;
-    }
-
-    private static HttpHeaders getHttpHeaders(LibrarianResponse response) {
-        var headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON); // Set Content-Type correctly
-        // Security headers (always include)
-        headers.set(HeaderConstants.STRICT_TRANSPORT_SECURITY, HeaderConstants.STRICT_TRANSPORT_SECURITY_VALUE); // HSTS
-        headers.set(HeaderConstants.X_CONTENT_TYPE_OPTIONS,
-                HeaderConstants.X_CONTENT_TYPE_OPTIONS_VALUE); // Prevent MIME type sniffing
-        headers.set(HeaderConstants.X_FRAME_OPTIONS, HeaderConstants.X_FRAME_OPTIONS_VALUE); // Prevent clickjacking
-        headers.set(HeaderConstants.X_XSS_PROTECTION, HeaderConstants.X_XSS_PROTECTION_VALUE); // Enable XSS protection
-
-        // CORS header (adjust based on access needs)
-        headers.set(HeaderConstants.ACCESS_CONTROL_ALLOW_ORIGIN,
-                HeaderConstants.ACCESS_CONTROL_ALLOW_ORIGIN_VALUE); // Allow cross-origin access from any domain
+        var headers = getHttpHeaders();
 
         if (response != null) {
             // Custom headers (if the response contains resource-specific data)
-            headers.set(HeaderConstants.X_ADMIN_ID, String.valueOf(response.getId()));
-            headers.set(HeaderConstants.X_ADMIN_NAME, response.getName());
-            headers.set(HeaderConstants.X_ADMIN_EMAIL, response.getEmail());
-            headers.set(HeaderConstants.X_ADMIN_CODE, response.getEmployeeCode());
+            headers.set(HeaderConstants.X_LIBRARIAN_ID, String.valueOf(response.getId()));
+            headers.set(HeaderConstants.X_LIBRARIAN_NAME, response.getName());
+            headers.set(HeaderConstants.X_LIBRARIAN_EMAIL, response.getEmail());
+            headers.set(HeaderConstants.X_LIBRARIAN_CODE, response.getEmployeeCode());
         }
+
+        // Optionally include Set-Cookie header based on context
+        addSessionCookieIfRequired(includeCookie, headers);
+
         return headers;
     }
+
 }

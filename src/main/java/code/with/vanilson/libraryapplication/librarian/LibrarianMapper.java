@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
 import java.text.MessageFormat;
+import java.util.Optional;
 
 import static code.with.vanilson.libraryapplication.admin.AdminMapper.*;
 import static code.with.vanilson.libraryapplication.admin.AdminService.formatMessage;
@@ -29,7 +30,7 @@ public class LibrarianMapper {
     // Maps Librarian entity to LibrarianResponse DTO
     public static LibrarianResponse mapToLibrarianResponse(Librarian librarian) {
         if (null == librarian) {
-            log.error("Librarian is null" + null);
+            log.error("Librarian is null {}", Optional.ofNullable(null));
             String message = formatMessage(LIBRARY_LIBRARIAN_CANNOT_BE_NULL, (Object) null);
             throw new ResourceBadRequestException(message);
         }

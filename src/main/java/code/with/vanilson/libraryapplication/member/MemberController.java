@@ -2,6 +2,7 @@ package code.with.vanilson.libraryapplication.member;
 
 import code.with.vanilson.libraryapplication.common.https.HeaderConstants;
 import code.with.vanilson.libraryapplication.common.utils.MessageProvider;
+import code.with.vanilson.libraryapplication.util.cookies.CookieUtil;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -147,9 +148,25 @@ public class MemberController {
      */
 
     private HttpHeaders prepareResponseHeaders(MemberResponse response, boolean includeCookie) {
+        HttpHeaders headers = getHttpHeaders();
+
+        if (response != null) {
+            // Custom headers (if the response contains resource-specific data)
+            headers.set(HeaderConstants.X_MEMBER_ID, String.valueOf(response.getId()));
+            headers.set(HeaderConstants.X_MEMBER_NAME, response.getName());
+            headers.set(HeaderConstants.X_MEMBER_EMAIL, response.getEmail());
+            headers.set(HeaderConstants.X_MEMBER_CODE, response.getContact());
+        }
+
+        // Optionally include Set-Cookie header based on context
+        CookieUtil.addSessionCookieIfRequired(includeCookie, headers);
+
+        return headers;
+    }
+
+    public static HttpHeaders getHttpHeaders() {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON); // Set Content-Type correctly
-
         // Security headers (always include)
         headers.set(HeaderConstants.STRICT_TRANSPORT_SECURITY, HeaderConstants.STRICT_TRANSPORT_SECURITY_VALUE); // HSTS
         headers.set(HeaderConstants.X_CONTENT_TYPE_OPTIONS,
@@ -160,27 +177,6 @@ public class MemberController {
         // CORS header (adjust based on access needs)
         headers.set(HeaderConstants.ACCESS_CONTROL_ALLOW_ORIGIN,
                 HeaderConstants.ACCESS_CONTROL_ALLOW_ORIGIN_VALUE); // Allow cross-origin access from any domain
-
-        if (response != null) {
-            // Custom headers (if the response contains resource-specific data)
-            headers.set(HeaderConstants.X_ADMIN_ID, String.valueOf(response.getId()));
-            headers.set(HeaderConstants.X_ADMIN_NAME, response.getName());
-            headers.set(HeaderConstants.X_ADMIN_EMAIL, response.getEmail());
-            headers.set(HeaderConstants.X_ADMIN_CODE, response.getContact());
-        }
-
-        // Optionally include Set-Cookie header based on context
-        if (includeCookie) {
-            ResponseCookie sessionCookie = ResponseCookie.from("sessionId", "abc123")
-                    .httpOnly(true)
-                    .secure(true)
-                    .path("/")
-                    .maxAge(Duration.ofHours(1))
-                    .sameSite("Strict")
-                    .build();
-            headers.add(HeaderConstants.SET_COOKIE, sessionCookie.toString()); // Add the cookie to headers
-        }
-
         return headers;
     }
 }

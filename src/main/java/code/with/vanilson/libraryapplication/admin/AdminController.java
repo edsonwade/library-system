@@ -1,23 +1,23 @@
 package code.with.vanilson.libraryapplication.admin;
 
 import code.with.vanilson.libraryapplication.common.https.HeaderConstants;
+import code.with.vanilson.libraryapplication.util.cookies.CookieUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
-import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import static code.with.vanilson.libraryapplication.admin.AdminService.formatMessage;
+import static code.with.vanilson.libraryapplication.member.MemberController.getHttpHeaders;
 
 /**
  * AdminController
@@ -112,7 +112,8 @@ public class AdminController {
      */
 
     @GetMapping(value = "/email/{email}")
-    public ResponseEntity<AdminResponse> getAdminByEmail(@PathVariable String email, @RequestHeader HttpHeaders headers) {
+    public ResponseEntity<AdminResponse> getAdminByEmail(@PathVariable String email,
+                                                         @RequestHeader HttpHeaders headers) {
         var adminResponse = adminService.getAdminByEmail(email); // assuming this service call returns AdminResponse
         return ResponseEntity.ok()
                 .headers(headers) // Use headers if necessary
@@ -154,8 +155,6 @@ public class AdminController {
                 .headers(headers)
                 .body(adminResponse);
     }
-
-
 
     /**
      * Updates an existing admin.
@@ -233,19 +232,7 @@ public class AdminController {
      */
 
     private HttpHeaders prepareResponseHeaders(AdminResponse adminResponse, boolean includeCookie) {
-        var headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON); // Set Content-Type correctly
-
-        // Security headers (always include)
-        headers.set(HeaderConstants.STRICT_TRANSPORT_SECURITY, HeaderConstants.STRICT_TRANSPORT_SECURITY_VALUE); // HSTS
-        headers.set(HeaderConstants.X_CONTENT_TYPE_OPTIONS,
-                HeaderConstants.X_CONTENT_TYPE_OPTIONS_VALUE); // Prevent MIME type sniffing
-        headers.set(HeaderConstants.X_FRAME_OPTIONS, HeaderConstants.X_FRAME_OPTIONS_VALUE); // Prevent clickjacking
-        headers.set(HeaderConstants.X_XSS_PROTECTION, HeaderConstants.X_XSS_PROTECTION_VALUE); // Enable XSS protection
-
-        // CORS header (adjust based on access needs)
-        headers.set(HeaderConstants.ACCESS_CONTROL_ALLOW_ORIGIN,
-                HeaderConstants.ACCESS_CONTROL_ALLOW_ORIGIN_VALUE); // Allow cross-origin access from any domain
+        var headers = getHttpHeaders();
 
         if (adminResponse != null) {
             // Custom headers (if the response contains resource-specific data)
@@ -254,18 +241,7 @@ public class AdminController {
             headers.set(HeaderConstants.X_ADMIN_EMAIL, adminResponse.getEmail());
             headers.set(HeaderConstants.X_ADMIN_CODE, adminResponse.getAdminCode());
         }
-
-        // Optionally include Set-Cookie header based on context
-        if (includeCookie) {
-            ResponseCookie sessionCookie = ResponseCookie.from("sessionId", "abc123")
-                    .httpOnly(true)
-                    .secure(true)
-                    .path("/")
-                    .maxAge(Duration.ofHours(1))
-                    .sameSite("Strict")
-                    .build();
-            headers.add(HeaderConstants.SET_COOKIE, sessionCookie.toString()); // Add the cookie to headers
-        }
+        CookieUtil.addSessionCookieIfRequired(includeCookie, headers);
 
         return headers;
     }

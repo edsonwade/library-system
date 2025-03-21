@@ -22,7 +22,6 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = false)
 @Table(name = "members")
 @Entity(name = "Member")
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor
@@ -37,7 +36,6 @@ public class Member extends Person {
             joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "person_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     @JsonIgnore
-    @Builder.Default
     private Set<Book> borrowedBooks = new HashSet<>();
 
 

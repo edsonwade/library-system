@@ -28,7 +28,6 @@ import static code.with.vanilson.libraryapplication.book.BookStatus.*;
 @Table(name = "books")
 @Entity(name = "Book")
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonPropertyOrder(value = {"id", "title", "author", "isbn", "publisherName", "publisherYear", "status"})
@@ -56,7 +55,6 @@ public class Book implements Serializable {
 
     @ManyToMany(mappedBy = "borrowedBooks", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonIgnore
-    @Builder.Default
     private Set<Member> members = new HashSet<>();
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

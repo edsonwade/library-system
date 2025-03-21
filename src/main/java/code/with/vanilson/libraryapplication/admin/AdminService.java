@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.MessageFormat;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 import static code.with.vanilson.libraryapplication.admin.AdminMapper.*;
@@ -29,7 +28,6 @@ import static code.with.vanilson.libraryapplication.common.utils.MessageProvider
 @Repository
 @Slf4j
 @Service
-@SuppressWarnings("all")
 public class AdminService implements IAdminService {
 
     public static final String LIBRARY_ADMIN_NOT_FOUND = "library.admin.not_found";
@@ -188,7 +186,7 @@ public class AdminService implements IAdminService {
 
     private void validateAdminRequest(AdminRequest adminRequest) {
         if (adminRequest == null) {
-            var message= formatMessage("library.admin.cannot_be_null");
+            var message = formatMessage("library.admin.cannot_be_null");
             throw new ResourceBadRequestException(message);
         }
     }
@@ -221,16 +219,12 @@ public class AdminService implements IAdminService {
      */
     private List<Admin> fetchAllAdmins() {
         List<Admin> admins = adminRepository.findAll();
-
-        if (Objects.isNull(admins)) {
-            log.warn("No admins found in the system: {}", admins);
-            String message = formatMessage("library.admin.cannot_be_null", admins);
-            throw new ResourceBadRequestException(message);
-        }
+        // Verifique se a lista é vazia
         if (admins.isEmpty()) {
-            log.info("empty list of admins found in the system: {}", admins);
+            log.info("Empty list of admins found in the system: {}", admins);
             return Collections.emptyList();
         }
+        // Continue com a lógica, sabendo que a lista de admins não está vazia
         log.info("Retrieving all admins: {}", admins);
         return admins;
     }

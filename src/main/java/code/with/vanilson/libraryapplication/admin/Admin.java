@@ -23,7 +23,6 @@ import java.util.Set;
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Getter
 @Setter
 public class Admin extends Person {

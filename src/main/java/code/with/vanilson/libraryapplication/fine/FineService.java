@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.text.MessageFormat;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 import static code.with.vanilson.libraryapplication.common.utils.MessageProvider.getMessage;
@@ -39,17 +37,16 @@ public class FineService {
 
     private final AdminRepository adminService;
 
-    private static final long GRACE_PERIOD_DAYS = 3;
-    private static final double FINE_RATE_PER_DAY = 1.0;
-    private static final double MAX_FINE = 50.0;
+    private final FineManagementService fineManagementService;
 
     public FineService(FineRepository fineRepository, MemberRepository memberService,
                        LibrarianRepository librarianService,
-                       AdminRepository adminService) {
+                       AdminRepository adminService, FineManagementService fineManagementService) {
         this.fineRepository = fineRepository;
         this.memberService = memberService;
         this.librarianService = librarianService;
         this.adminService = adminService;
+        this.fineManagementService = fineManagementService;
     }
 
     @Transactional(readOnly = true)
@@ -84,29 +81,15 @@ public class FineService {
         log.info("Applying fine with request: {}", request);
 
         // Retrieve entities through repositories to ensure they are managed
-        var member = memberService.findById(request.getMemberId())
-                .orElseThrow(() -> {
-                    var errorMessage =
-                            MessageFormat.format(getMessage("library.members.not_found"), request.getMemberId());
-                    return new ResourceNotFoundException(errorMessage);
-                });
-        var librarian = librarianService.findById(request.getLibrarianId()).
-                orElseThrow(() -> {
-                    var errorMessage =
-                            MessageFormat.format(getMessage("library.librarian.not_found"), request.getMemberId());
-                    return new ResourceNotFoundException(errorMessage);
-                });
-        var admin = adminService.findById(request.getAdminId())
-                .orElseThrow(() -> {
-                    var errorMessage =
-                            MessageFormat.format(getMessage("library.admin.not_found"), request.getMemberId());
-                    return new ResourceNotFoundException(errorMessage);
-                });
+        var member = getMember(request);
+        var librarian = getLibrarian(request);
+        var admin = getAdmin(request);
 
         log.info("Retrieved Entities - Member: {}, Librarian: {}, Admin: {}", member, librarian, admin);
 
         // Calculate fine
-        Fine fine = calculateFine(request.getIssueDate(), request.getDueDate(), request.getAmount(), member,
+        Fine fine = fineManagementService.calculateFine(request.getIssueDate(), request.getDueDate(),
+                request.getAmount(), member,
                 librarian, admin,
                 request.getIsPaid());
 
@@ -131,24 +114,9 @@ public class FineService {
         log.info("Attempting to update fine with id: {}", id);
 
         // Retrieve entities through repositories to ensure they are managed
-        var member = memberService.findById(request.getMemberId())
-                .orElseThrow(() -> {
-                    var errorMessage =
-                            MessageFormat.format(getMessage("library.members.not_found"), request.getMemberId());
-                    return new ResourceNotFoundException(errorMessage);
-                });
-        var librarian = librarianService.findById(request.getLibrarianId()).
-                orElseThrow(() -> {
-                    var errorMessage =
-                            MessageFormat.format(getMessage("library.librarian.not_found"), request.getMemberId());
-                    return new ResourceNotFoundException(errorMessage);
-                });
-        var admin = adminService.findById(request.getAdminId())
-                .orElseThrow(() -> {
-                    var errorMessage =
-                            MessageFormat.format(getMessage("library.admin.not_found"), request.getMemberId());
-                    return new ResourceNotFoundException(errorMessage);
-                });
+        var member = getMember(request);
+        var librarian = getLibrarian(request);
+        var admin = getAdmin(request);
 
         // Retrieve and validate the existing fine
         Fine fine = fineRepository.findById(id)
@@ -188,48 +156,31 @@ public class FineService {
         log.info("Fine with id {} has been successfully deleted", id);
     }
 
-    /**
-     * Calculates the fine for a book overdue.
-     *
-     * @param issueDate The date the book was issued.
-     * @param dueDate   The due date for returning the book.
-     * @param member    The member who borrowed the book.
-     * @param librarian The librarian who handled the fine.
-     * @param admin     The admin who approved the fine.
-     * @return A Fine entity representing the calculated fine.
-     */
-    // Inside calculateFine() method
-    private Fine calculateFine(LocalDate issueDate, LocalDate dueDate, double amount, Member member,
-                               Librarian librarian,
-                               Admin admin, Boolean isPaid) {
-        Fine fine = new Fine();
-        fine.setIssueDate(issueDate);
-        fine.setDueDate(dueDate);
-        fine.setMember(member);
-        fine.setLibrarian(librarian);
-        fine.setAdmin(admin);
-        fine.setIsPaid(isPaid);
-
-        if (LocalDate.now().isAfter(dueDate)) {
-            long daysOverdue = calculateDaysOverdue(dueDate);
-            long chargeableDays = Math.max(0, daysOverdue - GRACE_PERIOD_DAYS);
-            double fineAmount = Math.min(chargeableDays * FINE_RATE_PER_DAY, MAX_FINE);
-            fine.setAmount(fineAmount);
-        } else {
-            fine.setAmount(amount); // Use the amount from the FineRequest if not overdue
-        }
-
-        return fine;
+    private Member getMember(FineRequest request) {
+        return memberService.findById(request.getMemberId())
+                .orElseThrow(() -> {
+                    var errorMessage =
+                            MessageFormat.format(getMessage("library.members.not_found"), request.getMemberId());
+                    return new ResourceNotFoundException(errorMessage);
+                });
     }
 
-    /**
-     * Calculates the number of days overdue for a book based on the due date.
-     *
-     * @param dueDate The due date for returning the book.
-     * @return The number of days overdue. If the due date is in the future, returns 0.
-     */
-    private long calculateDaysOverdue(LocalDate dueDate) {
-        return Math.max(0, ChronoUnit.DAYS.between(dueDate, LocalDate.now()));
+    private Admin getAdmin(FineRequest request) {
+        return adminService.findById(request.getAdminId())
+                .orElseThrow(() -> {
+                    var errorMessage =
+                            MessageFormat.format(getMessage("library.admin.not_found"), request.getMemberId());
+                    return new ResourceNotFoundException(errorMessage);
+                });
+    }
+
+    private Librarian getLibrarian(FineRequest request) {
+        return librarianService.findById(request.getLibrarianId()).
+                orElseThrow(() -> {
+                    var errorMessage =
+                            MessageFormat.format(getMessage("library.librarian.not_found"), request.getMemberId());
+                    return new ResourceNotFoundException(errorMessage);
+                });
     }
 
     private static void loggerInfo(Long id) {

@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,11 +20,10 @@ import java.time.LocalDate;
  * @since 2024-08-24
  */
 @SuppressWarnings("unused")
-@Entity(name = "Fine")
+@Entity
 @Table(name = "fines")
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 @Data
 @JsonPropertyOrder(value = {"id", "amount", "issueDate", "dueDate", "isPaid", "member", "librarian", "admin"})
 public class Fine {

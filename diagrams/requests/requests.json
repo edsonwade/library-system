@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Ana Pereira",
+    "email": "ana.pereira@example.com",
+    "address": {
+      "street": "Avenida da Liberdade",
+      "city": "Lisboa",
+      "state": "Lisboa",
+      "country": "Portugal",
+      "postalCode": "1250-001"
+    },
+    "contact": "+351 21 123 4567",
+    "adminCode": "admin1234",
+    "role": "MEMBER"
+  },
+  {
+    "name": "João Silva",
+    "email": "joao.silva@example.com",
+    "address": {
+      "street": "Rua da Alegria",
+      "city": "Porto",
+      "state": "Porto",
+      "country": "Portugal",
+      "postalCode": "4000-001"
+    },
+    "contact": "+351 22 234 5678",
+    "adminCode": "admin5678",
+    "role": "MEMBER"
+  },
+  {
+    "name": "Fatima dos Santos",
+    "email": "fatima.santos@example.com",
+    "address": {
+      "street": "Avenida 1 de Maio",
+      "city": "Luanda",
+      "state": "Luanda",
+      "country": "Angola",
+      "postalCode": "1000"
+    },
+    "contact": "+244 222 123 456",
+    "adminCode": "admin9101",
+    "role": "SUPER_ADMIN"
+  },
+  {
+    "name": "Miguel Gomes",
+    "email": "miguel.gomes@example.com",
+    "address": {
+      "street": "Rua do Comércio",
+      "city": "Luanda",
+      "state": "Luanda",
+      "country": "Angola",
+      "postalCode": "1000"
+    },
+    "contact": "+244 222 654 321",
+    "adminCode": "admin1121",
+    "role": "SUPER_ADMIN"
+  },
+  {
+    "name": "Elif Yılmaz",
+    "email": "elif.yilmaz@example.com",
+    "address": {
+      "street": "İstiklal Caddesi",
+      "city": "Istanbul",
+      "state": "Istanbul",
+      "country": "Turkey",
+      "postalCode": "34430"
+    },
+    "contact": "+90 212 123 4567",
+    "adminCode": "admin3141",
+    "role": "SYSTEM_ADMIN"
+  },
+  {
+    "name": "Ahmet Demir",
+    "email": "ahmet.demir@example.com",
+    "address": {
+      "street": "Sultanahmet",
+      "city": "Istanbul",
+      "state": "Istanbul",
+      "country": "Turkey",
+      "postalCode": "34122"
+    },
+    "contact": "+90 212 765 4321",
+    "adminCode": "admin5161",
+    "role": "SYSTEM_ADMIN"
+  },
+  {
+    "name": "Sofia Martins",
+    "email": "sofia.martins@example.com",
+    "address": {
+      "street": "Rua da Constituição",
+      "city": "Braga",
+      "state": "Braga",
+      "country": "Portugal",
+      "postalCode": "4700-001"
+    },
+    "contact": "+351 253 123 456",
+    "adminCode": "admin7181",
+    "role": "LIBRARIAN"
+  },
+  {
+    "name": "Rui Costa",
+    "email": "rui.costa@example.com",
+    "address": {
+      "street": "Avenida dos Aliados",
+      "city": "Porto",
+      "state": "Porto",
+      "country": "Portugal",
+      "postalCode": "4000-001"
+    },
+    "contact": "+351 22 987 6543",
+    "adminCode": "admin9202",
+    "role": "LIBRARIAN"
+  }
+]

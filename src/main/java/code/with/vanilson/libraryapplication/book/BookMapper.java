@@ -34,23 +34,28 @@ public class BookMapper {
         validateNotNull(librarian, "library.librarian.cannot_be_null");
         validateNotNull(members, "library.member.cannot_be_null");
 
-        Book book = Book.builder()
-                .title(request.getTitle())
-                .author(request.getAuthor())
-                .isbn(request.getIsbn())
-                .genre(request.getGenre())
-                .publisherName(request.getPublisherName())
-                .publisherYear(request.getPublisherYear())
-                .status(request.getStatus())
-                .librarian(librarian)
-                .members(members) // Add members to book
-                .build();
+        Book book = getBook(request, librarian, members);
 
         // Synchronize the relationship by adding the book to each member's borrowedBooks set
         for (Member member : members) {
-            member.getBorrowedBooks().add(book);
+            member.getBorrowedBooks()
+                    .add(book);
         }
 
+        return book;
+    }
+
+    private static Book getBook(BookRequest request, Librarian librarian, Set<Member> members) {
+        Book book = new Book();
+        book.setTitle(request.getTitle());
+        book.setAuthor(request.getAuthor());
+        book.setIsbn(request.getIsbn());
+        book.setGenre(request.getGenre());
+        book.setPublisherName(request.getPublisherName());
+        book.setPublisherYear(request.getPublisherYear());
+        book.setLibrarian(librarian);
+        book.setMembers(members);
+        book.setStatus(request.getStatus());
         return book;
     }
 

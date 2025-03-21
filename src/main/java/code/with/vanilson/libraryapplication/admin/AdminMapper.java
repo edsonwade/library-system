@@ -17,6 +17,10 @@ public class AdminMapper {
 
     public static final String LIBRARY_ADMIN_CANNOT_BE_NULL = "library.admin.cannot_be_null";
 
+    private AdminMapper() {
+        // Private constructor to prevent instantiation
+    }
+
     public static Admin mapToAdminEntity(AdminRequest request) {
         // Validate inputs and throw exceptions if necessary
         if (null == request) {
@@ -88,28 +92,27 @@ public class AdminMapper {
     /**
      * Maps a {@link AddressDTO} object to a {@link Address} object.
      *
-     * @param address The {@link AddressDTO} object to be mapped.
+     * @param addressDTO The {@link AddressDTO} object to be mapped.
      * @return The mapped {@link Address} object.
      * @throws ResourceBadRequestException If the input {@link AddressDTO} is null.
      */
-    public static Address mapToAddress(AddressDTO address) {
-        if (address == null) {
+    public static Address mapToAddress(AddressDTO addressDTO) {
+        if (addressDTO == null) {
             throw new ResourceBadRequestException("library.address.cannot_be_null"); // Or handle this case as needed
         }
-        return Address.builder()
-                .street(address.getStreet())
-                .city(address.getCity())
-                .state(address.getState())
-                .country(address.getCountry())
-                .postalCode(address.getPostalCode())
-                .build();
+        Address address = new Address();
+        address.setStreet(addressDTO.getStreet());
+        address.setCity(addressDTO.getCity());
+        address.setState(addressDTO.getState());
+        address.setCountry(addressDTO.getCountry());
+        address.setPostalCode(addressDTO.getPostalCode());
+        return address;
     }
 
     public static Admin mapToAdmin(AdminResponse adminResponse) {
         if (null == adminResponse) {
             throw new ResourceBadRequestException(LIBRARY_ADMIN_CANNOT_BE_NULL);
         }
-
         return new Admin(
                 adminResponse.getName(),
                 adminResponse.getEmail(),
@@ -120,7 +123,4 @@ public class AdminMapper {
         );
     }
 
-    private AdminMapper() {
-        // Private constructor to prevent instantiation
-    }
 }
