@@ -19,7 +19,8 @@ import java.util.Set;
  * @version 1.0
  * @since 2024-08-22
  */
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(callSuper = false, exclude = {"borrowedBooks", "librarian", "admin"})
+@ToString(callSuper = true, exclude = {"borrowedBooks", "librarian", "admin"})
 @Table(name = "members")
 @Entity(name = "Member")
 @Builder

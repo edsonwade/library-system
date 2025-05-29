@@ -218,6 +218,7 @@
             <scope>test</scope>
         </dependency>
 
+
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -343,4 +344,14 @@
             </url> <!-- URL to the repository for deploying -->
         </repository>
     </distributionManagement>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>3.5.0</version>
+            </plugin>
+        </plugins>
+    </reporting>
 </project>

@@ -27,10 +27,13 @@ import static code.with.vanilson.libraryapplication.book.BookStatus.*;
 @SuppressWarnings("unused")
 @Table(name = "books")
 @Entity(name = "Book")
-@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@lombok.Getter
+@lombok.Setter
+@lombok.ToString(exclude = {"members", "librarian"})
+@lombok.EqualsAndHashCode(exclude = {"members", "librarian"})
 @JsonPropertyOrder(value = {"id", "title", "author", "isbn", "publisherName", "publisherYear", "status"})
 public class Book implements Serializable {
     @Serial
